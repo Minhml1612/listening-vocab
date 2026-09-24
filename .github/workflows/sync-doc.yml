@@ -1,0 +1,37 @@
+name: Sync Google Doc Vocab
+
+on:
+  schedule:
+    # Chạy tự động mỗi 6 tiếng một lần (hoặc có thể chỉnh tuỳ ý)
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Sync Script
+        env:
+          GOOGLE_DOC_ID: ${{ secrets.GOOGLE_DOC_ID || '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY' }}
+          GOOGLE_APPS_SCRIPT_URL: ${{ secrets.GOOGLE_APPS_SCRIPT_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/sync_doc.py
+
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/vocab.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync vocabulary from Google Docs [skip ci]" && git push)
