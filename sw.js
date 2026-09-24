@@ -1,31 +1,11 @@
 /**
- * SERVICE WORKER CHO DOCVOCAB PWA
- * Hỗ trợ lưu trữ bộ nhớ đệm (Cache) để học ngoại tuyến (Offline) trên điện thoại
+ * SERVICE WORKER CHO DOCVOCAB PWA (Network-First Strategy)
+ * Luôn ưu tiên tải bản mới nhất từ máy chủ, chỉ dùng Cache khi mất mạng
  */
 
-const CACHE_NAME = 'docvocab-v1';
-const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './manifest.json',
-  './css/styles.css',
-  './js/storage.js',
-  './js/speech.js',
-  './js/ai-enrich.js',
-  './js/sync.js',
-  './js/modes/flashcard.js',
-  './js/modes/quiz.js',
-  './js/modes/match.js',
-  './js/modes/listening.js',
-  './js/app.js'
-];
+const CACHE_NAME = 'docvocab-v2';
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -45,33 +25,29 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Chỉ cache các request HTTP/HTTPS cơ bản trong cùng origin hoặc CDN
   if (event.request.method !== 'GET') return;
   const url = event.request.url;
 
-  // Không cache các lệnh gọi API Google Docs hoặc dịch thuật để luôn lấy dữ liệu mới
-  if (url.includes('script.google.com') || url.includes('generativelanguage.googleapis.com') || url.includes('mymemory')) {
-    return;
-  }
-
+  // Luôn lấy tươi qua mạng trước (Network-First)
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
+          });
         }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
         return networkResponse;
-      }).catch(() => {
-        // Offline fallback
-        return caches.match('./index.html');
-      });
-    })
+      })
+      .catch(() => {
+        // Nếu mất mạng hoặc offline, lấy từ cache
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (event.request.headers.get('accept')?.includes('text/html')) {
+            return caches.match('./index.html');
+          }
+        });
+      })
   );
 });
