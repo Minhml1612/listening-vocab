@@ -181,10 +181,32 @@ class DocSyncEngine {
         if (['word', 'từ', 'từ vựng', 'vocabulary'].includes(firstCell.toLowerCase())) return;
 
         const word = firstCell;
-        const meaning = (row[1] || '').trim();
-        const example = (row[2] || '').trim();
-        if (word && word.length < 50) {
-          words.push(this.formatExtractedWord(word, meaning, example));
+        let pos = '';
+        let meaning = '';
+        let example = '';
+
+        if (row.length >= 3) {
+          // 3 hoặc 4 cột: [Từ vựng, Loại từ, Nghĩa tiếng Việt, Ví dụ]
+          const second = (row[1] || '').trim();
+          const third = (row[2] || '').trim();
+          const fourth = (row[3] || '').trim();
+
+          if (/^(n|v|adj|adv|prep|noun|verb|adjective|adverb|cụm|phrase|collocation)/i.test(second) || second.length <= 12) {
+            pos = second;
+            meaning = third;
+            example = fourth;
+          } else {
+            meaning = second;
+            example = third;
+          }
+        } else {
+          meaning = (row[1] || '').trim();
+        }
+
+        if (word && word.length < 60) {
+          const item = this.formatExtractedWord(word, meaning, example);
+          if (pos && !item.partOfSpeech) item.partOfSpeech = pos;
+          words.push(item);
         }
       });
     }
@@ -212,17 +234,14 @@ class DocSyncEngine {
 
       // Xoá ký tự bullet point, số thứ tự đầu dòng (1. 2. - * •)
       line = line.replace(/^[\d+.)\-*•\s]+/, '').trim();
-      if (!line || line.length < 2) continue;
+      if (!line || line.length < 2 || line.toLowerCase().startsWith('tài liệu')) continue;
 
       let word = '';
       let meaning = '';
       let example = '';
 
-      // Trường hợp: word : meaning (: example)
-      // hoặc word - meaning (- example)
-      // hoặc word = meaning
-      // hoặc word /ipa/ : meaning
-      const delimiters = [':', ' - ', ' = ', ' – ', ' — ', '\t'];
+      // Trường hợp: word : meaning, word ; meaning, word == meaning, word là meaning
+      const delimiters = [':', ';', ' - ', ' == ', ' = ', ' – ', ' — ', '\t', ' là '];
       let foundDelim = null;
       for (const d of delimiters) {
         if (line.includes(d)) {
@@ -237,9 +256,8 @@ class DocSyncEngine {
         meaning = (parts[1] || '').trim();
         example = (parts.slice(2).join(' ') || '').trim();
       } else {
-        // Chỉ có mỗi từ vựng trên 1 dòng
-        // Kiểm tra xem dòng đó có phải một từ hoặc cụm từ ngắn
-        if (line.split(/\s+/).length <= 4 && !line.includes('.')) {
+        // Chỉ có mỗi từ vựng hoặc cụm từ trên 1 dòng
+        if (line.split(/\s+/).length <= 5 && !line.includes('.')) {
           word = line;
         }
       }
