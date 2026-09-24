@@ -15,6 +15,11 @@ import urllib.request
 import urllib.parse
 import time
 
+if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if sys.stderr and hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 DOC_ID = os.environ.get("GOOGLE_DOC_ID", "1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY")
 SCRIPT_URL = os.environ.get("GOOGLE_APPS_SCRIPT_URL", "")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
