@@ -1,10 +1,10 @@
 /**
- * STORAGE & STATE MANAGER
+ * STORAGE & STATE MANAGER (v3.0 - Auto-Sanitized)
  * Quản lý lưu trữ từ vựng, cài đặt, tiến trình học trong LocalStorage
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v1',
+  WORDS: 'docvocab_words_v3', // v3: tự động xoá toàn bộ dữ liệu rác/trùng 270 từ cũ
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -14,7 +14,7 @@ const DEFAULT_SETTINGS = {
   scriptUrl: '',
   docId: '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY',
   autoSync: true,
-  autoSyncInterval: 10, // phút
+  autoSyncInterval: 10,
   geminiApiKey: '',
   speechAccent: 'en-US',
   speechRate: 0.95,
@@ -24,97 +24,23 @@ const DEFAULT_SETTINGS = {
   hapticFeedback: true
 };
 
-// Từ vựng mẫu chất lượng cao cho Listening để trải nghiệm ngay
 const SAMPLE_WORDS = [
   {
     id: 'sample-1',
-    word: 'resilient',
-    phonetic: '/rɪˈzɪl.jənt/',
-    partOfSpeech: 'adjective',
-    meaning: 'kiên cường, có khả năng phục hồi nhanh chóng',
-    definition: 'able to withstand or recover quickly from difficult conditions',
-    example: 'Local communities have proved remarkably resilient in the face of natural disasters.',
-    exampleVi: 'Cộng đồng địa phương đã chứng tỏ sự kiên cường đáng nể khi đối mặt với thiên tai.',
+    word: 'Pour',
+    phonetic: '/pɔːr/',
+    partOfSpeech: 'v',
+    meaning: 'đổ thứ gì đó',
+    definition: 'cause to flow in a stream from a container',
+    example: 'He poured the coffee into the mugs.',
+    exampleVi: 'Anh ấy rót cà phê vào cốc.',
     audioUrl: '',
-    isNew: true,
+    isNew: false,
     isStarred: false,
     isMastered: false,
     quizCount: 0,
     correctCount: 0,
-    dateAdded: Date.now() - 3600000,
-    tags: ['listening', 'ielts']
-  },
-  {
-    id: 'sample-2',
-    word: 'elaborate',
-    phonetic: '/ɪˈlæb.ər.ət/',
-    partOfSpeech: 'verb / adjective',
-    meaning: 'giải thích chi tiết, tỉ mỉ, công phu',
-    definition: 'involving many carefully arranged parts or details; develop in detail',
-    example: 'Could you elaborate on the main findings of your recent research?',
-    exampleVi: 'Bạn có thể giải thích chi tiết hơn về các phát hiện chính trong nghiên cứu gần đây không?',
-    audioUrl: '',
-    isNew: true,
-    isStarred: true,
-    isMastered: false,
-    quizCount: 0,
-    correctCount: 0,
-    dateAdded: Date.now() - 7200000,
-    tags: ['listening', 'academic']
-  },
-  {
-    id: 'sample-3',
-    word: 'fluctuate',
-    phonetic: '/ˈflʌk.tʃu.eɪt/',
-    partOfSpeech: 'verb',
-    meaning: 'dao động, biến động liên tục',
-    definition: 'rise and fall irregularly in number or amount',
-    example: 'Temperatures fluctuate widely between day and night in the desert.',
-    exampleVi: 'Nhiệt độ dao động rất lớn giữa ngày và đêm ở vùng sa mạc.',
-    audioUrl: '',
-    isNew: false,
-    isStarred: false,
-    isMastered: false,
-    quizCount: 1,
-    correctCount: 1,
-    dateAdded: Date.now() - 86400000,
-    tags: ['listening', 'trends']
-  },
-  {
-    id: 'sample-4',
-    word: 'unprecedented',
-    phonetic: '/ʌnˈpres.ɪ.den.tɪd/',
-    partOfSpeech: 'adjective',
-    meaning: 'chưa từng có tiền lệ, chưa từng thấy',
-    definition: 'never done or known before; extraordinary',
-    example: 'The city is experiencing an unprecedented surge in tourism this summer.',
-    exampleVi: 'Thành phố đang trải qua một đợt tăng trưởng du lịch chưa từng có trong mùa hè này.',
-    audioUrl: '',
-    isNew: false,
-    isStarred: true,
-    isMastered: true,
-    quizCount: 3,
-    correctCount: 3,
-    dateAdded: Date.now() - 172800000,
-    tags: ['listening', 'news']
-  },
-  {
-    id: 'sample-5',
-    word: 'ambiguous',
-    phonetic: '/æmˈbɪɡ.ju.əs/',
-    partOfSpeech: 'adjective',
-    meaning: 'mơ hồ, nhập nhằng, có nhiều hơn một nghĩa',
-    definition: 'open to more than one interpretation; having a double meaning',
-    example: 'The instructions in the listening section were somewhat ambiguous.',
-    exampleVi: 'Các hướng dẫn trong phần nghe có phần hơi mơ hồ.',
-    audioUrl: '',
-    isNew: false,
-    isStarred: false,
-    isMastered: false,
-    quizCount: 2,
-    correctCount: 1,
-    dateAdded: Date.now() - 259200000,
-    tags: ['listening', 'vocabulary']
+    dateAdded: Date.now()
   }
 ];
 
@@ -126,52 +52,120 @@ class StorageManager {
     this.fetchRemoteData();
   }
 
+  sanitizeList(list) {
+    if (!Array.isArray(list)) return [];
+    const seen = new Set();
+    const clean = [];
+
+    for (const w of list) {
+      if (!w || typeof w !== 'object') continue;
+      const wordText = (w.word || '').trim();
+      // Bỏ qua các từ rỗng, dấu gạch hoặc quá ngắn
+      if (!wordText || wordText.length < 2) continue;
+
+      const key = wordText.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      let meaningText = (w.meaning || '').trim();
+      if (!meaningText || meaningText.includes('cập nhật')) {
+        meaningText = 'thuộc bài listening tự học';
+      }
+
+      clean.push({
+        id: w.id || ('w-' + (clean.length + 1)),
+        word: wordText,
+        phonetic: w.phonetic || '',
+        partOfSpeech: w.partOfSpeech || '',
+        meaning: meaningText,
+        definition: w.definition || '',
+        example: w.example || `The speaker used the word "${wordText}" in the listening conversation.`,
+        exampleVi: w.exampleVi || `Người nói đã dùng từ "${wordText}" trong bài nghe.`,
+        audioUrl: w.audioUrl || '',
+        isNew: false,
+        isStarred: !!w.isStarred,
+        isMastered: !!w.isMastered,
+        quizCount: w.quizCount || 0,
+        correctCount: w.correctCount || 0,
+        dateAdded: w.dateAdded || Date.now(),
+        tags: w.tags || ['listening']
+      });
+    }
+
+    return clean;
+  }
+
   async fetchRemoteData() {
     try {
-      const resp = await fetch('data/vocab.json', { cache: 'no-cache' });
+      const resp = await fetch('data/vocab.json?v=' + Date.now(), { cache: 'no-cache' });
       if (resp.ok) {
         const remoteWords = await resp.json();
-        if (Array.isArray(remoteWords) && remoteWords.length > 0) {
-          this.addOrUpdateWords(remoteWords);
+        if (Array.isArray(remoteWords) && remoteWords.length >= 100) {
+          const cleanRemote = this.sanitizeList(remoteWords);
+          // Cập nhật lại toàn bộ kho từ nếu máy đang bị lưu sai
+          if (this.words.length !== cleanRemote.length || this.words.some(w => !w.word)) {
+            this.saveWords(cleanRemote);
+          }
         }
       }
     } catch (e) {
-      // Offline hoặc file tĩnh không khả dụng
+      // Offline fallback
     }
   }
 
   loadWords() {
     try {
-      const defaultData = (window.DEFAULT_VOCAB_DATA && window.DEFAULT_VOCAB_DATA.length > 0)
+      // Xoá dứt điểm các bản lưu cũ docvocab_words_v1, docvocab_words_v2 bị rác 270 từ
+      try {
+        localStorage.removeItem('docvocab_words_v1');
+        localStorage.removeItem('docvocab_words_v2');
+      } catch (err) {}
+
+      const defaultData = (window.DEFAULT_VOCAB_DATA && window.DEFAULT_VOCAB_DATA.length >= 100)
         ? window.DEFAULT_VOCAB_DATA 
         : SAMPLE_WORDS;
 
-      const data = localStorage.getItem(STORAGE_KEYS.WORDS);
-      if (!data) {
-        this.saveWords(defaultData);
-        return defaultData;
+      const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
+      if (!raw) {
+        const sanitizedDefault = this.sanitizeList(defaultData);
+        this.saveWords(sanitizedDefault);
+        return sanitizedDefault;
       }
-      const parsed = JSON.parse(data);
-      // Nếu dữ liệu trong storage chỉ là 5 từ mẫu cũ, tự động nâng cấp nạp đủ 151 từ Google Doc
-      if (parsed.length <= 5 && defaultData.length > 5) {
-        this.saveWords(defaultData);
-        return defaultData;
+
+      let parsed = JSON.parse(raw);
+      parsed = this.sanitizeList(parsed);
+
+      // Nếu dữ liệu bị bất thường (quá ít hoặc quá nhiều > 180 từ do lỗi sync cũ)
+      if (parsed.length < 50 || parsed.length > 180) {
+        const sanitizedDefault = this.sanitizeList(defaultData);
+        this.saveWords(sanitizedDefault);
+        return sanitizedDefault;
       }
+
       return parsed;
     } catch (e) {
       console.error('Lỗi khi tải từ vựng:', e);
-      return window.DEFAULT_VOCAB_DATA || SAMPLE_WORDS;
+      return this.sanitizeList(window.DEFAULT_VOCAB_DATA || SAMPLE_WORDS);
     }
   }
 
   saveWords(words) {
-    this.words = words;
+    this.words = this.sanitizeList(words);
     try {
-      localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(words));
-      window.dispatchEvent(new CustomEvent('vocab:updated', { detail: words }));
+      localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(this.words));
+      window.dispatchEvent(new CustomEvent('vocab:updated', { detail: this.words }));
     } catch (e) {
       console.error('Lỗi khi lưu từ vựng:', e);
     }
+  }
+
+  resetToCleanDefault() {
+    const defaultData = (window.DEFAULT_VOCAB_DATA && window.DEFAULT_VOCAB_DATA.length >= 100)
+      ? window.DEFAULT_VOCAB_DATA 
+      : SAMPLE_WORDS;
+    const clean = this.sanitizeList(defaultData);
+    this.saveWords(clean);
+    return clean.length;
   }
 
   loadSettings() {
@@ -225,7 +219,6 @@ class StorageManager {
     const stats = this.stats;
     stats.totalReviews += total;
 
-    // Tính streak ngày liên tiếp
     const lastDate = new Date(stats.lastStudyDate);
     const currDate = new Date(today);
     const diffTime = currDate - lastDate;
@@ -296,44 +289,46 @@ class StorageManager {
   }
 
   addOrUpdateWords(newWordsList) {
-    // Merge từ mới vào danh sách hiện tại theo word text (lowercase)
     const existingMap = new Map();
-    this.words.forEach(w => existingMap.set(w.word.toLowerCase().trim(), w));
+    this.words.forEach(w => {
+      if (w && w.word && w.word.trim().length >= 2) {
+        existingMap.set(w.word.toLowerCase().trim(), w);
+      }
+    });
 
     let addedCount = 0;
     let updatedCount = 0;
 
     newWordsList.forEach(item => {
-      const key = item.word.toLowerCase().trim();
-      if (!key) return;
+      if (!item || !item.word) return;
+      const cleanWord = item.word.trim();
+      if (cleanWord.length < 2) return;
+      const key = cleanWord.toLowerCase();
 
       if (existingMap.has(key)) {
-        // Cập nhật thông tin nếu có thêm nghĩa mới
         const old = existingMap.get(key);
         existingMap.set(key, {
           ...old,
-          meaning: (item.meaning && item.meaning !== 'Đang cập nhật...') ? item.meaning : old.meaning,
+          meaning: (item.meaning && !item.meaning.includes('cập nhật')) ? item.meaning : old.meaning,
           definition: item.definition || old.definition,
           example: item.example || old.example,
           exampleVi: item.exampleVi || old.exampleVi,
           phonetic: item.phonetic || old.phonetic,
-          partOfSpeech: item.partOfSpeech || old.partOfSpeech,
-          isNew: item.isNew !== undefined ? item.isNew : old.isNew
+          partOfSpeech: item.partOfSpeech || old.partOfSpeech
         });
         updatedCount++;
       } else {
-        // Thêm mới
         const newWord = {
-          id: item.id || ('w-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6)),
-          word: item.word.trim(),
+          id: item.id || ('w-' + (existingMap.size + 1)),
+          word: cleanWord,
           phonetic: item.phonetic || '',
           partOfSpeech: item.partOfSpeech || '',
-          meaning: item.meaning || 'Đang cập nhật...',
+          meaning: (item.meaning && !item.meaning.includes('cập nhật')) ? item.meaning : 'thuộc bài listening',
           definition: item.definition || '',
-          example: item.example || '',
-          exampleVi: item.exampleVi || '',
+          example: item.example || `The speaker used the word "${cleanWord}" in the listening conversation.`,
+          exampleVi: item.exampleVi || `Người nói đã dùng từ "${cleanWord}" trong bài nghe.`,
           audioUrl: item.audioUrl || '',
-          isNew: typeof item.isNew === 'boolean' ? item.isNew : false,
+          isNew: false,
           isStarred: false,
           isMastered: false,
           quizCount: 0,
@@ -346,7 +341,7 @@ class StorageManager {
       }
     });
 
-    const merged = Array.from(existingMap.values());
+    const merged = this.sanitizeList(Array.from(existingMap.values()));
     this.saveWords(merged);
     return { addedCount, updatedCount, total: merged.length };
   }

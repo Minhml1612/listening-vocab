@@ -3,7 +3,7 @@
  * Luôn ưu tiên tải bản mới nhất từ máy chủ, chỉ dùng Cache khi mất mạng
  */
 
-const CACHE_NAME = 'docvocab-v2';
+const CACHE_NAME = 'docvocab-v3';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();

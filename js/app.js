@@ -181,7 +181,8 @@ class AppRouter {
     const listContainer = document.getElementById('word-list-items');
     if (!listContainer) return;
 
-    let words = [...window.appStorage.words];
+    // Chỉ lấy các từ hợp lệ (không rỗng)
+    let words = window.appStorage.words.filter(w => w && w.word && w.word.trim().length >= 2);
 
     // Áp dụng bộ lọc
     if (this.activeFilter === 'new') {
@@ -256,6 +257,15 @@ class AppRouter {
     `).join('');
 
     if (window.lucide) window.lucide.createIcons();
+  }
+
+  resetAllData() {
+    if (confirm('Khôi phục danh sách từ vựng sạch chuẩn từ Google Docs?')) {
+      const count = window.appStorage.resetToCleanDefault();
+      this.showToast(`✅ Đã làm sạch và khôi phục ${count} từ vựng chuẩn!`, 'success');
+      this.renderWordList();
+      this.updateStatsBar();
+    }
   }
 
   clearAllNew() {
