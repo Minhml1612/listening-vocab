@@ -218,11 +218,12 @@ class AppRouter {
       return;
     }
 
-    listContainer.innerHTML = words.map(w => `
+    listContainer.innerHTML = words.map((w, idx) => `
       <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow transition-all group">
         <div class="flex items-start justify-between gap-2">
           <div class="flex-1">
             <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-mono font-bold text-slate-400">#${idx + 1}</span>
               <span class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">${w.word}</span>
               ${w.phonetic ? `<span class="text-xs font-mono text-indigo-600 dark:text-indigo-400">${w.phonetic}</span>` : ''}
               ${w.isNew ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 badge-pulse">MỚI</span>` : ''}
@@ -255,6 +256,13 @@ class AppRouter {
     `).join('');
 
     if (window.lucide) window.lucide.createIcons();
+  }
+
+  clearAllNew() {
+    window.appStorage.clearAllNewBadges();
+    this.showToast('✅ Đã đánh dấu tất cả từ vựng là từ cũ đã xem!', 'info');
+    this.renderWordList();
+    this.updateStatsBar();
   }
 
   showWordOptions(wordId) {

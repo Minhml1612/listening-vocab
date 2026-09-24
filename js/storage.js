@@ -142,15 +142,25 @@ class StorageManager {
 
   loadWords() {
     try {
+      const defaultData = (window.DEFAULT_VOCAB_DATA && window.DEFAULT_VOCAB_DATA.length > 0)
+        ? window.DEFAULT_VOCAB_DATA 
+        : SAMPLE_WORDS;
+
       const data = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!data) {
-        this.saveWords(SAMPLE_WORDS);
-        return SAMPLE_WORDS;
+        this.saveWords(defaultData);
+        return defaultData;
       }
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      // Nếu dữ liệu trong storage chỉ là 5 từ mẫu cũ, tự động nâng cấp nạp đủ 151 từ Google Doc
+      if (parsed.length <= 5 && defaultData.length > 5) {
+        this.saveWords(defaultData);
+        return defaultData;
+      }
+      return parsed;
     } catch (e) {
       console.error('Lỗi khi tải từ vựng:', e);
-      return SAMPLE_WORDS;
+      return window.DEFAULT_VOCAB_DATA || SAMPLE_WORDS;
     }
   }
 
@@ -302,18 +312,19 @@ class StorageManager {
         const old = existingMap.get(key);
         existingMap.set(key, {
           ...old,
-          meaning: item.meaning || old.meaning,
+          meaning: (item.meaning && item.meaning !== 'Đang cập nhật...') ? item.meaning : old.meaning,
           definition: item.definition || old.definition,
           example: item.example || old.example,
           exampleVi: item.exampleVi || old.exampleVi,
           phonetic: item.phonetic || old.phonetic,
-          partOfSpeech: item.partOfSpeech || old.partOfSpeech
+          partOfSpeech: item.partOfSpeech || old.partOfSpeech,
+          isNew: item.isNew !== undefined ? item.isNew : old.isNew
         });
         updatedCount++;
       } else {
         // Thêm mới
         const newWord = {
-          id: 'w-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6),
+          id: item.id || ('w-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6)),
           word: item.word.trim(),
           phonetic: item.phonetic || '',
           partOfSpeech: item.partOfSpeech || '',
@@ -322,12 +333,12 @@ class StorageManager {
           example: item.example || '',
           exampleVi: item.exampleVi || '',
           audioUrl: item.audioUrl || '',
-          isNew: true, // Đánh dấu từ mới
+          isNew: typeof item.isNew === 'boolean' ? item.isNew : false,
           isStarred: false,
           isMastered: false,
           quizCount: 0,
           correctCount: 0,
-          dateAdded: Date.now(),
+          dateAdded: item.dateAdded || Date.now(),
           tags: item.tags || ['listening']
         };
         existingMap.set(key, newWord);
@@ -336,9 +347,6 @@ class StorageManager {
     });
 
     const merged = Array.from(existingMap.values());
-    // Sắp xếp: từ mới nhất lên đầu
-    merged.sort((a, b) => (b.dateAdded || 0) - (a.dateAdded || 0));
-
     this.saveWords(merged);
     return { addedCount, updatedCount, total: merged.length };
   }
