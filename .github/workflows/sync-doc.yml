@@ -1,9 +1,8 @@
 name: Sync Google Doc Vocab
 
 on:
-  schedule:
-    # Chạy tự động mỗi 6 tiếng một lần (hoặc có thể chỉnh tuỳ ý)
-    - cron: '0 */6 * * *'
+  # schedule:
+  #   - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:

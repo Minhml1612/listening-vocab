@@ -1,6 +1,6 @@
 /**
- * QUIZ / TRẮC NGHIỆM MODE
- * Tạo câu hỏi ngữ cảnh, câu hỏi nghĩa, trắc nghiệm nghe hiểu với hiệu ứng âm thanh & vinh danh
+ * QUIZ / TRẮC NGHIỆM MODE (v3.0 - Chuyên sâu bài tập ngữ cảnh Oxford)
+ * Tạo bài tập điền từ vào câu ngữ cảnh Oxford, nghe cả câu chọn từ, hiệu ứng âm thanh & giải thích
  */
 
 class QuizController {
@@ -12,15 +12,19 @@ class QuizController {
     this.maxStreak = 0;
     this.wrongAnswers = [];
     this.answered = false;
+    this.subMode = 'context'; // 'context' (mặc định 100% ngữ cảnh Oxford) | 'listening' | 'mixed'
+    this.activeWordsPool = [];
   }
 
-  init(words, count = 10) {
+  init(words, count = 10, subMode = 'context') {
     if (!words || words.length === 0) {
       this.renderEmpty();
       return;
     }
 
-    this.questions = this.buildQuizSet(words, count);
+    this.activeWordsPool = words.filter(w => w && w.word && w.word.trim().length >= 2);
+    this.subMode = subMode;
+    this.questions = this.buildQuizSet(this.activeWordsPool, count, this.subMode);
     this.currentIndex = 0;
     this.score = 0;
     this.streak = 0;
@@ -31,9 +35,13 @@ class QuizController {
     this.renderQuestion();
   }
 
-  buildQuizSet(words, count) {
+  switchSubMode(newMode) {
+    this.init(this.activeWordsPool, 10, newMode);
+  }
+
+  buildQuizSet(words, count = 10, subMode = 'context') {
     const list = [...words];
-    // Trộn danh sách từ
+    // Trộn ngẫu nhiên danh sách từ
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
@@ -43,11 +51,19 @@ class QuizController {
     const allQuestions = [];
 
     selectedWords.forEach(w => {
-      // Mỗi từ sinh ra 1 câu hỏi ngẫu nhiên trong 3 dạng
-      const generated = window.appEnricher.createQuizQuestions(w, words, 3);
+      const generated = window.appEnricher.createQuizQuestions(w, words);
       if (generated && generated.length > 0) {
-        const randQ = generated[Math.floor(Math.random() * generated.length)];
-        allQuestions.push(randQ);
+        if (subMode === 'context') {
+          // 100% BÀI TẬP NGỮ CẢNH OXFORD
+          allQuestions.push(generated[0]);
+        } else if (subMode === 'listening') {
+          // 100% NGHE CÂU NGỮ CẢNH
+          allQuestions.push(generated[1] || generated[0]);
+        } else {
+          // Trộn các dạng
+          const randIdx = Math.floor(Math.random() * generated.length);
+          allQuestions.push(generated[randIdx]);
+        }
       }
     });
 
@@ -71,17 +87,30 @@ class QuizController {
     this.answered = false;
     const progressPercent = Math.round(((this.currentIndex) / this.questions.length) * 100);
 
-    // Tự động phát âm thanh nếu là câu hỏi nghe
-    if (q.type === 'listening-select') {
+    // Tự động phát âm nếu là dạng bài nghe ngữ cảnh
+    if (q.type === 'listening-context') {
       setTimeout(() => {
-        window.appAudio.speak(q.listenWord, { audioUrl: q.audioUrl });
-      }, 300);
+        this.playFullSentenceAudio();
+      }, 350);
     }
 
     container.innerHTML = `
       <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] md:min-h-[580px] justify-between pb-4">
-        <!-- Top Stats: Tiến độ & Streak -->
         <div>
+          <!-- Tab chuyển chế độ bài tập -->
+          <div class="grid grid-cols-3 gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl mb-3 text-[11px] font-bold">
+            <button onclick="window.quizCtrl.switchSubMode('context')" class="py-1.5 px-2 rounded-lg transition-all ${this.subMode === 'context' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}">
+              📖 Ngữ cảnh Oxford
+            </button>
+            <button onclick="window.quizCtrl.switchSubMode('listening')" class="py-1.5 px-2 rounded-lg transition-all ${this.subMode === 'listening' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}">
+              🎧 Nghe câu ngữ cảnh
+            </button>
+            <button onclick="window.quizCtrl.switchSubMode('mixed')" class="py-1.5 px-2 rounded-lg transition-all ${this.subMode === 'mixed' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}">
+              🔄 Trộn các dạng
+            </button>
+          </div>
+
+          <!-- Top Stats: Tiến độ & Streak -->
           <div class="flex items-center justify-between text-xs font-semibold text-slate-500 mb-2 px-1">
             <span>Câu ${this.currentIndex + 1} / ${this.questions.length}</span>
             <div class="flex items-center gap-3">
@@ -94,34 +123,55 @@ class QuizController {
             </div>
           </div>
           
-          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden mb-5">
+          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden mb-4">
             <div class="bg-indigo-600 h-full transition-all duration-300 rounded-full" style="width: ${progressPercent}%"></div>
           </div>
 
-          <!-- Khung câu hỏi -->
-          <div class="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-2xl p-5 md:p-6 shadow-sm mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-full mb-3 inline-block">
-              ${q.title}
-            </span>
+          <!-- KHUNG CÂU HỎI NGỮ CẢNH CHUẨN OXFORD -->
+          <div class="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-2xl p-5 shadow-sm mb-4">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-full inline-flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span>${q.title}</span>
+              </span>
 
-            ${q.type === 'listening-select' ? `
-              <div class="text-center py-6">
-                <button onclick="window.quizCtrl.playQuestionAudio()" class="w-16 h-16 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 flex items-center justify-center mx-auto shadow-lg shadow-indigo-600/30 active:scale-95 transition-all">
-                  <i data-lucide="volume-2" class="w-8 h-8"></i>
+              ${q.fullSentence ? `
+                <button onclick="window.quizCtrl.playFullSentenceAudio()" class="text-indigo-600 dark:text-indigo-400 p-1.5 hover:bg-indigo-50 dark:hover:bg-slate-700 rounded-lg active:scale-95 transition-all" title="Nghe câu phát âm">
+                  <i data-lucide="volume-2" class="w-5 h-5"></i>
                 </button>
-                <p class="text-xs font-semibold text-slate-500 mt-3">Chạm loa để nghe lại từ vựng</p>
-              </div>
-            ` : q.type === 'sentence-gap' ? `
-              <div class="py-2">
-                <p class="text-base md:text-lg font-semibold text-slate-800 dark:text-slate-100 leading-relaxed">${q.prompt}</p>
-                ${q.hint ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2 italic">Gợi ý nghĩa: ${q.hint}</p>` : ''}
+              ` : ''}
+            </div>
+
+            ${(q.type === 'sentence-gap' || q.type === 'listening-context') ? `
+              <div class="py-1">
+                <!-- Câu ngữ cảnh có ô trống -->
+                <div class="p-4 bg-slate-50 dark:bg-slate-850 rounded-xl border border-slate-200/80 dark:border-slate-700/80 mb-3">
+                  <p class="text-base md:text-lg font-medium text-slate-900 dark:text-slate-100 leading-relaxed font-sans">
+                    ${this.formatPromptWithBlank(q.prompt)}
+                  </p>
+                </div>
+
+                ${q.hint ? `
+                  <div class="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                    <span class="font-bold text-indigo-600 dark:text-indigo-400 flex-shrink-0">💡 Gợi ý ngữ cảnh:</span>
+                    <span>${q.hint}</span>
+                  </div>
+                ` : ''}
+
+                ${q.type === 'listening-context' ? `
+                  <button onclick="window.quizCtrl.playFullSentenceAudio()" class="mt-3 w-full py-2 px-3 bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 active:scale-98 transition-all">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                    <span>Bấm để nghe lại toàn bộ câu ngữ cảnh</span>
+                  </button>
+                ` : ''}
               </div>
             ` : `
-              <div class="text-center py-3">
-                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">${q.prompt}</h3>
+              <!-- Dạng chọn nghĩa -->
+              <div class="text-center py-4">
+                <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">${q.prompt}</h3>
                 ${q.phonetic ? `<p class="text-sm font-mono text-indigo-600 dark:text-indigo-400 mt-1">${q.phonetic}</p>` : ''}
                 <button onclick="window.quizCtrl.playQuestionAudio()" class="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-600 mt-2 font-medium">
-                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe phát âm
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe phát âm từ
                 </button>
               </div>
             `}
@@ -130,24 +180,24 @@ class QuizController {
           <!-- Danh sách 4 Lựa chọn -->
           <div id="quiz-options" class="space-y-2.5">
             ${q.options.map((opt, idx) => `
-              <button onclick="window.quizCtrl.selectOption(${idx}, '${this.escapeHtml(opt)}')" class="quiz-option-btn w-full text-left p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500 transition-all font-medium text-slate-800 dark:text-slate-100 text-sm md:text-base flex items-center justify-between active:scale-[0.99] shadow-sm">
+              <button onclick="window.quizCtrl.selectOption(${idx}, '${this.escapeHtml(opt)}')" class="quiz-option-btn w-full text-left p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500 transition-all font-semibold text-slate-800 dark:text-slate-100 text-sm md:text-base flex items-center justify-between active:scale-[0.99] shadow-sm">
                 <span>${opt}</span>
-                <span class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-xs text-slate-400 option-badge">
+                <span class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-xs text-slate-400 option-badge font-mono">
                   ${String.fromCharCode(65 + idx)}
                 </span>
               </button>
             `).join('')}
           </div>
 
-          <!-- Khung giải thích (ẩn cho tới khi trả lời) -->
+          <!-- Khung giải thích chi tiết & Câu hoàn chỉnh -->
           <div id="quiz-explanation" class="hidden mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700">
           </div>
         </div>
 
-        <!-- Nút Tiếp tục (ẩn ban đầu) -->
+        <!-- Nút Tiếp tục -->
         <div id="quiz-next-container" class="hidden pt-4">
           <button onclick="window.quizCtrl.nextQuestion()" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/25 active:scale-98 transition-all flex items-center justify-center gap-2">
-            <span>Tiếp tục</span>
+            <span>Tiếp tục câu sau</span>
             <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </button>
         </div>
@@ -155,6 +205,23 @@ class QuizController {
     `;
 
     if (window.lucide) window.lucide.createIcons();
+  }
+
+  formatPromptWithBlank(prompt) {
+    if (!prompt) return '';
+    return prompt.replace(/________/g, `<span class="inline-block px-3 py-0.5 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-dashed border-indigo-400 font-mono font-bold tracking-wider mx-1">________</span>`);
+  }
+
+  highlightWord(sentence, targetWord) {
+    if (!sentence || !targetWord) return sentence || '';
+    const regex = new RegExp(`\\b(${targetWord})\\b`, 'gi');
+    return sentence.replace(regex, `<span class="bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-bold px-1.5 py-0.5 rounded border border-emerald-400/60">$1</span>`);
+  }
+
+  playFullSentenceAudio() {
+    const q = this.getCurrentQuestion();
+    if (!q || !q.fullSentence) return;
+    window.appAudio.speak(q.fullSentence, { rate: 0.9 });
   }
 
   playQuestionAudio() {
@@ -199,15 +266,12 @@ class QuizController {
       window.appAudio.playIncorrect();
     }
 
-    // Ghi nhận vào storage tiến độ học của từ
     if (q.wordItem) {
       window.appStorage.recordWordResult(q.wordItem.id, isCorrect);
     }
 
-    // Hiển thị giải thích chi tiết
     this.showExplanation(q, isCorrect);
 
-    // Hiện nút Tiếp tục
     const nextContainer = document.getElementById('quiz-next-container');
     if (nextContainer) nextContainer.classList.remove('hidden');
 
@@ -227,15 +291,34 @@ class QuizController {
         </div>
         <div class="flex-1 text-xs">
           <div class="font-bold text-slate-800 dark:text-slate-100 text-sm mb-1">
-            ${isCorrect ? 'Tuyệt vời, chính xác!' : `Chưa đúng rồi! Đáp án: ${q.correctAnswer}`}
+            ${isCorrect ? 'Tuyệt vời, chính xác! 🎯' : `Đáp án đúng là: <span class="text-emerald-600 font-extrabold">${q.correctAnswer}</span>`}
           </div>
+
+          ${q.fullSentence ? `
+            <div class="p-3 bg-white dark:bg-slate-750 rounded-xl border border-slate-200 dark:border-slate-700 my-2">
+              <div class="flex items-center justify-between text-[11px] font-bold text-indigo-600 dark:text-indigo-400 mb-1.5">
+                <span>Câu chuẩn Oxford:</span>
+                <button type="button" onclick="window.quizCtrl.playFullSentenceAudio()" class="inline-flex items-center gap-1 hover:underline text-indigo-600 dark:text-indigo-400">
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe đọc cả câu
+                </button>
+              </div>
+              <p class="text-slate-800 dark:text-slate-100 font-medium text-xs leading-relaxed mb-1">
+                ${this.highlightWord(q.fullSentence, q.correctAnswer)}
+              </p>
+              ${q.exampleVi ? `<p class="text-slate-500 dark:text-slate-400 italic">${q.exampleVi}</p>` : ''}
+            </div>
+          ` : ''}
+
           ${w ? `
-            <p class="text-slate-600 dark:text-slate-300"><span class="font-semibold">${w.word}</span> ${w.phonetic ? `[${w.phonetic}]` : ''}: ${w.meaning}</p>
-            ${w.example ? `<p class="text-slate-500 mt-1 italic">"${w.example}"</p>` : ''}
+            <p class="text-slate-600 dark:text-slate-300 font-medium mt-1">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">${w.word}</span> ${w.partOfSpeech ? `(${w.partOfSpeech})` : ''}: ${w.meaning}
+            </p>
           ` : ''}
         </div>
       </div>
     `;
+
+    if (window.lucide) window.lucide.createIcons();
   }
 
   nextQuestion() {
@@ -254,10 +337,8 @@ class QuizController {
     const total = this.questions.length;
     const percent = Math.round((this.score / total) * 100);
 
-    // Ghi nhận phiên học
     window.appStorage.recordStudySession(this.score, total);
 
-    // Bắn pháo hoa ăn mừng nếu đạt điểm cao
     if (percent >= 70) {
       window.appAudio.playVictory();
       this.triggerConfetti();
@@ -270,10 +351,10 @@ class QuizController {
         </div>
 
         <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
-          ${percent >= 90 ? 'Xuất sắc tuyệt đối! 🎯' : percent >= 70 ? 'Làm rất tốt! 👏' : 'Tiếp tục cố gắng nhé! 💪'}
+          ${percent >= 90 ? 'Xuất sắc tuyệt đối! 🎯' : percent >= 70 ? 'Luyện ngữ cảnh rất tốt! 👏' : 'Tiếp tục rèn luyện nhé! 💪'}
         </h2>
         
-        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Bạn vừa hoàn thành bài trắc nghiệm từ vựng</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Bạn vừa hoàn thành 10 câu bài tập ngữ cảnh Oxford</p>
 
         <!-- Thẻ điểm -->
         <div class="grid grid-cols-3 gap-2.5 my-6">
@@ -300,9 +381,9 @@ class QuizController {
             </button>
           ` : ''}
 
-          <button onclick="window.quizCtrl.init(window.appStorage.words, 10)" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
+          <button onclick="window.quizCtrl.init(window.appStorage.words, 10, '${this.subMode}')" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
             <i data-lucide="play" class="w-4 h-4"></i>
-            <span>Chơi lượt trắc nghiệm mới</span>
+            <span>Làm tiếp 10 câu ngữ cảnh mới</span>
           </button>
 
           <button onclick="window.appRouter.navigate('flashcard')" class="w-full py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold rounded-xl flex items-center justify-center gap-2">
@@ -345,7 +426,7 @@ class QuizController {
     if (container) {
       container.innerHTML = `
         <div class="text-center py-16 px-4">
-          <p class="text-slate-500">Cần có ít nhất vài từ vựng để tạo câu hỏi trắc nghiệm.</p>
+          <p class="text-slate-500">Cần có ít nhất vài từ vựng để tạo bài tập ngữ cảnh.</p>
         </div>
       `;
     }

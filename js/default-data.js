@@ -1,4 +1,4 @@
-// 155 từ vựng listening chuẩn xác từ Google Docs
+// 155 từ vựng kèm câu ví dụ ngữ cảnh chuẩn Oxford Learner's Dictionary
 window.DEFAULT_VOCAB_DATA = [
   {
     "id": "w-1",
@@ -7,8 +7,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "đổ thứ gì đó",
     "definition": "",
-    "example": "The speaker used the word \"Pour\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Pour\" trong đoạn hội thoại bài nghe.",
+    "example": "She carefully poured the hot coffee into two ceramic mugs.",
+    "exampleVi": "Cô ấy cẩn thận rót cà phê nóng vào hai chiếc cốc sứ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -19,7 +19,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She carefully ________ the hot coffee into two ceramic mugs."
   },
   {
     "id": "w-2",
@@ -28,8 +29,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "hối tiếc",
     "definition": "",
-    "example": "The speaker used the word \"Regret\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Regret\" trong đoạn hội thoại bài nghe.",
+    "example": "If you don't take this opportunity, you will deeply regret it later.",
+    "exampleVi": "Nếu bạn không nắm lấy cơ hội này, sau này bạn sẽ vô cùng hối tiếc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -40,7 +41,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "If you don't take this opportunity, you will deeply ________ it later."
   },
   {
     "id": "w-3",
@@ -49,8 +51,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "lạ lùng",
     "definition": "",
-    "example": "The speaker used the word \"strange\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"strange\" trong đoạn hội thoại bài nghe.",
+    "example": "A strange noise was coming from the back of the listening room.",
+    "exampleVi": "Một tiếng ồn lạ lùng phát ra từ phía sau phòng nghe.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -61,7 +63,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A ________ noise was coming from the back of the listening room."
   },
   {
     "id": "w-4",
@@ -70,8 +73,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "tội lỗi",
     "definition": "",
-    "example": "The speaker used the word \"guilty\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"guilty\" trong đoạn hội thoại bài nghe.",
+    "example": "The suspect looked extremely guilty when asked about the missing money.",
+    "exampleVi": "Nghi phạm trông vô cùng có lỗi khi được hỏi về số tiền bị mất.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -82,7 +85,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The suspect looked extremely ________ when asked about the missing money."
   },
   {
     "id": "w-5",
@@ -91,8 +95,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "",
     "meaning": "xếp hàng",
     "definition": "",
-    "example": "The speaker used the word \"stand in line\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"stand in line\" trong đoạn hội thoại bài nghe.",
+    "example": "Students had to stand in line for hours to register for the new course.",
+    "exampleVi": "Sinh viên đã phải xếp hàng nhiều giờ để đăng ký khóa học mới.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -103,7 +107,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Students had to ________ for hours to register for the new course."
   },
   {
     "id": "w-6",
@@ -112,8 +117,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "lời chào",
     "definition": "",
-    "example": "The speaker used the word \"the greeting\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"the greeting\" trong đoạn hội thoại bài nghe.",
+    "example": "The host welcomed each guest with a warm and polite greeting.",
+    "exampleVi": "Chủ nhà chào đón từng vị khách bằng một lời chào ấm áp và lịch sự.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -124,7 +129,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The host welcomed each guest with a warm and polite ________."
   },
   {
     "id": "w-7",
@@ -133,8 +139,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "yêu cầu",
     "definition": "",
-    "example": "The speaker used the word \"requirement\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"requirement\" trong đoạn hội thoại bài nghe.",
+    "example": "Fluency in spoken English is a minimum requirement for this position.",
+    "exampleVi": "Lưu loát tiếng Anh giao tiếp là một yêu cầu tối thiểu cho vị trí này.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -145,7 +151,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Fluency in spoken English is a minimum ________ for this position."
   },
   {
     "id": "w-8",
@@ -154,8 +161,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "đáp ứng",
     "definition": "",
-    "example": "The speaker used the word \"respond\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"respond\" trong đoạn hội thoại bài nghe.",
+    "example": "The company promises to respond to all customer inquiries within 24 hours.",
+    "exampleVi": "Công ty cam kết sẽ phản hồi mọi thắc mắc của khách hàng trong vòng 24 giờ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -166,7 +173,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The company promises to ________ to all customer inquiries within 24 hours."
   },
   {
     "id": "w-9",
@@ -175,8 +183,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "được cho là",
     "definition": "",
-    "example": "The speaker used the word \"supposedly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"supposedly\" trong đoạn hội thoại bài nghe.",
+    "example": "The new listening exam format is supposedly much easier than the old one.",
+    "exampleVi": "Cấu trúc đề thi nghe mới được cho là dễ hơn nhiều so với đề cũ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -187,7 +195,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The new listening exam format is ________ much easier than the old one."
   },
   {
     "id": "w-10",
@@ -196,8 +205,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Câu view",
     "definition": "",
-    "example": "The speaker used the word \"clickbait\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"clickbait\" trong đoạn hội thoại bài nghe.",
+    "example": "Most YouTube video titles nowadays are exaggerated clickbait to get views.",
+    "exampleVi": "Hầu hết tiêu đề video YouTube ngày nay đều là câu view phóng đại để kiếm lượt xem.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -208,7 +217,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Most YouTube video titles nowadays are exaggerated ________ to get views."
   },
   {
     "id": "w-11",
@@ -217,8 +227,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "một cách khôn ngoan",
     "definition": "",
-    "example": "The speaker used the word \"Wisely\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Wisely\" trong đoạn hội thoại bài nghe.",
+    "example": "You should spend your study time wisely to get high scores in IELTS.",
+    "exampleVi": "Bạn nên sử dụng thời gian học một cách khôn ngoan để đạt điểm cao trong IELTS.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -229,7 +239,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You should spend your study time ________ to get high scores in IELTS."
   },
   {
     "id": "w-12",
@@ -238,8 +249,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "một cách đường đột",
     "definition": "",
-    "example": "The speaker used the word \"Suddenly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Suddenly\" trong đoạn hội thoại bài nghe.",
+    "example": "Suddenly, the phone rang in the middle of our recorded conversation.",
+    "exampleVi": "Đột nhiên, chuông điện thoại reo lên giữa cuộc trò chuyện đang ghi âm của chúng tôi.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -250,7 +261,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "________, the phone rang in the middle of our recorded conversation."
   },
   {
     "id": "w-13",
@@ -259,8 +271,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "quan trọng",
     "definition": "",
-    "example": "The speaker used the word \"matter\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"matter\" trong đoạn hội thoại bài nghe.",
+    "example": "Your pronunciation and vocabulary will matter a lot in the speaking test.",
+    "exampleVi": "Phát âm và từ vựng của bạn sẽ rất quan trọng trong bài thi nói.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -271,7 +283,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Your pronunciation and vocabulary will ________ a lot in the speaking test."
   },
   {
     "id": "w-14",
@@ -280,8 +293,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "may mắn",
     "definition": "",
-    "example": "The speaker used the word \"fortune\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"fortune\" trong đoạn hội thoại bài nghe.",
+    "example": "He had the good fortune to be mentored by an experienced English professor.",
+    "exampleVi": "Anh ấy có may mắn được chỉ dạy bởi một giáo sư tiếng Anh giàu kinh nghiệm.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -292,7 +305,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He had the good ________ to be mentored by an experienced English professor."
   },
   {
     "id": "w-15",
@@ -301,8 +315,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "phản bội",
     "definition": "",
-    "example": "The speaker used the word \"betray\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"betray\" trong đoạn hội thoại bài nghe.",
+    "example": "He promised never to betray the confidence his team had placed in him.",
+    "exampleVi": "Anh ấy hứa không bao giờ phản bội sự tin tưởng mà cả nhóm đã dành cho anh.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -313,7 +327,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He promised never to ________ the confidence his team had placed in him."
   },
   {
     "id": "w-16",
@@ -322,8 +337,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nỗ lực",
     "definition": "",
-    "example": "The speaker used the word \"attempt\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"attempt\" trong đoạn hội thoại bài nghe.",
+    "example": "She passed the listening exam on her second attempt with flying colors.",
+    "exampleVi": "Cô ấy đã vượt qua bài thi nghe trong nỗ lực lần thứ hai với kết quả xuất sắc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -334,7 +349,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She passed the listening exam on her second ________ with flying colors."
   },
   {
     "id": "w-17",
@@ -343,8 +359,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cây cầu",
     "definition": "",
-    "example": "The speaker used the word \"bridge\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"bridge\" trong đoạn hội thoại bài nghe.",
+    "example": "They are building a modern pedestrian bridge over the busy highway.",
+    "exampleVi": "Họ đang xây dựng một cây cầu bộ hành hiện đại bắc qua đường cao tốc đông đúc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -355,7 +371,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "They are building a modern pedestrian ________ over the busy highway."
   },
   {
     "id": "w-18",
@@ -364,8 +381,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "chết đói",
     "definition": "",
-    "example": "The speaker used the word \"starving\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"starving\" trong đoạn hội thoại bài nghe.",
+    "example": "After three hours of intensive listening practice, the students were starving.",
+    "exampleVi": "Sau ba tiếng luyện nghe chăm chỉ, các sinh viên đều đói lả.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -376,7 +393,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "After three hours of intensive listening practice, the students were ________."
   },
   {
     "id": "w-19",
@@ -385,8 +403,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "lỗ đít",
     "definition": "",
-    "example": "The speaker used the word \"asshole\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"asshole\" trong đoạn hội thoại bài nghe.",
+    "example": "In colloquial dialogue, rude characters might use offensive slang like asshole.",
+    "exampleVi": "Trong các đoạn đối thoại bình dân, các nhân vật thô lỗ có thể dùng tiếng lóng tục tĩu.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -397,7 +415,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "In colloquial dialogue, rude characters might use offensive slang like ________."
   },
   {
     "id": "w-20",
@@ -406,8 +425,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "thề",
     "definition": "",
-    "example": "The speaker used the word \"swear\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"swear\" trong đoạn hội thoại bài nghe.",
+    "example": "The witness had to swear an oath to tell the whole truth in court.",
+    "exampleVi": "Nhân chứng đã phải thề tuyên thệ sẽ nói toàn bộ sự thật trước tòa.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -418,7 +437,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The witness had to ________ an oath to tell the whole truth in court."
   },
   {
     "id": "w-21",
@@ -427,8 +447,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "chiếc cúp",
     "definition": "",
-    "example": "The speaker used the word \"trophy\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"trophy\" trong đoạn hội thoại bài nghe.",
+    "example": "The winning debate team proudly held up the championship trophy.",
+    "exampleVi": "Đội tranh biện chiến thắng tự hào giơ cao chiếc cúp vô địch.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -439,7 +459,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The winning debate team proudly held up the championship ________."
   },
   {
     "id": "w-22",
@@ -448,8 +469,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "trống",
     "definition": "",
-    "example": "The speaker used the word \"blank\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"blank\" trong đoạn hội thoại bài nghe.",
+    "example": "Please write your candidate number in the blank space provided.",
+    "exampleVi": "Vui lòng viết số báo danh của bạn vào khoảng trống được cung cấp.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -460,7 +481,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Please write your candidate number in the ________ space provided."
   },
   {
     "id": "w-23",
@@ -469,8 +491,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "trống rỗng (kiểu siêu trống rỗng lâu rồi)",
     "definition": "",
-    "example": "The speaker used the word \"empty\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"empty\" trong đoạn hội thoại bài nghe.",
+    "example": "The lecture hall was completely empty long before the speaker arrived.",
+    "exampleVi": "Giảng đường hoàn toàn trống rỗng từ rất lâu trước khi diễn giả đến.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -481,7 +503,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The lecture hall was completely ________ long before the speaker arrived."
   },
   {
     "id": "w-24",
@@ -490,8 +513,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "tranh cãi",
     "definition": "",
-    "example": "The speaker used the word \"Argue\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Argue\" trong đoạn hội thoại bài nghe.",
+    "example": "The two roommates began to argue over who should clean the apartment.",
+    "exampleVi": "Hai người bạn cùng phòng bắt đầu tranh cãi xem ai nên dọn dẹp căn hộ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -502,7 +525,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The two roommates began to ________ over who should clean the apartment."
   },
   {
     "id": "w-25",
@@ -511,8 +535,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "chính thức",
     "definition": "",
-    "example": "The speaker used the word \"formal\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"formal\" trong đoạn hội thoại bài nghe.",
+    "example": "Academic listening tests require the use of formal vocabulary and expressions.",
+    "exampleVi": "Các bài thi nghe học thuật yêu cầu sử dụng từ vựng và cách diễn đạt trang trọng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -523,7 +547,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Academic listening tests require the use of ________ vocabulary and expressions."
   },
   {
     "id": "w-26",
@@ -532,8 +557,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "hội nghị",
     "definition": "",
-    "example": "The speaker used the word \"conference\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"conference\" trong đoạn hội thoại bài nghe.",
+    "example": "Over 500 linguists attended the international language conference.",
+    "exampleVi": "Hơn 500 nhà ngôn ngữ học đã tham dự hội nghị ngôn ngữ quốc tế.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -544,7 +569,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Over 500 linguists attended the international language ________."
   },
   {
     "id": "w-27",
@@ -553,8 +579,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "đồng nghiệp",
     "definition": "",
-    "example": "The speaker used the word \"colleagues\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"colleagues\" trong đoạn hội thoại bài nghe.",
+    "example": "He discussed the quarterly results with his colleagues in the department.",
+    "exampleVi": "Anh ấy đã thảo luận về kết quả hàng quý với các đồng nghiệp trong phòng ban.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -565,7 +591,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He discussed the quarterly results with his ________ in the department."
   },
   {
     "id": "w-28",
@@ -574,8 +601,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "áp lực",
     "definition": "",
-    "example": "The speaker used the word \"pressure\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"pressure\" trong đoạn hội thoại bài nghe.",
+    "example": "Students often feel immense pressure during the final listening examination.",
+    "exampleVi": "Sinh viên thường cảm thấy áp lực rất lớn trong kỳ thi nghe cuối kỳ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -586,7 +613,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Students often feel immense ________ during the final listening examination."
   },
   {
     "id": "w-29",
@@ -595,8 +623,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "phát hành",
     "definition": "",
-    "example": "The speaker used the word \"release\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"release\" trong đoạn hội thoại bài nghe.",
+    "example": "The band plans to release their new album at the end of this month.",
+    "exampleVi": "Ban nhạc dự định phát hành album mới của họ vào cuối tháng này.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -607,7 +635,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The band plans to ________ their new album at the end of this month."
   },
   {
     "id": "w-30",
@@ -616,8 +645,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "phòng thử đồ",
     "definition": "",
-    "example": "The speaker used the word \"Fitting room\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Fitting room\" trong đoạn hội thoại bài nghe.",
+    "example": "You can try on those stylish jeans in the fitting room over there.",
+    "exampleVi": "Bạn có thể thử chiếc quần bò thời trang đó trong phòng thử đồ đằng kia.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -628,7 +657,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You can try on those stylish jeans in the ________ over there."
   },
   {
     "id": "w-31",
@@ -637,8 +667,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "phụ kiện",
     "definition": "",
-    "example": "The speaker used the word \"Accessories\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Accessories\" trong đoạn hội thoại bài nghe.",
+    "example": "The store sells fashion accessories such as belts, scarves, and bags.",
+    "exampleVi": "Cửa hàng bán các phụ kiện thời trang như thắt lưng, khăn quàng cổ và túi xách.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -649,7 +679,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The store sells fashion ________ such as belts, scarves, and bags."
   },
   {
     "id": "w-32",
@@ -658,8 +689,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "trang sức",
     "definition": "",
-    "example": "The speaker used the word \"Jewelry\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Jewelry\" trong đoạn hội thoại bài nghe.",
+    "example": "She kept her precious gold jewelry locked in a small safety box.",
+    "exampleVi": "Cô ấy cất trang sức vàng quý giá của mình bị khóa trong một chiếc hộp an toàn nhỏ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -670,7 +701,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She kept her precious gold ________ locked in a small safety box."
   },
   {
     "id": "w-33",
@@ -679,8 +711,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sự chuyển tiếp",
     "definition": "",
-    "example": "The speaker used the word \"Forwarding\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Forwarding\" trong đoạn hội thoại bài nghe.",
+    "example": "Thank you for forwarding the meeting schedule to all team members.",
+    "exampleVi": "Cảm ơn bạn đã chuyển tiếp lịch họp tới tất cả các thành viên trong nhóm.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -691,7 +723,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Thank you for ________ the meeting schedule to all team members."
   },
   {
     "id": "w-34",
@@ -700,8 +733,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "Phục kích",
     "definition": "",
-    "example": "The speaker used the word \"Ampush\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Ampush\" trong đoạn hội thoại bài nghe.",
+    "example": "The soldiers planned an ambush along the narrow mountain pass.",
+    "exampleVi": "Những người lính đã lên kế hoạch phục kích dọc theo con đèo núi hẹp.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -712,7 +745,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The soldiers planned an ________ along the narrow mountain pass."
   },
   {
     "id": "w-35",
@@ -721,8 +755,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "đại lý",
     "definition": "",
-    "example": "The speaker used the word \"Agent\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Agent\" trong đoạn hội thoại bài nghe.",
+    "example": "We booked our flight tickets through a local travel agent.",
+    "exampleVi": "Chúng tôi đã đặt vé máy bay thông qua một đại lý du lịch địa phương.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -733,7 +767,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "We booked our flight tickets through a local travel ________."
   },
   {
     "id": "w-36",
@@ -742,8 +777,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "tính năng",
     "definition": "",
-    "example": "The speaker used the word \"Feature\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Feature\" trong đoạn hội thoại bài nghe.",
+    "example": "A key feature of this application is its real-time synchronization.",
+    "exampleVi": "Một tính năng then chốt của ứng dụng này là khả năng đồng bộ thời gian thực.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -754,7 +789,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A key ________ of this application is its real-time synchronization."
   },
   {
     "id": "w-37",
@@ -763,8 +799,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Người chiến sĩ đã ngã xuống",
     "definition": "",
-    "example": "The speaker used the word \"Fallen\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Fallen\" trong đoạn hội thoại bài nghe.",
+    "example": "The nation built a memorial monument to honor the fallen soldiers.",
+    "exampleVi": "Đất nước đã xây dựng một tượng đài tưởng niệm để vinh danh những người lính đã ngã xuống.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -775,7 +811,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The nation built a memorial monument to honor the ________ soldiers."
   },
   {
     "id": "w-38",
@@ -784,8 +821,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cổ điển",
     "definition": "",
-    "example": "The speaker used the word \"Vintage\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Vintage\" trong đoạn hội thoại bài nghe.",
+    "example": "She loves collecting vintage clothes and vinyl records from the 1970s.",
+    "exampleVi": "Cô ấy thích sưu tầm quần áo cổ điển và đĩa than từ những năm 1970.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -796,7 +833,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She loves collecting ________ clothes and vinyl records from the 1970s."
   },
   {
     "id": "w-39",
@@ -805,8 +843,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Lỗi thời",
     "definition": "",
-    "example": "The speaker used the word \"Obsolete\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Obsolete\" trong đoạn hội thoại bài nghe.",
+    "example": "With the rise of smartphones, cassette tapes have become completely obsolete.",
+    "exampleVi": "Với sự phát triển của điện thoại thông minh, băng cassette đã trở nên hoàn toàn lỗi thời.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -817,7 +855,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "With the rise of smartphones, cassette tapes have become completely ________."
   },
   {
     "id": "w-40",
@@ -826,8 +865,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "phrase",
     "meaning": "trạng thái còn hàng trong kho",
     "definition": "",
-    "example": "The speaker used the word \"in stock\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"in stock\" trong đoạn hội thoại bài nghe.",
+    "example": "Good news: the textbooks you ordered are currently in stock at the bookstore.",
+    "exampleVi": "Tin vui: sách giáo trình bạn đặt hiện đang còn hàng tại hiệu sách.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -838,7 +877,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Good news: the textbooks you ordered are currently ________ at the bookstore."
   },
   {
     "id": "w-41",
@@ -847,8 +887,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "người vắng mặt",
     "definition": "",
-    "example": "The speaker used the word \"absentee\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"absentee\" trong đoạn hội thoại bài nghe.",
+    "example": "The teacher took note of every absentee in this morning's lecture.",
+    "exampleVi": "Giáo viên đã ghi lại từng người vắng mặt trong buổi giảng sáng nay.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -859,7 +899,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The teacher took note of every ________ in this morning's lecture."
   },
   {
     "id": "w-42",
@@ -868,8 +909,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "mang tính biểu tượng",
     "definition": "",
-    "example": "The speaker used the word \"iconic\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"iconic\" trong đoạn hội thoại bài nghe.",
+    "example": "The Eiffel Tower is arguably the most iconic landmark in Paris.",
+    "exampleVi": "Tháp Eiffel được xem là địa danh mang tính biểu tượng nhất ở Paris.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -880,7 +921,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The Eiffel Tower is arguably the most ________ landmark in Paris."
   },
   {
     "id": "w-43",
@@ -889,8 +931,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "râu",
     "definition": "",
-    "example": "The speaker used the word \"beard\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"beard\" trong đoạn hội thoại bài nghe.",
+    "example": "He decided to grow a thick beard during the winter months.",
+    "exampleVi": "Anh ấy quyết định để một bộ râu rậm trong những tháng mùa đông.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -901,7 +943,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He decided to grow a thick ________ during the winter months."
   },
   {
     "id": "w-44",
@@ -910,8 +953,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "tính trang trọng",
     "definition": "",
-    "example": "The speaker used the word \"Honored\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Honored\" trong đoạn hội thoại bài nghe.",
+    "example": "I felt deeply honored to be invited as the keynote speaker at the ceremony.",
+    "exampleVi": "Tôi cảm thấy vô cùng vinh dự khi được mời làm diễn giả chính tại buổi lễ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -922,7 +965,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I felt deeply ________ to be invited as the keynote speaker at the ceremony."
   },
   {
     "id": "w-45",
@@ -931,8 +975,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "trần trụi",
     "definition": "",
-    "example": "The speaker used the word \"Bare\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Bare\" trong đoạn hội thoại bài nghe.",
+    "example": "The trees were completely bare of leaves after the autumn gale.",
+    "exampleVi": "Những cái cây hoàn toàn trơ trụi lá sau cơn gió lốc mùa thu.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -943,7 +987,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The trees were completely ________ of leaves after the autumn gale."
   },
   {
     "id": "w-46",
@@ -952,8 +997,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "phức tạp",
     "definition": "",
-    "example": "The speaker used the word \"Complexity\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Complexity\" trong đoạn hội thoại bài nghe.",
+    "example": "I was overwhelmed by the sheer complexity of the legal documents.",
+    "exampleVi": "Tôi bị choáng ngợp bởi mức độ phức tạp to lớn của các tài liệu pháp lý.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -964,7 +1009,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I was overwhelmed by the sheer ________ of the legal documents."
   },
   {
     "id": "w-47",
@@ -973,8 +1019,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adj",
     "meaning": "to lớn, khổng lồ (bằng big)",
     "definition": "",
-    "example": "The speaker used the word \"massive\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"massive\" trong đoạn hội thoại bài nghe.",
+    "example": "The volcanic eruption caused a massive cloud of ash to cover the sky.",
+    "exampleVi": "Vụ phun trào núi lửa đã tạo ra một đám mây tro bụi khổng lồ bao phủ bầu trời.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -985,7 +1031,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The volcanic eruption caused a ________ cloud of ash to cover the sky."
   },
   {
     "id": "w-48",
@@ -994,8 +1041,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Khuyến mãi",
     "definition": "",
-    "example": "The speaker used the word \"Promotion\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Promotion\" trong đoạn hội thoại bài nghe.",
+    "example": "Her hard work was rewarded with a well-deserved promotion to senior manager.",
+    "exampleVi": "Sự chăm chỉ của cô ấy đã được đền đáp bằng việc thăng chức xứng đáng lên quản lý cấp cao.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1006,7 +1053,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Her hard work was rewarded with a well-deserved ________ to senior manager."
   },
   {
     "id": "w-49",
@@ -1015,8 +1063,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sự trả thù",
     "definition": "",
-    "example": "The speaker used the word \"Revenge\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Revenge\" trong đoạn hội thoại bài nghe.",
+    "example": "He spent years plotting revenge against those who had wronged him.",
+    "exampleVi": "Anh ấy đã dành nhiều năm lên kế hoạch trả thù những kẻ đã hãm hại mình.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1027,7 +1075,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He spent years plotting ________ against those who had wronged him."
   },
   {
     "id": "w-50",
@@ -1036,8 +1085,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Hậu quả",
     "definition": "",
-    "example": "The speaker used the word \"Consequence\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Consequence\" trong đoạn hội thoại bài nghe.",
+    "example": "Global warming is a direct consequence of excessive carbon emissions.",
+    "exampleVi": "Sự nóng lên toàn cầu là một hậu quả trực tiếp của lượng khí thải carbon quá mức.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1048,7 +1097,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Global warming is a direct ________ of excessive carbon emissions."
   },
   {
     "id": "w-51",
@@ -1057,8 +1107,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "chuyển đổi",
     "definition": "",
-    "example": "The speaker used the word \"redirect\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"redirect\" trong đoạn hội thoại bài nghe.",
+    "example": "The website will automatically redirect you to the login page.",
+    "exampleVi": "Trang web sẽ tự động chuyển hướng bạn đến trang đăng nhập.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1069,7 +1119,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The website will automatically ________ you to the login page."
   },
   {
     "id": "w-52",
@@ -1078,8 +1129,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "quỷ nhập",
     "definition": "",
-    "example": "The speaker used the word \"Possession\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Possession\" trong đoạn hội thoại bài nghe.",
+    "example": "The antique watch was his most prized and valuable possession.",
+    "exampleVi": "Chiếc đồng hồ cổ là tài sản quý giá và đáng tự hào nhất của anh ấy.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1090,7 +1141,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The antique watch was his most prized and valuable ________."
   },
   {
     "id": "w-53",
@@ -1099,8 +1151,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "kẹt",
     "definition": "",
-    "example": "The speaker used the word \"stuck\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"stuck\" trong đoạn hội thoại bài nghe.",
+    "example": "We were stuck in heavy traffic for over two hours on our way home.",
+    "exampleVi": "Chúng tôi bị kẹt trong dòng xe cộ đông đúc hơn hai tiếng trên đường về nhà.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1111,7 +1163,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "We were ________ in heavy traffic for over two hours on our way home."
   },
   {
     "id": "w-54",
@@ -1120,8 +1173,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "Cần thiết",
     "definition": "",
-    "example": "The speaker used the word \"Required\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Required\" trong đoạn hội thoại bài nghe.",
+    "example": "A valid passport is strictly required before boarding the international flight.",
+    "exampleVi": "Hộ chiếu hợp lệ là điều bắt buộc cần thiết trước khi lên chuyến bay quốc tế.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1132,7 +1185,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A valid passport is strictly ________ before boarding the international flight."
   },
   {
     "id": "w-55",
@@ -1141,8 +1195,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "cụm tính từ",
     "meaning": "vd: I  get acquainted with sth (tôi đang làm quen (sử dụng) cái gì đó).",
     "definition": "",
-    "example": "The speaker used the word \"get acquainted\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"get acquainted\" trong đoạn hội thoại bài nghe.",
+    "example": "It took several weeks for the foreign exchange students to get acquainted with local customs.",
+    "exampleVi": "Phải mất vài tuần để các du học sinh làm quen với phong tục tập quán địa phương.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1153,7 +1207,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "It took several weeks for the foreign exchange students to ________ with local customs."
   },
   {
     "id": "w-56",
@@ -1162,8 +1217,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "thèm",
     "definition": "",
-    "example": "The speaker used the word \"Craving\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Craving\" trong đoạn hội thoại bài nghe.",
+    "example": "Late at night, she suddenly had an intense craving for dark chocolate.",
+    "exampleVi": "Vào đêm muộn, cô ấy bỗng nhiên thèm sô-cô-la đen cồn cào.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1174,7 +1229,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Late at night, she suddenly had an intense ________ for dark chocolate."
   },
   {
     "id": "w-57",
@@ -1183,8 +1239,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "ham chơi",
     "definition": "",
-    "example": "The speaker used the word \"Bound\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Bound\" trong đoạn hội thoại bài nghe.",
+    "example": "With his great talent and dedication, he is bound to succeed in life.",
+    "exampleVi": "Với tài năng lớn và sự tận tụy, anh ấy chắc chắn sẽ thành công trong cuộc sống.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1195,7 +1251,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "With his great talent and dedication, he is ________ to succeed in life."
   },
   {
     "id": "w-58",
@@ -1204,8 +1261,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "cực khổ",
     "definition": "",
-    "example": "The speaker used the word \"Poverty\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Poverty\" trong đoạn hội thoại bài nghe.",
+    "example": "The charity aims to help families who are living in extreme poverty.",
+    "exampleVi": "Tổ chức từ thiện hướng đến việc giúp đỡ những gia đình đang sống trong cảnh nghèo đói cùng cực.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1216,7 +1273,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The charity aims to help families who are living in extreme ________."
   },
   {
     "id": "w-59",
@@ -1225,8 +1283,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "nhảm nhí",
     "definition": "",
-    "example": "The speaker used the word \"nonsense\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"nonsense\" trong đoạn hội thoại bài nghe.",
+    "example": "Don't pay attention to what he says; it's absolute nonsense.",
+    "exampleVi": "Đừng chú ý đến những gì anh ta nói; toàn là những điều nhảm nhí.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1237,7 +1295,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Don't pay attention to what he says; it's absolute ________."
   },
   {
     "id": "w-60",
@@ -1246,8 +1305,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "chiếm lại sth",
     "definition": "",
-    "example": "The speaker used the word \"recapture\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"recapture\" trong đoạn hội thoại bài nghe.",
+    "example": "The army launched an offensive to recapture the occupied territory.",
+    "exampleVi": "Quân đội đã mở một cuộc tấn công để tái chiếm vùng lãnh thổ bị chiếm đóng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1258,7 +1317,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The army launched an offensive to ________ the occupied territory."
   },
   {
     "id": "w-61",
@@ -1267,8 +1327,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "đáng giá",
     "definition": "",
-    "example": "The speaker used the word \"worth\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"worth\" trong đoạn hội thoại bài nghe.",
+    "example": "This rare historical book is worth thousands of dollars at auction.",
+    "exampleVi": "Cuốn sách lịch sử quý hiếm này đáng giá hàng nghìn đô la tại buổi đấu giá.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1279,7 +1339,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "This rare historical book is ________ thousands of dollars at auction."
   },
   {
     "id": "w-62",
@@ -1288,8 +1349,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "coi thường",
     "definition": "",
-    "example": "The speaker used the word \"belittle\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"belittle\" trong đoạn hội thoại bài nghe.",
+    "example": "A good manager should never belittle the honest efforts of their staff.",
+    "exampleVi": "Một người quản lý tốt không bao giờ nên coi thường nỗ lực chân thành của nhân viên.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1300,7 +1361,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A good manager should never ________ the honest efforts of their staff."
   },
   {
     "id": "w-63",
@@ -1309,8 +1371,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cụ thể",
     "definition": "",
-    "example": "The speaker used the word \"particular\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"particular\" trong đoạn hội thoại bài nghe.",
+    "example": "Is there any particular topic you would like to focus on in this lesson?",
+    "exampleVi": "Có chủ đề cụ thể nào bạn muốn tập trung vào trong bài học này không?",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1321,7 +1383,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Is there any ________ topic you would like to focus on in this lesson?"
   },
   {
     "id": "w-64",
@@ -1330,8 +1393,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "bận tâm",
     "definition": "",
-    "example": "The speaker used the word \"concern\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"concern\" trong đoạn hội thoại bài nghe.",
+    "example": "Environmental pollution is a growing concern for citizens worldwide.",
+    "exampleVi": "Ô nhiễm môi trường là mối bận tâm ngày càng lớn đối với người dân trên toàn thế giới.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1342,7 +1405,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Environmental pollution is a growing ________ for citizens worldwide."
   },
   {
     "id": "w-65",
@@ -1351,8 +1415,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "hoàn toàn",
     "definition": "",
-    "example": "The speaker used the word \"purely\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"purely\" trong đoạn hội thoại bài nghe.",
+    "example": "Their choice of holiday destination was purely based on cost.",
+    "exampleVi": "Sự lựa chọn điểm đến kỳ nghỉ của họ hoàn toàn dựa trên chi phí.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1363,7 +1427,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Their choice of holiday destination was ________ based on cost."
   },
   {
     "id": "w-66",
@@ -1372,8 +1437,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cuộc trò chuyện",
     "definition": "",
-    "example": "The speaker used the word \"Conversation\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Conversation\" trong đoạn hội thoại bài nghe.",
+    "example": "We had an engaging conversation about modern technology over coffee.",
+    "exampleVi": "Chúng tôi đã có một cuộc trò chuyện thú vị về công nghệ hiện đại bên ly cà phê.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1384,7 +1449,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "We had an engaging ________ about modern technology over coffee."
   },
   {
     "id": "w-67",
@@ -1393,8 +1459,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "lòng trung thành",
     "definition": "",
-    "example": "The speaker used the word \"Loyalty\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Loyalty\" trong đoạn hội thoại bài nghe.",
+    "example": "The company rewards customer loyalty with exclusive discounts and perks.",
+    "exampleVi": "Công ty tri ân lòng trung thành của khách hàng bằng các ưu đãi và giảm giá độc quyền.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1405,7 +1471,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The company rewards customer ________ with exclusive discounts and perks."
   },
   {
     "id": "w-68",
@@ -1414,8 +1481,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "Thuộc về thương mại",
     "definition": "",
-    "example": "The speaker used the word \"Commercial\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Commercial\" trong đoạn hội thoại bài nghe.",
+    "example": "The film was a massive commercial success, earning millions at the box office.",
+    "exampleVi": "Bộ phim là một thành công thương mại to lớn, thu về hàng triệu USD tại phòng vé.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1426,7 +1493,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The film was a massive ________ success, earning millions at the box office."
   },
   {
     "id": "w-69",
@@ -1435,8 +1503,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "Khao khát",
     "definition": "",
-    "example": "The speaker used the word \"Crave\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Crave\" trong đoạn hội thoại bài nghe.",
+    "example": "After a grueling workout session, his body began to crave water and rest.",
+    "exampleVi": "Sau buổi tập luyện mệt mỏi, cơ thể anh bắt đầu khao khát nước và sự nghỉ ngơi.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1447,7 +1515,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "After a grueling workout session, his body began to ________ water and rest."
   },
   {
     "id": "w-70",
@@ -1456,8 +1525,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "Kiên nhẫn",
     "definition": "",
-    "example": "The speaker used the word \"patient\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"patient\" trong đoạn hội thoại bài nghe.",
+    "example": "Learning a new foreign language requires you to be patient and persistent.",
+    "exampleVi": "Học một ngoại ngữ mới đòi hỏi bạn phải kiên nhẫn và bền bỉ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1468,7 +1537,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Learning a new foreign language requires you to be ________ and persistent."
   },
   {
     "id": "w-71",
@@ -1477,8 +1547,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nha kho de xe hay gara",
     "definition": "",
-    "example": "The speaker used the word \"garage\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"garage\" trong đoạn hội thoại bài nghe.",
+    "example": "He parked his car in the garage to protect it from the heavy snow.",
+    "exampleVi": "Anh ấy đỗ xe trong ga-ra để bảo vệ nó khỏi lớp tuyết dày.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1489,7 +1559,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He parked his car in the ________ to protect it from the heavy snow."
   },
   {
     "id": "w-72",
@@ -1498,8 +1569,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "đối diện",
     "definition": "",
-    "example": "The speaker used the word \"across\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"across\" trong đoạn hội thoại bài nghe.",
+    "example": "There is a convenient grocery store right across the street from our house.",
+    "exampleVi": "Có một cửa hàng tạp hóa tiện lợi ngay bên kia đường đối diện nhà chúng tôi.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1510,7 +1581,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "There is a convenient grocery store right ________ the street from our house."
   },
   {
     "id": "w-73",
@@ -1519,8 +1591,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "hoàng gia",
     "definition": "",
-    "example": "The speaker used the word \"royal\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"royal\" trong đoạn hội thoại bài nghe.",
+    "example": "The royal palace attracts millions of international tourists every year.",
+    "exampleVi": "Cung điện hoàng gia thu hút hàng triệu khách du lịch quốc tế mỗi năm.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1531,7 +1603,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The ________ palace attracts millions of international tourists every year."
   },
   {
     "id": "w-74",
@@ -1540,8 +1613,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nhà thờ",
     "definition": "",
-    "example": "The speaker used the word \"Church\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Church\" trong đoạn hội thoại bài nghe.",
+    "example": "The bells of the ancient stone church chimed peacefully on Sunday morning.",
+    "exampleVi": "Tiếng chuông của nhà thờ đá cổ kính ngân vang yên bình vào sáng Chủ Nhật.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1552,7 +1625,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The bells of the ancient stone ________ chimed peacefully on Sunday morning."
   },
   {
     "id": "w-75",
@@ -1561,8 +1635,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "góc phố",
     "definition": "",
-    "example": "The speaker used the word \"Corner\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Corner\" trong đoạn hội thoại bài nghe.",
+    "example": "They met at the street corner right outside the central subway station.",
+    "exampleVi": "Họ gặp nhau ở góc phố ngay bên ngoài ga tàu điện ngầm trung tâm.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1573,7 +1647,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "They met at the street ________ right outside the central subway station."
   },
   {
     "id": "w-76",
@@ -1582,8 +1657,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "cụm danh từ",
     "meaning": "Thực ra thì",
     "definition": "",
-    "example": "The speaker used the word \"As a matter of fact\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"As a matter of fact\" trong đoạn hội thoại bài nghe.",
+    "example": "As a matter of fact, I have already visited that museum twice this year.",
+    "exampleVi": "Thực ra thì, tôi đã đến thăm bảo tàng đó hai lần trong năm nay rồi.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1594,7 +1669,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "________, I have already visited that museum twice this year."
   },
   {
     "id": "w-77",
@@ -1603,8 +1679,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "cụm động từ",
     "meaning": "chia sẻ công việc nhà",
     "definition": "",
-    "example": "The speaker used the word \"share out the housework\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"share out the housework\" trong đoạn hội thoại bài nghe.",
+    "example": "A healthy marriage requires couples to fairly share out the housework.",
+    "exampleVi": "Một cuộc hôn nhân lành mạnh đòi hỏi các cặp đôi phải chia sẻ công việc nhà một cách công bằng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1615,7 +1691,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A healthy marriage requires couples to fairly ________."
   },
   {
     "id": "w-78",
@@ -1624,8 +1701,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "tấm thảm sàn nhà",
     "definition": "",
-    "example": "The speaker used the word \"carpets\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"carpets\" trong đoạn hội thoại bài nghe.",
+    "example": "The luxurious hotel rooms are fitted with thick wool carpets.",
+    "exampleVi": "Các phòng khách sạn sang trọng được trang bị những tấm thảm len dày dặn.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1636,7 +1713,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The luxurious hotel rooms are fitted with thick wool ________."
   },
   {
     "id": "w-79",
@@ -1645,8 +1723,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "căn hộ chung",
     "definition": "",
-    "example": "The speaker used the word \"a shared flat\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"a shared flat\" trong đoạn hội thoại bài nghe.",
+    "example": "To save on rent during university, many students live in a shared flat.",
+    "exampleVi": "Để tiết kiệm tiền thuê nhà thời đại học, nhiều sinh viên sống trong một căn hộ chung.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1657,7 +1735,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "To save on rent during university, many students live in ________."
   },
   {
     "id": "w-80",
@@ -1666,8 +1745,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sở hữu",
     "definition": "",
-    "example": "The speaker used the word \"own\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"own\" trong đoạn hội thoại bài nghe.",
+    "example": "After years of renting, they finally saved enough money to own their home.",
+    "exampleVi": "Sau nhiều năm thuê nhà, cuối cùng họ đã tiết kiệm đủ tiền để sở hữu ngôi nhà của riêng mình.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1678,7 +1757,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "After years of renting, they finally saved enough money to ________ their home."
   },
   {
     "id": "w-81",
@@ -1687,8 +1767,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "điện thoại công cộng",
     "definition": "",
-    "example": "The speaker used the word \"payphone\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"payphone\" trong đoạn hội thoại bài nghe.",
+    "example": "Before cell phones were invented, people had to insert coins into a payphone.",
+    "exampleVi": "Trước khi điện thoại di động ra đời, mọi người phải nhét tiền xu vào điện thoại công cộng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1699,7 +1779,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Before cell phones were invented, people had to insert coins into a ________."
   },
   {
     "id": "w-82",
@@ -1708,8 +1789,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "bị hỏng",
     "definition": "",
-    "example": "The speaker used the word \"out of order\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"out of order\" trong đoạn hội thoại bài nghe.",
+    "example": "We had to take the stairs because the building elevator was out of order.",
+    "exampleVi": "Chúng tôi phải đi cầu thang bộ vì thang máy của tòa nhà đã bị hỏng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1720,7 +1801,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "We had to take the stairs because the building elevator was ________."
   },
   {
     "id": "w-83",
@@ -1729,8 +1811,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "phrase",
     "meaning": "liên hệ, liên lạc",
     "definition": "",
-    "example": "The speaker used the word \"get in touch\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"get in touch\" trong đoạn hội thoại bài nghe.",
+    "example": "Please get in touch with our customer support team if you have any questions.",
+    "exampleVi": "Vui lòng liên hệ với đội ngũ hỗ trợ khách hàng của chúng tôi nếu bạn có bất kỳ câu hỏi nào.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1741,7 +1823,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Please ________ with our customer support team if you have any questions."
   },
   {
     "id": "w-84",
@@ -1750,8 +1833,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "tiếng ồn kỳ lạ",
     "definition": "",
-    "example": "The speaker used the word \"peculiar noise\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"peculiar noise\" trong đoạn hội thoại bài nghe.",
+    "example": "I pulled over to check the vehicle after hearing a peculiar noise under the hood.",
+    "exampleVi": "Tôi tấp xe vào lề để kiểm tra sau khi nghe thấy một tiếng ồn kỳ lạ dưới nắp ca-pô.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1762,7 +1845,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I pulled over to check the vehicle after hearing a ________ under the hood."
   },
   {
     "id": "w-85",
@@ -1771,8 +1855,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "thông báo cho một nhóm đối tượng",
     "definition": "",
-    "example": "The speaker used the word \"notify\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"notify\" trong đoạn hội thoại bài nghe.",
+    "example": "The hospital will notify the patient's family as soon as surgery is finished.",
+    "exampleVi": "Bệnh viện sẽ thông báo cho gia đình bệnh nhân ngay sau khi ca phẫu thuật kết thúc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1783,7 +1867,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The hospital will ________ the patient's family as soon as surgery is finished."
   },
   {
     "id": "w-86",
@@ -1792,8 +1877,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "thông báo rộng rãi cho nhiều người hoặc số lượng lớn đối tượng",
     "definition": "",
-    "example": "The speaker used the word \"announce\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"announce\" trong đoạn hội thoại bài nghe.",
+    "example": "The airline will announce the new flight departure gate over the loudspeaker.",
+    "exampleVi": "Hãng hàng không sẽ thông báo cổng khởi hành mới của chuyến bay qua loa phát thanh.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1804,7 +1889,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The airline will ________ the new flight departure gate over the loudspeaker."
   },
   {
     "id": "w-87",
@@ -1813,8 +1899,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thời gian có giới hạn (time là thời gian nói chung)",
     "definition": "",
-    "example": "The speaker used the word \"period\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"period\" trong đoạn hội thoại bài nghe.",
+    "example": "The museum displays artwork created during the Renaissance period.",
+    "exampleVi": "Bảo tàng trưng bày các tác phẩm nghệ thuật được sáng tác trong thời kỳ Phục hưng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1825,7 +1911,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The museum displays artwork created during the Renaissance ________."
   },
   {
     "id": "w-88",
@@ -1834,8 +1921,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "cụm động từ",
     "meaning": "gặp vấn đề gì đó + n",
     "definition": "",
-    "example": "The speaker used the word \"Run into + sth\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Run into + sth\" trong đoạn hội thoại bài nghe.",
+    "example": "Be prepared in case you run into unexpected difficulties during your project.",
+    "exampleVi": "Hãy chuẩn bị tinh thần trong trường hợp bạn gặp phải những khó khăn bất ngờ trong dự án.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1846,7 +1933,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Be prepared in case you ________ unexpected difficulties during your project."
   },
   {
     "id": "w-89",
@@ -1855,8 +1943,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "có vẻ như (coi 1 thứ gì đó)",
     "definition": "",
-    "example": "The speaker used the word \"seems\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"seems\" trong đoạn hội thoại bài nghe.",
+    "example": "It seems that everyone in the office agrees with the proposed policy change.",
+    "exampleVi": "Có vẻ như mọi người trong văn phòng đều đồng ý với thay đổi chính sách được đề xuất.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1867,7 +1955,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "It ________ that everyone in the office agrees with the proposed policy change."
   },
   {
     "id": "w-90",
@@ -1876,8 +1965,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "tham vong",
     "definition": "",
-    "example": "The speaker used the word \"ambitious\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"ambitious\" trong đoạn hội thoại bài nghe.",
+    "example": "She is an ambitious young lawyer who aims to become a partner at the firm.",
+    "exampleVi": "Cô ấy là một nữ luật sư trẻ đầy tham vọng, đặt mục tiêu trở thành đối tác của công ty.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1888,7 +1977,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She is an ________ young lawyer who aims to become a partner at the firm."
   },
   {
     "id": "w-91",
@@ -1897,8 +1987,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "tính cách cứng nhắc",
     "definition": "",
-    "example": "The speaker used the word \"tough\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"tough\" trong đoạn hội thoại bài nghe.",
+    "example": "The manager has to make a tough decision regarding budget reductions.",
+    "exampleVi": "Người quản lý phải đưa ra một quyết định khó khăn, cứng rắn về việc cắt giảm ngân sách.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1909,7 +1999,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The manager has to make a ________ decision regarding budget reductions."
   },
   {
     "id": "w-92",
@@ -1918,8 +2009,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "quyết tâm",
     "definition": "",
-    "example": "The speaker used the word \"determined\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"determined\" trong đoạn hội thoại bài nghe.",
+    "example": "Despite numerous setbacks, he was determined to complete the marathon.",
+    "exampleVi": "Bất chấp nhiều trở ngại, anh ấy vẫn quyết tâm hoàn thành chặng đua marathon.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1930,7 +2021,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Despite numerous setbacks, he was ________ to complete the marathon."
   },
   {
     "id": "w-93",
@@ -1939,8 +2031,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "giá niêm yết",
     "definition": "",
-    "example": "The speaker used the word \"Listed price\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Listed price\" trong đoạn hội thoại bài nghe.",
+    "example": "You can often negotiate a discount below the listed price at this market.",
+    "exampleVi": "Bạn thường có thể thương lượng để giảm giá thấp hơn giá niêm yết tại khu chợ này.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1951,7 +2043,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You can often negotiate a discount below the ________ at this market."
   },
   {
     "id": "w-94",
@@ -1960,8 +2053,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "giá tham khảo",
     "definition": "",
-    "example": "The speaker used the word \"Reference price\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Reference price\" trong đoạn hội thoại bài nghe.",
+    "example": "Consumers use the manufacturer's suggested retail price as a reference price.",
+    "exampleVi": "Người tiêu dùng sử dụng giá bán lẻ đề xuất của nhà sản xuất như một mức giá tham khảo.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1972,7 +2065,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Consumers use the manufacturer's suggested retail price as a ________."
   },
   {
     "id": "w-95",
@@ -1981,8 +2075,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "âm thanh quay số",
     "definition": "",
-    "example": "The speaker used the word \"Dial tone\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Dial tone\" trong đoạn hội thoại bài nghe.",
+    "example": "She picked up the landline receiver and waited for the dial tone.",
+    "exampleVi": "Cô ấy nhấc ống nghe điện thoại bàn và đợi âm thanh quay số.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -1993,7 +2087,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She picked up the landline receiver and waited for the ________."
   },
   {
     "id": "w-96",
@@ -2002,8 +2097,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sự giúp đỡ",
     "definition": "",
-    "example": "The speaker used the word \"any favours of him\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"any favours of him\" trong đoạn hội thoại bài nghe.",
+    "example": "He is very proud and reluctant to ask any favours of him or anyone else.",
+    "exampleVi": "Anh ấy rất tự trọng và ngại nhờ vả bất kỳ sự giúp đỡ nào từ anh ta hay bất kỳ ai khác.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2014,7 +2109,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He is very proud and reluctant to ask ________ or anyone else."
   },
   {
     "id": "w-97",
@@ -2023,8 +2119,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "hàng xóm đối diện",
     "definition": "",
-    "example": "The speaker used the word \"across the street\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"across the street\" trong đoạn hội thoại bài nghe.",
+    "example": "The bakery across the street fills our apartment with the scent of fresh bread.",
+    "exampleVi": "Tiệm bánh đối diện bên kia đường làm cho căn hộ của chúng tôi ngập tràn mùi bánh mì mới.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2035,7 +2131,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The bakery ________ fills our apartment with the scent of fresh bread."
   },
   {
     "id": "w-98",
@@ -2044,8 +2141,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "điền vào (đọc là fill lốt)",
     "definition": "",
-    "example": "The speaker used the word \"Fill + out\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Fill + out\" trong đoạn hội thoại bài nghe.",
+    "example": "All applicants are required to fill out this questionnaire completely.",
+    "exampleVi": "Tất cả các ứng viên bắt buộc phải điền đầy đủ vào bảng câu hỏi này.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2056,7 +2153,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "All applicants are required to ________ this questionnaire completely."
   },
   {
     "id": "w-99",
@@ -2065,8 +2163,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "chắc chắn",
     "definition": "",
-    "example": "The speaker used the word \"certainly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"certainly\" trong đoạn hội thoại bài nghe.",
+    "example": "I will certainly attend your presentation tomorrow morning.",
+    "exampleVi": "Tôi chắc chắn sẽ tham dự buổi thuyết trình của bạn vào sáng mai.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2077,7 +2175,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I will ________ attend your presentation tomorrow morning."
   },
   {
     "id": "w-100",
@@ -2086,8 +2185,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "một kiểu người linh hoạt",
     "definition": "",
-    "example": "The speaker used the word \"a flexible sort of person\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"a flexible sort of person\" trong đoạn hội thoại bài nghe.",
+    "example": "In a startup environment, you need to be a flexible sort of person.",
+    "exampleVi": "Trong môi trường khởi nghiệp, bạn cần phải là một kiểu người linh hoạt.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2098,7 +2197,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "In a startup environment, you need to be ________."
   },
   {
     "id": "w-101",
@@ -2107,8 +2207,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "idiom",
     "meaning": "cười toe toét tới tận mang tai",
     "definition": "",
-    "example": "The speaker used the word \"grin from ear to ear\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"grin from ear to ear\" trong đoạn hội thoại bài nghe.",
+    "example": "When he heard he got the scholarship, he couldn't help but grin from ear to ear.",
+    "exampleVi": "Khi nghe tin mình nhận được học bổng, anh ấy không thể không cười toe toét tới tận mang tai.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2119,7 +2219,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "When he heard he got the scholarship, he couldn't help but ________."
   },
   {
     "id": "w-102",
@@ -2128,8 +2229,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cuối tuần",
     "definition": "",
-    "example": "The speaker used the word \"weekend\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"weekend\" trong đoạn hội thoại bài nghe.",
+    "example": "Do you have any exciting outdoor plans for the upcoming weekend?",
+    "exampleVi": "Bạn có kế hoạch dã ngoại thú vị nào cho dịp cuối tuần sắp tới không?",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2140,7 +2241,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Do you have any exciting outdoor plans for the upcoming ________?"
   },
   {
     "id": "w-103",
@@ -2149,8 +2251,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "1 tuần",
     "definition": "",
-    "example": "The speaker used the word \"Weekends\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Weekends\" trong đoạn hội thoại bài nghe.",
+    "example": "She prefers to spend her weekends reading books and resting at home.",
+    "exampleVi": "Cô ấy thích dành các ngày cuối tuần để đọc sách và nghỉ ngơi tại nhà.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2161,7 +2263,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She prefers to spend her ________ reading books and resting at home."
   },
   {
     "id": "w-104",
@@ -2170,8 +2273,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thứ sáu",
     "definition": "",
-    "example": "The speaker used the word \"Friday\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Friday\" trong đoạn hội thoại bài nghe.",
+    "example": "Our team always celebrates the end of the work week on Friday afternoon.",
+    "exampleVi": "Nhóm chúng tôi luôn ăn mừng kết thúc tuần làm việc vào chiều thứ Sáu.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2182,7 +2285,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Our team always celebrates the end of the work week on ________ afternoon."
   },
   {
     "id": "w-105",
@@ -2191,8 +2295,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thứ bảy",
     "definition": "",
-    "example": "The speaker used the word \"Saturday\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Saturday\" trong đoạn hội thoại bài nghe.",
+    "example": "The local farmers' market takes place every Saturday morning.",
+    "exampleVi": "Chợ nông sản địa phương diễn ra vào mỗi sáng thứ Bảy.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2203,7 +2307,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The local farmers' market takes place every ________ morning."
   },
   {
     "id": "w-106",
@@ -2212,8 +2317,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "cơ bắp",
     "definition": "",
-    "example": "The speaker used the word \"muscle\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"muscle\" trong đoạn hội thoại bài nghe.",
+    "example": "Regular exercise and protein intake help build strong muscle.",
+    "exampleVi": "Tập thể dục đều đặn và nạp protein giúp xây dựng cơ bắp săn chắc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2224,7 +2329,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Regular exercise and protein intake help build strong ________."
   },
   {
     "id": "w-107",
@@ -2233,8 +2339,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "đau ngực",
     "definition": "",
-    "example": "The speaker used the word \"chest pain\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"chest pain\" trong đoạn hội thoại bài nghe.",
+    "example": "If you experience acute chest pain, seek medical attention immediately.",
+    "exampleVi": "Nếu bạn bị đau ngực cấp tính, hãy đi khám y tế ngay lập tức.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2245,7 +2351,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "If you experience acute ________, seek medical attention immediately."
   },
   {
     "id": "w-108",
@@ -2254,8 +2361,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "một cách bình thường",
     "definition": "",
-    "example": "The speaker used the word \"Properly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Properly\" trong đoạn hội thoại bài nghe.",
+    "example": "Make sure you read the instructions so the equipment operates properly.",
+    "exampleVi": "Hãy đảm bảo bạn đọc kỹ hướng dẫn để thiết bị vận hành đúng cách, bình thường.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2266,7 +2373,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Make sure you read the instructions so the equipment operates ________."
   },
   {
     "id": "w-109",
@@ -2275,8 +2383,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "một cách đều đặn",
     "definition": "",
-    "example": "The speaker used the word \"Regularly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Regularly\" trong đoạn hội thoại bài nghe.",
+    "example": "Doctors advise that you should exercise regularly to maintain good health.",
+    "exampleVi": "Các bác sĩ khuyên rằng bạn nên tập thể dục đều đặn để duy trì sức khỏe tốt.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2287,7 +2395,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Doctors advise that you should exercise ________ to maintain good health."
   },
   {
     "id": "w-110",
@@ -2296,8 +2405,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nguyên liệu",
     "definition": "",
-    "example": "The speaker used the word \"ingredients\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"ingredients\" trong đoạn hội thoại bài nghe.",
+    "example": "The chef uses only fresh and organic ingredients in his pasta sauce.",
+    "exampleVi": "Bếp trưởng chỉ sử dụng các nguyên liệu tươi và hữu cơ trong món sốt mì Ý của mình.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2308,7 +2417,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The chef uses only fresh and organic ________ in his pasta sauce."
   },
   {
     "id": "w-111",
@@ -2317,8 +2427,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thuốc kháng sinh",
     "definition": "",
-    "example": "The speaker used the word \"Antibiotics\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Antibiotics\" trong đoạn hội thoại bài nghe.",
+    "example": "The doctor prescribed a seven-day course of antibiotics for the throat infection.",
+    "exampleVi": "Bác sĩ đã kê một đợt thuốc kháng sinh 7 ngày cho chứng viêm họng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2329,7 +2439,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The doctor prescribed a seven-day course of ________ for the throat infection."
   },
   {
     "id": "w-112",
@@ -2338,8 +2449,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thuốc giảm đau",
     "definition": "",
-    "example": "The speaker used the word \"Painkiller\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Painkiller\" trong đoạn hội thoại bài nghe.",
+    "example": "She took a strong painkiller to relieve her severe migraine headache.",
+    "exampleVi": "Cô ấy đã uống một viên thuốc giảm đau mạnh để làm dịu cơn đau nửa đầu dữ dội.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2350,7 +2461,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She took a strong ________ to relieve her severe migraine headache."
   },
   {
     "id": "w-113",
@@ -2359,8 +2471,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "chữa khỏi hoàn toàn (treat (v): điều trị)",
     "definition": "",
-    "example": "The speaker used the word \"cure\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"cure\" trong đoạn hội thoại bài nghe.",
+    "example": "Scientists are working tirelessly to discover a permanent cure for the disease.",
+    "exampleVi": "Các nhà khoa học đang nỗ lực không mệt mỏi để tìm ra phương pháp chữa khỏi hoàn toàn căn bệnh.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2371,7 +2483,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Scientists are working tirelessly to discover a permanent ________ for the disease."
   },
   {
     "id": "w-114",
@@ -2380,8 +2493,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sự nhiễm trùng",
     "definition": "",
-    "example": "The speaker used the word \"infections\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"infections\" trong đoạn hội thoại bài nghe.",
+    "example": "Washing your hands frequently helps prevent bacterial and viral infections.",
+    "exampleVi": "Rửa tay thường xuyên giúp ngăn ngừa sự nhiễm trùng do vi khuẩn và virus.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2392,7 +2505,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Washing your hands frequently helps prevent bacterial and viral ________."
   },
   {
     "id": "w-115",
@@ -2401,8 +2515,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "ngộ độc thực phẩm",
     "definition": "",
-    "example": "The speaker used the word \"food poisoning\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"food poisoning\" trong đoạn hội thoại bài nghe.",
+    "example": "Eating undercooked seafood can lead to severe food poisoning.",
+    "exampleVi": "Ăn hải sản chưa nấu chín kỹ có thể dẫn đến ngộ độc thực phẩm nghiêm trọng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2413,7 +2527,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Eating undercooked seafood can lead to severe ________."
   },
   {
     "id": "w-116",
@@ -2422,8 +2537,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "bệnh cúm",
     "definition": "",
-    "example": "The speaker used the word \"flu\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"flu\" trong đoạn hội thoại bài nghe.",
+    "example": "Getting a yearly vaccine is the best protection against seasonal flu.",
+    "exampleVi": "Tiêm vắc-xin hàng năm là cách bảo vệ tốt nhất chống lại bệnh cúm theo mùa.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2434,7 +2549,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Getting a yearly vaccine is the best protection against seasonal ________."
   },
   {
     "id": "w-117",
@@ -2443,8 +2559,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "bệnh tiểu đường",
     "definition": "",
-    "example": "The speaker used the word \"diabetes\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"diabetes\" trong đoạn hội thoại bài nghe.",
+    "example": "Patients with diabetes need to monitor their blood sugar levels carefully.",
+    "exampleVi": "Bệnh nhân mắc bệnh tiểu đường cần theo dõi mức đường huyết của mình một cách cẩn thận.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2455,7 +2571,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Patients with ________ need to monitor their blood sugar levels carefully."
   },
   {
     "id": "w-118",
@@ -2464,8 +2581,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "ung thư",
     "definition": "",
-    "example": "The speaker used the word \"cancer\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"cancer\" trong đoạn hội thoại bài nghe.",
+    "example": "Early detection plays a crucial role in surviving various forms of cancer.",
+    "exampleVi": "Phát hiện sớm đóng vai trò then chốt trong việc sống sót qua các dạng ung thư khác nhau.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2476,7 +2593,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Early detection plays a crucial role in surviving various forms of ________."
   },
   {
     "id": "w-119",
@@ -2485,8 +2603,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "bệnh lao",
     "definition": "",
-    "example": "The speaker used the word \"tuberculosis\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"tuberculosis\" trong đoạn hội thoại bài nghe.",
+    "example": "Modern antibiotics have made tuberculosis a treatable and curable illness.",
+    "exampleVi": "Thuốc kháng sinh hiện đại đã biến bệnh lao thành một căn bệnh có thể điều trị và chữa khỏi.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2497,7 +2615,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Modern antibiotics have made ________ a treatable and curable illness."
   },
   {
     "id": "w-120",
@@ -2506,8 +2625,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "phrase",
     "meaning": "là chìa khóa, yếu tố then chốt dẫn đến...",
     "definition": "",
-    "example": "The speaker used the word \"be the key to\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"be the key to\" trong đoạn hội thoại bài nghe.",
+    "example": "Consistent daily practice will be the key to passing your listening exam.",
+    "exampleVi": "Luyện tập kiên trì mỗi ngày sẽ là chìa khóa then chốt để vượt qua kỳ thi nghe của bạn.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2518,7 +2637,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Consistent daily practice will ________ passing your listening exam."
   },
   {
     "id": "w-121",
@@ -2527,8 +2647,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "bánh mỳ mới nướng",
     "definition": "",
-    "example": "The speaker used the word \"freshly baked bread\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"freshly baked bread\" trong đoạn hội thoại bài nghe.",
+    "example": "Nothing beats the delightful smell of freshly baked bread in the morning.",
+    "exampleVi": "Không gì tuyệt hơn mùi thơm ngào ngạt của bánh mì mới nướng vào buổi sáng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2539,7 +2659,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Nothing beats the delightful smell of ________ in the morning."
   },
   {
     "id": "w-122",
@@ -2548,8 +2669,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "mùi thơm nồng nàng",
     "definition": "",
-    "example": "The speaker used the word \"rich aroma\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"rich aroma\" trong đoạn hội thoại bài nghe.",
+    "example": "The rich aroma of ground coffee beans filled the entire cafe.",
+    "exampleVi": "Mùi thơm nồng nàn của những hạt cà phê mới xay lan tỏa khắp quán cà phê.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2560,7 +2681,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The ________ of ground coffee beans filled the entire cafe."
   },
   {
     "id": "w-123",
@@ -2569,8 +2691,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "khá nhiều",
     "definition": "",
-    "example": "The speaker used the word \"considerably\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"considerably\" trong đoạn hội thoại bài nghe.",
+    "example": "Her English listening comprehension has improved considerably this semester.",
+    "exampleVi": "Khả năng nghe hiểu tiếng Anh của cô ấy đã tiến bộ đáng kể trong học kỳ này.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2581,7 +2703,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Her English listening comprehension has improved ________ this semester."
   },
   {
     "id": "w-124",
@@ -2590,8 +2713,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "chiến dịch",
     "definition": "",
-    "example": "The speaker used the word \"campaign\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"campaign\" trong đoạn hội thoại bài nghe.",
+    "example": "The government launched an educational campaign to raise environmental awareness.",
+    "exampleVi": "Chính phủ đã phát động một chiến dịch giáo dục nhằm nâng cao nhận thức về môi trường.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2602,7 +2725,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The government launched an educational ________ to raise environmental awareness."
   },
   {
     "id": "w-125",
@@ -2611,8 +2735,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "tham khảo",
     "definition": "",
-    "example": "The speaker used the word \"consult\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"consult\" trong đoạn hội thoại bài nghe.",
+    "example": "You should consult a financial advisor before making any major investments.",
+    "exampleVi": "Bạn nên tham khảo ý kiến của một chuyên gia tư vấn tài chính trước khi đưa ra bất kỳ khoản đầu tư lớn nào.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2623,7 +2747,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You should ________ a financial advisor before making any major investments."
   },
   {
     "id": "w-126",
@@ -2632,8 +2757,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "tuổi thọ",
     "definition": "",
-    "example": "The speaker used the word \"expectancy\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"expectancy\" trong đoạn hội thoại bài nghe.",
+    "example": "Advances in medical science have led to a significant rise in life expectancy.",
+    "exampleVi": "Những tiến bộ trong y học đã dẫn đến sự gia tăng đáng kể về tuổi thọ.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2644,7 +2769,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Advances in medical science have led to a significant rise in life ________."
   },
   {
     "id": "w-127",
@@ -2653,8 +2779,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sống lâu",
     "definition": "",
-    "example": "The speaker used the word \"longevity\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"longevity\" trong đoạn hội thoại bài nghe.",
+    "example": "A balanced diet and stress reduction are known contributors to longevity.",
+    "exampleVi": "Chế độ ăn uống cân bằng và giảm căng thẳng là những yếu tố góp phần giúp sống lâu.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2665,7 +2791,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "A balanced diet and stress reduction are known contributors to ________."
   },
   {
     "id": "w-128",
@@ -2674,8 +2801,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "lão hóa",
     "definition": "",
-    "example": "The speaker used the word \"ageing\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"ageing\" trong đoạn hội thoại bài nghe.",
+    "example": "Many developed countries are currently facing the challenge of an ageing population.",
+    "exampleVi": "Nhiều quốc gia phát triển hiện đang phải đối mặt với thách thức dân số già hóa.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2686,7 +2813,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Many developed countries are currently facing the challenge of an ________ population."
   },
   {
     "id": "w-129",
@@ -2695,8 +2823,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "mắc phải",
     "definition": "",
-    "example": "The speaker used the word \"suffer from\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"suffer from\" trong đoạn hội thoại bài nghe.",
+    "example": "Many office workers suffer from chronic back pain due to poor posture.",
+    "exampleVi": "Nhiều nhân viên văn phòng mắc phải chứng đau lưng mãn tính do ngồi sai tư thế.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2707,7 +2835,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Many office workers ________ chronic back pain due to poor posture."
   },
   {
     "id": "w-130",
@@ -2716,8 +2845,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sự thiếu thốn",
     "definition": "",
-    "example": "The speaker used the word \"deprivation\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"deprivation\" trong đoạn hội thoại bài nghe.",
+    "example": "Chronic sleep deprivation can seriously impair your concentration and memory.",
+    "exampleVi": "Sự thiếu thốn giấc ngủ mãn tính có thể làm suy giảm nghiêm trọng khả năng tập trung và trí nhớ của bạn.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2728,7 +2857,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Chronic sleep ________ can seriously impair your concentration and memory."
   },
   {
     "id": "w-131",
@@ -2737,8 +2867,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "adv",
     "meaning": "ngay lập tức",
     "definition": "",
-    "example": "The speaker used the word \"promptly\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"promptly\" trong đoạn hội thoại bài nghe.",
+    "example": "The customer service team answered all my inquiries promptly and politely.",
+    "exampleVi": "Đội ngũ dịch vụ khách hàng đã giải đáp mọi thắc mắc của tôi ngay lập tức và lịch sự.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2749,7 +2879,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The customer service team answered all my inquiries ________ and politely."
   },
   {
     "id": "w-132",
@@ -2758,8 +2889,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thuốc",
     "definition": "",
-    "example": "The speaker used the word \"medication\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"medication\" trong đoạn hội thoại bài nghe.",
+    "example": "You must take this prescribed medication twice a day after meals.",
+    "exampleVi": "Bạn phải uống thuốc theo đơn này hai lần một ngày sau bữa ăn.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2770,7 +2901,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You must take this prescribed ________ twice a day after meals."
   },
   {
     "id": "w-133",
@@ -2779,8 +2911,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "ko thể chữa",
     "definition": "",
-    "example": "The speaker used the word \"incurable\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"incurable\" trong đoạn hội thoại bài nghe.",
+    "example": "Decades ago, many common infections were considered incurable and fatal.",
+    "exampleVi": "Nhiều thập kỷ trước, nhiều bệnh nhiễm trùng thông thường được coi là không thể chữa khỏi và gây tử vong.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2791,7 +2923,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Decades ago, many common infections were considered ________ and fatal."
   },
   {
     "id": "w-134",
@@ -2800,8 +2933,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "quan trọng",
     "definition": "",
-    "example": "The speaker used the word \"Vital\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Vital\" trong đoạn hội thoại bài nghe.",
+    "example": "Listening practice is vital for achieving a high band score in IELTS.",
+    "exampleVi": "Luyện nghe là điều cực kỳ quan trọng để đạt điểm cao trong bài thi IELTS.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2812,7 +2945,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Listening practice is ________ for achieving a high band score in IELTS."
   },
   {
     "id": "w-135",
@@ -2821,8 +2955,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nỗi buồn, sự đau lòng",
     "definition": "",
-    "example": "The speaker used the word \"sorrow\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"sorrow\" trong đoạn hội thoại bài nghe.",
+    "example": "She expressed great sorrow over the tragic loss of her beloved pet.",
+    "exampleVi": "Cô ấy bày tỏ nỗi buồn sâu sắc trước sự mất mát đau lòng của chú thú cưng yêu quý.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2833,7 +2967,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She expressed great ________ over the tragic loss of her beloved pet."
   },
   {
     "id": "w-136",
@@ -2842,8 +2977,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "áo khoác thể thao đa năng",
     "definition": "",
-    "example": "The speaker used the word \"sports jacket\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"sports jacket\" trong đoạn hội thoại bài nghe.",
+    "example": "He wore a tailored sports jacket with casual trousers for the dinner party.",
+    "exampleVi": "Anh ấy mặc một chiếc áo khoác thể thao vừa vặn cùng quần âu thường cho bữa tiệc tối.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2854,7 +2989,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "He wore a tailored ________ with casual trousers for the dinner party."
   },
   {
     "id": "w-137",
@@ -2863,8 +2999,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "mệt rã rời",
     "definition": "",
-    "example": "The speaker used the word \"Beat\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Beat\" trong đoạn hội thoại bài nghe.",
+    "example": "After a grueling 10-kilometer hike uphill, we were completely beat.",
+    "exampleVi": "Sau chuyến đi bộ leo dốc 10 km kiệt sức, chúng tôi mệt rã rời.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2875,7 +3011,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "After a grueling 10-kilometer hike uphill, we were completely ________."
   },
   {
     "id": "w-138",
@@ -2884,8 +3021,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "hành lý",
     "definition": "",
-    "example": "The speaker used the word \"luggage\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"luggage\" trong đoạn hội thoại bài nghe.",
+    "example": "Please keep an eye on your luggage while waiting at the airport terminal.",
+    "exampleVi": "Vui lòng để mắt đến hành lý của bạn trong khi chờ ở nhà ga sân bay.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2896,7 +3033,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Please keep an eye on your ________ while waiting at the airport terminal."
   },
   {
     "id": "w-139",
@@ -2905,8 +3043,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "phụ phí, phí bổ sung.",
     "definition": "",
-    "example": "The speaker used the word \"an extra charge\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"an extra charge\" trong đoạn hội thoại bài nghe.",
+    "example": "Passengers who exceed the baggage weight limit must pay an extra charge.",
+    "exampleVi": "Hành khách vượt quá giới hạn trọng lượng hành lý phải trả thêm một khoản phụ phí.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2917,7 +3055,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Passengers who exceed the baggage weight limit must pay ________."
   },
   {
     "id": "w-140",
@@ -2926,8 +3065,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "chỗ ngồi cạnh lối đi",
     "definition": "",
-    "example": "The speaker used the word \"aisle seat\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"aisle seat\" trong đoạn hội thoại bài nghe.",
+    "example": "I always prefer an aisle seat so I can easily stand up without disturbing others.",
+    "exampleVi": "Tôi luôn thích chỗ ngồi cạnh lối đi để có thể dễ dàng đứng dậy mà không làm phiền người khác.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2938,7 +3077,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I always prefer an ________ so I can easily stand up without disturbing others."
   },
   {
     "id": "w-141",
@@ -2947,8 +3087,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "khai báo, tuyên bố",
     "definition": "",
-    "example": "The speaker used the word \"Declare\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Declare\" trong đoạn hội thoại bài nghe.",
+    "example": "You must declare any taxable goods or large sums of cash at customs.",
+    "exampleVi": "Bạn phải khai báo bất kỳ hàng hóa chịu thuế hoặc số tiền mặt lớn nào tại hải quan.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2959,7 +3099,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "You must ________ any taxable goods or large sums of cash at customs."
   },
   {
     "id": "w-142",
@@ -2968,8 +3109,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "Thuốc lá",
     "definition": "",
-    "example": "The speaker used the word \"cigarettes\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"cigarettes\" trong đoạn hội thoại bài nghe.",
+    "example": "Smoking cigarettes is strictly prohibited in all areas of the hospital.",
+    "exampleVi": "Hút thuốc lá bị nghiêm cấm trong tất cả các khu vực của bệnh viện.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -2980,7 +3121,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Smoking ________ is strictly prohibited in all areas of the hospital."
   },
   {
     "id": "w-143",
@@ -2989,8 +3131,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "nước hoa",
     "definition": "",
-    "example": "The speaker used the word \"perfume\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"perfume\" trong đoạn hội thoại bài nghe.",
+    "example": "She applied a subtle floral perfume before heading out to the party.",
+    "exampleVi": "Cô ấy xịt một chút nước hoa hương hoa nhẹ nhàng trước khi đi dự tiệc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3001,7 +3143,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She applied a subtle floral ________ before heading out to the party."
   },
   {
     "id": "w-144",
@@ -3010,8 +3153,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "cái gì cơ",
     "definition": "",
-    "example": "The speaker used the word \"Pardon\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Pardon\" trong đoạn hội thoại bài nghe.",
+    "example": "I beg your pardon, but could you please repeat that last sentence?",
+    "exampleVi": "Xin thứ lỗi, cái gì cơ, bạn có thể vui lòng nhắc lại câu cuối cùng đó không?",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3022,7 +3165,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I beg your ________, but could you please repeat that last sentence?"
   },
   {
     "id": "w-145",
@@ -3031,8 +3175,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "duyên dáng",
     "definition": "",
-    "example": "The speaker used the word \"elegant\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"elegant\" trong đoạn hội thoại bài nghe.",
+    "example": "The ballroom was decorated with elegant crystal chandeliers and white roses.",
+    "exampleVi": "Phòng khiêu vũ được trang trí bằng những chùm đèn pha lê duyên dáng và hoa hồng trắng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3043,7 +3187,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The ballroom was decorated with ________ crystal chandeliers and white roses."
   },
   {
     "id": "w-146",
@@ -3052,8 +3197,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "collocation",
     "meaning": "dễ thương hết nấc",
     "definition": "",
-    "example": "The speaker used the word \"as cute as a button\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"as cute as a button\" trong đoạn hội thoại bài nghe.",
+    "example": "Look at the new puppy with its floppy ears; it is as cute as a button!",
+    "exampleVi": "Nhìn chú cún con mới với đôi tai cụp kìa; nó dễ thương hết nấc!",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3064,7 +3209,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Look at the new puppy with its floppy ears; it is ________!"
   },
   {
     "id": "w-147",
@@ -3073,8 +3219,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "xì gà",
     "definition": "",
-    "example": "The speaker used the word \"cigars\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"cigars\" trong đoạn hội thoại bài nghe.",
+    "example": "Cuban cigars are famous worldwide for their premium quality and aroma.",
+    "exampleVi": "Xì gà Cuba nổi tiếng khắp thế giới nhờ chất lượng cao cấp và hương thơm đặc trưng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3085,7 +3231,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Cuban ________ are famous worldwide for their premium quality and aroma."
   },
   {
     "id": "w-148",
@@ -3094,8 +3241,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "a",
     "meaning": "ghen tị ==  envy (v): ghen tị",
     "definition": "",
-    "example": "The speaker used the word \"Jealous\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Jealous\" trong đoạn hội thoại bài nghe.",
+    "example": "She felt jealous when her colleague received the prestigious promotion.",
+    "exampleVi": "Cô ấy cảm thấy ghen tị khi đồng nghiệp của mình nhận được sự thăng chức danh giá.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3106,7 +3253,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "She felt ________ when her colleague received the prestigious promotion."
   },
   {
     "id": "w-149",
@@ -3115,8 +3263,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "cá rằng",
     "definition": "",
-    "example": "The speaker used the word \"Bet\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"Bet\" trong đoạn hội thoại bài nghe.",
+    "example": "I bet our team will win the football match tonight.",
+    "exampleVi": "Tôi cá rằng đội của chúng ta sẽ thắng trận bóng đá tối nay.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3127,7 +3275,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "I ________ our team will win the football match tonight."
   },
   {
     "id": "w-150",
@@ -3136,8 +3285,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "khoai tây nghiền",
     "definition": "",
-    "example": "The speaker used the word \"mashed potatoes\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"mashed potatoes\" trong đoạn hội thoại bài nghe.",
+    "example": "Roast chicken is traditionally served with gravy and creamy mashed potatoes.",
+    "exampleVi": "Gà quay theo truyền thống được ăn kèm với nước sốt và khoai tây nghiền béo ngậy.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3148,7 +3297,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "Roast chicken is traditionally served with gravy and creamy ________."
   },
   {
     "id": "w-151",
@@ -3157,8 +3307,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "thư ký",
     "definition": "",
-    "example": "The speaker used the word \"secretary\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"secretary\" trong đoạn hội thoại bài nghe.",
+    "example": "The executive secretary scheduled all appointments and handled correspondence.",
+    "exampleVi": "Thư ký điều hành đã lên lịch cho mọi cuộc hẹn và xử lý thư từ công việc.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3169,7 +3319,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The executive ________ scheduled all appointments and handled correspondence."
   },
   {
     "id": "w-152",
@@ -3178,8 +3329,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "bồi bàn",
     "definition": "",
-    "example": "The speaker used the word \"waitress\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"waitress\" trong đoạn hội thoại bài nghe.",
+    "example": "The friendly waitress recommended the chef's special pasta dish.",
+    "exampleVi": "Cô bồi bàn thân thiện đã gợi ý món mì Ý đặc biệt của bếp trưởng.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3190,7 +3341,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The friendly ________ recommended the chef's special pasta dish."
   },
   {
     "id": "w-153",
@@ -3199,8 +3351,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "tỉa bớt bụi cây",
     "definition": "",
-    "example": "The speaker used the word \"trim the bushes\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"trim the bushes\" trong đoạn hội thoại bài nghe.",
+    "example": "On sunny weekends, he uses garden shears to trim the bushes in the yard.",
+    "exampleVi": "Vào những ngày cuối tuần nắng đẹp, anh ấy dùng kéo làm vườn để tỉa bớt bụi cây trong sân.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3211,7 +3363,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "On sunny weekends, he uses garden shears to ________ in the yard."
   },
   {
     "id": "w-154",
@@ -3220,8 +3373,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "v",
     "meaning": "nhổ cỏ trong luống hoa",
     "definition": "",
-    "example": "The speaker used the word \"weed the flower beds\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"weed the flower beds\" trong đoạn hội thoại bài nghe.",
+    "example": "The gardener spent the afternoon helping her weed the flower beds.",
+    "exampleVi": "Người làm vườn đã dành cả buổi chiều để giúp cô ấy nhổ cỏ trong luống hoa.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3232,7 +3385,8 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The gardener spent the afternoon helping her ________."
   },
   {
     "id": "w-155",
@@ -3241,8 +3395,8 @@ window.DEFAULT_VOCAB_DATA = [
     "partOfSpeech": "n",
     "meaning": "sư mong đợi",
     "definition": "",
-    "example": "The speaker used the word \"satisfactory\" in the listening conversation.",
-    "exampleVi": "Người nói đã dùng từ \"satisfactory\" trong đoạn hội thoại bài nghe.",
+    "example": "The student gave a satisfactory explanation for being late to class.",
+    "exampleVi": "Học sinh đã đưa ra một lời giải thích thỏa đáng, đạt mong đợi cho việc đi học muộn.",
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
@@ -3253,6 +3407,7 @@ window.DEFAULT_VOCAB_DATA = [
     "tags": [
       "listening",
       "google-doc"
-    ]
+    ],
+    "gapSentence": "The student gave a ________ explanation for being late to class."
   }
 ];

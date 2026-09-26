@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v3', // v3: tự động xoá toàn bộ dữ liệu rác/trùng 270 từ cũ
+  WORDS: 'docvocab_words_v4', // v4: Nâng cấp 100% ngữ cảnh Oxford Learner's Dictionary
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -81,6 +81,7 @@ class StorageManager {
         definition: w.definition || '',
         example: w.example || `The speaker used the word "${wordText}" in the listening conversation.`,
         exampleVi: w.exampleVi || `Người nói đã dùng từ "${wordText}" trong bài nghe.`,
+        gapSentence: w.gapSentence || '',
         audioUrl: w.audioUrl || '',
         isNew: false,
         isStarred: !!w.isStarred,
@@ -102,9 +103,33 @@ class StorageManager {
         const remoteWords = await resp.json();
         if (Array.isArray(remoteWords) && remoteWords.length >= 100) {
           const cleanRemote = this.sanitizeList(remoteWords);
-          // Cập nhật lại toàn bộ kho từ nếu máy đang bị lưu sai
-          if (this.words.length !== cleanRemote.length || this.words.some(w => !w.word)) {
-            this.saveWords(cleanRemote);
+          // Cập nhật lại toàn bộ kho từ nếu máy đang bị lưu thiếu hoặc chưa có câu ví dụ Oxford
+          const needsUpdate = this.words.length !== cleanRemote.length || 
+                              this.words.some(w => !w.word || !w.gapSentence);
+          if (needsUpdate) {
+            const currentStats = {};
+            this.words.forEach(w => {
+              if (w && w.word) {
+                currentStats[w.word.toLowerCase().trim()] = {
+                  isStarred: !!w.isStarred,
+                  isMastered: !!w.isMastered,
+                  quizCount: w.quizCount || 0,
+                  correctCount: w.correctCount || 0
+                };
+              }
+            });
+            const updatedList = cleanRemote.map(item => {
+              const key = (item.word || '').toLowerCase().trim();
+              const prev = currentStats[key] || {};
+              return {
+                ...item,
+                isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
+                isMastered: prev.isMastered !== undefined ? prev.isMastered : !!item.isMastered,
+                quizCount: prev.quizCount !== undefined ? prev.quizCount : (item.quizCount || 0),
+                correctCount: prev.correctCount !== undefined ? prev.correctCount : (item.correctCount || 0)
+              };
+            });
+            this.saveWords(updatedList);
           }
         }
       }
@@ -127,7 +152,41 @@ class StorageManager {
 
       const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!raw) {
-        const sanitizedDefault = this.sanitizeList(defaultData);
+        // Migrate tiến trình (sao, độ thành thạo) từ v3 sang v4 nếu có
+        let statsMap = {};
+        const v3Raw = localStorage.getItem('docvocab_words_v3');
+        if (v3Raw) {
+          try {
+            const v3List = JSON.parse(v3Raw);
+            if (Array.isArray(v3List)) {
+              v3List.forEach(item => {
+                if (item && item.word) {
+                  statsMap[item.word.toLowerCase().trim()] = {
+                    isStarred: !!item.isStarred,
+                    isMastered: !!item.isMastered,
+                    quizCount: item.quizCount || 0,
+                    correctCount: item.correctCount || 0
+                  };
+                }
+              });
+            }
+          } catch (e) {}
+          try { localStorage.removeItem('docvocab_words_v3'); } catch (e) {}
+        }
+
+        const mergedList = defaultData.map(item => {
+          const key = (item.word || '').toLowerCase().trim();
+          const prev = statsMap[key] || {};
+          return {
+            ...item,
+            isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
+            isMastered: prev.isMastered !== undefined ? prev.isMastered : !!item.isMastered,
+            quizCount: prev.quizCount !== undefined ? prev.quizCount : (item.quizCount || 0),
+            correctCount: prev.correctCount !== undefined ? prev.correctCount : (item.correctCount || 0)
+          };
+        });
+
+        const sanitizedDefault = this.sanitizeList(mergedList);
         this.saveWords(sanitizedDefault);
         return sanitizedDefault;
       }

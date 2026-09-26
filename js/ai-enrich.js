@@ -195,68 +195,78 @@ Hãy trả về DUY NHẤT một chuỗi JSON hợp lệ (không kèm markdown \
   }
 
   /**
-   * Tạo câu hỏi trắc nghiệm thông minh dựa trên từ vựng và toàn bộ kho từ
+   * Tạo câu hỏi trắc nghiệm thông minh dựa trên ngữ cảnh chuẩn Oxford
    */
-  createQuizQuestions(targetWord, allWords, count = 1) {
+  createQuizQuestions(targetWord, allWords, preferredType = 'sentence-gap') {
     const questions = [];
-    const otherWords = allWords.filter(w => w.id !== targetWord.id && w.word.toLowerCase() !== targetWord.word.toLowerCase());
+    const otherWords = allWords.filter(w => w && w.word && w.word.toLowerCase() !== targetWord.word.toLowerCase());
 
-    // Kiểu 1: Chọn nghĩa đúng của từ vựng (Word -> Meaning)
-    const options1 = this.getDistractors(targetWord.meaning, otherWords.map(w => w.meaning), 3);
-    options1.push(targetWord.meaning);
-    this.shuffle(options1);
-
-    questions.push({
-      type: 'word-to-meaning',
-      title: 'Chọn nghĩa đúng của từ:',
-      prompt: targetWord.word,
-      phonetic: targetWord.phonetic,
-      partOfSpeech: targetWord.partOfSpeech,
-      audioUrl: targetWord.audioUrl,
-      options: options1,
-      correctAnswer: targetWord.meaning,
-      wordItem: targetWord
-    });
-
-    // Kiểu 2: Ngữ cảnh điền từ vào chỗ trống (Context Sentence Gap-fill)
-    if (targetWord.example && targetWord.example.toLowerCase().includes(targetWord.word.toLowerCase())) {
-      // Thay thế từ trong câu ví dụ bằng ô trống ______
+    // 1. DẠNG ƯU TIÊN SỐ 1: BÀI TẬP NGỮ CẢNH OXFORD (Gap-fill)
+    let gapSentence = targetWord.gapSentence;
+    if (!gapSentence && targetWord.example) {
       const regex = new RegExp(`\\b${targetWord.word}\\b`, 'gi');
-      const gapSentence = targetWord.example.replace(regex, '________');
-
-      const options2 = this.getDistractors(targetWord.word, otherWords.map(w => w.word), 3);
-      options2.push(targetWord.word);
-      this.shuffle(options2);
-
-      questions.push({
-        type: 'sentence-gap',
-        title: 'Điền từ thích hợp vào ngữ cảnh:',
-        prompt: gapSentence,
-        hint: targetWord.meaning,
-        exampleVi: targetWord.exampleVi,
-        options: options2,
-        correctAnswer: targetWord.word,
-        wordItem: targetWord
-      });
+      gapSentence = targetWord.example.replace(regex, '________');
+    }
+    if (!gapSentence) {
+      gapSentence = `In everyday listening, the speaker used the word "________" in conversation.`;
     }
 
-    // Kiểu 3: Nghe phát âm và chọn từ đúng (Listening Audio Quiz)
-    const options3 = this.getDistractors(targetWord.word, otherWords.map(w => w.word), 3);
-    options3.push(targetWord.word);
-    this.shuffle(options3);
+    // Lựa chọn các từ cùng từ loại hoặc trong cùng bài học làm đáp án nhiễu
+    const samePosWords = otherWords.filter(w => w.partOfSpeech && targetWord.partOfSpeech && w.partOfSpeech === targetWord.partOfSpeech);
+    const poolForDistractors = samePosWords.length >= 3 ? samePosWords : otherWords;
 
+    const optionsWords = this.getDistractors(targetWord.word, poolForDistractors.map(w => w.word), 3);
+    optionsWords.push(targetWord.word);
+    this.shuffle(optionsWords);
+
+    // Câu hỏi Ngữ cảnh Oxford
     questions.push({
-      type: 'listening-select',
-      title: 'Nghe phát âm và chọn từ vựng đúng:',
-      prompt: '🎧 Nhấn loa để nghe',
-      listenWord: targetWord.word,
-      audioUrl: targetWord.audioUrl,
-      options: options3,
+      type: 'sentence-gap',
+      title: '📖 Bài tập ngữ cảnh Oxford (Chọn từ điền vào câu):',
+      prompt: gapSentence,
+      hint: targetWord.meaning,
+      fullSentence: targetWord.example || gapSentence.replace('________', targetWord.word),
+      exampleVi: targetWord.exampleVi || '',
+      options: optionsWords,
       correctAnswer: targetWord.word,
       wordItem: targetWord
     });
 
-    return questions.slice(0, count);
+    // 2. DẠNG 2: NGHE CÂU NGỮ CẢNH OXFORD VÀ ĐIỀN TỪ (Listening Context Quiz)
+    questions.push({
+      type: 'listening-context',
+      title: '🎧 Nghe câu ngữ cảnh Oxford và chọn từ đúng:',
+      prompt: gapSentence,
+      listenWord: targetWord.word,
+      audioSentence: targetWord.example || '',
+      fullSentence: targetWord.example || gapSentence.replace('________', targetWord.word),
+      hint: targetWord.meaning,
+      exampleVi: targetWord.exampleVi || '',
+      options: optionsWords,
+      correctAnswer: targetWord.word,
+      wordItem: targetWord
+    });
+
+    // 3. DẠNG 3: TRẮC NGHIỆM NGHĨA TỪ
+    const optionsMeaning = this.getDistractors(targetWord.meaning, otherWords.map(w => w.meaning), 3);
+    optionsMeaning.push(targetWord.meaning);
+    this.shuffle(optionsMeaning);
+
+    questions.push({
+      type: 'word-to-meaning',
+      title: 'Chọn nghĩa đúng của từ vựng:',
+      prompt: targetWord.word,
+      phonetic: targetWord.phonetic,
+      partOfSpeech: targetWord.partOfSpeech,
+      audioUrl: targetWord.audioUrl,
+      fullSentence: targetWord.example || '',
+      exampleVi: targetWord.exampleVi || '',
+      options: optionsMeaning,
+      correctAnswer: targetWord.meaning,
+      wordItem: targetWord
+    });
+
+    return questions;
   }
 
   getDistractors(correctItem, pool, count = 3) {

@@ -192,11 +192,11 @@ def main():
             continue
 
         if key in existing_map:
-            # Cập nhật nếu có thêm thông tin
+            # Cập nhật nếu có thêm thông tin, nhưng không ghi đè câu ví dụ Oxford chuẩn
             curr = existing_map[key]
             if item.get('meaning') and item['meaning'] != 'Đang cập nhật...':
                 curr['meaning'] = item['meaning']
-            if item.get('example'):
+            if item.get('example') and not curr.get('example'):
                 curr['example'] = item['example']
         else:
             # Tra cứu từ điển tự động
