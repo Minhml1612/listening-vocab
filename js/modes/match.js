@@ -90,7 +90,7 @@ class MatchController {
     if (!this.selectedTile) {
       this.selectedTile = tile;
       if (tileEl) {
-        tileEl.classList.add('ring-2', 'ring-[#D97757]', 'bg-[#D97757]/15', 'dark:bg-[#D97757]/20');
+        tileEl.classList.add('ring-2', 'ring-[#4255FF]', 'bg-blue-50', 'dark:bg-blue-950/60', 'border-[#4255FF]');
       }
       if (tile.type === 'word') {
         window.appAudio.speak(tile.text, { audioUrl: tile.audioUrl });
@@ -118,11 +118,11 @@ class MatchController {
       window.appAudio.playCorrect();
 
       if (firstEl) {
-        firstEl.classList.remove('ring-[#D97757]', 'bg-[#D97757]/15', 'dark:bg-[#D97757]/20');
-        firstEl.classList.add('bg-[#10B981]/20', 'border-[#10B981]', 'opacity-0', 'scale-90', 'transition-all', 'duration-300');
+        firstEl.classList.remove('ring-2', 'ring-[#4255FF]', 'bg-blue-50', 'dark:bg-blue-950/60', 'border-[#4255FF]');
+        firstEl.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-700', 'opacity-0', 'scale-90', 'transition-all', 'duration-300');
       }
       if (secondEl) {
-        secondEl.classList.add('bg-[#10B981]/20', 'border-[#10B981]', 'opacity-0', 'scale-90', 'transition-all', 'duration-300');
+        secondEl.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-700', 'opacity-0', 'scale-90', 'transition-all', 'duration-300');
       }
 
       this.clearSelection();
@@ -135,13 +135,13 @@ class MatchController {
     } else {
       // Ghép SAI!
       window.appAudio.playIncorrect();
-      if (firstEl) firstEl.classList.add('border-[#EF4444]', 'bg-[#EF4444]/15', 'shake-it');
-      if (secondEl) secondEl.classList.add('border-[#EF4444]', 'bg-[#EF4444]/15', 'shake-it');
+      if (firstEl) firstEl.classList.add('border-rose-500', 'bg-rose-50', 'dark:bg-rose-950/40', 'shake-it');
+      if (secondEl) secondEl.classList.add('border-rose-500', 'bg-rose-50', 'dark:bg-rose-950/40', 'shake-it');
 
       setTimeout(() => {
         this.clearSelection();
-        if (firstEl) firstEl.classList.remove('border-[#EF4444]', 'bg-[#EF4444]/15', 'shake-it');
-        if (secondEl) secondEl.classList.remove('border-[#EF4444]', 'bg-[#EF4444]/15', 'shake-it');
+        if (firstEl) firstEl.classList.remove('border-rose-500', 'bg-rose-50', 'dark:bg-rose-950/40', 'shake-it');
+        if (secondEl) secondEl.classList.remove('border-rose-500', 'bg-rose-50', 'dark:bg-rose-950/40', 'shake-it');
       }, 400);
     }
   }
@@ -150,7 +150,7 @@ class MatchController {
     if (this.selectedTile) {
       const el = document.getElementById(this.selectedTile.id);
       if (el) {
-        el.classList.remove('ring-2', 'ring-[#D97757]', 'bg-[#D97757]/15', 'dark:bg-[#D97757]/20');
+        el.classList.remove('ring-2', 'ring-[#4255FF]', 'bg-blue-50', 'dark:bg-blue-950/60', 'border-[#4255FF]');
       }
       this.selectedTile = null;
     }
@@ -177,12 +177,12 @@ class MatchController {
     container.innerHTML = `
       <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
         <!-- Top bar: Đồng hồ đếm thời gian & Số cặp -->
-        <div class="flex items-center justify-between px-1 mb-3 pb-2 border-b border-[#E6E1D8] dark:border-[#292522]">
+        <div class="flex items-center justify-between px-1 mb-3 pb-2 border-b border-[#E5E8EF] dark:border-[#282E4E]">
           <div class="flex items-center gap-2">
-            <span class="text-xs font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D]">$ timer:</span>
-            <span id="match-timer" class="font-mono text-xl font-bold text-[#D97757]">0.0s</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4]">Thời gian:</span>
+            <span id="match-timer" class="text-xl font-black text-[#4255FF]">0.0s</span>
           </div>
-          <button onclick="window.matchCtrl.init(window.appStorage.words)" class="p-2 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757] rounded-lg">
+          <button onclick="window.matchCtrl.init(window.appStorage.words)" class="p-2 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF] rounded-xl hover:bg-slate-100 dark:hover:bg-[#252945] transition-colors" title="Chơi lại ván mới">
             <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
           </button>
         </div>
@@ -190,18 +190,18 @@ class MatchController {
         <!-- Lưới thẻ ghép 2 cột x 6 hàng -->
         <div class="grid grid-cols-2 gap-2 flex-1 content-start">
           ${this.tiles.map(tile => `
-            <button id="${tile.id}" onclick="window.matchCtrl.handleTileClick('${tile.id}')" class="p-3 md:p-3.5 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] hover:border-[#D97757]/60 shadow-sm min-h-[72px] md:min-h-[80px] flex flex-col justify-center items-center text-center transition-all duration-200 active:scale-95">
-              <span class="font-bold ${tile.type === 'word' ? 'text-base text-[#1E1D1B] dark:text-[#EDE8E3] font-sans' : 'text-xs md:text-sm text-[#736D64] dark:text-[#9E968D] font-sans'}">
+            <button id="${tile.id}" onclick="window.matchCtrl.handleTileClick('${tile.id}')" class="p-3 md:p-3.5 rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] bg-white dark:bg-[#1A1D36] hover:border-[#4255FF] shadow-sm min-h-[72px] md:min-h-[80px] flex flex-col justify-center items-center text-center transition-all duration-200 active:scale-95">
+              <span class="font-bold ${tile.type === 'word' ? 'text-base text-[#2E3856] dark:text-white' : 'text-xs md:text-sm text-[#586380] dark:text-[#939BB4]'}">
                 ${tile.text}
               </span>
-              ${tile.phonetic ? `<span class="text-[11px] font-mono text-[#D97757] mt-0.5">${tile.phonetic}</span>` : ''}
+              ${tile.phonetic ? `<span class="text-[11px] font-medium text-[#4255FF] mt-0.5">${tile.phonetic}</span>` : ''}
             </button>
           `).join('')}
         </div>
 
         <!-- Hướng dẫn nhanh -->
-        <p class="text-center text-xs font-mono text-[#736D64] dark:text-[#9E968D] mt-3">
-          $ match: chạm 1 từ tiếng Anh &amp; 1 nghĩa tương ứng
+        <p class="text-center text-xs text-[#586380] dark:text-[#939BB4] mt-3 font-medium">
+          Chạm 1 từ tiếng Anh và 1 nghĩa tương ứng để ghép đôi
         </p>
       </div>
     `;
@@ -215,22 +215,22 @@ class MatchController {
 
     container.innerHTML = `
       <div class="max-w-md mx-auto text-center py-8 px-4">
-        <div class="w-16 h-16 rounded-2xl bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 flex items-center justify-center mx-auto mb-4 shadow-sm">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-[#23B26D] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center mx-auto mb-4 shadow-sm">
           <i data-lucide="zap" class="w-8 h-8"></i>
         </div>
 
-        <h2 class="text-xl md:text-2xl font-bold font-sans text-[#1E1D1B] dark:text-[#EDE8E3]">
+        <h2 class="text-xl md:text-2xl font-bold font-sans text-[#2E3856] dark:text-white">
           Ghép thẻ thần tốc! ⚡
         </h2>
-        <p class="text-xs font-mono text-[#736D64] dark:text-[#9E968D] mt-1">Thời gian hoàn thành: <span class="text-[#D97757] font-bold">${this.elapsedSeconds} giây</span></p>
+        <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-1">Thời gian hoàn thành: <span class="text-[#4255FF] font-bold">${this.elapsedSeconds} giây</span></p>
 
         <div class="space-y-2 mt-6">
-          <button onclick="window.matchCtrl.init(window.appStorage.words)" class="w-full py-3.5 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
+          <button onclick="window.matchCtrl.init(window.appStorage.words)" class="w-full py-3.5 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
             <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            <span>$ play-again</span>
+            <span>Chơi ván mới</span>
           </button>
-          <button onclick="window.appRouter.navigate('home')" class="w-full py-2.5 bg-black/5 dark:bg-white/5 border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono text-xs rounded-xl flex items-center justify-center gap-2">
-            <span>$ return-home</span>
+          <button onclick="window.appRouter.navigate('home')" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] text-[#2E3856] dark:text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2">
+            <span>Quay về trang chủ</span>
           </button>
         </div>
       </div>

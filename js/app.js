@@ -35,9 +35,9 @@ class AppRouter {
       this.updateSyncBadge(false);
       const detail = e.detail;
       if (detail.addedCount > 0) {
-        this.showToast(`🎉 Đã cập nhật ${detail.addedCount} từ vựng mới từ Google Docs!`, 'success');
-      } else {
-        this.showToast(`✅ Đã đồng bộ tài liệu mới nhất (${detail.total} từ)`, 'info');
+        this.showToast(`🎉 Đã cập nhật ${detail.addedCount} từ mới từ Google Docs!`, 'success');
+      } else if (!detail.silent) {
+        this.showToast(`✅ Đã đồng bộ tài liệu (${detail.total} từ)`, 'info');
       }
       if (this.currentRoute === 'home') {
         this.renderWordList();
@@ -46,7 +46,9 @@ class AppRouter {
 
     window.addEventListener('sync:error', (e) => {
       this.updateSyncBadge(false);
-      this.showToast(e.detail.message || 'Lỗi khi đồng bộ Google Docs', 'error');
+      if (!e.detail?.silent) {
+        this.showToast(e.detail?.message || 'Lỗi khi đồng bộ Google Docs', 'error');
+      }
     });
 
     window.addEventListener('vocab:updated', () => {
@@ -162,11 +164,11 @@ class AppRouter {
     const filterButtons = document.querySelectorAll('.filter-chip');
     filterButtons.forEach(btn => {
       if (btn.dataset.filter === filter) {
-        btn.classList.add('bg-[#D97757]', 'text-white', 'border-[#D97757]');
-        btn.classList.remove('bg-white', 'dark:bg-[#1E1C1A]', 'text-[#736D64]', 'dark:text-[#9E968D]');
+        btn.classList.add('bg-[#4255FF]', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-white', 'dark:bg-[#1A1D36]', 'text-[#586380]', 'dark:text-[#939BB4]');
       } else {
-        btn.classList.remove('bg-[#D97757]', 'text-white', 'border-[#D97757]');
-        btn.classList.add('bg-white', 'dark:bg-[#1E1C1A]', 'text-[#736D64]', 'dark:text-[#9E968D]');
+        btn.classList.remove('bg-[#4255FF]', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'dark:bg-[#1A1D36]', 'text-[#586380]', 'dark:text-[#939BB4]');
       }
     });
     this.renderWordList();
@@ -209,10 +211,10 @@ class AppRouter {
 
     if (words.length === 0) {
       listContainer.innerHTML = `
-        <div class="text-center py-12 px-4 bg-white dark:bg-[#1E1C1A] rounded-2xl border border-[#E6E1D8] dark:border-[#332E2A]">
-          <p class="text-xs md:text-sm font-mono text-[#736D64] dark:text-[#9E968D]">Không tìm thấy từ vựng nào phù hợp.</p>
-          <button onclick="window.appRouter.setFilter('all'); document.getElementById('search-input').value = ''; window.appRouter.handleSearch('')" class="mt-2 text-xs font-mono text-[#D97757] font-semibold hover:underline">
-            $ reset-filter
+        <div class="text-center py-12 px-4 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E]">
+          <p class="text-sm font-medium text-[#586380] dark:text-[#939BB4]">Không tìm thấy từ vựng nào phù hợp.</p>
+          <button onclick="window.appRouter.setFilter('all'); document.getElementById('search-input').value = ''; window.appRouter.handleSearch('')" class="mt-2 text-xs font-bold text-[#4255FF] hover:underline">
+            Xoá bộ lọc tìm kiếm
           </button>
         </div>
       `;
@@ -220,28 +222,26 @@ class AppRouter {
     }
 
     listContainer.innerHTML = words.map((w, idx) => `
-      <div class="p-3.5 md:p-4 bg-white dark:bg-[#1E1C1A] rounded-2xl border border-[#E6E1D8] dark:border-[#332E2A] hover:border-[#D97757]/60 dark:hover:border-[#D97757]/60 shadow-sm transition-all group">
-        <div class="flex items-start justify-between gap-2">
+      <div class="p-4 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF]/40 shadow-sm transition-all group">
+        <div class="flex items-start justify-between gap-3">
           <div class="flex-1">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="text-xs font-mono text-[#736D64] dark:text-[#9E968D]">#${String(idx + 1).padStart(3, '0')}</span>
-              <span class="text-base md:text-lg font-bold text-[#1E1D1B] dark:text-[#EDE8E3] tracking-tight font-sans">${w.word}</span>
-              ${w.phonetic ? `<span class="text-xs font-mono text-[#D97757] font-semibold">${w.phonetic}</span>` : ''}
-              ${w.isNew ? `<span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">NEW</span>` : ''}
-              ${w.partOfSpeech ? `<span class="text-[11px] font-mono text-[#736D64] dark:text-[#9E968D]">(${w.partOfSpeech})</span>` : ''}
+              <span class="text-xs font-semibold text-slate-400">#${idx + 1}</span>
+              <span class="text-base md:text-lg font-bold text-[#2E3856] dark:text-white tracking-tight">${w.word}</span>
+              ${w.phonetic ? `<span class="text-xs font-mono text-[#4255FF] font-semibold">${w.phonetic}</span>` : ''}
+              ${w.isNew ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">MỚI</span>` : ''}
+              ${w.partOfSpeech ? `<span class="text-xs text-slate-400 font-medium">(${w.partOfSpeech})</span>` : ''}
             </div>
 
-            <p class="text-sm text-[#1E1D1B] dark:text-[#EDE8E3] mt-1 font-medium font-sans">${w.meaning}</p>
+            <p class="text-sm font-semibold text-[#2E3856] dark:text-[#F6F7FB] mt-1.5">${w.meaning}</p>
             
             ${w.example ? `
-              <div class="mt-2.5 pt-2 border-t border-[#E6E1D8]/60 dark:border-[#292522]">
-                <div class="pl-2.5 border-l-2 border-[#D97757]">
-                  <p class="text-xs md:text-sm text-[#1E1D1B] dark:text-[#EDE8E3] font-normal leading-relaxed">"${w.example}"</p>
-                  ${w.exampleVi ? `<p class="text-[11px] text-[#736D64] dark:text-[#9E968D] mt-0.5 italic">${w.exampleVi}</p>` : ''}
-                </div>
-                <div class="mt-1.5 flex items-center justify-between text-[10px] font-mono text-[#736D64] dark:text-[#9E968D]">
+              <div class="mt-2.5 pt-2.5 border-t border-[#E5E8EF]/80 dark:border-[#282E4E] text-xs">
+                <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">"${w.example}"</p>
+                ${w.exampleVi ? `<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${w.exampleVi}</p>` : ''}
+                <div class="mt-1.5 flex items-center justify-between text-[11px] text-slate-400">
                   <span>📖 ${w.dictSource || "Oxford Learner's Dictionary"}</span>
-                  <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="text-[#D97757] hover:underline font-semibold inline-flex items-center gap-0.5">
+                  <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="text-[#4255FF] hover:underline font-bold inline-flex items-center gap-0.5">
                     Oxford ↗
                   </a>
                 </div>
@@ -249,14 +249,14 @@ class AppRouter {
             ` : ''}
           </div>
 
-          <div class="flex items-center gap-0.5">
-            <button onclick="window.appAudio.speak('${this.escapeHtml(w.word)}', { audioUrl: '${w.audioUrl || ''}' })" class="p-2 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757] hover:bg-[#D97757]/10 rounded-lg transition-colors" title="Phát âm">
+          <div class="flex items-center gap-1">
+            <button onclick="window.appAudio.speak('${this.escapeHtml(w.word)}', { audioUrl: '${w.audioUrl || ''}' })" class="p-2 text-slate-400 hover:text-[#4255FF] hover:bg-slate-50 dark:hover:bg-[#252945] rounded-xl transition-colors" title="Phát âm">
               <i data-lucide="volume-2" class="w-4 h-4"></i>
             </button>
-            <button onclick="window.appStorage.toggleStar('${w.id}')" class="p-2 ${w.isStarred ? 'text-[#F59E0B]' : 'text-[#736D64] dark:text-[#6E675F] hover:text-[#F59E0B]'} rounded-lg transition-colors" title="Đánh dấu">
-              <i data-lucide="star" class="w-4 h-4 ${w.isStarred ? 'fill-[#F59E0B]' : ''}"></i>
+            <button onclick="window.appStorage.toggleStar('${w.id}')" class="p-2 ${w.isStarred ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600 hover:text-slate-400'} rounded-xl transition-colors" title="Đánh dấu">
+              <i data-lucide="star" class="w-4 h-4 ${w.isStarred ? 'fill-amber-500' : ''}"></i>
             </button>
-            <button onclick="window.appRouter.showWordOptions('${w.id}')" class="p-2 text-[#736D64] dark:text-[#6E675F] hover:text-[#1E1D1B] dark:hover:text-[#EDE8E3] rounded-lg transition-colors">
+            <button onclick="window.appRouter.showWordOptions('${w.id}')" class="p-2 text-slate-300 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl transition-colors">
               <i data-lucide="more-vertical" class="w-4 h-4"></i>
             </button>
           </div>
@@ -359,7 +359,7 @@ class AppRouter {
     const newTheme = isDark ? 'light' : 'dark';
     window.appStorage.saveSettings({ theme: newTheme });
     this.applyTheme(newTheme);
-    this.showToast(newTheme === 'dark' ? '🌙 Chế độ Claude Obsidian (Dark)' : '☀️ Chế độ Claude Parchment (Light)', 'info');
+    this.showToast(newTheme === 'dark' ? '🌙 Chế độ Tối (Dark mode)' : '☀️ Chế độ Sáng (Light mode)', 'info');
   }
 
   updateSyncBadge(isSyncing) {
@@ -380,16 +380,14 @@ class AppRouter {
 
     const toast = document.createElement('div');
     const colorClasses = type === 'success' 
-      ? 'bg-[#1E1C1A] text-[#EDE8E3] border border-[#10B981]/50' 
+      ? 'bg-[#23B26D] text-white shadow-emerald-500/20' 
       : type === 'error' 
-      ? 'bg-[#1E1C1A] text-[#EDE8E3] border border-[#EF4444]/50' 
-      : 'bg-[#1E1C1A] text-[#EDE8E3] border border-[#332E2A]';
+      ? 'bg-[#FF725B] text-white shadow-rose-500/20' 
+      : 'bg-[#2E3856] dark:bg-[#1A1D36] text-white border border-slate-700/60 shadow-xl';
 
-    const iconColor = type === 'success' ? 'text-[#10B981]' : type === 'error' ? 'text-[#EF4444]' : 'text-[#D97757]';
-
-    toast.className = `p-3 px-4 rounded-xl shadow-2xl text-xs md:text-sm font-mono flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 ${colorClasses}`;
+    toast.className = `p-3 px-4 rounded-2xl shadow-xl text-xs md:text-sm font-semibold flex items-center gap-2.5 transform transition-all duration-300 translate-y-2 opacity-0 ${colorClasses}`;
     toast.innerHTML = `
-      <i data-lucide="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-triangle' : 'terminal'}" class="w-4 h-4 flex-shrink-0 ${iconColor}"></i>
+      <i data-lucide="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-triangle' : 'info'}" class="w-4 h-4 flex-shrink-0"></i>
       <span>${message}</span>
     `;
 

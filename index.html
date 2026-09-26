@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi" class="h-full dark">
+<html lang="vi" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>DocVocab — Claude Code Listening & Oxford Vocab Hub</title>
+  <title>DocVocab — Học Từ Vựng Listening & Oxford</title>
   
   <!-- PWA Meta Tags cho Điện thoại (iOS & Android) -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="DocVocab">
-  <meta name="theme-color" content="#141312">
+  <meta name="theme-color" content="#4255FF">
   <link rel="manifest" href="manifest.json">
   
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,30 +26,25 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace']
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           },
           colors: {
-            claude: {
-              bg: '#141312',
-              surface: '#1E1C1A',
-              elevated: '#282522',
-              border: '#332E2A',
-              subtle: '#292522',
-              terracotta: '#D97757',
-              'terracotta-hover': '#E2856A',
-              'terracotta-bg': 'rgba(217, 119, 87, 0.12)',
-              amber: '#F59E0B',
-              emerald: '#10B981',
-              rose: '#EF4444',
-              text: '#EDE8E3',
-              muted: '#9E968D',
-              dim: '#6E675F',
-              // Light mode
-              lightBg: '#FAF8F5',
-              lightSurface: '#FFFFFF',
-              lightBorder: '#E6E1D8',
-              lightText: '#1E1D1B',
-              lightMuted: '#736D64'
+            qz: {
+              bg: '#F6F7FB',
+              surface: '#FFFFFF',
+              darkBg: '#0A092D',
+              darkSurface: '#1A1D36',
+              primary: '#4255FF',
+              primaryHover: '#3644D9',
+              text: '#2E3856',
+              darkText: '#F6F7FB',
+              muted: '#586380',
+              darkMuted: '#939BB4',
+              border: '#E5E8EF',
+              darkBorder: '#282E4E',
+              success: '#23B26D',
+              warning: '#FFCD1F',
+              danger: '#FF725B'
             }
           }
         }
@@ -61,53 +56,43 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-  <!-- Claude Code Custom Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=7">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=8">
 </head>
-<body class="bg-[#FAF8F5] dark:bg-[#141312] text-[#1E1D1B] dark:text-[#EDE8E3] min-h-full flex flex-col font-sans transition-colors duration-200 selection:bg-[#D97757]/30 selection:text-[#EDE8E3]">
+<body class="bg-[#F6F7FB] dark:bg-[#0A092D] text-[#2E3856] dark:text-[#F6F7FB] min-h-full flex flex-col font-sans transition-colors duration-200">
 
-  <!-- ================= TOP HEADER (CLAUDE CODE WORKBENCH) ================= -->
-  <header class="sticky top-0 z-40 bg-[#FAF8F5]/90 dark:bg-[#141312]/90 backdrop-blur-md border-b border-[#E6E1D8] dark:border-[#332E2A] px-4 py-2.5">
+  <!-- ================= TOP HEADER (QUIZLET STYLE) ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#1A1D36]/95 backdrop-blur-md border-b border-[#E5E8EF] dark:border-[#282E4E] px-4 py-2.5 shadow-sm">
     <div class="max-w-2xl mx-auto flex items-center justify-between">
       
-      <!-- Logo & Breadcrumb Navigation -->
-      <div class="flex items-center gap-2.5 cursor-pointer group" onclick="window.appRouter.navigate('home')">
-        <div class="w-8 h-8 rounded-lg bg-[#D97757]/15 dark:bg-[#D97757]/20 border border-[#D97757]/30 text-[#D97757] flex items-center justify-center font-mono font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
-          &gt;_
+      <!-- Logo Đơn Giản & Hiện Đại Giống Quizlet -->
+      <div class="flex items-center gap-2.5 cursor-pointer select-none" onclick="window.appRouter.navigate('home')">
+        <div class="w-8 h-8 rounded-xl bg-[#4255FF] text-white flex items-center justify-center font-extrabold text-sm shadow-md shadow-[#4255FF]/25">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
         </div>
-        <div>
-          <div class="flex items-center gap-1.5">
-            <span class="font-bold text-sm md:text-base tracking-tight text-[#1E1D1B] dark:text-[#EDE8E3]">DocVocab</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider bg-[#D97757]/15 dark:bg-[#D97757]/25 text-[#D97757] border border-[#D97757]/30 px-1.5 py-0.2 rounded font-semibold">claude-v7</span>
-          </div>
-          <p class="text-[11px] font-mono text-[#736D64] dark:text-[#9E968D] flex items-center gap-1 leading-none mt-0.5">
-            <span>~/listening-vocab</span>
-            <span class="text-[#D97757]">·</span>
-            <span>oxford-3000</span>
-          </p>
-        </div>
+        <span class="font-extrabold text-base md:text-lg tracking-tight text-[#2E3856] dark:text-white">DocVocab</span>
       </div>
 
-      <!-- Quick Actions Header Buttons -->
+      <!-- Nút tiện ích bên phải -->
       <div class="flex items-center gap-1.5">
-        <!-- Chuyển đổi Theme Sáng / Tối kiểu Claude Code -->
-        <button id="btn-theme-toggle" onclick="window.appRouter.toggleTheme()" class="p-2 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757] dark:hover:text-[#D97757] hover:border-[#D97757]/40 active:scale-95 transition-all" title="Chuyển chế độ Sáng (Parchment) / Tối (Obsidian)">
+        <!-- Nút Đổi Theme Sáng / Tối -->
+        <button id="btn-theme-toggle" onclick="window.appRouter.toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#586380] dark:text-[#939BB4] active:scale-95 transition-all" title="Chế độ Sáng / Tối">
           <i id="theme-toggle-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <!-- Nút Đồng bộ thời gian thực kiểu Terminal -->
-        <button id="btn-header-sync" onclick="window.appSync.sync()" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] hover:border-[#D97757]/50 text-[#1E1D1B] dark:text-[#EDE8E3] text-xs font-mono font-medium active:scale-95 transition-all" title="Đồng bộ ngay từ Google Docs">
-          <i id="sync-icon" data-lucide="refresh-cw" class="w-3.5 h-3.5 text-[#D97757]"></i>
-          <span class="hidden sm:inline font-mono">$ sync</span>
+        <!-- Nút Đồng bộ Google Docs -->
+        <button id="btn-header-sync" onclick="window.appSync.sync()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-[#4255FF]/10 hover:text-[#4255FF] text-[#2E3856] dark:text-[#F6F7FB] text-xs font-semibold active:scale-95 transition-all" title="Đồng bộ ngay từ Google Docs">
+          <i id="sync-icon" data-lucide="refresh-cw" class="w-3.5 h-3.5 text-[#4255FF]"></i>
+          <span class="hidden sm:inline">Đồng bộ</span>
         </button>
 
-        <!-- Nút Thêm từ thủ công -->
-        <button onclick="window.appRouter.openAddWordModal()" class="p-2 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] hover:border-[#D97757]/50 text-[#1E1D1B] dark:text-[#EDE8E3] active:scale-95 transition-all" title="Thêm từ vựng mới">
+        <!-- Nút Thêm từ mới -->
+        <button onclick="window.appRouter.openAddWordModal()" class="p-2 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-[#F6F7FB] active:scale-95 transition-all" title="Thêm từ vựng mới">
           <i data-lucide="plus" class="w-4 h-4"></i>
         </button>
 
         <!-- Nút Cài đặt -->
-        <button onclick="window.appRouter.navigate('settings')" class="p-2 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] hover:border-[#D97757]/50 text-[#1E1D1B] dark:text-[#EDE8E3] active:scale-95 transition-all" title="Cài đặt kết nối">
+        <button onclick="window.appRouter.navigate('settings')" class="p-2 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-[#F6F7FB] active:scale-95 transition-all" title="Cài đặt">
           <i data-lucide="settings" class="w-4 h-4"></i>
         </button>
       </div>
@@ -120,105 +105,77 @@
     <!-- ====== VIEW 1: TRANG CHỦ & DANH SÁCH TỪ (HOME) ====== -->
     <div id="view-home" class="space-y-4">
       
-      <!-- Claude Code Status Strip -->
-      <div class="bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] rounded-2xl p-3.5 shadow-sm">
-        <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#E6E1D8] dark:border-[#292522]">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-            <span class="font-mono text-xs text-[#736D64] dark:text-[#9E968D]">STATUS: <span class="text-[#1E1D1B] dark:text-[#EDE8E3] font-semibold">155 Oxford Verified Words</span></span>
-          </div>
-          <span class="font-mono text-[11px] text-[#D97757] font-semibold">v7.0 · ready</span>
+      <!-- Khối Thống Kê Tổng Quan Kiểu Quizlet -->
+      <div class="grid grid-cols-3 gap-2.5">
+        <div class="p-3.5 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+          <div id="stat-total-words" class="text-2xl font-black text-[#4255FF]">0</div>
+          <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Tổng số từ</div>
         </div>
-
-        <div class="grid grid-cols-3 gap-2 text-center">
-          <div class="p-2 bg-[#FAF8F5] dark:bg-[#141312] rounded-xl border border-[#E6E1D8]/60 dark:border-[#292522]">
-            <div id="stat-total-words" class="text-xl md:text-2xl font-mono font-bold text-[#D97757]">0</div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mt-0.5">Tổng số từ</div>
-          </div>
-          <div class="p-2 bg-[#FAF8F5] dark:bg-[#141312] rounded-xl border border-[#E6E1D8]/60 dark:border-[#292522]">
-            <div id="stat-mastered-words" class="text-xl md:text-2xl font-mono font-bold text-[#10B981]">0</div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mt-0.5">Đã thuộc</div>
-          </div>
-          <div class="p-2 bg-[#FAF8F5] dark:bg-[#141312] rounded-xl border border-[#E6E1D8]/60 dark:border-[#292522]">
-            <div id="stat-learning-words" class="text-xl md:text-2xl font-mono font-bold text-[#F59E0B]">0</div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mt-0.5">Đang học</div>
-          </div>
+        <div class="p-3.5 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+          <div id="stat-mastered-words" class="text-2xl font-black text-[#23B26D]">0</div>
+          <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Đã thuộc</div>
+        </div>
+        <div class="p-3.5 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+          <div id="stat-learning-words" class="text-2xl font-black text-[#FFCD1F]">0</div>
+          <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Đang học</div>
         </div>
       </div>
 
       <!-- Banner Từ Mới Cập Nhật (Nếu có từ mới) -->
-      <div id="new-words-banner" class="hidden p-3.5 bg-[#10B981]/10 border border-[#10B981]/30 rounded-2xl flex items-center justify-between">
+      <div id="new-words-banner" class="hidden p-3.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-          <span class="text-xs font-mono font-medium text-[#10B981]">
-            Có <span id="stat-new-words" class="font-bold">0</span> từ mới vừa cập nhật từ Google Docs!
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="text-xs font-bold text-emerald-800 dark:text-emerald-200">
+            Có <span id="stat-new-words">0</span> từ mới vừa cập nhật từ Google Docs!
           </span>
         </div>
-        <button onclick="window.appRouter.setFilter('new')" class="text-xs font-mono font-bold text-[#10B981] underline hover:no-underline">
-          [xem ngay]
+        <button onclick="window.appRouter.setFilter('new')" class="text-xs font-bold text-emerald-700 dark:text-emerald-300 underline hover:no-underline">
+          Xem ngay
         </button>
       </div>
 
-      <!-- Khối Chọn Chế Độ Học (Claude Code Command Modules) -->
+      <!-- 4 Chế Độ Học Kiểu Quizlet (Gọn gàng & Hiện đại) -->
       <div>
-        <div class="flex items-center justify-between mb-2.5 px-1">
-          <h2 class="text-xs font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] flex items-center gap-1.5">
-            <span>$ select-study-mode</span>
-          </h2>
-          <span class="text-[11px] font-mono text-[#D97757]">4 modes available</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-2 px-1">Chế độ học</h2>
+        <div class="grid grid-cols-2 gap-3">
           
-          <!-- Chế độ 1: Thẻ Flashcard 3D -->
-          <div onclick="window.appRouter.navigate('flashcard')" class="p-4 bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] hover:border-[#D97757] dark:hover:border-[#D97757] rounded-2xl shadow-sm cursor-pointer active:scale-[0.99] transition-all group">
-            <div class="flex items-start justify-between mb-2">
-              <span class="font-mono text-xs text-[#D97757] font-semibold">$ flashcard --3d</span>
-              <div class="w-8 h-8 rounded-lg bg-[#D97757]/10 text-[#D97757] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="layers" class="w-4 h-4"></i>
-              </div>
+          <!-- Thẻ Flashcard -->
+          <div onclick="window.appRouter.navigate('flashcard')" class="p-4 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] dark:hover:border-[#4255FF] rounded-2xl shadow-sm cursor-pointer active:scale-[0.98] transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-[#4255FF] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <i data-lucide="layers" class="w-5 h-5"></i>
             </div>
-            <div class="font-bold text-sm md:text-base text-[#1E1D1B] dark:text-[#EDE8E3]">Thẻ Flashcard 3D</div>
-            <p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 font-normal">Lật thẻ 3D, phát âm chuẩn & tự động rảnh tay</p>
+            <div class="font-bold text-base text-[#2E3856] dark:text-white">Thẻ ghi nhớ</div>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-0.5">Lật thẻ 3D & tự động đọc</p>
           </div>
 
-          <!-- Chế độ 2: Trắc nghiệm Ngữ cảnh Oxford (Recommended) -->
-          <div onclick="window.appRouter.navigate('quiz')" class="p-4 bg-white dark:bg-[#1E1C1A] border-2 border-[#D97757]/60 hover:border-[#D97757] rounded-2xl shadow-sm cursor-pointer active:scale-[0.99] transition-all group relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-[#D97757] text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">
-              Oxford Focus
+          <!-- Trắc nghiệm Quiz (Ngữ cảnh Oxford) -->
+          <div onclick="window.appRouter.navigate('quiz')" class="p-4 bg-white dark:bg-[#1A1D36] border-2 border-[#4255FF]/40 hover:border-[#4255FF] rounded-2xl shadow-sm cursor-pointer active:scale-[0.98] transition-all group relative overflow-hidden">
+            <span class="absolute top-2 right-2 text-[9px] font-bold uppercase px-2 py-0.5 rounded-full bg-[#4255FF]/10 text-[#4255FF]">
+              Ngữ cảnh
+            </span>
+            <div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <i data-lucide="help-circle" class="w-5 h-5"></i>
             </div>
-            <div class="flex items-start justify-between mb-2">
-              <span class="font-mono text-xs text-[#D97757] font-semibold">$ quiz --cloze-oxford</span>
-              <div class="w-8 h-8 rounded-lg bg-[#D97757]/15 text-[#D97757] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-              </div>
-            </div>
-            <div class="font-bold text-sm md:text-base text-[#1E1D1B] dark:text-[#EDE8E3]">Trắc nghiệm Ngữ cảnh</div>
-            <p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 font-normal">Điền từ vào câu ví dụ chuẩn Oxford & Longman</p>
+            <div class="font-bold text-base text-[#2E3856] dark:text-white">Trắc nghiệm</div>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-0.5">Điền từ ngữ cảnh Oxford</p>
           </div>
 
-          <!-- Chế độ 3: Ghép thẻ Siêu tốc -->
-          <div onclick="window.appRouter.navigate('match')" class="p-4 bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] hover:border-[#D97757] dark:hover:border-[#D97757] rounded-2xl shadow-sm cursor-pointer active:scale-[0.99] transition-all group">
-            <div class="flex items-start justify-between mb-2">
-              <span class="font-mono text-xs text-[#F59E0B] font-semibold">$ match --speed-run</span>
-              <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/10 text-[#F59E0B] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="zap" class="w-4 h-4"></i>
-              </div>
+          <!-- Ghép thẻ Match -->
+          <div onclick="window.appRouter.navigate('match')" class="p-4 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#F59E0B] rounded-2xl shadow-sm cursor-pointer active:scale-[0.98] transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-500 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <i data-lucide="zap" class="w-5 h-5"></i>
             </div>
-            <div class="font-bold text-sm md:text-base text-[#1E1D1B] dark:text-[#EDE8E3]">Ghép thẻ Siêu tốc</div>
-            <p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 font-normal">Nối từ vựng & nghĩa tính giây phá kỷ lục</p>
+            <div class="font-bold text-base text-[#2E3856] dark:text-white">Ghép thẻ</div>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-0.5">Nối từ tính giờ kỷ lục</p>
           </div>
 
-          <!-- Chế độ 4: Luyện nghe Audio Lab -->
-          <div onclick="window.appRouter.navigate('listening')" class="p-4 bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] hover:border-[#D97757] dark:hover:border-[#D97757] rounded-2xl shadow-sm cursor-pointer active:scale-[0.99] transition-all group">
-            <div class="flex items-start justify-between mb-2">
-              <span class="font-mono text-xs text-[#10B981] font-semibold">$ listen --dictation</span>
-              <div class="w-8 h-8 rounded-lg bg-[#10B981]/10 text-[#10B981] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="headphones" class="w-4 h-4"></i>
-              </div>
+          <!-- Luyện nghe Listening Lab -->
+          <div onclick="window.appRouter.navigate('listening')" class="p-4 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#10B981] rounded-2xl shadow-sm cursor-pointer active:scale-[0.98] transition-all group">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <i data-lucide="headphones" class="w-5 h-5"></i>
             </div>
-            <div class="font-bold text-sm md:text-base text-[#1E1D1B] dark:text-[#EDE8E3]">Phòng Luyện nghe Lab</div>
-            <p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 font-normal">Nghe audio file & chép chính tả phản xạ</p>
+            <div class="font-bold text-base text-[#2E3856] dark:text-white">Luyện nghe</div>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-0.5">Chép chính tả âm thanh</p>
           </div>
 
         </div>
@@ -227,43 +184,37 @@
       <!-- Ô Tìm Kiếm & Bộ Lọc Danh Sách Từ -->
       <div class="pt-2">
         <div class="flex items-center justify-between mb-2.5 px-1">
-          <div class="flex items-center gap-1.5">
-            <i data-lucide="terminal" class="w-4 h-4 text-[#D97757]"></i>
-            <h2 class="text-xs font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D]">Kho từ vựng Oxford</h2>
-          </div>
-          <span id="word-count-badge" class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#736D64] dark:text-[#9E968D]">0 từ</span>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4]">Danh sách từ trong học phần</h2>
+          <span id="word-count-badge" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-200/80 dark:bg-[#282E4E] text-[#586380] dark:text-[#939BB4]">0 từ</span>
         </div>
 
-        <!-- Search Input -->
-        <div class="relative mb-2.5">
-          <div class="absolute left-3.5 top-1/2 -translate-y-1/2 font-mono text-[#D97757] text-sm font-bold pointer-events-none">&gt;</div>
-          <input id="search-input" type="text" oninput="window.appRouter.handleSearch(this.value)" placeholder="Tìm kiếm 155 từ vựng hoặc nghĩa tiếng Việt..." class="w-full pl-8 pr-16 py-2.5 bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3] placeholder-[#736D64] dark:placeholder-[#6E675F] transition-colors shadow-sm font-mono" />
-          <div class="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-1 pointer-events-none">
-            <span class="font-mono text-[10px] text-[#736D64] dark:text-[#6E675F] bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-1.5 py-0.5 rounded">Ctrl+K</span>
-          </div>
+        <!-- Ô tìm kiếm đơn giản, mượt mà -->
+        <div class="relative mb-3">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input id="search-input" type="text" oninput="window.appRouter.handleSearch(this.value)" placeholder="Tìm kiếm từ tiếng Anh hoặc nghĩa tiếng Việt..." class="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white placeholder-slate-400 transition-colors shadow-sm" />
         </div>
 
-        <!-- Chips Bộ Lọc Kiểu Monospace Tags -->
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs font-mono">
-          <button data-filter="all" onclick="window.appRouter.setFilter('all')" class="filter-chip px-3 py-1.5 rounded-xl bg-[#D97757] text-white flex-shrink-0 shadow-sm border border-[#D97757] font-semibold transition-all">
-            [ tất cả ]
+        <!-- Chips Bộ Lọc Gọn Gàng -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs font-semibold">
+          <button data-filter="all" onclick="window.appRouter.setFilter('all')" class="filter-chip px-3.5 py-1.5 rounded-xl bg-[#4255FF] text-white flex-shrink-0 shadow-sm transition-all">
+            Tất cả
           </button>
-          <button data-filter="new" onclick="window.appRouter.setFilter('new')" class="filter-chip px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#736D64] dark:text-[#9E968D] hover:border-[#D97757]/50 flex-shrink-0 transition-all">
-            [ ✨ mới ]
+          <button data-filter="new" onclick="window.appRouter.setFilter('new')" class="filter-chip px-3.5 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#586380] dark:text-[#939BB4] hover:bg-slate-50 flex-shrink-0 transition-all">
+            ✨ Mới cập nhật
           </button>
-          <button data-filter="learning" onclick="window.appRouter.setFilter('learning')" class="filter-chip px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#736D64] dark:text-[#9E968D] hover:border-[#D97757]/50 flex-shrink-0 transition-all">
-            [ 🔄 đang học ]
+          <button data-filter="learning" onclick="window.appRouter.setFilter('learning')" class="filter-chip px-3.5 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#586380] dark:text-[#939BB4] hover:bg-slate-50 flex-shrink-0 transition-all">
+            🔄 Đang học
           </button>
-          <button data-filter="mastered" onclick="window.appRouter.setFilter('mastered')" class="filter-chip px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#736D64] dark:text-[#9E968D] hover:border-[#D97757]/50 flex-shrink-0 transition-all">
-            [ ✅ đã thuộc ]
+          <button data-filter="mastered" onclick="window.appRouter.setFilter('mastered')" class="filter-chip px-3.5 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#586380] dark:text-[#939BB4] hover:bg-slate-50 flex-shrink-0 transition-all">
+            ✅ Đã thuộc
           </button>
-          <button data-filter="starred" onclick="window.appRouter.setFilter('starred')" class="filter-chip px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#736D64] dark:text-[#9E968D] hover:border-[#D97757]/50 flex-shrink-0 transition-all">
-            [ ⭐ yêu thích ]
+          <button data-filter="starred" onclick="window.appRouter.setFilter('starred')" class="filter-chip px-3.5 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#586380] dark:text-[#939BB4] hover:bg-slate-50 flex-shrink-0 transition-all">
+            ⭐ Yêu thích
           </button>
         </div>
 
         <!-- Danh sách từ chi tiết -->
-        <div id="word-list-items" class="space-y-2 mt-3">
+        <div id="word-list-items" class="space-y-2.5 mt-3">
           <!-- Rendered via JS -->
         </div>
       </div>
@@ -273,13 +224,13 @@
     <!-- ====== VIEW 2: KHUNG CHẾ ĐỘ HỌC ĐANG CHẠY (VIEW-MODE) ====== -->
     <div id="view-mode" class="hidden">
       <!-- Mode Header with Back Button -->
-      <div class="flex items-center justify-between mb-3.5">
-        <button onclick="window.appRouter.navigate('home')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] text-xs font-mono font-medium hover:border-[#D97757]/50 shadow-sm active:scale-95 transition-all">
-          <i data-lucide="arrow-left" class="w-4 h-4 text-[#D97757]"></i>
-          <span>&lt; quay lại</span>
+      <div class="flex items-center justify-between mb-4">
+        <button onclick="window.appRouter.navigate('home')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#2E3856] dark:text-white text-xs font-semibold hover:bg-slate-50 shadow-sm active:scale-95 transition-all">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-[#4255FF]"></i>
+          <span>Quay lại</span>
         </button>
 
-        <h2 id="mode-header-title" class="text-xs md:text-sm font-mono font-bold text-[#1E1D1B] dark:text-[#EDE8E3]">Chế độ học</h2>
+        <h2 id="mode-header-title" class="text-sm font-bold text-[#2E3856] dark:text-white">Chế độ học</h2>
 
         <div class="w-16"></div>
       </div>
@@ -291,96 +242,96 @@
     <!-- ====== VIEW 3: CÀI ĐẶT & KẾT NỐI GOOGLE DOCS (VIEW-SETTINGS) ====== -->
     <div id="view-settings" class="hidden space-y-4">
       <div class="flex items-center justify-between">
-        <button onclick="window.appRouter.navigate('home')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] text-xs font-mono font-medium hover:border-[#D97757]/50 shadow-sm">
-          <i data-lucide="arrow-left" class="w-4 h-4 text-[#D97757]"></i> &lt; quay lại
+        <button onclick="window.appRouter.navigate('home')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] text-[#2E3856] dark:text-white text-xs font-semibold shadow-sm">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-[#4255FF]"></i> Quay lại
         </button>
-        <h2 class="text-sm md:text-base font-mono font-bold text-[#1E1D1B] dark:text-[#EDE8E3]">$ config.json</h2>
+        <h2 class="text-base font-bold text-[#2E3856] dark:text-white">Cài đặt kết nối</h2>
         <div class="w-16"></div>
       </div>
 
-      <!-- Thẻ hướng dẫn 3 bước kết nối Google Docs -->
-      <div class="p-5 bg-white dark:bg-[#1E1C1A] rounded-2xl border border-[#E6E1D8] dark:border-[#332E2A] shadow-sm">
-        <h3 class="font-mono font-bold text-xs md:text-sm text-[#D97757] flex items-center gap-2 mb-2">
+      <!-- Hướng dẫn 3 bước kết nối Google Docs -->
+      <div class="p-5 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+        <h3 class="font-bold text-sm text-[#4255FF] flex items-center gap-2 mb-2">
           <i data-lucide="link-2" class="w-4 h-4"></i>
-          <span>KẾT NỐI GOOGLE DOCS THỜI GIAN THỰC</span>
+          <span>Kết nối Google Docs tự động</span>
         </h3>
-        <p class="text-xs text-[#736D64] dark:text-[#9E968D] leading-relaxed mb-3">
+        <p class="text-xs text-[#586380] dark:text-[#939BB4] leading-relaxed mb-3">
           Để web tự động lấy từ vựng ngay khi bạn ghi thêm vào Google Docs mà không lo lỗi phân quyền, bạn chỉ cần tạo 1 Web App nhỏ hoàn toàn miễn phí trên chính Google Docs của mình:
         </p>
-        <ol class="text-xs text-[#736D64] dark:text-[#9E968D] space-y-2 list-decimal list-inside font-medium">
-          <li>Mở file Google Docs của bạn (<a href="https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/edit" target="_blank" class="text-[#D97757] underline font-semibold">Mở tại đây</a>).</li>
+        <ol class="text-xs text-[#586380] dark:text-[#939BB4] space-y-2 list-decimal list-inside font-medium">
+          <li>Mở file Google Docs của bạn (<a href="https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/edit" target="_blank" class="text-[#4255FF] underline font-semibold">Mở tại đây</a>).</li>
           <li>Chọn menu <strong>Tiện ích mở rộng (Extensions)</strong> &gt; <strong>Apps Script</strong>.</li>
-          <li>Dán mã từ file <code class="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-1 py-0.5 rounded text-[#D97757] font-mono">google-apps-script/Code.gs</code> vào.</li>
+          <li>Dán mã từ file <code class="bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded text-[#4255FF] font-mono">google-apps-script/Code.gs</code> vào.</li>
           <li>Nhấn <strong>Triển khai (Deploy)</strong> &gt; <strong>Tùy chọn triển khai mới (New deployment)</strong> &gt; Chọn <strong>Ứng dụng web (Web app)</strong>.</li>
           <li>Mục <em>Người có quyền truy cập (Who has access)</em>: chọn <strong>Bất kỳ ai (Anyone)</strong> &gt; Nhấn Triển khai.</li>
-          <li>Sao chép đường dẫn (URL) dạng <code class="font-mono text-[11px] text-[#736D64] dark:text-[#9E968D]">https://script.google.com/macros/s/.../exec</code> và dán vào ô bên dưới!</li>
+          <li>Sao chép đường dẫn (URL) dạng <code class="font-mono text-[11px] text-[#586380] dark:text-[#939BB4]">https://script.google.com/macros/s/.../exec</code> và dán vào ô bên dưới!</li>
         </ol>
       </div>
 
       <!-- Form cấu hình -->
-      <div class="space-y-4 bg-white dark:bg-[#1E1C1A] p-5 rounded-2xl border border-[#E6E1D8] dark:border-[#332E2A] shadow-sm">
+      <div class="space-y-4 bg-white dark:bg-[#1A1D36] p-5 rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
         <div>
-          <label class="block text-xs font-mono font-bold uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-1.5">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
             URL Google Apps Script Web App
           </label>
-          <input id="setting-script-url" type="url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono" />
-          <p class="text-[11px] text-[#736D64] dark:text-[#9E968D] mt-1 font-mono">Dán URL Web App triển khai từ Google Docs của bạn.</p>
+          <input id="setting-script-url" type="url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
+          <p class="text-[11px] text-[#586380] dark:text-[#939BB4] mt-1">Dán URL Web App triển khai từ Google Docs của bạn.</p>
         </div>
 
         <div>
-          <label class="block text-xs font-mono font-bold uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-1.5">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
             Google Doc ID (Dự phòng)
           </label>
-          <input id="setting-doc-id" type="text" value="1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono" />
+          <input id="setting-doc-id" type="text" value="1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono font-bold uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-1.5">
-            Google Gemini API Key (Tùy chọn - Dùng AI tạo ngữ cảnh & trắc nghiệm nâng cao)
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
+            Google Gemini API Key (Tùy chọn)
           </label>
-          <input id="setting-gemini-key" type="password" placeholder="AIzaSy..." class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono" />
-          <p class="text-[11px] text-[#736D64] dark:text-[#9E968D] mt-1 font-mono">Không bắt buộc. Nếu để trống, web vẫn tự động tra phát âm chuẩn, nghĩa và ví dụ Oxford.</p>
+          <input id="setting-gemini-key" type="password" placeholder="AIzaSy..." class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
+          <p class="text-[11px] text-[#586380] dark:text-[#939BB4] mt-1">Không bắt buộc. Nếu để trống, web vẫn tự động có phát âm chuẩn, nghĩa và ví dụ Oxford.</p>
         </div>
 
         <div class="grid grid-cols-2 gap-3 pt-1">
           <div>
-            <label class="block text-xs font-mono font-bold uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
               Giọng phát âm
             </label>
-            <select id="setting-accent" class="w-full px-3 py-2 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-xs font-mono font-semibold focus:outline-none text-[#1E1D1B] dark:text-[#EDE8E3]">
+            <select id="setting-accent" class="w-full px-3 py-2 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-xs font-semibold focus:outline-none text-[#2E3856] dark:text-white">
               <option value="en-US">Tiếng Anh - Mỹ (US)</option>
               <option value="en-GB">Tiếng Anh - Anh (UK)</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-xs font-mono font-bold uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-1.5">
-              Giao diện Claude
+            <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
+              Giao diện
             </label>
-            <select id="setting-theme" class="w-full px-3 py-2 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-xs font-mono font-semibold focus:outline-none text-[#1E1D1B] dark:text-[#EDE8E3]">
-              <option value="dark">Tối Claude (Obsidian)</option>
-              <option value="light">Sáng Claude (Parchment)</option>
+            <select id="setting-theme" class="w-full px-3 py-2 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-xs font-semibold focus:outline-none text-[#2E3856] dark:text-white">
+              <option value="light">Sáng (Quizlet Light)</option>
+              <option value="dark">Tối (Quizlet Dark)</option>
               <option value="system">Theo hệ thống</option>
             </select>
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-[#E6E1D8] dark:border-[#292522]">
+        <div class="flex items-center justify-between pt-3 border-t border-[#E5E8EF] dark:border-[#282E4E]">
           <div>
-            <span class="text-sm font-semibold text-[#1E1D1B] dark:text-[#EDE8E3]">Tự động đồng bộ</span>
-            <p class="text-[11px] font-mono text-[#736D64] dark:text-[#9E968D]">Đồng bộ tự động khi mở app trên điện thoại</p>
+            <span class="text-sm font-semibold text-[#2E3856] dark:text-white">Tự động đồng bộ</span>
+            <p class="text-[11px] text-[#586380] dark:text-[#939BB4]">Tự động tải cập nhật mới khi mở ứng dụng</p>
           </div>
-          <input id="setting-auto-sync" type="checkbox" checked class="w-5 h-5 accent-[#D97757] rounded cursor-pointer" />
+          <input id="setting-auto-sync" type="checkbox" checked class="w-5 h-5 accent-[#4255FF] rounded cursor-pointer" />
         </div>
 
-        <button onclick="window.appRouter.saveSettingsFromForm()" class="w-full mt-3 py-3 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl shadow-md active:scale-98 transition-all flex items-center justify-center gap-2">
+        <button onclick="window.appRouter.saveSettingsFromForm()" class="w-full mt-3 py-3 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl shadow-md active:scale-98 transition-all flex items-center justify-center gap-2">
           <i data-lucide="save" class="w-4 h-4"></i>
-          <span>$ save-config</span>
+          <span>Lưu cài đặt</span>
         </button>
 
-        <button onclick="window.appRouter.resetAllData()" class="w-full mt-2 py-2.5 bg-rose-500/10 hover:bg-rose-500/20 text-[#EF4444] border border-[#EF4444]/30 font-mono font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+        <button onclick="window.appRouter.resetAllData()" class="w-full mt-2 py-2.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900 font-bold rounded-xl text-xs flex items-center justify-center gap-2">
           <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-          <span>$ reset --oxford-clean-155</span>
+          <span>Khôi phục 155 từ vựng Oxford chuẩn</span>
         </button>
       </div>
 
@@ -389,32 +340,32 @@
   </main>
 
   <!-- ================= BOTTOM NAVIGATION BAR CHO ĐIỆN THOẠI ================= -->
-  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#FAF8F5]/95 dark:bg-[#141312]/95 backdrop-blur-lg border-t border-[#E6E1D8] dark:border-[#332E2A] safe-bottom">
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#1A1D36]/95 backdrop-blur-lg border-t border-[#E5E8EF] dark:border-[#282E4E] safe-bottom">
     <div class="max-w-md mx-auto grid grid-cols-5 py-2 px-1">
       
-      <button data-route="home" onclick="window.appRouter.navigate('home')" class="nav-item flex flex-col items-center justify-center py-1 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757]">
+      <button data-route="home" onclick="window.appRouter.navigate('home')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
         <i data-lucide="book-open" class="w-5 h-5"></i>
-        <span class="text-[10px] font-mono mt-1">Từ vựng</span>
+        <span class="text-[10px] font-semibold mt-1">Từ vựng</span>
       </button>
 
-      <button data-route="flashcard" onclick="window.appRouter.navigate('flashcard')" class="nav-item flex flex-col items-center justify-center py-1 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757]">
+      <button data-route="flashcard" onclick="window.appRouter.navigate('flashcard')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
         <i data-lucide="layers" class="w-5 h-5"></i>
-        <span class="text-[10px] font-mono mt-1">Thẻ nhớ</span>
+        <span class="text-[10px] font-semibold mt-1">Thẻ nhớ</span>
       </button>
 
-      <button data-route="quiz" onclick="window.appRouter.navigate('quiz')" class="nav-item flex flex-col items-center justify-center py-1 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757]">
+      <button data-route="quiz" onclick="window.appRouter.navigate('quiz')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
         <i data-lucide="help-circle" class="w-5 h-5"></i>
-        <span class="text-[10px] font-mono mt-1">Trắc nghiệm</span>
+        <span class="text-[10px] font-semibold mt-1">Trắc nghiệm</span>
       </button>
 
-      <button data-route="listening" onclick="window.appRouter.navigate('listening')" class="nav-item flex flex-col items-center justify-center py-1 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757]">
+      <button data-route="listening" onclick="window.appRouter.navigate('listening')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
         <i data-lucide="headphones" class="w-5 h-5"></i>
-        <span class="text-[10px] font-mono mt-1">Nghe Lab</span>
+        <span class="text-[10px] font-semibold mt-1">Nghe Lab</span>
       </button>
 
-      <button data-route="match" onclick="window.appRouter.navigate('match')" class="nav-item flex flex-col items-center justify-center py-1 text-[#736D64] dark:text-[#9E968D] hover:text-[#D97757]">
+      <button data-route="match" onclick="window.appRouter.navigate('match')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
         <i data-lucide="zap" class="w-5 h-5"></i>
-        <span class="text-[10px] font-mono mt-1">Ghép thẻ</span>
+        <span class="text-[10px] font-semibold mt-1">Ghép thẻ</span>
       </button>
 
     </div>
@@ -422,38 +373,38 @@
 
   <!-- ================= MODAL THÊM TỪ VỰNG ================= -->
   <div id="modal-add-word" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1E1C1A] rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-[#E6E1D8] dark:border-[#332E2A] animate-in fade-in zoom-in-95 duration-200">
-      <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#E6E1D8] dark:border-[#292522]">
-        <h3 class="font-mono font-bold text-sm text-[#1E1D1B] dark:text-[#EDE8E3]">$ add-word --fast</h3>
-        <button onclick="window.appRouter.closeAddWordModal()" class="p-1 rounded-lg text-[#736D64] hover:text-[#1E1D1B] dark:hover:text-white">
+    <div class="bg-white dark:bg-[#1A1D36] rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-[#E5E8EF] dark:border-[#282E4E] animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#E5E8EF] dark:border-[#282E4E]">
+        <h3 class="font-bold text-base text-[#2E3856] dark:text-white">Thêm từ vựng nhanh</h3>
+        <button onclick="window.appRouter.closeAddWordModal()" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-white">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
       <form onsubmit="window.appRouter.handleAddWordForm(event)" class="space-y-3">
         <div>
-          <label class="block text-xs font-mono font-bold text-[#736D64] dark:text-[#9E968D] uppercase tracking-wider mb-1">Từ tiếng Anh *</label>
-          <input id="add-word-input" required type="text" placeholder="Ví dụ: persistent" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] font-semibold text-[#1E1D1B] dark:text-[#EDE8E3]" />
+          <label class="block text-xs font-bold text-[#586380] dark:text-[#939BB4] uppercase tracking-wider mb-1">Từ tiếng Anh *</label>
+          <input id="add-word-input" required type="text" placeholder="Ví dụ: persistent" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] font-semibold text-[#2E3856] dark:text-white" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono font-bold text-[#736D64] dark:text-[#9E968D] uppercase tracking-wider mb-1">Nghĩa tiếng Việt (Tùy chọn)</label>
-          <input id="add-meaning-input" type="text" placeholder="Để trống nếu muốn app tự tra cứu" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3]" />
+          <label class="block text-xs font-bold text-[#586380] dark:text-[#939BB4] uppercase tracking-wider mb-1">Nghĩa tiếng Việt (Tùy chọn)</label>
+          <input id="add-meaning-input" type="text" placeholder="Để trống nếu muốn app tự tra cứu" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono font-bold text-[#736D64] dark:text-[#9E968D] uppercase tracking-wider mb-1">Câu ví dụ (Tùy chọn)</label>
-          <input id="add-example-input" type="text" placeholder="Để trống nếu muốn app tự tạo ngữ cảnh" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] dark:bg-[#141312] border border-[#E6E1D8] dark:border-[#332E2A] rounded-xl text-sm focus:outline-none focus:border-[#D97757] text-[#1E1D1B] dark:text-[#EDE8E3]" />
+          <label class="block text-xs font-bold text-[#586380] dark:text-[#939BB4] uppercase tracking-wider mb-1">Câu ví dụ (Tùy chọn)</label>
+          <input id="add-example-input" type="text" placeholder="Để trống nếu muốn app tự tạo ngữ cảnh" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-sm focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
         </div>
 
-        <p class="text-[11px] font-mono text-[#736D64] dark:text-[#9E968D]">💡 Tự động tìm phát âm IPA, nghĩa và ngữ cảnh chuẩn Oxford!</p>
+        <p class="text-[11px] text-[#586380] dark:text-[#939BB4]">💡 Tự động tìm phát âm IPA, nghĩa và ngữ cảnh chuẩn Oxford!</p>
 
         <div class="flex items-center gap-2 pt-2">
-          <button type="button" onclick="window.appRouter.closeAddWordModal()" class="w-1/2 py-2.5 bg-black/5 dark:bg-white/5 border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono text-xs rounded-xl">
+          <button type="button" onclick="window.appRouter.closeAddWordModal()" class="w-1/2 py-2.5 bg-slate-100 dark:bg-[#252945] text-[#2E3856] dark:text-white font-semibold text-xs rounded-xl">
             Hủy
           </button>
-          <button type="submit" class="w-1/2 py-2.5 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl text-xs shadow-md">
-            Thêm & Tra cứu
+          <button type="submit" class="w-1/2 py-2.5 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl text-xs shadow-md">
+            Thêm từ
           </button>
         </div>
       </form>
@@ -464,16 +415,16 @@
   <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-full max-w-sm px-4 pointer-events-none"></div>
 
   <!-- Scripts -->
-  <script src="js/default-data.js?v=7"></script>
-  <script src="js/storage.js?v=7"></script>
-  <script src="js/speech.js?v=7"></script>
-  <script src="js/ai-enrich.js?v=7"></script>
-  <script src="js/sync.js?v=7"></script>
-  <script src="js/modes/flashcard.js?v=7"></script>
-  <script src="js/modes/quiz.js?v=7"></script>
-  <script src="js/modes/match.js?v=7"></script>
-  <script src="js/modes/listening.js?v=7"></script>
-  <script src="js/app.js?v=7"></script>
+  <script src="js/default-data.js?v=8"></script>
+  <script src="js/storage.js?v=8"></script>
+  <script src="js/speech.js?v=8"></script>
+  <script src="js/ai-enrich.js?v=8"></script>
+  <script src="js/sync.js?v=8"></script>
+  <script src="js/modes/flashcard.js?v=8"></script>
+  <script src="js/modes/quiz.js?v=8"></script>
+  <script src="js/modes/match.js?v=8"></script>
+  <script src="js/modes/listening.js?v=8"></script>
+  <script src="js/app.js?v=8"></script>
 
   <!-- PWA Service Worker Registration -->
   <script>

@@ -75,67 +75,64 @@ class QuizController {
     container.innerHTML = `
       <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] md:min-h-[580px] justify-between pb-4">
         <div>
-          <!-- Header: Tiến độ & Chuỗi câu đúng -->
-          <div class="flex items-center justify-between text-xs font-mono text-[#736D64] dark:text-[#9E968D] mb-2 px-1">
-            <span>&gt; question ${this.currentIndex + 1} / ${this.questions.length}</span>
+          <!-- Header: Tiến độ & Điểm -->
+          <div class="flex items-center justify-between text-xs font-semibold text-[#586380] dark:text-[#939BB4] mb-2 px-1">
+            <span>Câu ${this.currentIndex + 1} / ${this.questions.length}</span>
             <div class="flex items-center gap-3">
               ${this.streak > 1 ? `
-                <span class="inline-flex items-center gap-1 text-[#F59E0B] font-bold animate-pulse">
-                  🔥 ${this.streak} streak
+                <span class="inline-flex items-center gap-1 text-amber-500 font-bold animate-pulse">
+                  🔥 ${this.streak} chuỗi
                 </span>
               ` : ''}
-              <span class="text-[#D97757] font-bold">score: ${this.score}</span>
+              <span class="text-[#4255FF] font-bold">Điểm: ${this.score}</span>
             </div>
           </div>
           
-          <div class="w-full bg-[#E6E1D8] dark:bg-[#292522] h-1.5 rounded-full overflow-hidden mb-3.5">
-            <div class="bg-[#D97757] h-full transition-all duration-300 rounded-full" style="width: ${progressPercent}%"></div>
+          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden mb-4">
+            <div class="bg-[#4255FF] h-full transition-all duration-300 rounded-full" style="width: ${progressPercent}%"></div>
           </div>
 
-          <!-- KHUNG CÂU HỎI NGỮ CẢNH CHUẨN OXFORD & LONGMAN -->
-          <div class="bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] rounded-2xl p-4 md:p-5 shadow-sm mb-3.5">
-            <div class="flex items-center justify-between mb-3 pb-2 border-b border-[#E6E1D8]/60 dark:border-[#292522]">
-              <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#D97757] bg-[#D97757]/10 px-2.5 py-0.5 rounded-md inline-flex items-center gap-1.5">
-                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
-                <span>oxford-cloze-challenge</span>
+          <!-- Khung câu hỏi ngữ cảnh Oxford -->
+          <div class="bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] rounded-2xl p-4 md:p-5 shadow-sm mb-3.5">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#4255FF] bg-blue-50 dark:bg-blue-950/60 px-2.5 py-1 rounded-full inline-flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span>Bài tập ngữ cảnh Oxford</span>
               </span>
-              <span class="text-[11px] font-mono text-[#736D64] dark:text-[#9E968D]">fill-in-the-blank</span>
+              <span class="text-xs text-slate-400">Điền từ vào chỗ trống</span>
             </div>
 
             <div class="py-1">
-              <p class="text-xs font-mono uppercase tracking-wider text-[#736D64] dark:text-[#9E968D] mb-2">
-                Chọn từ thích hợp nhất điền vào chỗ trống:
-              </p>
-              <!-- Câu ngữ cảnh có ô trống (....) -->
-              <div class="p-4 md:p-5 bg-[#FAF8F5] dark:bg-[#141312] rounded-xl border border-[#E6E1D8] dark:border-[#292522] mb-1">
-                <p class="text-base md:text-lg font-medium text-[#1E1D1B] dark:text-[#EDE8E3] leading-relaxed font-sans">
+              <div class="p-4 bg-slate-50 dark:bg-[#252945] rounded-xl border border-slate-200/80 dark:border-slate-700/80 mb-1">
+                <p class="text-base md:text-lg font-medium text-[#2E3856] dark:text-white leading-relaxed font-sans">
                   ${this.formatPromptWithBlank(q.prompt)}
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Danh sách 4 Lựa chọn A, B, C, D -->
-          <div id="quiz-options" class="space-y-2">
+          <!-- 4 Lựa chọn A, B, C, D -->
+          <div id="quiz-options" class="space-y-2.5">
             ${q.options.map((opt, idx) => `
-              <button onclick="window.quizCtrl.selectOption(${idx}, '${this.escapeHtml(opt)}')" class="quiz-option-btn w-full text-left p-3.5 md:p-4 rounded-xl border border-[#E6E1D8] dark:border-[#332E2A] bg-white dark:bg-[#1E1C1A] hover:border-[#D97757] transition-all font-semibold text-[#1E1D1B] dark:text-[#EDE8E3] text-sm md:text-base flex items-center justify-between active:scale-[0.99] shadow-sm group">
-                <span class="font-sans">${opt}</span>
-                <span class="w-6 h-6 rounded-md border border-[#E6E1D8] dark:border-[#332E2A] bg-black/5 dark:bg-white/5 flex items-center justify-center text-xs text-[#736D64] dark:text-[#9E968D] option-badge font-mono group-hover:border-[#D97757]/60 group-hover:text-[#D97757]">
+              <button onclick="window.quizCtrl.selectOption(${idx}, '${this.escapeHtml(opt)}')" class="quiz-option-btn w-full text-left p-3.5 md:p-4 rounded-xl border border-[#E5E8EF] dark:border-[#282E4E] bg-white dark:bg-[#1A1D36] hover:border-[#4255FF] transition-all font-semibold text-[#2E3856] dark:text-white text-sm md:text-base flex items-center justify-between active:scale-[0.99] shadow-sm">
+                <span>${opt}</span>
+                <span class="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-400 option-badge font-semibold">
                   ${String.fromCharCode(65 + idx)}
                 </span>
               </button>
             `).join('')}
           </div>
 
-          <!-- Khung giải thích chi tiết & Câu hoàn chỉnh -->
-          <div id="quiz-explanation" class="hidden mt-3 p-4 rounded-xl bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] shadow-sm">
+          <!-- Khung giải thích -->
+          <div id="quiz-explanation" class="hidden mt-3 p-4 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
           </div>
         </div>
 
         <!-- Nút Tiếp tục -->
         <div id="quiz-next-container" class="hidden pt-4">
-          <button onclick="window.quizCtrl.nextQuestion()" class="w-full py-3.5 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl shadow-lg active:scale-98 transition-all flex items-center justify-center gap-2">
-            <span>$ next_question -&gt;</span>
+          <button onclick="window.quizCtrl.nextQuestion()" class="w-full py-3.5 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl shadow-md active:scale-98 transition-all flex items-center justify-center gap-2">
+            <span>Tiếp tục câu sau</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
@@ -146,14 +143,14 @@ class QuizController {
 
   formatPromptWithBlank(prompt) {
     if (!prompt) return '';
-    return prompt.replace(/(\.{3,}|_{3,})/g, `<span class="inline-flex items-center px-3 py-0.5 rounded-md bg-[#D97757]/15 text-[#D97757] border-2 border-dashed border-[#D97757] font-mono font-bold text-sm md:text-base mx-1.5 shadow-sm">........</span>`);
+    return prompt.replace(/(\.{3,}|_{3,})/g, `<span class="inline-flex items-center px-3 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/80 text-[#4255FF] border-2 border-dashed border-[#4255FF] font-bold text-sm md:text-base mx-1.5 shadow-sm">........</span>`);
   }
 
   highlightWord(sentence, targetWord) {
     if (!sentence || !targetWord) return sentence || '';
     const clean = targetWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`\\b(${clean})\\b`, 'gi');
-    return sentence.replace(regex, `<span class="bg-[#10B981]/20 text-[#10B981] font-bold px-1.5 py-0.5 rounded border border-[#10B981]/40 font-mono">$1</span>`);
+    return sentence.replace(regex, `<span class="bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold px-1.5 py-0.5 rounded border border-emerald-400/60">$1</span>`);
   }
 
   playFullSentenceAudio() {
@@ -183,17 +180,17 @@ class QuizController {
       const badge = btn.querySelector('.option-badge');
 
       if (optText === q.correctAnswer.trim()) {
-        btn.classList.remove('bg-white', 'dark:bg-[#1E1C1A]', 'border-[#E6E1D8]', 'dark:border-[#332E2A]');
-        btn.classList.add('bg-[#10B981]/15', 'border-[#10B981]', 'text-[#10B981]', 'font-bold');
+        btn.classList.remove('bg-white', 'dark:bg-[#1A1D36]', 'border-[#E5E8EF]', 'dark:border-[#282E4E]');
+        btn.classList.add('bg-emerald-50', 'dark:bg-emerald-950/60', 'border-emerald-500', 'text-emerald-700', 'dark:text-emerald-300', 'font-bold');
         if (badge) {
-          badge.classList.add('border-[#10B981]', 'text-[#10B981]', 'bg-[#10B981]/20');
+          badge.classList.add('border-emerald-500', 'text-emerald-600', 'bg-emerald-100');
           badge.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i>`;
         }
       } else if (idx === selectedIndex && !isCorrect) {
-        btn.classList.remove('bg-white', 'dark:bg-[#1E1C1A]', 'border-[#E6E1D8]', 'dark:border-[#332E2A]');
-        btn.classList.add('bg-[#EF4444]/15', 'border-[#EF4444]', 'text-[#EF4444]', 'shake-it');
+        btn.classList.remove('bg-white', 'dark:bg-[#1A1D36]', 'border-[#E5E8EF]', 'dark:border-[#282E4E]');
+        btn.classList.add('bg-rose-50', 'dark:bg-rose-950/60', 'border-rose-500', 'text-rose-700', 'dark:text-rose-300', 'shake-it');
         if (badge) {
-          badge.classList.add('border-[#EF4444]', 'text-[#EF4444]', 'bg-[#EF4444]/20');
+          badge.classList.add('border-rose-500', 'text-rose-600', 'bg-rose-100');
           badge.innerHTML = `<i data-lucide="x" class="w-3.5 h-3.5"></i>`;
         }
       }
@@ -230,37 +227,37 @@ class QuizController {
     expBox.classList.remove('hidden');
     expBox.innerHTML = `
       <div class="flex items-start gap-2.5">
-        <div class="mt-0.5 p-1 rounded-md ${isCorrect ? 'bg-[#10B981]/15 text-[#10B981]' : 'bg-[#EF4444]/15 text-[#EF4444]'}">
+        <div class="mt-0.5 p-1 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'}">
           <i data-lucide="${isCorrect ? 'check' : 'x'}" class="w-4 h-4"></i>
         </div>
         <div class="flex-1 text-xs">
-          <div class="font-bold text-[#1E1D1B] dark:text-[#EDE8E3] text-sm mb-1 font-mono">
-            ${isCorrect ? 'Chính xác! 🎯' : `Đáp án đúng: <span class="text-[#10B981] font-extrabold text-base">${q.correctAnswer}</span>`}
+          <div class="font-bold text-[#2E3856] dark:text-white text-sm mb-1">
+            ${isCorrect ? 'Chính xác! 🎯' : `Đáp án đúng: <span class="text-emerald-600 dark:text-emerald-400 font-extrabold text-base">${q.correctAnswer}</span>`}
           </div>
 
           ${q.fullSentence ? `
-            <div class="p-3 bg-[#FAF8F5] dark:bg-[#141312] rounded-xl border border-[#E6E1D8] dark:border-[#292522] my-2">
-              <div class="flex items-center justify-between text-[11px] font-mono text-[#D97757] mb-1">
+            <div class="p-3 bg-slate-50 dark:bg-[#252945] rounded-xl border border-slate-200 dark:border-slate-700 my-2">
+              <div class="flex items-center justify-between text-[11px] font-bold text-[#4255FF] mb-1">
                 <span>📖 Nguồn: ${q.dictSource || "Oxford Learner's Dictionary"}</span>
-                <button type="button" onclick="window.quizCtrl.playFullSentenceAudio()" class="inline-flex items-center gap-1 hover:underline text-[#D97757]">
+                <button type="button" onclick="window.quizCtrl.playFullSentenceAudio()" class="inline-flex items-center gap-1 hover:underline text-[#4255FF]">
                   <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe đọc cả câu
                 </button>
               </div>
-              <p class="text-[#1E1D1B] dark:text-[#EDE8E3] font-medium text-xs md:text-sm leading-relaxed mb-1">
+              <p class="text-[#2E3856] dark:text-white font-medium text-xs md:text-sm leading-relaxed mb-1">
                 ${this.highlightWord(q.fullSentence, q.correctAnswer)}
               </p>
-              ${q.exampleVi ? `<p class="text-[#736D64] dark:text-[#9E968D] italic text-[11px] md:text-xs">💡 ${q.exampleVi}</p>` : ''}
+              ${q.exampleVi ? `<p class="text-slate-500 dark:text-slate-400 italic text-[11px] md:text-xs">💡 ${q.exampleVi}</p>` : ''}
             </div>
           ` : ''}
 
           ${w ? `
-            <div class="mt-2 text-[#736D64] dark:text-[#9E968D] text-xs font-medium">
-              <span class="font-bold text-[#D97757] font-mono">${w.word}</span> ${w.partOfSpeech ? `<span class="font-mono">(${w.partOfSpeech})</span>` : ''}: <span class="text-[#1E1D1B] dark:text-[#EDE8E3]">${w.meaning}</span>
+            <div class="mt-2 text-slate-700 dark:text-slate-300 text-xs font-medium">
+              <span class="font-bold text-[#4255FF]">${w.word}</span> ${w.partOfSpeech ? `<span>(${w.partOfSpeech})</span>` : ''}: <span class="text-[#2E3856] dark:text-white">${w.meaning}</span>
             </div>
           ` : ''}
 
-          <div class="mt-2.5 pt-2 border-t border-[#E6E1D8]/60 dark:border-[#292522]">
-            <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w ? w.word : q.correctAnswer).toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-[#D97757] hover:underline">
+          <div class="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w ? w.word : q.correctAnswer).toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-[#4255FF] hover:underline">
               <span>↗ Tra từ này trên Oxford Learner's Dictionaries</span>
             </a>
           </div>
@@ -296,49 +293,49 @@ class QuizController {
 
     container.innerHTML = `
       <div class="max-w-md mx-auto text-center py-6 px-4">
-        <div class="w-16 h-16 rounded-2xl ${percent >= 70 ? 'bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30' : 'bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30'} flex items-center justify-center mx-auto mb-4 shadow-sm">
-          <i data-lucide="${percent >= 70 ? 'check-circle' : 'award'}" class="w-8 h-8"></i>
+        <div class="w-16 h-16 rounded-2xl ${percent >= 70 ? 'bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-amber-100 text-amber-600 dark:bg-amber-950 dark:text-amber-300'} flex items-center justify-center mx-auto mb-4 shadow-sm">
+          <i data-lucide="${percent >= 70 ? 'trophy' : 'award'}" class="w-8 h-8"></i>
         </div>
 
-        <h2 class="text-xl md:text-2xl font-bold font-sans text-[#1E1D1B] dark:text-[#EDE8E3]">
+        <h2 class="text-xl md:text-2xl font-bold font-sans text-[#2E3856] dark:text-white">
           ${percent >= 90 ? 'Xuất sắc tuyệt đối! 🎯' : percent >= 70 ? 'Luyện ngữ cảnh rất tốt! 👏' : 'Tiếp tục rèn luyện nhé! 💪'}
         </h2>
         
-        <p class="text-xs font-mono text-[#736D64] dark:text-[#9E968D] mt-1">$ session_complete: 10 oxford sentences verified</p>
+        <p class="text-xs text-[#586380] dark:text-[#939BB4] mt-1">Bạn vừa hoàn thành 10 câu bài tập ngữ cảnh Oxford</p>
 
         <!-- Thẻ điểm -->
-        <div class="grid grid-cols-3 gap-2 my-5">
-          <div class="p-3 bg-white dark:bg-[#1E1C1A] rounded-xl border border-[#E6E1D8] dark:border-[#332E2A]">
-            <div class="text-xl md:text-2xl font-mono font-bold text-[#D97757]">${this.score}/${total}</div>
-            <div class="text-[10px] font-mono uppercase text-[#736D64] dark:text-[#9E968D] mt-0.5">Số câu đúng</div>
+        <div class="grid grid-cols-3 gap-2.5 my-5">
+          <div class="p-3 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+            <div class="text-xl md:text-2xl font-black text-[#4255FF]">${this.score}/${total}</div>
+            <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Số câu đúng</div>
           </div>
-          <div class="p-3 bg-white dark:bg-[#1E1C1A] rounded-xl border border-[#E6E1D8] dark:border-[#332E2A]">
-            <div class="text-xl md:text-2xl font-mono font-bold text-[#10B981]">${percent}%</div>
-            <div class="text-[10px] font-mono uppercase text-[#736D64] dark:text-[#9E968D] mt-0.5">Chính xác</div>
+          <div class="p-3 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+            <div class="text-xl md:text-2xl font-black text-[#23B26D]">${percent}%</div>
+            <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Chính xác</div>
           </div>
-          <div class="p-3 bg-white dark:bg-[#1E1C1A] rounded-xl border border-[#E6E1D8] dark:border-[#332E2A]">
-            <div class="text-xl md:text-2xl font-mono font-bold text-[#F59E0B]">🔥 ${this.maxStreak}</div>
-            <div class="text-[10px] font-mono uppercase text-[#736D64] dark:text-[#9E968D] mt-0.5">Chuỗi max</div>
+          <div class="p-3 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
+            <div class="text-xl md:text-2xl font-black text-[#FFCD1F]">🔥 ${this.maxStreak}</div>
+            <div class="text-[11px] font-bold text-[#586380] dark:text-[#939BB4] uppercase mt-0.5">Chuỗi cao nhất</div>
           </div>
         </div>
 
         <!-- Các nút bấm -->
-        <div class="space-y-2">
+        <div class="space-y-2.5">
           ${this.wrongAnswers.length > 0 ? `
-            <button onclick="window.quizCtrl.retryWrongAnswers()" class="w-full py-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-mono font-bold rounded-xl shadow-sm flex items-center justify-center gap-2">
+            <button onclick="window.quizCtrl.retryWrongAnswers()" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center justify-center gap-2">
               <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-              <span>$ retry-mistakes (${this.wrongAnswers.length})</span>
+              <span>Luyện lại ${this.wrongAnswers.length} câu làm sai</span>
             </button>
           ` : ''}
 
-          <button onclick="window.quizCtrl.init(window.appStorage.words, 10, '${this.subMode}')" class="w-full py-3.5 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
+          <button onclick="window.quizCtrl.init(window.appStorage.words, 10, '${this.subMode}')" class="w-full py-3.5 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
             <i data-lucide="play" class="w-4 h-4"></i>
-            <span>$ next-10-oxford-questions</span>
+            <span>Làm tiếp 10 câu mới</span>
           </button>
 
-          <button onclick="window.appRouter.navigate('flashcard')" class="w-full py-2.5 bg-black/5 dark:bg-white/5 border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono text-xs rounded-xl flex items-center justify-center gap-2">
+          <button onclick="window.appRouter.navigate('flashcard')" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] text-[#2E3856] dark:text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2">
             <i data-lucide="layers" class="w-4 h-4"></i>
-            <span>$ switch-to-flashcard</span>
+            <span>Quay lại học thẻ ghi nhớ</span>
           </button>
         </div>
       </div>

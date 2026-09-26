@@ -99,8 +99,8 @@ class FlashcardController {
     const btn = document.getElementById('fc-btn-autoplay');
     if (btn) {
       btn.innerHTML = this.isAutoPlaying
-        ? `<i data-lucide="pause" class="w-5 h-5"></i><span>Dừng rảnh tay</span>`
-        : `<i data-lucide="play" class="w-5 h-5"></i><span>Tự động rảnh tay</span>`;
+        ? `<i data-lucide="pause" class="w-3.5 h-3.5"></i><span>Dừng tự động</span>`
+        : `<i data-lucide="play" class="w-3.5 h-3.5"></i><span>Tự động phát</span>`;
       if (window.lucide) window.lucide.createIcons();
     }
 
@@ -116,7 +116,7 @@ class FlashcardController {
     if (this.autoPlayTimer) clearTimeout(this.autoPlayTimer);
     const btn = document.getElementById('fc-btn-autoplay');
     if (btn) {
-      btn.innerHTML = `<i data-lucide="play" class="w-5 h-5"></i><span>Tự động rảnh tay</span>`;
+      btn.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5"></i><span>Tự động phát</span>`;
       if (window.lucide) window.lucide.createIcons();
     }
   }
@@ -197,12 +197,12 @@ class FlashcardController {
     if (!this.deck || this.deck.length === 0) {
       container.innerHTML = `
         <div class="text-center py-16 px-4">
-          <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-950/60 rounded-full flex items-center justify-center mx-auto text-indigo-600 mb-4">
+          <div class="w-16 h-16 bg-blue-50 dark:bg-blue-950/60 rounded-full flex items-center justify-center mx-auto text-[#4255FF] mb-4">
             <i data-lucide="layers" class="w-8 h-8"></i>
           </div>
-          <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">Chưa có từ vựng nào</h3>
+          <h3 class="text-lg font-bold text-[#2E3856] dark:text-white">Chưa có từ vựng nào</h3>
           <p class="text-sm text-slate-500 mt-1 max-w-sm mx-auto">Hãy thêm từ vựng hoặc đồng bộ từ Google Docs để bắt đầu học nhé!</p>
-          <button onclick="window.appSync.sync()" class="mt-4 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold shadow-sm inline-flex items-center gap-2">
+          <button onclick="window.appSync.sync()" class="mt-4 px-5 py-2.5 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-sm font-bold shadow-sm inline-flex items-center gap-2">
             <i data-lucide="refresh-cw" class="w-4 h-4"></i> Đồng bộ ngay
           </button>
         </div>
@@ -219,21 +219,21 @@ class FlashcardController {
         <!-- Header Thanh tiến độ & Điều khiển -->
         <div class="flex items-center justify-between gap-3 mb-2 px-1">
           <div class="flex-1">
-            <div class="flex justify-between text-xs font-mono text-[#736D64] dark:text-[#9E968D] mb-1">
-              <span>&gt; card ${this.currentIndex + 1} / ${this.deck.length}</span>
+            <div class="flex justify-between text-xs font-semibold text-[#586380] dark:text-[#939BB4] mb-1">
+              <span>Thẻ ${this.currentIndex + 1} / ${this.deck.length}</span>
               <span>${progressPercent}%</span>
             </div>
-            <div class="w-full bg-[#E6E1D8] dark:bg-[#292522] h-1.5 rounded-full overflow-hidden">
-              <div class="bg-[#D97757] h-full transition-all duration-300 rounded-full" style="width: ${progressPercent}%"></div>
+            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+              <div class="bg-[#4255FF] h-full transition-all duration-300 rounded-full" style="width: ${progressPercent}%"></div>
             </div>
           </div>
           
-          <button onclick="window.flashcardCtrl.shuffle()" class="p-2 rounded-xl text-[#736D64] dark:text-[#9E968D] hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-[#E6E1D8] dark:hover:border-[#332E2A]" title="Trộn thẻ">
+          <button onclick="window.flashcardCtrl.shuffle()" class="p-2 rounded-xl text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] border border-transparent hover:border-slate-200 transition-colors" title="Trộn thẻ">
             <i data-lucide="shuffle" class="w-4 h-4"></i>
           </button>
           
-          <button onclick="window.flashcardCtrl.toggleStar()" class="p-2 rounded-xl ${word.isStarred ? 'text-[#F59E0B]' : 'text-[#736D64] dark:text-[#6E675F]'} hover:bg-black/5 dark:hover:bg-white/5" title="Đánh dấu sao">
-            <i data-lucide="star" class="w-4 h-4 ${word.isStarred ? 'fill-[#F59E0B]' : ''}"></i>
+          <button onclick="window.flashcardCtrl.toggleStar()" class="p-2 rounded-xl ${word.isStarred ? 'text-[#FFCD1F]' : 'text-[#586380] dark:text-[#939BB4]'} hover:bg-slate-100 dark:hover:bg-[#252945]" title="Đánh dấu sao">
+            <i data-lucide="star" class="w-4 h-4 ${word.isStarred ? 'fill-[#FFCD1F]' : ''}"></i>
           </button>
         </div>
 
@@ -242,66 +242,66 @@ class FlashcardController {
           <div id="fc-card-inner" class="card-inner ${this.isFlipped ? 'is-flipped' : ''}">
             
             <!-- Mặt trước (Front) -->
-            <div class="card-front bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] shadow-xl flex flex-col justify-between p-6 md:p-8 rounded-2xl">
+            <div class="card-front bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] shadow-xl flex flex-col justify-between p-6 md:p-8 rounded-2xl">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md ${word.isNew ? 'bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 badge-pulse' : 'bg-black/5 dark:bg-white/5 text-[#736D64] dark:text-[#9E968D] border border-black/10 dark:border-white/10'}">
+                <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${word.isNew ? 'bg-emerald-50 text-[#23B26D] border border-emerald-200 badge-pulse' : 'bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4]'}">
                   ${word.isNew ? '✨ Mới cập nhật' : (word.partOfSpeech || 'Từ vựng')}
                 </span>
                 
-                <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakCurrentWord();" class="w-9 h-9 rounded-xl bg-[#D97757]/15 text-[#D97757] hover:bg-[#D97757]/25 flex items-center justify-center transition-transform active:scale-95 shadow-sm border border-[#D97757]/30">
-                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakCurrentWord();" class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/60 text-[#4255FF] hover:bg-blue-100 flex items-center justify-center transition-transform active:scale-95 shadow-sm border border-blue-100 dark:border-blue-900/50">
+                  <i data-lucide="volume-2" class="w-5 h-5"></i>
                 </button>
               </div>
 
               <div class="text-center my-auto py-4">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#1E1D1B] dark:text-[#EDE8E3] tracking-tight font-sans">${word.word}</h2>
-                ${word.phonetic ? `<p class="text-base font-semibold text-[#D97757] mt-2 font-mono">${word.phonetic}</p>` : ''}
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#2E3856] dark:text-white tracking-tight">${word.word}</h2>
+                ${word.phonetic ? `<p class="text-base font-semibold text-[#4255FF] mt-2">${word.phonetic}</p>` : ''}
               </div>
 
               <div class="text-center">
-                <span class="text-xs font-mono text-[#736D64] dark:text-[#9E968D] inline-flex items-center gap-1.5">
-                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#D97757]"></i> [Chạm để lật thẻ]
+                <span class="text-xs text-slate-400 dark:text-slate-500 inline-flex items-center gap-1.5 font-medium">
+                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#4255FF]"></i> Chạm để lật thẻ
                 </span>
               </div>
             </div>
 
             <!-- Mặt sau (Back) -->
-            <div class="card-back bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] shadow-xl flex flex-col justify-between p-6 md:p-8 rounded-2xl overflow-y-auto">
+            <div class="card-back bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] shadow-xl flex flex-col justify-between p-6 md:p-8 rounded-2xl overflow-y-auto">
               <div>
                 <div class="flex items-center justify-between mb-3">
-                  <span class="text-[11px] font-mono uppercase tracking-wider text-[#D97757] bg-[#D97757]/10 px-2.5 py-0.5 rounded-md border border-[#D97757]/25">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-[#4255FF] bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full border border-blue-100 dark:border-blue-900/50">
                     ${word.partOfSpeech ? `Nghĩa • ${word.partOfSpeech}` : 'Nghĩa tiếng Việt'}
                   </span>
-                  <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakCurrentWord();" class="text-[#D97757] p-1.5 hover:bg-[#D97757]/10 rounded-lg">
+                  <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakCurrentWord();" class="text-[#4255FF] p-1.5 hover:bg-blue-50 dark:hover:bg-blue-950/60 rounded-lg">
                     <i data-lucide="volume-2" class="w-4 h-4"></i>
                   </button>
                 </div>
                 
-                <h3 class="text-2xl font-bold text-[#1E1D1B] dark:text-[#EDE8E3] mb-2 font-sans">${word.meaning}</h3>
-                ${word.definition ? `<p class="text-xs text-[#736D64] dark:text-[#9E968D] italic mb-3 font-mono">${word.definition}</p>` : ''}
+                <h3 class="text-2xl font-bold text-[#2E3856] dark:text-white mb-2">${word.meaning}</h3>
+                ${word.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 italic mb-3">${word.definition}</p>` : ''}
               </div>
 
               ${word.example ? `
-                <div class="my-auto bg-[#FAF8F5] dark:bg-[#141312] p-3.5 rounded-xl border border-[#E6E1D8] dark:border-[#292522]">
-                  <div class="flex items-center justify-between text-xs font-mono text-[#D97757] font-semibold mb-1">
+                <div class="my-auto bg-slate-50 dark:bg-[#252945] p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
+                  <div class="flex items-center justify-between text-xs text-[#4255FF] font-bold mb-1">
                     <span>📖 Ngữ cảnh Oxford</span>
                     <div class="flex items-center gap-2">
-                      <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((word.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[10px] text-[#D97757] font-bold hover:underline">
+                      <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((word.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[10px] text-[#4255FF] font-bold hover:underline">
                         Oxford ↗
                       </a>
-                      <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakExample();" class="p-1 hover:bg-[#D97757]/10 rounded" title="Nghe câu">
+                      <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakExample();" class="p-1 hover:bg-blue-100 dark:hover:bg-blue-900 rounded" title="Nghe câu">
                         <i data-lucide="volume-1" class="w-3.5 h-3.5"></i>
                       </button>
                     </div>
                   </div>
-                  <p class="text-sm text-[#1E1D1B] dark:text-[#EDE8E3] font-medium font-sans">${word.example}</p>
-                  ${word.exampleVi ? `<p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 italic">${word.exampleVi}</p>` : ''}
+                  <p class="text-sm text-[#2E3856] dark:text-white font-medium">${word.example}</p>
+                  ${word.exampleVi ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic">${word.exampleVi}</p>` : ''}
                 </div>
               ` : ''}
 
               <div class="text-center pt-2">
-                <span class="text-xs font-mono text-[#736D64] dark:text-[#9E968D] inline-flex items-center gap-1.5">
-                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#D97757]"></i> [Chạm để lật lại]
+                <span class="text-xs text-slate-400 dark:text-slate-500 inline-flex items-center gap-1.5 font-medium">
+                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-[#4255FF]"></i> Chạm để lật lại
                 </span>
               </div>
             </div>
@@ -311,28 +311,28 @@ class FlashcardController {
 
         <!-- Điều khiển dưới cùng (Nút Đã nhớ / Chưa nhớ) -->
         <div class="pt-2">
-          <div class="grid grid-cols-2 gap-2.5 mb-2">
-            <button onclick="window.flashcardCtrl.animateSwipe('left')" class="py-3 px-4 bg-[#EF4444]/15 hover:bg-[#EF4444]/25 text-[#EF4444] border border-[#EF4444]/30 rounded-xl font-mono font-bold text-xs md:text-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm">
+          <div class="grid grid-cols-2 gap-2.5 mb-2.5">
+            <button onclick="window.flashcardCtrl.animateSwipe('left')" class="py-3 px-4 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-[#FF725B] border border-rose-200 dark:border-rose-900/60 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm">
               <i data-lucide="x" class="w-4 h-4"></i>
-              <span>[← Chưa nhớ]</span>
+              <span>Chưa nhớ</span>
             </button>
-            <button onclick="window.flashcardCtrl.animateSwipe('right')" class="py-3 px-4 bg-[#10B981]/15 hover:bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/30 rounded-xl font-mono font-bold text-xs md:text-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm">
+            <button onclick="window.flashcardCtrl.animateSwipe('right')" class="py-3 px-4 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 text-[#23B26D] border border-emerald-200 dark:border-emerald-900/60 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm">
               <i data-lucide="check" class="w-4 h-4"></i>
-              <span>[Đã thuộc →]</span>
+              <span>Đã thuộc</span>
             </button>
           </div>
 
-          <div class="flex items-center justify-between text-xs font-mono text-[#736D64] dark:text-[#9E968D] px-1">
-            <button id="fc-btn-autoplay" onclick="window.flashcardCtrl.toggleAutoPlay()" class="inline-flex items-center gap-1.5 font-semibold text-[#D97757] py-1.5 px-2.5 rounded-lg hover:bg-[#D97757]/10">
+          <div class="flex items-center justify-between text-xs px-1">
+            <button id="fc-btn-autoplay" onclick="window.flashcardCtrl.toggleAutoPlay()" class="inline-flex items-center gap-1.5 font-bold text-[#4255FF] py-2 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/60 dark:hover:bg-blue-900/60 transition-all">
               <i data-lucide="play" class="w-3.5 h-3.5"></i>
-              <span>$ autoplay</span>
+              <span>Tự động phát</span>
             </button>
             
-            <div class="flex items-center gap-1">
-              <button onclick="window.flashcardCtrl.prev()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg text-[#736D64] dark:text-[#9E968D]" title="Thẻ trước">
+            <div class="flex items-center gap-1.5">
+              <button onclick="window.flashcardCtrl.prev()" class="p-2.5 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] rounded-xl text-[#586380] dark:text-[#939BB4] shadow-sm transition-all" title="Thẻ trước">
                 <i data-lucide="chevron-left" class="w-4 h-4"></i>
               </button>
-              <button onclick="window.flashcardCtrl.next()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg text-[#736D64] dark:text-[#9E968D]" title="Thẻ sau">
+              <button onclick="window.flashcardCtrl.next()" class="p-2.5 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] rounded-xl text-[#586380] dark:text-[#939BB4] shadow-sm transition-all" title="Thẻ sau">
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
               </button>
             </div>

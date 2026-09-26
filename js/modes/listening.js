@@ -37,11 +37,11 @@ class ListeningController {
     const buttons = document.querySelectorAll('.rate-btn');
     buttons.forEach(b => {
       if (parseFloat(b.dataset.rate) === rate) {
-        b.classList.add('bg-[#D97757]', 'text-white');
-        b.classList.remove('bg-transparent', 'text-[#736D64]', 'dark:text-[#9E968D]');
+        b.classList.add('bg-[#4255FF]', 'text-white');
+        b.classList.remove('bg-transparent', 'text-[#586380]', 'dark:text-[#939BB4]');
       } else {
-        b.classList.remove('bg-[#D97757]', 'text-white');
-        b.classList.add('bg-transparent', 'text-[#736D64]', 'dark:text-[#9E968D]');
+        b.classList.remove('bg-[#4255FF]', 'text-white');
+        b.classList.add('bg-transparent', 'text-[#586380]', 'dark:text-[#939BB4]');
       }
     });
     this.playCurrentAudio();
@@ -98,13 +98,13 @@ class ListeningController {
       if (resultBox) {
         resultBox.classList.remove('hidden');
         resultBox.innerHTML = `
-          <div class="p-3.5 bg-[#10B981]/15 border border-[#10B981]/40 rounded-xl text-[#10B981]">
-            <div class="font-mono font-bold flex items-center gap-1.5 mb-1 text-sm">
+          <div class="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-800 dark:text-emerald-200">
+            <div class="font-bold flex items-center gap-1.5 mb-1 text-sm">
               <i data-lucide="check" class="w-4 h-4"></i>
               <span>Chính xác tuyệt đối!</span>
             </div>
-            <p class="text-sm font-semibold">${word.word} ${word.phonetic ? `<span class="font-mono">[${word.phonetic}]</span>` : ''}: ${word.meaning}</p>
-            ${word.example ? `<p class="text-xs text-[#1E1D1B] dark:text-[#EDE8E3] mt-1 italic">"${word.example}"</p>` : ''}
+            <p class="text-sm font-semibold">${word.word} ${word.phonetic ? `<span class="font-mono text-emerald-600">[${word.phonetic}]</span>` : ''}: ${word.meaning}</p>
+            ${word.example ? `<p class="text-xs text-[#2E3856] dark:text-[#F6F7FB] mt-1 italic">"${word.example}"</p>` : ''}
           </div>
         `;
       }
@@ -114,14 +114,14 @@ class ListeningController {
       if (resultBox) {
         resultBox.classList.remove('hidden');
         resultBox.innerHTML = `
-          <div class="p-3.5 bg-[#EF4444]/15 border border-[#EF4444]/40 rounded-xl text-[#EF4444]">
-            <div class="font-mono font-bold flex items-center gap-1.5 mb-1 text-sm">
+          <div class="p-3.5 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 rounded-xl text-rose-800 dark:text-rose-200">
+            <div class="font-bold flex items-center gap-1.5 mb-1 text-sm">
               <i data-lucide="x" class="w-4 h-4"></i>
               <span>Chưa chính xác</span>
             </div>
-            <p class="text-sm">Từ đúng: <strong class="text-[#D97757] font-mono font-bold">${word.word}</strong> ${word.phonetic ? `<span class="font-mono">[${word.phonetic}]</span>` : ''}</p>
-            <p class="text-xs mt-1 text-[#1E1D1B] dark:text-[#EDE8E3]">Nghĩa: ${word.meaning}</p>
-            ${word.example ? `<p class="text-xs text-[#736D64] dark:text-[#9E968D] mt-1 italic">"${word.example}"</p>` : ''}
+            <p class="text-sm">Từ đúng: <strong class="text-[#4255FF] font-bold">${word.word}</strong> ${word.phonetic ? `<span class="font-mono text-slate-500">[${word.phonetic}]</span>` : ''}</p>
+            <p class="text-xs mt-1 text-[#2E3856] dark:text-[#F6F7FB]">Nghĩa: ${word.meaning}</p>
+            ${word.example ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic">"${word.example}"</p>` : ''}
           </div>
         `;
       }
@@ -130,7 +130,7 @@ class ListeningController {
     // Đổi nút kiểm tra thành nút Câu tiếp theo
     const checkBtn = document.getElementById('btn-check-dictation');
     if (checkBtn) {
-      checkBtn.innerHTML = `<span>$ next_word</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+      checkBtn.innerHTML = `<span>Từ tiếp theo</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
       checkBtn.onclick = () => this.nextWord();
     }
 
@@ -160,45 +160,45 @@ class ListeningController {
       <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
         <div>
           <!-- Header & Tốc độ phát -->
-          <div class="flex items-center justify-between mb-3 px-1 pb-2 border-b border-[#E6E1D8] dark:border-[#292522]">
-            <span class="text-xs font-mono text-[#736D64] dark:text-[#9E968D]">&gt; word ${this.currentIndex + 1} / ${this.words.length}</span>
-            <div class="flex items-center gap-1 bg-black/5 dark:bg-white/5 border border-[#E6E1D8] dark:border-[#332E2A] p-0.5 rounded-lg font-mono">
-              <button data-rate="0.75" onclick="window.listeningCtrl.setRate(0.75)" class="rate-btn text-xs px-2 py-0.5 rounded font-bold ${this.audioRate === 0.75 ? 'bg-[#D97757] text-white' : 'text-[#736D64] dark:text-[#9E968D]'}">0.75x</button>
-              <button data-rate="0.9" onclick="window.listeningCtrl.setRate(0.9)" class="rate-btn text-xs px-2 py-0.5 rounded font-bold ${this.audioRate === 0.9 ? 'bg-[#D97757] text-white' : 'text-[#736D64] dark:text-[#9E968D]'}">0.9x</button>
-              <button data-rate="1.0" onclick="window.listeningCtrl.setRate(1.0)" class="rate-btn text-xs px-2 py-0.5 rounded font-bold ${this.audioRate === 1.0 ? 'bg-[#D97757] text-white' : 'text-[#736D64] dark:text-[#9E968D]'}">1.0x</button>
+          <div class="flex items-center justify-between mb-3 px-1 pb-2 border-b border-[#E5E8EF] dark:border-[#282E4E]">
+            <span class="text-xs font-semibold text-[#586380] dark:text-[#939BB4]">Từ ${this.currentIndex + 1} / ${this.words.length}</span>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] p-0.5 rounded-xl font-medium">
+              <button data-rate="0.75" onclick="window.listeningCtrl.setRate(0.75)" class="rate-btn text-xs px-2.5 py-0.5 rounded-lg font-bold ${this.audioRate === 0.75 ? 'bg-[#4255FF] text-white' : 'text-[#586380] dark:text-[#939BB4]'}">0.75x</button>
+              <button data-rate="0.9" onclick="window.listeningCtrl.setRate(0.9)" class="rate-btn text-xs px-2.5 py-0.5 rounded-lg font-bold ${this.audioRate === 0.9 ? 'bg-[#4255FF] text-white' : 'text-[#586380] dark:text-[#939BB4]'}">0.9x</button>
+              <button data-rate="1.0" onclick="window.listeningCtrl.setRate(1.0)" class="rate-btn text-xs px-2.5 py-0.5 rounded-lg font-bold ${this.audioRate === 1.0 ? 'bg-[#4255FF] text-white' : 'text-[#586380] dark:text-[#939BB4]'}">1.0x</button>
             </div>
           </div>
 
           <!-- Khối Loa phát âm thanh -->
-          <div class="bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] rounded-2xl p-6 text-center shadow-sm mb-4">
-            <button onclick="window.listeningCtrl.playCurrentAudio()" class="w-20 h-20 rounded-2xl bg-[#D97757]/15 hover:bg-[#D97757]/25 text-[#D97757] border border-[#D97757]/30 flex items-center justify-center mx-auto shadow-sm active:scale-95 transition-all">
+          <div class="bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] rounded-2xl p-6 text-center shadow-sm mb-4">
+            <button onclick="window.listeningCtrl.playCurrentAudio()" class="w-20 h-20 rounded-full bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/60 dark:hover:bg-blue-900/60 text-[#4255FF] border border-blue-100 dark:border-blue-900/50 flex items-center justify-center mx-auto shadow-sm active:scale-95 transition-all">
               <i data-lucide="volume-2" class="w-10 h-10"></i>
             </button>
-            <p class="text-xs font-mono text-[#736D64] dark:text-[#9E968D] mt-3">[Chạm để nghe phát âm]</p>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 font-medium">Bấm để nghe phát âm</p>
             
             ${word.example ? `
-              <button onclick="window.listeningCtrl.playSentenceAudio()" class="mt-2 text-xs font-mono inline-flex items-center gap-1.5 text-[#D97757] hover:underline">
-                <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Nghe câu ngữ cảnh Oxford
+              <button onclick="window.listeningCtrl.playSentenceAudio()" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-[#4255FF] hover:underline">
+                <i data-lucide="play-circle" class="w-4 h-4"></i> Nghe câu ví dụ Oxford
               </button>
             ` : ''}
 
             <!-- Gợi ý chữ cái -->
-            <div id="dictation-hint" class="font-mono text-base tracking-widest text-[#D97757] mt-3 min-h-[24px]"></div>
+            <div id="dictation-hint" class="font-mono text-base font-bold tracking-widest text-[#4255FF] mt-3 min-h-[24px]"></div>
           </div>
 
           <!-- Ô nhập chính tả -->
           <form onsubmit="event.preventDefault(); window.listeningCtrl.checkAnswer();" class="space-y-2.5">
             <div>
-              <input id="dictation-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Gõ từ bạn nghe được vào đây..." class="w-full text-center text-base md:text-lg font-mono font-bold py-3 px-4 bg-white dark:bg-[#1E1C1A] border border-[#E6E1D8] dark:border-[#332E2A] focus:border-[#D97757] focus:outline-none rounded-xl shadow-sm text-[#1E1D1B] dark:text-[#EDE8E3]" />
+              <input id="dictation-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Gõ từ bạn nghe được vào đây..." class="w-full text-center text-base md:text-lg font-bold py-3 px-4 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] focus:border-[#4255FF] focus:outline-none rounded-xl shadow-sm text-[#2E3856] dark:text-white" />
             </div>
 
             <div class="flex items-center gap-2">
-              <button type="button" onclick="window.listeningCtrl.giveHint()" class="py-3 px-3.5 bg-black/5 dark:bg-white/5 border border-[#E6E1D8] dark:border-[#332E2A] text-[#1E1D1B] dark:text-[#EDE8E3] font-mono rounded-xl text-xs flex items-center gap-1.5">
-                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Gợi ý
+              <button type="button" onclick="window.listeningCtrl.giveHint()" class="py-3 px-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] text-[#2E3856] dark:text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors">
+                <i data-lucide="help-circle" class="w-4 h-4"></i> Gợi ý
               </button>
 
-              <button id="btn-check-dictation" type="submit" class="flex-1 py-3 bg-[#D97757] hover:bg-[#E2856A] text-white font-mono font-bold rounded-xl shadow-md flex items-center justify-center gap-2 active:scale-98 transition-all">
-                <span>$ verify</span>
+              <button id="btn-check-dictation" type="submit" class="flex-1 py-3 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2 active:scale-98 transition-all">
+                <span>Kiểm tra</span>
                 <i data-lucide="check" class="w-4 h-4"></i>
               </button>
             </div>
@@ -209,9 +209,9 @@ class ListeningController {
         </div>
 
         <!-- Điều hướng qua lại -->
-        <div class="flex justify-between items-center text-xs font-mono text-[#736D64] dark:text-[#9E968D] pt-4">
-          <button onclick="window.listeningCtrl.nextWord()" class="inline-flex items-center gap-1 hover:text-[#D97757]">
-            <span>$ skip_word</span> <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
+        <div class="flex justify-between items-center text-xs pt-4">
+          <button onclick="window.listeningCtrl.nextWord()" class="inline-flex items-center gap-1 text-slate-400 hover:text-[#4255FF] font-semibold transition-colors">
+            <span>Bỏ qua từ này</span> <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
           </button>
         </div>
       </div>

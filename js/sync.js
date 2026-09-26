@@ -87,7 +87,7 @@ class DocSyncEngine {
       if (parsedWords.length === 0) {
         this.isSyncing = false;
         const errMessage = 'Không thể kết nối tới Google Docs. Đã giữ nguyên danh sách chuẩn hiện tại.';
-        window.dispatchEvent(new CustomEvent('sync:error', { detail: { message: errMessage } }));
+        window.dispatchEvent(new CustomEvent('sync:error', { detail: { message: errMessage, silent: !!options.silent } }));
         return { status: 'error', message: errMessage };
       }
 
@@ -100,7 +100,8 @@ class DocSyncEngine {
         source: sourceUsed,
         addedCount: result.addedCount,
         updatedCount: result.updatedCount,
-        total: result.total
+        total: result.total,
+        silent: !!options.silent
       };
 
       window.dispatchEvent(new CustomEvent('sync:success', { detail: syncResult }));
@@ -108,7 +109,7 @@ class DocSyncEngine {
 
     } catch (err) {
       this.isSyncing = false;
-      window.dispatchEvent(new CustomEvent('sync:error', { detail: { message: err.toString() } }));
+      window.dispatchEvent(new CustomEvent('sync:error', { detail: { message: err.toString(), silent: !!options.silent } }));
       return { status: 'error', message: err.toString() };
     }
   }
