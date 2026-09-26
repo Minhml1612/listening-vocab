@@ -1,26 +1,100 @@
-/* CSS Tùy biến cho Ứng dụng Học Từ Vựng Quizlet */
+/* ==========================================================================
+   CLAUDE CODE DESIGN SYSTEM - STYLESHEET (v7.0)
+   Designed for DocVocab: Anthropic CLI & Workbench Aesthetic
+   Palette: Terracotta #D97757, Obsidian #141312, Parchment #FAF8F5, Border #332E2A
+   ========================================================================== */
 
 :root {
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --success: #10b981;
-  --danger: #ef4444;
-  --warning: #f59e0b;
-  --card-bg: #ffffff;
-  --bg-main: #f8fafc;
+  /* Claude Code Light (Warm Ivory Parchment) */
+  --claude-bg: #FAF8F5;
+  --claude-surface: #FFFFFF;
+  --claude-surface-elevated: #F4EFEA;
+  --claude-border: #E6E1D8;
+  --claude-border-subtle: #EDE9E3;
+  --claude-text: #1E1D1B;
+  --claude-text-muted: #736D64;
+  --claude-text-dim: #99938A;
+  --claude-terracotta: #D97757;
+  --claude-terracotta-hover: #C86446;
+  --claude-terracotta-bg: rgba(217, 119, 87, 0.08);
+  --claude-amber: #D97706;
+  --claude-emerald: #059669;
+  --claude-rose: #DC2626;
+
+  /* App Variables */
+  --primary: #D97757;
+  --primary-hover: #C86446;
+  --success: #059669;
+  --danger: #DC2626;
+  --warning: #D97706;
+  --card-bg: var(--claude-surface);
+  --bg-main: var(--claude-bg);
 }
 
 .dark {
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --card-bg: #1e293b;
-  --bg-main: #0f172a;
+  /* Claude Code Dark (Deep Warm Obsidian CLI Workbench) */
+  --claude-bg: #141312;
+  --claude-surface: #1E1C1A;
+  --claude-surface-elevated: #282522;
+  --claude-border: #332E2A;
+  --claude-border-subtle: #292522;
+  --claude-text: #EDE8E3;
+  --claude-text-muted: #9E968D;
+  --claude-text-dim: #6E675F;
+  --claude-terracotta: #D97757;
+  --claude-terracotta-hover: #E2856A;
+  --claude-terracotta-bg: rgba(217, 119, 87, 0.14);
+  --claude-amber: #F59E0B;
+  --claude-emerald: #10B981;
+  --claude-rose: #EF4444;
+
+  /* App Variables */
+  --primary: #D97757;
+  --primary-hover: #E2856A;
+  --card-bg: var(--claude-surface);
+  --bg-main: var(--claude-bg);
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* Base resets & typography */
+html, body {
+  background-color: var(--claude-bg);
+  color: var(--claude-text);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Monospace font for CLI tokens */
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Claude Code Hairline Borders & Surfaces */
+.claude-card {
+  background-color: var(--claude-surface);
+  border: 1px solid var(--claude-border);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.claude-card:hover {
+  border-color: rgba(217, 119, 87, 0.45);
+}
+
+.dark .claude-card:hover {
+  border-color: rgba(217, 119, 87, 0.55);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(217, 119, 87, 0.08);
+}
+
+/* Terminal Command Prompt Glow */
+.terminal-prompt-glow {
+  box-shadow: 0 0 0 1px var(--claude-border), 0 2px 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .terminal-prompt-glow:focus-within {
+  border-color: #D97757;
+  box-shadow: 0 0 0 2px rgba(217, 119, 87, 0.25), 0 0 20px -3px rgba(217, 119, 87, 0.15);
 }
 
 /* 3D Flip Card Effect */
@@ -32,7 +106,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-style: preserve-3d;
 }
 
@@ -46,7 +120,7 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
 }
 
 .card-back {
@@ -55,21 +129,21 @@ body {
 
 /* Touch Card Swipe Animation */
 .card-swiping-right {
-  transform: translate(120px, -20px) rotate(15deg);
+  transform: translate(140px, -15px) rotate(12deg);
   opacity: 0;
-  transition: all 0.35s ease-out;
+  transition: all 0.32s ease-out;
 }
 
 .card-swiping-left {
-  transform: translate(-120px, -20px) rotate(-15deg);
+  transform: translate(-140px, -15px) rotate(-12deg);
   opacity: 0;
-  transition: all 0.35s ease-out;
+  transition: all 0.32s ease-out;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for Claude Code Terminal */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -77,15 +151,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #D8D2C7;
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #342F2B;
+  border-radius: 4px;
 }
 
-/* Shake Animation on Error */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #47403B;
+}
+
+/* Error Shake Animation */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-6px); }
@@ -93,13 +172,13 @@ body {
 }
 
 .shake-it {
-  animation: shake 0.4s ease-in-out;
+  animation: shake 0.35s ease-in-out;
 }
 
 /* Pulse animation for new word badge */
 @keyframes pulse-badge {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.08); opacity: 0.85; }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
 }
 
 .badge-pulse {
@@ -107,28 +186,62 @@ body {
 }
 
 /* Active bottom navigation indicator */
-.nav-item.active {
-  color: #4f46e5;
-  font-weight: 600;
+.nav-item {
+  position: relative;
+  transition: all 0.15s ease;
 }
-.dark .nav-item.active {
-  color: #818cf8;
+
+.nav-item.active {
+  color: #D97757 !important;
+  font-weight: 700;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #D97757;
+  border-radius: 9999px;
+  box-shadow: 0 0 8px #D97757;
 }
 
 /* Mobile Safe Area Padding */
 .safe-bottom {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
 }
 
-/* Glassmorphism effects */
-.glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Modern Glassmorphism */
+.claude-glass {
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-.dark .glass {
-  background: rgba(30, 41, 59, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.dark .claude-glass {
+  background: rgba(20, 19, 18, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Monospace shortcut pill */
+.kbd-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.125rem 0.35rem;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--claude-text-muted);
+}
+
+.dark .kbd-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--claude-text-muted);
 }

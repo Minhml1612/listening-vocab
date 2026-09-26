@@ -18,7 +18,7 @@ const DEFAULT_SETTINGS = {
   geminiApiKey: '',
   speechAccent: 'en-US',
   speechRate: 0.95,
-  theme: 'light',
+  theme: 'dark',
   soundEffects: true,
   autoSpeakOnFlip: true,
   hapticFeedback: true
