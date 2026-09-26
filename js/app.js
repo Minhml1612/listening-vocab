@@ -235,8 +235,14 @@ class AppRouter {
             
             ${w.example ? `
               <div class="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
-                <p class="italic">"${w.example}"</p>
-                ${w.exampleVi ? `<p class="text-slate-400 dark:text-slate-500 mt-0.5">${w.exampleVi}</p>` : ''}
+                <p class="italic text-slate-700 dark:text-slate-300">"${w.example}"</p>
+                ${w.exampleVi ? `<p class="text-slate-500 dark:text-slate-400 mt-0.5">${w.exampleVi}</p>` : ''}
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[10px] text-slate-400">📖 ${w.dictSource || "Oxford Learner's Dictionary"}</span>
+                  <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold hover:underline inline-flex items-center gap-0.5">
+                    Oxford ↗
+                  </a>
+                </div>
               </div>
             ` : ''}
           </div>

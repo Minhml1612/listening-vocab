@@ -284,10 +284,15 @@ class FlashcardController {
               ${word.example ? `
                 <div class="my-auto bg-white/80 dark:bg-slate-800/80 p-3.5 rounded-xl border border-indigo-100 dark:border-slate-700">
                   <div class="flex items-center justify-between text-xs text-indigo-600 dark:text-indigo-400 font-semibold mb-1">
-                    <span>Ngữ cảnh listening</span>
-                    <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakExample();" class="p-1 hover:bg-indigo-50 rounded">
-                      <i data-lucide="volume-1" class="w-4 h-4"></i>
-                    </button>
+                    <span>📖 Ngữ cảnh Oxford</span>
+                    <div class="flex items-center gap-2">
+                      <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((word.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
+                        Oxford ↗
+                      </a>
+                      <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakExample();" class="p-1 hover:bg-indigo-50 rounded" title="Nghe câu">
+                        <i data-lucide="volume-1" class="w-4 h-4"></i>
+                      </button>
+                    </div>
                   </div>
                   <p class="text-sm text-slate-700 dark:text-slate-200 font-medium">${word.example}</p>
                   ${word.exampleVi ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${word.exampleVi}</p>` : ''}

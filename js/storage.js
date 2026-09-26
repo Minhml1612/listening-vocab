@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v5', // v5: Bộ câu hỏi Cloze Oxford & Longman với 4 lựa chọn chuẩn
+  WORDS: 'docvocab_words_v6', // v6: Tích hợp đầy đủ link tra cứu Oxford Learner's Dictionaries
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -155,9 +155,9 @@ class StorageManager {
 
       const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!raw) {
-        // Migrate tiến trình (sao, độ thành thạo) từ v3/v4 sang v5 nếu có
+        // Migrate tiến trình (sao, độ thành thạo) từ v3/v4/v5 sang v6 nếu có
         let statsMap = {};
-        const prevRaw = localStorage.getItem('docvocab_words_v4') || localStorage.getItem('docvocab_words_v3');
+        const prevRaw = localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4') || localStorage.getItem('docvocab_words_v3');
         if (prevRaw) {
           try {
             const prevList = JSON.parse(prevRaw);
@@ -177,6 +177,7 @@ class StorageManager {
           try {
             localStorage.removeItem('docvocab_words_v3');
             localStorage.removeItem('docvocab_words_v4');
+            localStorage.removeItem('docvocab_words_v5');
           } catch (e) {}
         }
 

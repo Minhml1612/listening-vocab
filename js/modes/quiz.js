@@ -253,6 +253,12 @@ class QuizController {
               <span class="font-bold text-indigo-600 dark:text-indigo-400">${w.word}</span> ${w.partOfSpeech ? `<span class="text-slate-400">(${w.partOfSpeech})</span>` : ''}: <span>${w.meaning}</span>
             </div>
           ` : ''}
+
+          <div class="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w ? w.word : q.correctAnswer).toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline">
+              <span>Tra từ này trên Oxford Learner's Dictionaries ↗</span>
+            </a>
+          </div>
         </div>
       </div>
     `;
