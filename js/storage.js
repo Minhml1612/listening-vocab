@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v4', // v4: Nâng cấp 100% ngữ cảnh Oxford Learner's Dictionary
+  WORDS: 'docvocab_words_v5', // v5: Bộ câu hỏi Cloze Oxford & Longman với 4 lựa chọn chuẩn
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -82,6 +82,9 @@ class StorageManager {
         example: w.example || `The speaker used the word "${wordText}" in the listening conversation.`,
         exampleVi: w.exampleVi || `Người nói đã dùng từ "${wordText}" trong bài nghe.`,
         gapSentence: w.gapSentence || '',
+        quizAnswer: w.quizAnswer || '',
+        distractors: Array.isArray(w.distractors) ? w.distractors : [],
+        dictSource: w.dictSource || '',
         audioUrl: w.audioUrl || '',
         isNew: false,
         isStarred: !!w.isStarred,
@@ -152,14 +155,14 @@ class StorageManager {
 
       const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!raw) {
-        // Migrate tiến trình (sao, độ thành thạo) từ v3 sang v4 nếu có
+        // Migrate tiến trình (sao, độ thành thạo) từ v3/v4 sang v5 nếu có
         let statsMap = {};
-        const v3Raw = localStorage.getItem('docvocab_words_v3');
-        if (v3Raw) {
+        const prevRaw = localStorage.getItem('docvocab_words_v4') || localStorage.getItem('docvocab_words_v3');
+        if (prevRaw) {
           try {
-            const v3List = JSON.parse(v3Raw);
-            if (Array.isArray(v3List)) {
-              v3List.forEach(item => {
+            const prevList = JSON.parse(prevRaw);
+            if (Array.isArray(prevList)) {
+              prevList.forEach(item => {
                 if (item && item.word) {
                   statsMap[item.word.toLowerCase().trim()] = {
                     isStarred: !!item.isStarred,
@@ -171,7 +174,10 @@ class StorageManager {
               });
             }
           } catch (e) {}
-          try { localStorage.removeItem('docvocab_words_v3'); } catch (e) {}
+          try {
+            localStorage.removeItem('docvocab_words_v3');
+            localStorage.removeItem('docvocab_words_v4');
+          } catch (e) {}
         }
 
         const mergedList = defaultData.map(item => {

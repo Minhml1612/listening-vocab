@@ -195,74 +195,49 @@ Hãy trả về DUY NHẤT một chuỗi JSON hợp lệ (không kèm markdown \
   }
 
   /**
-   * Tạo câu hỏi trắc nghiệm thông minh dựa trên ngữ cảnh chuẩn Oxford
+   * Tạo câu hỏi trắc nghiệm ngữ cảnh chuẩn Oxford & Longman (Cloze Test)
    */
-  createQuizQuestions(targetWord, allWords, preferredType = 'sentence-gap') {
+  createQuizQuestions(targetWord, allWords) {
     const questions = [];
-    const otherWords = allWords.filter(w => w && w.word && w.word.toLowerCase() !== targetWord.word.toLowerCase());
+    const correctAnswer = (targetWord.quizAnswer || targetWord.word || '').trim();
 
-    // 1. DẠNG ƯU TIÊN SỐ 1: BÀI TẬP NGỮ CẢNH OXFORD (Gap-fill)
+    // 1. Câu văn ngữ cảnh có chỗ trống "........"
     let gapSentence = targetWord.gapSentence;
     if (!gapSentence && targetWord.example) {
-      const regex = new RegExp(`\\b${targetWord.word}\\b`, 'gi');
-      gapSentence = targetWord.example.replace(regex, '________');
+      const regex = new RegExp(`\\b${correctAnswer}\\b`, 'gi');
+      gapSentence = targetWord.example.replace(regex, '........');
     }
     if (!gapSentence) {
-      gapSentence = `In everyday listening, the speaker used the word "________" in conversation.`;
+      gapSentence = `In everyday conversations, native speakers often use the word "........" to express this idea.`;
     }
 
-    // Lựa chọn các từ cùng từ loại hoặc trong cùng bài học làm đáp án nhiễu
-    const samePosWords = otherWords.filter(w => w.partOfSpeech && targetWord.partOfSpeech && w.partOfSpeech === targetWord.partOfSpeech);
-    const poolForDistractors = samePosWords.length >= 3 ? samePosWords : otherWords;
+    // 2. Tạo 4 lựa chọn (1 đúng + 3 đáp án nhiễu cùng từ loại, dễ gây confuse)
+    let options = [];
+    if (Array.isArray(targetWord.distractors) && targetWord.distractors.length >= 3) {
+      options = [...targetWord.distractors.slice(0, 3), correctAnswer];
+    } else {
+      // Fallback nếu từ mới thêm vào chưa có sẵn distractors
+      const otherWords = allWords.filter(w => w && w.word && w.word.toLowerCase() !== correctAnswer.toLowerCase());
+      const samePosWords = otherWords.filter(w => w.partOfSpeech && targetWord.partOfSpeech && w.partOfSpeech.toLowerCase() === targetWord.partOfSpeech.toLowerCase());
+      const pool = samePosWords.length >= 3 ? samePosWords : otherWords;
+      const fallback = this.getDistractors(correctAnswer, pool.map(w => w.quizAnswer || w.word), 3);
+      options = [...fallback, correctAnswer];
+    }
 
-    const optionsWords = this.getDistractors(targetWord.word, poolForDistractors.map(w => w.word), 3);
-    optionsWords.push(targetWord.word);
-    this.shuffle(optionsWords);
+    // Trộn ngẫu nhiên 4 lựa chọn A, B, C, D
+    this.shuffle(options);
 
-    // Câu hỏi Ngữ cảnh Oxford
+    // Không đưa nghĩa vào hint trước khi làm bài để tránh lộ đáp án!
     questions.push({
       type: 'sentence-gap',
-      title: '📖 Bài tập ngữ cảnh Oxford (Chọn từ điền vào câu):',
+      title: '📚 Bài tập ngữ cảnh (Oxford & Longman)',
       prompt: gapSentence,
-      hint: targetWord.meaning,
-      fullSentence: targetWord.example || gapSentence.replace('________', targetWord.word),
+      hint: '', // Không gợi ý trước để người học tư duy ngữ cảnh
+      options: options,
+      correctAnswer: correctAnswer,
+      fullSentence: targetWord.example || gapSentence.replace('........', correctAnswer),
       exampleVi: targetWord.exampleVi || '',
-      options: optionsWords,
-      correctAnswer: targetWord.word,
-      wordItem: targetWord
-    });
-
-    // 2. DẠNG 2: NGHE CÂU NGỮ CẢNH OXFORD VÀ ĐIỀN TỪ (Listening Context Quiz)
-    questions.push({
-      type: 'listening-context',
-      title: '🎧 Nghe câu ngữ cảnh Oxford và chọn từ đúng:',
-      prompt: gapSentence,
-      listenWord: targetWord.word,
-      audioSentence: targetWord.example || '',
-      fullSentence: targetWord.example || gapSentence.replace('________', targetWord.word),
-      hint: targetWord.meaning,
-      exampleVi: targetWord.exampleVi || '',
-      options: optionsWords,
-      correctAnswer: targetWord.word,
-      wordItem: targetWord
-    });
-
-    // 3. DẠNG 3: TRẮC NGHIỆM NGHĨA TỪ
-    const optionsMeaning = this.getDistractors(targetWord.meaning, otherWords.map(w => w.meaning), 3);
-    optionsMeaning.push(targetWord.meaning);
-    this.shuffle(optionsMeaning);
-
-    questions.push({
-      type: 'word-to-meaning',
-      title: 'Chọn nghĩa đúng của từ vựng:',
-      prompt: targetWord.word,
-      phonetic: targetWord.phonetic,
-      partOfSpeech: targetWord.partOfSpeech,
-      audioUrl: targetWord.audioUrl,
-      fullSentence: targetWord.example || '',
-      exampleVi: targetWord.exampleVi || '',
-      options: optionsMeaning,
-      correctAnswer: targetWord.meaning,
+      dictSource: targetWord.dictSource || "Oxford Learner's & Longman Dictionary",
       wordItem: targetWord
     });
 
