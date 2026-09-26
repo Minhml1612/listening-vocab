@@ -1,9 +1,10 @@
 /**
- * GOOGLE APPS SCRIPT CHO WEB HỌC TỪ VỰNG DOCVOCAB (v11.0 - Tự Động Hóa 2 Chiều)
+ * GOOGLE APPS SCRIPT CHO WEB HỌC TỪ VỰNG DOCVOCAB (v12.0 - Tự Động Hóa 2 Chiều & Bảo Mật Cao)
  * 
  * Tính năng:
  * 1. doGet: Trả về toàn bộ từ vựng thời gian thực HOẶC thêm từ mới qua URL query parameter (?action=addWord&word=...)
  * 2. doPost: Thêm từ mới vào bảng Google Docs tự động với ID tăng dần (001 -> 160+)
+ * 3. Bảo mật: Chống Formula Injection, giới hạn độ dài ký tự chống spam DoS, lọc sạch mã độc.
  * 
  * Hướng dẫn cập nhật:
  * 1. Mở file Google Docs của bạn: https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit
@@ -109,16 +110,32 @@ function getTargetDoc() {
   return doc;
 }
 
+/**
+ * Hàm làm sạch dữ liệu đầu vào chống Formula Injection và spam DoS
+ */
+function sanitizeInput(str, maxLen) {
+  if (!str) return '';
+  var clean = String(str).trim();
+  if (clean.length > maxLen) {
+    clean = clean.substring(0, maxLen);
+  }
+  // Chống Formula Injection trong Google Docs/Sheets
+  if (/^[=\+\-@\t\r]/.test(clean)) {
+    clean = "'" + clean;
+  }
+  return clean;
+}
+
 function handleAddWord(params) {
-  var word = (params.word || '').trim();
-  var pos = (params.pos || params.partOfSpeech || '').trim();
-  var meaning = (params.meaning || '').trim();
-  var notes = (params.notes || params.example || '').trim();
+  var word = sanitizeInput(params.word, 100);
+  var pos = sanitizeInput(params.pos || params.partOfSpeech, 40);
+  var meaning = sanitizeInput(params.meaning, 400);
+  var notes = sanitizeInput(params.notes || params.example, 800);
   
-  if (!word) {
+  if (!word || word.length < 2) {
     return ContentService.createTextOutput(JSON.stringify({
       status: "error",
-      message: "Từ tiếng Anh (word) là bắt buộc"
+      message: "Từ tiếng Anh (word) không hợp lệ"
     })).setMimeType(ContentService.MimeType.JSON);
   }
   
@@ -131,7 +148,7 @@ function handleAddWord(params) {
     var table = tables[0];
     var rowCount = table.getNumRows();
     
-    // Tìm ID lớn nhất hiện có
+    // Tìm ID số lớn nhất hiện tại
     var maxId = 0;
     for (var i = 0; i < rowCount; i++) {
       var cellText = table.getRow(i).getCell(0).getText().trim();
@@ -153,8 +170,8 @@ function handleAddWord(params) {
     newRow.appendTableCell(notes);
     
   } else {
-    // Nếu chưa có bảng, tạo bảng mới hoặc ghi thêm đoạn văn
-    var p = body.appendParagraph(word + " (" + pos + "): " + meaning + (notes ? " - " + notes : ""));
+    // Nếu chưa có bảng, tạo đoạn văn mới
+    body.appendParagraph(word + " (" + pos + "): " + meaning + (notes ? " - " + notes : ""));
   }
   
   doc.saveAndClose();

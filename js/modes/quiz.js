@@ -103,7 +103,7 @@ class QuizController {
             </div>
 
             <div class="py-1">
-              <div class="p-4 bg-slate-50 dark:bg-[#252945] rounded-xl border border-slate-200/80 dark:border-slate-700/80 mb-1">
+              <div onclick="window.quizCtrl.handlePromptClick(event)" class="p-4 bg-slate-50 dark:bg-[#252945] rounded-xl border border-slate-200/80 dark:border-slate-700/80 mb-1">
                 <p class="text-base md:text-lg font-medium text-[#2E3856] dark:text-white leading-relaxed font-sans">
                   ${this.formatInteractivePrompt(q.prompt)}
                 </p>
@@ -145,6 +145,18 @@ class QuizController {
     if (window.lucide) window.lucide.createIcons();
   }
 
+  handlePromptClick(event) {
+    const target = event.target.closest('.clickable-word');
+    if (!target) return;
+    event.stopPropagation();
+    const word = target.dataset.word;
+    const q = this.getCurrentQuestion();
+    const prompt = q ? q.prompt : '';
+    if (word && window.appRouter && typeof window.appRouter.lookupContextWord === 'function') {
+      window.appRouter.lookupContextWord(word, prompt);
+    }
+  }
+
   formatInteractivePrompt(prompt) {
     if (!prompt) return '';
     const safePromptEscaped = this.escapeHtml(prompt);
@@ -153,12 +165,12 @@ class QuizController {
     // Chuẩn hóa dấu ba chấm / gạch dưới thành token đặc biệt
     let withMarker = prompt.replace(/(\.{3,}|_{3,})/g, '___BLANK_TOKEN___');
 
-    // Tách từng từ tiếng Anh thành thẻ tương tác có thể chạm để tra nghĩa
+    // Tách từng từ tiếng Anh thành thẻ tương tác bảo mật cao dùng data-word
     const processed = withMarker.replace(/\b([a-zA-Z][a-zA-Z'-]*)\b/g, (match) => {
       if (match === '___BLANK_TOKEN___') return match;
       const cleanWord = match.replace(/[^a-zA-Z]/g, '');
       if (cleanWord.length < 2) return match;
-      return `<span class="clickable-word" onclick="event.stopPropagation(); window.appRouter.lookupContextWord('${cleanWord}', '${safePromptEscaped}')" title="Chạm để tra nghĩa và thêm từ">${match}</span>`;
+      return `<span class="clickable-word" data-word="${this.escapeHtml(cleanWord)}" title="Chạm để tra nghĩa '${this.escapeHtml(cleanWord)}'">${match}</span>`;
     });
 
     return processed.replace('___BLANK_TOKEN___', blankHtml);

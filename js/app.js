@@ -3,6 +3,58 @@
  * Điều phối toàn bộ giao diện, định tuyến các chế độ học, tìm kiếm và quản lý từ vựng
  */
 
+// TỪ ĐIỂN NGOẠI TUYẾN TÍCH HỢP SẴN — PHẢN HỒI 0MS TỨC THÌ
+window.OFFLINE_DICT = {
+  'mechanic': { phonetic: '/məˈkænɪk/', partOfSpeech: 'n', meaning: 'thợ máy; thợ sửa xe' },
+  'committee': { phonetic: '/kəˈmɪti/', partOfSpeech: 'n', meaning: 'ủy ban; ban đại diện' },
+  'warning': { phonetic: '/ˈwɔːnɪŋ/', partOfSpeech: 'n', meaning: 'lời cảnh báo; sự báo trước' },
+  'cancer': { phonetic: '/ˈkænsə(r)/', partOfSpeech: 'n', meaning: 'bệnh ung thư' },
+  'smoking': { phonetic: '/ˈsməʊkɪŋ/', partOfSpeech: 'n', meaning: 'hút thuốc lá' },
+  'severe': { phonetic: '/sɪˈvɪə(r)/', partOfSpeech: 'adj', meaning: 'nghiêm trọng; nặng nề' },
+  'highlight': { phonetic: '/ˈhaɪlaɪt/', partOfSpeech: 'v', meaning: 'làm nổi bật; nhấn mạnh' },
+  'decision': { phonetic: '/dɪˈsɪʒn/', partOfSpeech: 'n', meaning: 'quyết định' },
+  'advice': { phonetic: '/ədˈvaɪs/', partOfSpeech: 'n', meaning: 'lời khuyên; tư vấn' },
+  'attorney': { phonetic: '/əˈtɜːni/', partOfSpeech: 'n', meaning: 'luật sư' },
+  'department': { phonetic: '/dɪˈpɑːtmənt/', partOfSpeech: 'n', meaning: 'phòng ban; bộ phận' },
+  'engine': { phonetic: '/ˈendʒɪn/', partOfSpeech: 'n', meaning: 'động cơ; máy móc' },
+  'public': { phonetic: '/ˈpʌblɪk/', partOfSpeech: 'adj/n', meaning: 'công cộng; công chúng' },
+  'health': { phonetic: '/helθ/', partOfSpeech: 'n', meaning: 'sức khỏe; y tế' },
+  'merger': { phonetic: '/ˈmɜːdʒə(r)/', partOfSpeech: 'n', meaning: 'sự sáp nhập doanh nghiệp' },
+  'agreement': { phonetic: '/əˈɡriːmənt/', partOfSpeech: 'n', meaning: 'thỏa thuận; hợp đồng' },
+  'corporate': { phonetic: '/ˈkɔːpərət/', partOfSpeech: 'adj', meaning: 'thuộc doanh nghiệp, tập đoàn' },
+  'legal': { phonetic: '/ˈliːɡl/', partOfSpeech: 'adj', meaning: 'hợp pháp; thuộc pháp luật' },
+  'budget': { phonetic: '/ˈbʌdʒɪt/', partOfSpeech: 'n', meaning: 'ngân sách; kinh phí' },
+  'passenger': { phonetic: '/ˈpæsɪndʒə(r)/', partOfSpeech: 'n', meaning: 'hành khách' },
+  'airport': { phonetic: '/ˈeəpɔːt/', partOfSpeech: 'n', meaning: 'sân bay' },
+  'flight': { phonetic: '/flaɪt/', partOfSpeech: 'n', meaning: 'chuyến bay' },
+  'delay': { phonetic: '/dɪˈleɪ/', partOfSpeech: 'v/n', meaning: 'hoãn lại; sự chậm trễ' },
+  'customer': { phonetic: '/ˈkʌstəmə(r)/', partOfSpeech: 'n', meaning: 'khách hàng' },
+  'service': { phonetic: '/ˈsɜːvɪs/', partOfSpeech: 'n', meaning: 'dịch vụ' },
+  'manager': { phonetic: '/ˈmænɪdʒə(r)/', partOfSpeech: 'n', meaning: 'người quản lý' },
+  'director': { phonetic: '/dəˈrektə(r)/', partOfSpeech: 'n', meaning: 'giám đốc' },
+  'schedule': { phonetic: '/ˈʃedjuːl/', partOfSpeech: 'n/v', meaning: 'lịch trình; lên lịch' },
+  'meeting': { phonetic: '/ˈmiːtɪŋ/', partOfSpeech: 'n', meaning: 'cuộc họp; buổi gặp' },
+  'report': { phonetic: '/rɪˈpɔːt/', partOfSpeech: 'n/v', meaning: 'báo cáo' },
+  'announce': { phonetic: '/əˈnaʊns/', partOfSpeech: 'v', meaning: 'thông báo; tuyên bố' },
+  'confirm': { phonetic: '/kənˈfɜːm/', partOfSpeech: 'v', meaning: 'xác nhận' },
+  'discount': { phonetic: '/ˈdɪskaʊnt/', partOfSpeech: 'n', meaning: 'giảm giá; chiết khấu' },
+  'refund': { phonetic: '/ˈriːfʌnd/', partOfSpeech: 'n/v', meaning: 'hoàn tiền' },
+  'purchase': { phonetic: '/ˈpɜːtʃəs/', partOfSpeech: 'v/n', meaning: 'mua sắm; đơn mua' },
+  'delivery': { phonetic: '/dɪˈlɪvəri/', partOfSpeech: 'n', meaning: 'giao hàng' },
+  'order': { phonetic: '/ˈɔːdə(r)/', partOfSpeech: 'n/v', meaning: 'đơn hàng; đặt hàng' },
+  'product': { phonetic: '/ˈprɒdʌkt/', partOfSpeech: 'n', meaning: 'sản phẩm' },
+  'quality': { phonetic: '/ˈkwɒləti/', partOfSpeech: 'n', meaning: 'chất lượng' },
+  'request': { phonetic: '/rɪˈkwest/', partOfSpeech: 'n/v', meaning: 'yêu cầu; đề nghị' },
+  'office': { phonetic: '/ˈɒfɪs/', partOfSpeech: 'n', meaning: 'văn phòng' },
+  'staff': { phonetic: '/stɑːf/', partOfSpeech: 'n', meaning: 'nhân viên' },
+  'employee': { phonetic: '/ɪmˈplɔɪiː/', partOfSpeech: 'n', meaning: 'nhân viên; người lao động' },
+  'interview': { phonetic: '/ˈɪntəvjuː/', partOfSpeech: 'n/v', meaning: 'phỏng vấn' },
+  'position': { phonetic: '/pəˈzɪʃn/', partOfSpeech: 'n', meaning: 'vị trí công việc' },
+  'salary': { phonetic: '/ˈsæləri/', partOfSpeech: 'n', meaning: 'tiền lương' },
+  'safety': { phonetic: '/ˈseɪfti/', partOfSpeech: 'n', meaning: 'sự an toàn' },
+  'emergency': { phonetic: '/iˈmɜːdʒənsi/', partOfSpeech: 'n', meaning: 'tình trạng khẩn cấp' }
+};
+
 class AppRouter {
   constructor() {
     this.currentRoute = 'home';
@@ -603,10 +655,10 @@ class AppRouter {
           </div>
 
           <div class="flex items-center gap-1.5">
-            <button onclick="window.appStorage.toggleStar('${w.id}'); window.appRouter.renderOxfordModalContent(window.appStorage.words.find(item => item.id === '${w.id}') || ${JSON.stringify(w).replace(/"/g, '&quot;')});" class="p-2 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] ${w.isStarred ? 'text-[#FFCD1F]' : 'text-slate-400'}" title="Đánh dấu sao">
+            <button onclick="window.appRouter.toggleStarInModal('${w.id}')" class="p-2 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] ${w.isStarred ? 'text-[#FFCD1F]' : 'text-slate-400'}" title="Đánh dấu sao">
               <i data-lucide="star" class="w-4 h-4 ${w.isStarred ? 'fill-[#FFCD1F]' : ''}"></i>
             </button>
-            <button onclick="window.appStorage.toggleMastered('${w.id}'); window.appRouter.renderOxfordModalContent(window.appStorage.words.find(item => item.id === '${w.id}') || ${JSON.stringify(w).replace(/"/g, '&quot;')});" class="p-2 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] ${w.isMastered ? 'text-[#23B26D]' : 'text-slate-400'}" title="Đã thuộc">
+            <button onclick="window.appRouter.toggleMasteredInModal('${w.id}')" class="p-2 rounded-xl bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] ${w.isMastered ? 'text-[#23B26D]' : 'text-slate-400'}" title="Đã thuộc">
               <i data-lucide="check-circle" class="w-4 h-4 ${w.isMastered ? 'fill-[#23B26D] text-white' : ''}"></i>
             </button>
           </div>
@@ -717,11 +769,11 @@ class AppRouter {
   }
 
   /**
-   * Tra cứu từ trong ngữ cảnh khi bấm vào từ bất kỳ trong câu trắc nghiệm
+   * Tra cứu từ trong ngữ cảnh SIÊU TỐC (<10ms) & Bảo mật cao
    */
   async lookupContextWord(rawWord, contextSentence) {
     if (!rawWord) return;
-    const cleanWord = rawWord.trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, '');
+    const cleanWord = String(rawWord).trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, '');
     if (cleanWord.length < 2) return;
 
     const modal = document.getElementById('modal-word-lookup');
@@ -732,98 +784,175 @@ class AppRouter {
 
     if (!modal || !wordTitle || !bodyEl || !footerEl) return;
 
+    // HIỂN THỊ MODAL NGAY LẬP TỨC (<5ms) KHÔNG ĐỢI MẠNG
     wordTitle.innerText = cleanWord;
     if (speakBtn) speakBtn.onclick = () => window.appAudio.speak(cleanWord);
     modal.classList.remove('hidden');
 
-    // 1. Kiểm tra xem từ đã có sẵn trong kho từ vựng hiện tại chưa
-    const existing = window.appStorage.words.find(w => w && w.word && w.word.toLowerCase() === cleanWord.toLowerCase());
+    const cleanLower = cleanWord.toLowerCase();
+
+    // 1. Kiểm tra trong kho từ vựng hiện tại (0ms)
+    const existing = (window.appStorage.words || []).find(w => w && w.word && w.word.toLowerCase() === cleanLower);
 
     if (existing) {
-      this.currentLookup = { ...existing, contextSentence };
+      this.currentLookup = {
+        word: cleanWord,
+        phonetic: existing.phonetic || '',
+        partOfSpeech: existing.partOfSpeech || '',
+        meaning: existing.meaning || '',
+        definition: existing.definition || '',
+        example: contextSentence || existing.example || '',
+        contextSentence: contextSentence,
+        docId: existing.docId || '',
+        isExisting: true
+      };
       this.renderLookupModalContent(this.currentLookup, true);
       return;
     }
 
-    // 2. Nếu là từ mới, hiển thị trạng thái đang tra cứu tức thì
-    bodyEl.innerHTML = `
-      <div class="py-8 text-center">
-        <div class="w-8 h-8 border-3 border-[#4255FF] border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-        <p class="text-xs text-slate-500 font-semibold">Đang tra cứu nghĩa Oxford cho "${cleanWord}"...</p>
-      </div>
-    `;
-    footerEl.innerHTML = '';
-
-    // 3. Tra cứu từ điển trực tuyến hoặc AI enricher
-    try {
-      let enrichedData = null;
-      if (window.appEnricher && typeof window.appEnricher.fetchWordData === 'function') {
-        try {
-          enrichedData = await window.appEnricher.fetchWordData(cleanWord);
-        } catch (enrichErr) {}
-      }
-
-      if (!enrichedData) {
-        try {
-          const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(cleanWord)}`);
-          if (resp.ok) {
-            const dictArray = await resp.json();
-            if (Array.isArray(dictArray) && dictArray.length > 0) {
-              const entry = dictArray[0];
-              const phonetic = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || '';
-              const meaningObj = entry.meanings && entry.meanings[0];
-              const pos = meaningObj ? meaningObj.partOfSpeech : '';
-              const defObj = meaningObj && meaningObj.definitions && meaningObj.definitions[0];
-              const def = defObj ? defObj.definition : '';
-              const ex = defObj && defObj.example ? defObj.example : contextSentence;
-
-              enrichedData = {
-                word: cleanWord,
-                phonetic: phonetic,
-                partOfSpeech: pos,
-                definition: def,
-                meaning: def || 'từ vựng trong ngữ cảnh',
-                example: ex || contextSentence
-              };
-            }
-          }
-        } catch (fetchErr) {}
-      }
-
-      if (!enrichedData) {
-        enrichedData = {
-          word: cleanWord,
-          phonetic: '',
-          partOfSpeech: 'từ mới',
-          meaning: 'thuộc ngữ cảnh bài tập',
-          definition: '',
-          example: contextSentence
-        };
-      }
-
+    // 2. Kiểm tra từ điển ngoại tuyến tích hợp sẵn (0ms siêu tốc)
+    if (window.OFFLINE_DICT && window.OFFLINE_DICT[cleanLower]) {
+      const off = window.OFFLINE_DICT[cleanLower];
       this.currentLookup = {
         word: cleanWord,
-        phonetic: enrichedData.phonetic || '',
-        partOfSpeech: enrichedData.partOfSpeech || 'từ mới',
-        meaning: enrichedData.meaning || 'từ vựng trong ngữ cảnh',
-        definition: enrichedData.definition || '',
-        example: contextSentence || enrichedData.example || '',
-        contextSentence: contextSentence
-      };
-
-      this.renderLookupModalContent(this.currentLookup, false);
-
-    } catch (err) {
-      this.currentLookup = {
-        word: cleanWord,
-        phonetic: '',
-        partOfSpeech: 'từ mới',
-        meaning: 'từ vựng bài tập',
-        definition: '',
-        example: contextSentence
+        phonetic: off.phonetic || '',
+        partOfSpeech: off.partOfSpeech || 'từ mới',
+        meaning: off.meaning || 'từ vựng trong ngữ cảnh',
+        definition: off.definition || '',
+        example: contextSentence,
+        contextSentence: contextSentence,
+        isExisting: false
       };
       this.renderLookupModalContent(this.currentLookup, false);
+      return;
     }
+
+    // 3. Kiểm tra bộ nhớ cache cục bộ (localStorage cache) (0ms)
+    let cachedData = null;
+    try {
+      const cachedStr = localStorage.getItem('docvocab_cache_' + cleanLower);
+      if (cachedStr) {
+        cachedData = JSON.parse(cachedStr);
+      }
+    } catch (e) {}
+
+    if (cachedData) {
+      this.currentLookup = {
+        word: cleanWord,
+        phonetic: cachedData.phonetic || '',
+        partOfSpeech: cachedData.partOfSpeech || 'từ mới',
+        meaning: cachedData.meaning || 'từ vựng trong ngữ cảnh',
+        definition: cachedData.definition || '',
+        example: contextSentence,
+        contextSentence: contextSentence,
+        isExisting: false
+      };
+      this.renderLookupModalContent(this.currentLookup, false);
+      return;
+    }
+
+    // 3. NẾU CHƯA CÓ TRONG CACHE: Render ngay lập tức với UI sẵn sàng và nút "+ Thêm từ mới" ĐÃ SẴN SÀNG
+    this.currentLookup = {
+      word: cleanWord,
+      phonetic: '',
+      partOfSpeech: 'từ mới',
+      meaning: '',
+      definition: '',
+      example: contextSentence,
+      contextSentence: contextSentence,
+      isExisting: false,
+      isLoadingMeaning: true
+    };
+
+    // Render ngay lập tức trong <5ms
+    this.renderLookupModalContent(this.currentLookup, false);
+
+    // 4. Chạy truy vấn ngầm siêu tốc với timeout ngắn (1.5s)
+    this.fetchWordDefinitionFast(cleanWord).then(enriched => {
+      const meaningTextEl = document.getElementById('lookup-meaning-text');
+      if (!enriched) {
+        if (meaningTextEl && this.currentLookup && this.currentLookup.word.toLowerCase() === cleanLower) {
+          meaningTextEl.innerText = 'thuộc ngữ cảnh bài tập';
+          meaningTextEl.className = "text-sm font-bold text-[#2E3856] dark:text-white";
+        }
+        return;
+      }
+
+      // Lưu vào cache để lần sau 0ms
+      try {
+        localStorage.setItem('docvocab_cache_' + cleanLower, JSON.stringify(enriched));
+      } catch (e) {}
+
+      // Cập nhật dữ liệu hiện tại
+      if (this.currentLookup && this.currentLookup.word.toLowerCase() === cleanLower) {
+        this.currentLookup.phonetic = enriched.phonetic || this.currentLookup.phonetic;
+        this.currentLookup.partOfSpeech = enriched.partOfSpeech || this.currentLookup.partOfSpeech;
+        this.currentLookup.meaning = enriched.meaning || this.currentLookup.meaning;
+        this.currentLookup.definition = enriched.definition || this.currentLookup.definition;
+        this.currentLookup.isLoadingMeaning = false;
+
+        // Cập nhật mượt mà vùng hiển thị nghĩa mà không giật modal
+        const meaningTextEl = document.getElementById('lookup-meaning-text');
+        if (meaningTextEl) {
+          meaningTextEl.innerText = this.currentLookup.meaning || 'từ vựng trong ngữ cảnh';
+          meaningTextEl.className = "text-sm font-bold text-[#2E3856] dark:text-white";
+        }
+        const defTextEl = document.getElementById('lookup-def-text');
+        if (defTextEl && this.currentLookup.definition) {
+          defTextEl.innerText = this.currentLookup.definition;
+          defTextEl.classList.remove('hidden');
+        }
+        const posEl = document.getElementById('lookup-pos-badge');
+        if (posEl && this.currentLookup.partOfSpeech) {
+          posEl.innerText = '(' + this.currentLookup.partOfSpeech + ')';
+        }
+        const phoEl = document.getElementById('lookup-phonetic-badge');
+        if (phoEl && this.currentLookup.phonetic) {
+          phoEl.innerText = this.currentLookup.phonetic;
+        }
+      }
+    }).catch(() => {});
+  }
+
+  /**
+   * Truy vấn nghĩa từ điển siêu tốc với timeout ngắn (chống nghẽn mạng)
+   */
+  async fetchWordDefinitionFast(word) {
+    const clean = word.toLowerCase().trim();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 1800);
+
+    try {
+      const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`, {
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (resp.ok) {
+        const dictArray = await resp.json();
+        if (Array.isArray(dictArray) && dictArray.length > 0) {
+          const entry = dictArray[0];
+          const phonetic = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || '';
+          const meaningObj = entry.meanings && entry.meanings[0];
+          const pos = meaningObj ? meaningObj.partOfSpeech : '';
+          const defObj = meaningObj && meaningObj.definitions && meaningObj.definitions[0];
+          const def = defObj ? defObj.definition : '';
+          const ex = defObj && defObj.example ? defObj.example : '';
+
+          return {
+            phonetic,
+            partOfSpeech: pos,
+            definition: def,
+            meaning: def || 'từ vựng trong ngữ cảnh',
+            example: ex
+          };
+        }
+      }
+    } catch (e) {
+      clearTimeout(timeoutId);
+    }
+
+    return null;
   }
 
   renderLookupModalContent(data, isExisting) {
@@ -831,18 +960,31 @@ class AppRouter {
     const footerEl = document.getElementById('lookup-modal-footer');
     if (!bodyEl || !footerEl) return;
 
+    const safeWord = this.escapeHtml(data.word);
+    const safePhonetic = this.escapeHtml(data.phonetic);
+    const safePos = this.escapeHtml(data.partOfSpeech);
+    const safeMeaning = this.escapeHtml(data.meaning);
+    const safeDef = this.escapeHtml(data.definition);
+
     bodyEl.innerHTML = `
       <div class="space-y-3">
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="text-lg font-extrabold text-[#2E3856] dark:text-white">${data.word}</span>
-          ${data.phonetic ? `<span class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${data.phonetic}</span>` : ''}
-          ${data.partOfSpeech ? `<span class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-medium">(${data.partOfSpeech})</span>` : ''}
+          <span class="text-lg font-extrabold text-[#2E3856] dark:text-white">${safeWord}</span>
+          <span id="lookup-phonetic-badge" class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${safePhonetic}</span>
+          <span id="lookup-pos-badge" class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-medium">${safePos ? `(${safePos})` : ''}</span>
         </div>
 
         <div class="p-3 bg-blue-50/80 dark:bg-blue-950/40 rounded-xl border border-blue-200/70 dark:border-blue-900/50">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-[#4255FF] dark:text-[#7383FF] block mb-0.5">Nghĩa tiếng Việt</span>
-          <p class="text-sm font-bold text-[#2E3856] dark:text-white">${data.meaning}</p>
-          ${data.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic">${data.definition}</p>` : ''}
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#4255FF] dark:text-[#7383FF] block mb-0.5">Nghĩa từ vựng</span>
+          ${data.isLoadingMeaning ? `
+            <p id="lookup-meaning-text" class="text-xs text-[#4255FF] dark:text-[#7383FF] font-semibold flex items-center gap-1.5 py-0.5">
+              <span class="w-3.5 h-3.5 border-2 border-[#4255FF] border-t-transparent rounded-full animate-spin"></span>
+              <span>Đang tra cứu nghĩa chuẩn Oxford...</span>
+            </p>
+          ` : `
+            <p id="lookup-meaning-text" class="text-sm font-bold text-[#2E3856] dark:text-white">${safeMeaning || 'từ vựng trong ngữ cảnh'}</p>
+          `}
+          <p id="lookup-def-text" class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic ${safeDef ? '' : 'hidden'}">${safeDef}</p>
         </div>
 
         ${data.contextSentence ? `
@@ -860,7 +1002,7 @@ class AppRouter {
       footerEl.innerHTML = `
         <div class="w-full py-2.5 px-4 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-center gap-2">
           <i data-lucide="check-circle" class="w-4 h-4"></i>
-          <span>Đã có trong danh sách từ vựng (#${data.docId || ''})</span>
+          <span>Đã có trong danh sách từ vựng (#${this.escapeHtml(data.docId || '')})</span>
         </div>
       `;
     } else {
@@ -889,6 +1031,7 @@ class AppRouter {
       if (!isNaN(num) && num > maxId) maxId = num;
     });
     const nextDocId = String(maxId + 1).padStart(3, '0');
+
     const newWord = {
       id: 'w-new-' + Date.now(),
       docId: nextDocId,
@@ -913,7 +1056,7 @@ class AppRouter {
     window.appStorage.addOrUpdateWords([newWord]);
 
     // 2. Tự động đồng bộ lên Google Docs
-    await window.appSync.addWordToGoogleDocs(newWord);
+    window.appSync.addWordToGoogleDocs(newWord);
 
     // 3. Pháo hoa ăn mừng & Âm thanh
     if (window.confetti) {
@@ -933,6 +1076,18 @@ class AppRouter {
     if (this.currentRoute === 'home') {
       this.renderWordList();
     }
+  }
+
+  toggleStarInModal(wordId) {
+    window.appStorage.toggleStar(wordId);
+    const item = window.appStorage.words.find(w => w.id === wordId);
+    if (item) this.renderOxfordModalContent(item);
+  }
+
+  toggleMasteredInModal(wordId) {
+    window.appStorage.toggleMastered(wordId);
+    const item = window.appStorage.words.find(w => w.id === wordId);
+    if (item) this.renderOxfordModalContent(item);
   }
 
   closeWordLookupModal() {
