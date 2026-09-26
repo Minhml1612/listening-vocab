@@ -5,54 +5,45 @@
 
 // TỪ ĐIỂN NGOẠI TUYẾN TÍCH HỢP SẴN — PHẢN HỒI 0MS TỨC THÌ
 window.OFFLINE_DICT = {
-  'mechanic': { phonetic: '/məˈkænɪk/', partOfSpeech: 'n', meaning: 'thợ máy; thợ sửa xe' },
-  'committee': { phonetic: '/kəˈmɪti/', partOfSpeech: 'n', meaning: 'ủy ban; ban đại diện' },
-  'warning': { phonetic: '/ˈwɔːnɪŋ/', partOfSpeech: 'n', meaning: 'lời cảnh báo; sự báo trước' },
-  'cancer': { phonetic: '/ˈkænsə(r)/', partOfSpeech: 'n', meaning: 'bệnh ung thư' },
-  'smoking': { phonetic: '/ˈsməʊkɪŋ/', partOfSpeech: 'n', meaning: 'hút thuốc lá' },
-  'severe': { phonetic: '/sɪˈvɪə(r)/', partOfSpeech: 'adj', meaning: 'nghiêm trọng; nặng nề' },
-  'highlight': { phonetic: '/ˈhaɪlaɪt/', partOfSpeech: 'v', meaning: 'làm nổi bật; nhấn mạnh' },
-  'decision': { phonetic: '/dɪˈsɪʒn/', partOfSpeech: 'n', meaning: 'quyết định' },
-  'advice': { phonetic: '/ədˈvaɪs/', partOfSpeech: 'n', meaning: 'lời khuyên; tư vấn' },
-  'attorney': { phonetic: '/əˈtɜːni/', partOfSpeech: 'n', meaning: 'luật sư' },
-  'department': { phonetic: '/dɪˈpɑːtmənt/', partOfSpeech: 'n', meaning: 'phòng ban; bộ phận' },
-  'engine': { phonetic: '/ˈendʒɪn/', partOfSpeech: 'n', meaning: 'động cơ; máy móc' },
-  'public': { phonetic: '/ˈpʌblɪk/', partOfSpeech: 'adj/n', meaning: 'công cộng; công chúng' },
-  'health': { phonetic: '/helθ/', partOfSpeech: 'n', meaning: 'sức khỏe; y tế' },
-  'merger': { phonetic: '/ˈmɜːdʒə(r)/', partOfSpeech: 'n', meaning: 'sự sáp nhập doanh nghiệp' },
-  'agreement': { phonetic: '/əˈɡriːmənt/', partOfSpeech: 'n', meaning: 'thỏa thuận; hợp đồng' },
-  'corporate': { phonetic: '/ˈkɔːpərət/', partOfSpeech: 'adj', meaning: 'thuộc doanh nghiệp, tập đoàn' },
-  'legal': { phonetic: '/ˈliːɡl/', partOfSpeech: 'adj', meaning: 'hợp pháp; thuộc pháp luật' },
-  'budget': { phonetic: '/ˈbʌdʒɪt/', partOfSpeech: 'n', meaning: 'ngân sách; kinh phí' },
-  'passenger': { phonetic: '/ˈpæsɪndʒə(r)/', partOfSpeech: 'n', meaning: 'hành khách' },
-  'airport': { phonetic: '/ˈeəpɔːt/', partOfSpeech: 'n', meaning: 'sân bay' },
-  'flight': { phonetic: '/flaɪt/', partOfSpeech: 'n', meaning: 'chuyến bay' },
-  'delay': { phonetic: '/dɪˈleɪ/', partOfSpeech: 'v/n', meaning: 'hoãn lại; sự chậm trễ' },
-  'customer': { phonetic: '/ˈkʌstəmə(r)/', partOfSpeech: 'n', meaning: 'khách hàng' },
-  'service': { phonetic: '/ˈsɜːvɪs/', partOfSpeech: 'n', meaning: 'dịch vụ' },
-  'manager': { phonetic: '/ˈmænɪdʒə(r)/', partOfSpeech: 'n', meaning: 'người quản lý' },
-  'director': { phonetic: '/dəˈrektə(r)/', partOfSpeech: 'n', meaning: 'giám đốc' },
-  'schedule': { phonetic: '/ˈʃedjuːl/', partOfSpeech: 'n/v', meaning: 'lịch trình; lên lịch' },
-  'meeting': { phonetic: '/ˈmiːtɪŋ/', partOfSpeech: 'n', meaning: 'cuộc họp; buổi gặp' },
-  'report': { phonetic: '/rɪˈpɔːt/', partOfSpeech: 'n/v', meaning: 'báo cáo' },
-  'announce': { phonetic: '/əˈnaʊns/', partOfSpeech: 'v', meaning: 'thông báo; tuyên bố' },
-  'confirm': { phonetic: '/kənˈfɜːm/', partOfSpeech: 'v', meaning: 'xác nhận' },
-  'discount': { phonetic: '/ˈdɪskaʊnt/', partOfSpeech: 'n', meaning: 'giảm giá; chiết khấu' },
-  'refund': { phonetic: '/ˈriːfʌnd/', partOfSpeech: 'n/v', meaning: 'hoàn tiền' },
-  'purchase': { phonetic: '/ˈpɜːtʃəs/', partOfSpeech: 'v/n', meaning: 'mua sắm; đơn mua' },
-  'delivery': { phonetic: '/dɪˈlɪvəri/', partOfSpeech: 'n', meaning: 'giao hàng' },
-  'order': { phonetic: '/ˈɔːdə(r)/', partOfSpeech: 'n/v', meaning: 'đơn hàng; đặt hàng' },
-  'product': { phonetic: '/ˈprɒdʌkt/', partOfSpeech: 'n', meaning: 'sản phẩm' },
-  'quality': { phonetic: '/ˈkwɒləti/', partOfSpeech: 'n', meaning: 'chất lượng' },
-  'request': { phonetic: '/rɪˈkwest/', partOfSpeech: 'n/v', meaning: 'yêu cầu; đề nghị' },
-  'office': { phonetic: '/ˈɒfɪs/', partOfSpeech: 'n', meaning: 'văn phòng' },
-  'staff': { phonetic: '/stɑːf/', partOfSpeech: 'n', meaning: 'nhân viên' },
-  'employee': { phonetic: '/ɪmˈplɔɪiː/', partOfSpeech: 'n', meaning: 'nhân viên; người lao động' },
-  'interview': { phonetic: '/ˈɪntəvjuː/', partOfSpeech: 'n/v', meaning: 'phỏng vấn' },
-  'position': { phonetic: '/pəˈzɪʃn/', partOfSpeech: 'n', meaning: 'vị trí công việc' },
-  'salary': { phonetic: '/ˈsæləri/', partOfSpeech: 'n', meaning: 'tiền lương' },
-  'safety': { phonetic: '/ˈseɪfti/', partOfSpeech: 'n', meaning: 'sự an toàn' },
-  'emergency': { phonetic: '/iˈmɜːdʒənsi/', partOfSpeech: 'n', meaning: 'tình trạng khẩn cấp' }
+  'mechanic': { phonetic: '/məˈkænɪk/', partOfSpeech: 'noun', primary: 'thợ cơ khí', meaning: 'thợ cơ khí; thợ máy; thợ sửa xe; thợ sửa máy móc', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['thợ cơ khí', 'thợ máy', 'thợ sửa xe', 'thợ sửa máy móc'] }] },
+  'committee': { phonetic: '/kəˈmɪti/', partOfSpeech: 'noun', primary: 'ủy ban', meaning: 'ủy ban; hội đồng; ban chấp hành; ban đại diện', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['ủy ban', 'hội đồng', 'ban chấp hành', 'ban đại diện'] }] },
+  'warning': { phonetic: '/ˈwɔːnɪŋ/', partOfSpeech: 'noun', primary: 'lời cảnh báo', meaning: 'lời cảnh báo; sự báo trước; sự răn đe; điềm báo', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['lời cảnh báo', 'sự báo trước', 'sự răn đe', 'điềm báo'] }] },
+  'cancer': { phonetic: '/ˈkænsə(r)/', partOfSpeech: 'noun', primary: 'bệnh ung thư', meaning: 'bệnh ung thư; tệ nạn; mầm mống độc hại', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['bệnh ung thư', 'khối u ác tính', 'tệ nạn xã hội'] }] },
+  'smoking': { phonetic: '/ˈsməʊkɪŋ/', partOfSpeech: 'noun', primary: 'hút thuốc', meaning: 'sự hút thuốc lá; việc hun khói', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sự hút thuốc lá', 'khói thuốc', 'việc hun khói'] }] },
+  'severe': { phonetic: '/sɪˈvɪə(r)/', partOfSpeech: 'adjective', primary: 'nghiêm trọng', meaning: 'nghiêm trọng; gay gắt; khốc liệt; khắt khe', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['nghiêm trọng', 'gay gắt', 'khốc liệt', 'khắt khe'] }] },
+  'highlight': { phonetic: '/ˈhaɪlaɪt/', partOfSpeech: 'verb', primary: 'làm nổi bật', meaning: 'làm nổi bật; nhấn mạnh; điểm nổi bật; nét đặc sắc', senses: [{ pos: 'verb', posVi: 'Động từ', meanings: ['làm nổi bật', 'nhấn mạnh', 'tô sáng'] }, { pos: 'noun', posVi: 'Danh từ', meanings: ['điểm nổi bật', 'nét đặc sắc', 'tiêu điểm'] }] },
+  'decision': { phonetic: '/dɪˈsɪʒn/', partOfSpeech: 'noun', primary: 'quyết định', meaning: 'quyết định; sự phán quyết; sự giải quyết', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['quyết định', 'sự phán quyết', 'độ dứt khoát'] }] },
+  'advice': { phonetic: '/ədˈvaɪs/', partOfSpeech: 'noun', primary: 'lời khuyên', meaning: 'lời khuyên; sự tư vấn; thông báo chỉ dẫn', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['lời khuyên', 'sự tư vấn', 'ý kiến chỉ dẫn'] }] },
+  'attorney': { phonetic: '/əˈtɜːni/', partOfSpeech: 'noun', primary: 'luật sư', meaning: 'luật sư; người đại diện theo pháp luật; người được ủy quyền', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['luật sư', 'người đại diện pháp lý', 'người thụ ủy'] }] },
+  'department': { phonetic: '/dɪˈpɑːtmənt/', partOfSpeech: 'noun', primary: 'phòng ban', meaning: 'phòng ban; bộ phận; khoa (bệnh viện / trường học)', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['phòng ban', 'bộ phận', 'khoa viện'] }] },
+  'engine': { phonetic: '/ˈendʒɪn/', partOfSpeech: 'noun', primary: 'động cơ', meaning: 'động cơ; máy móc; cơ giới; phương tiện', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['động cơ', 'máy móc', 'đầu máy xe lửa'] }] },
+  'public': { phonetic: '/ˈpʌblɪk/', partOfSpeech: 'adjective', primary: 'công cộng', meaning: 'công cộng; công chúng; công khai', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['công cộng', 'công khai', 'chung'] }, { pos: 'noun', posVi: 'Danh từ', meanings: ['công chúng', 'quần chúng'] }] },
+  'health': { phonetic: '/helθ/', partOfSpeech: 'noun', primary: 'sức khỏe', meaning: 'sức khỏe; thể trạng; ngành y tế', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sức khỏe', 'thể chất', 'ngành y tế'] }] },
+  'merger': { phonetic: '/ˈmɜːdʒə(r)/', partOfSpeech: 'noun', primary: 'sáp nhập', meaning: 'sự sáp nhập doanh nghiệp; sự hòa nhập', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sự sáp nhập', 'sự hợp nhất doanh nghiệp'] }] },
+  'agreement': { phonetic: '/əˈɡriːmənt/', partOfSpeech: 'noun', primary: 'thỏa thuận', meaning: 'thỏa thuận; hợp đồng; sự đồng ý; hiệp ước', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['thỏa thuận', 'hợp đồng', 'sự nhất trí', 'hiệp ước'] }] },
+  'corporate': { phonetic: '/ˈkɔːpərət/', partOfSpeech: 'adjective', primary: 'doanh nghiệp', meaning: 'thuộc công ty, doanh nghiệp; đoàn thể; tập đoàn', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['thuộc doanh nghiệp', 'tập đoàn', 'công ty'] }] },
+  'legal': { phonetic: '/ˈliːɡl/', partOfSpeech: 'adjective', primary: 'hợp pháp', meaning: 'hợp pháp; theo pháp luật; mang tính pháp lý', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['hợp pháp', 'pháp lý', 'theo luật định'] }] },
+  'budget': { phonetic: '/ˈbʌdʒɪt/', partOfSpeech: 'noun', primary: 'ngân sách', meaning: 'ngân sách; kinh phí; quỹ chi tiêu', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['ngân sách', 'kinh phí dự trù', 'quỹ tiền'] }] },
+  'peculiar': { phonetic: '/pɪˈkjuːliə(r)/', partOfSpeech: 'adjective', primary: 'kỳ lạ, đặc biệt', meaning: 'kỳ lạ; khác thường; riêng biệt; đặc trưng', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['kỳ lạ', 'khác thường', 'đặc thù', 'riêng biệt'] }] },
+  'young': { phonetic: '/jʌŋ/', partOfSpeech: 'adjective', primary: 'trẻ tuổi', meaning: 'trẻ tuổi; trẻ trung; non nớt; thời thanh xuân', senses: [{ pos: 'adjective', posVi: 'Tính từ', meanings: ['trẻ tuổi', 'trẻ trung', 'thiếu niên'] }] },
+  'passenger': { phonetic: '/ˈpæsɪndʒə(r)/', partOfSpeech: 'noun', primary: 'hành khách', meaning: 'hành khách; người đi tàu xe / máy bay', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['hành khách', 'khách đi tàu xe'] }] },
+  'airport': { phonetic: '/ˈeəpɔːt/', partOfSpeech: 'noun', primary: 'sân bay', meaning: 'sân bay; phi trường', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sân bay', 'phi trường'] }] },
+  'flight': { phonetic: '/flaɪt/', partOfSpeech: 'noun', primary: 'chuyến bay', meaning: 'chuyến bay; sự bay lượn', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['chuyến bay', 'hành trình bay'] }] },
+  'delay': { phonetic: '/dɪˈleɪ/', partOfSpeech: 'verb', primary: 'trì hoãn', meaning: 'trì hoãn; làm chậm trễ; sự hoãn lại', senses: [{ pos: 'verb', posVi: 'Động từ', meanings: ['trì hoãn', 'hoãn lại', 'kéo dài thời gian'] }, { pos: 'noun', posVi: 'Danh từ', meanings: ['sự chậm trễ', 'khoảng thời gian hoãn'] }] },
+  'customer': { phonetic: '/ˈkʌstəmə(r)/', partOfSpeech: 'noun', primary: 'khách hàng', meaning: 'khách hàng; người mua hàng; thân chủ', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['khách hàng', 'người mua sắm', 'thân chủ'] }] },
+  'service': { phonetic: '/ˈsɜːvɪs/', partOfSpeech: 'noun', primary: 'dịch vụ', meaning: 'dịch vụ; sự phục vụ; sự bảo dưỡng', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['dịch vụ', 'sự phục vụ', 'chế độ bảo dưỡng'] }] },
+  'manager': { phonetic: '/ˈmænɪdʒə(r)/', partOfSpeech: 'noun', primary: 'người quản lý', meaning: 'người quản lý; trưởng phòng; giám đốc điều hành', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['người quản lý', 'trưởng bộ phận', 'giám đốc'] }] },
+  'director': { phonetic: '/dəˈrektə(r)/', partOfSpeech: 'noun', primary: 'giám đốc', meaning: 'giám đốc; đạo diễn; người điều hành', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['giám đốc', 'thành viên hội đồng quản trị', 'đạo diễn'] }] },
+  'schedule': { phonetic: '/ˈʃedjuːl/', partOfSpeech: 'noun', primary: 'lịch trình', meaning: 'lịch trình; thời gian biểu; lên kế hoạch', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['lịch trình', 'thời gian biểu', 'tiến độ'] }, { pos: 'verb', posVi: 'Động từ', meanings: ['lên lịch', 'sắp xếp thời gian'] }] },
+  'meeting': { phonetic: '/ˈmiːtɪŋ/', partOfSpeech: 'noun', primary: 'cuộc họp', meaning: 'cuộc họp; buổi gặp mặt; hội nghị', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['cuộc họp', 'buổi thảo luận', 'cuộc gặp gỡ'] }] },
+  'report': { phonetic: '/rɪˈpɔːt/', partOfSpeech: 'noun', primary: 'báo cáo', meaning: 'báo cáo; bản tin; trình bày thông tin', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['báo cáo', 'bản tin', 'biên bản'] }, { pos: 'verb', posVi: 'Động từ', meanings: ['báo cáo', 'tường thuật'] }] },
+  'discount': { phonetic: '/ˈdɪskaʊnt/', partOfSpeech: 'noun', primary: 'giảm giá', meaning: 'giảm giá; chiết khấu; khấu trừ', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['giảm giá', 'mức chiết khấu'] }, { pos: 'verb', posVi: 'Động từ', meanings: ['chiết khấu', 'hạ giá'] }] },
+  'refund': { phonetic: '/ˈriːfʌnd/', partOfSpeech: 'noun', primary: 'tiền hoàn lại', meaning: 'hoàn tiền; trả lại tiền; khoản tiền hoàn lại', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['tiền hoàn lại', 'khoản hoàn trả'] }, { pos: 'verb', posVi: 'Động từ', meanings: ['hoàn tiền', 'trả lại chi phí'] }] },
+  'purchase': { phonetic: '/ˈpɜːtʃəs/', partOfSpeech: 'verb', primary: 'mua sắm', meaning: 'mua sắm; đơn mua hàng; tậu được', senses: [{ pos: 'verb', posVi: 'Động từ', meanings: ['mua', 'mua sắm', 'tậu'] }, { pos: 'noun', posVi: 'Danh từ', meanings: ['đơn hàng đã mua', 'việc mua sắm'] }] },
+  'delivery': { phonetic: '/dɪˈlɪvəri/', partOfSpeech: 'noun', primary: 'giao hàng', meaning: 'giao hàng; sự phân phát; chuyến phát hàng', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sự giao hàng', 'chuyến phát', 'sự chuyển giao'] }] },
+  'order': { phonetic: '/ˈɔːdə(r)/', partOfSpeech: 'noun', primary: 'đơn hàng', meaning: 'đơn đặt hàng; mệnh lệnh; trật tự; gọi món', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['đơn đặt hàng', 'thứ tự', 'mệnh lệnh'] }, { pos: 'verb', posVi: 'Động từ', meanings: ['đặt hàng', 'gọi món', 'yêu cầu'] }] },
+  'safety': { phonetic: '/ˈseɪfti/', partOfSpeech: 'noun', primary: 'sự an toàn', meaning: 'sự an toàn; nơi an toàn; thiết bị bảo hộ', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['sự an toàn', 'tính an toàn', 'biện pháp bảo hộ'] }] },
+  'emergency': { phonetic: '/iˈmɜːdʒənsi/', partOfSpeech: 'noun', primary: 'khẩn cấp', meaning: 'tình trạng khẩn cấp; sự cố bất ngờ; ca cấp cứu', senses: [{ pos: 'noun', posVi: 'Danh từ', meanings: ['tình trạng khẩn cấp', 'sự cố bất ngờ', 'việc cấp bách'] }] }
 };
 
 class AppRouter {
@@ -768,8 +759,22 @@ class AppRouter {
     return sentence.replace(regex, `<span class="text-[#4255FF] font-bold underline underline-offset-2">$1</span>`);
   }
 
+  translatePos(pos) {
+    if (!pos) return 'Từ vựng';
+    const p = String(pos).toLowerCase();
+    if (p.includes('noun')) return 'Danh từ';
+    if (p.includes('verb')) return 'Động từ';
+    if (p.includes('adjective') || p === 'adj') return 'Tính từ';
+    if (p.includes('adverb') || p === 'adv') return 'Phó từ';
+    if (p.includes('preposition') || p === 'prep') return 'Giới từ';
+    if (p.includes('conjunction') || p === 'conj') return 'Liên từ';
+    if (p.includes('pronoun') || p === 'pron') return 'Đại từ';
+    if (p.includes('phrase')) return 'Cụm từ';
+    return pos;
+  }
+
   /**
-   * Tra cứu từ trong ngữ cảnh SIÊU TỐC (<10ms) & Bảo mật cao
+   * Tra cứu từ trong ngữ cảnh SIÊU TỐC (<10ms) & Hiển thị ĐẦY ĐỦ TẤT CẢ CÁC NGHĨA
    */
   async lookupContextWord(rawWord, contextSentence) {
     if (!rawWord) return;
@@ -784,22 +789,22 @@ class AppRouter {
 
     if (!modal || !wordTitle || !bodyEl || !footerEl) return;
 
-    // HIỂN THỊ MODAL NGAY LẬP TỨC (<5ms) KHÔNG ĐỢI MẠNG
     wordTitle.innerText = cleanWord;
     if (speakBtn) speakBtn.onclick = () => window.appAudio.speak(cleanWord);
     modal.classList.remove('hidden');
 
     const cleanLower = cleanWord.toLowerCase();
 
-    // 1. Kiểm tra trong kho từ vựng hiện tại (0ms)
+    // 1. Kiểm tra kho từ vựng hiện tại (0ms)
     const existing = (window.appStorage.words || []).find(w => w && w.word && w.word.toLowerCase() === cleanLower);
-
     if (existing) {
       this.currentLookup = {
         word: cleanWord,
         phonetic: existing.phonetic || '',
         partOfSpeech: existing.partOfSpeech || '',
+        primary: existing.meaning || '',
         meaning: existing.meaning || '',
+        senses: existing.collocations ? [{ pos: existing.partOfSpeech || 'noun', posVi: this.translatePos(existing.partOfSpeech), meanings: [existing.meaning] }] : [],
         definition: existing.definition || '',
         example: contextSentence || existing.example || '',
         contextSentence: contextSentence,
@@ -810,14 +815,16 @@ class AppRouter {
       return;
     }
 
-    // 2. Kiểm tra từ điển ngoại tuyến tích hợp sẵn (0ms siêu tốc)
+    // 2. Kiểm tra từ điển ngoại tuyến tích hợp sẵn (0ms siêu tốc, đầy đủ tất cả nghĩa)
     if (window.OFFLINE_DICT && window.OFFLINE_DICT[cleanLower]) {
       const off = window.OFFLINE_DICT[cleanLower];
       this.currentLookup = {
         word: cleanWord,
         phonetic: off.phonetic || '',
-        partOfSpeech: off.partOfSpeech || 'từ mới',
-        meaning: off.meaning || 'từ vựng trong ngữ cảnh',
+        partOfSpeech: off.partOfSpeech || 'noun',
+        primary: off.primary || off.meaning,
+        meaning: off.meaning || off.primary,
+        senses: off.senses || [],
         definition: off.definition || '',
         example: contextSentence,
         contextSentence: contextSentence,
@@ -830,7 +837,7 @@ class AppRouter {
     // 3. Kiểm tra bộ nhớ cache cục bộ (localStorage cache) (0ms)
     let cachedData = null;
     try {
-      const cachedStr = localStorage.getItem('docvocab_cache_' + cleanLower);
+      const cachedStr = localStorage.getItem('docvocab_dict_' + cleanLower);
       if (cachedStr) {
         cachedData = JSON.parse(cachedStr);
       }
@@ -840,8 +847,10 @@ class AppRouter {
       this.currentLookup = {
         word: cleanWord,
         phonetic: cachedData.phonetic || '',
-        partOfSpeech: cachedData.partOfSpeech || 'từ mới',
-        meaning: cachedData.meaning || 'từ vựng trong ngữ cảnh',
+        partOfSpeech: cachedData.partOfSpeech || 'noun',
+        primary: cachedData.primary || cachedData.meaning,
+        meaning: cachedData.meaning || cachedData.primary,
+        senses: cachedData.senses || [],
         definition: cachedData.definition || '',
         example: contextSentence,
         contextSentence: contextSentence,
@@ -851,108 +860,129 @@ class AppRouter {
       return;
     }
 
-    // 3. NẾU CHƯA CÓ TRONG CACHE: Render ngay lập tức với UI sẵn sàng và nút "+ Thêm từ mới" ĐÃ SẴN SÀNG
+    // 4. Render ngay lập tức trong <5ms trạng thái đang nạp nghĩa chuẩn
     this.currentLookup = {
       word: cleanWord,
       phonetic: '',
-      partOfSpeech: 'từ mới',
+      partOfSpeech: 'từ vựng',
+      primary: '',
       meaning: '',
+      senses: [],
       definition: '',
       example: contextSentence,
       contextSentence: contextSentence,
       isExisting: false,
       isLoadingMeaning: true
     };
-
-    // Render ngay lập tức trong <5ms
     this.renderLookupModalContent(this.currentLookup, false);
 
-    // 4. Chạy truy vấn ngầm siêu tốc với timeout ngắn (1.5s)
+    // 5. Truy vấn toàn bộ các nghĩa qua Google Translate Dictionary API siêu tốc (<150ms)
     this.fetchWordDefinitionFast(cleanWord).then(enriched => {
-      const meaningTextEl = document.getElementById('lookup-meaning-text');
-      if (!enriched) {
-        if (meaningTextEl && this.currentLookup && this.currentLookup.word.toLowerCase() === cleanLower) {
-          meaningTextEl.innerText = 'thuộc ngữ cảnh bài tập';
-          meaningTextEl.className = "text-sm font-bold text-[#2E3856] dark:text-white";
-        }
-        return;
-      }
+      if (!enriched) return;
 
-      // Lưu vào cache để lần sau 0ms
-      try {
-        localStorage.setItem('docvocab_cache_' + cleanLower, JSON.stringify(enriched));
-      } catch (e) {}
-
-      // Cập nhật dữ liệu hiện tại
       if (this.currentLookup && this.currentLookup.word.toLowerCase() === cleanLower) {
         this.currentLookup.phonetic = enriched.phonetic || this.currentLookup.phonetic;
         this.currentLookup.partOfSpeech = enriched.partOfSpeech || this.currentLookup.partOfSpeech;
+        this.currentLookup.primary = enriched.primary || this.currentLookup.primary;
         this.currentLookup.meaning = enriched.meaning || this.currentLookup.meaning;
+        this.currentLookup.senses = enriched.senses || [];
         this.currentLookup.definition = enriched.definition || this.currentLookup.definition;
         this.currentLookup.isLoadingMeaning = false;
 
-        // Cập nhật mượt mà vùng hiển thị nghĩa mà không giật modal
-        const meaningTextEl = document.getElementById('lookup-meaning-text');
-        if (meaningTextEl) {
-          meaningTextEl.innerText = this.currentLookup.meaning || 'từ vựng trong ngữ cảnh';
-          meaningTextEl.className = "text-sm font-bold text-[#2E3856] dark:text-white";
-        }
-        const defTextEl = document.getElementById('lookup-def-text');
-        if (defTextEl && this.currentLookup.definition) {
-          defTextEl.innerText = this.currentLookup.definition;
-          defTextEl.classList.remove('hidden');
-        }
-        const posEl = document.getElementById('lookup-pos-badge');
-        if (posEl && this.currentLookup.partOfSpeech) {
-          posEl.innerText = '(' + this.currentLookup.partOfSpeech + ')';
-        }
-        const phoEl = document.getElementById('lookup-phonetic-badge');
-        if (phoEl && this.currentLookup.phonetic) {
-          phoEl.innerText = this.currentLookup.phonetic;
-        }
+        this.renderLookupModalContent(this.currentLookup, false);
       }
     }).catch(() => {});
   }
 
   /**
-   * Truy vấn nghĩa từ điển siêu tốc với timeout ngắn (chống nghẽn mạng)
+   * Truy vấn Google Dictionary API siêu tốc: Lấy toàn bộ các nghĩa theo từng loại từ
    */
   async fetchWordDefinitionFast(word) {
     const clean = word.toLowerCase().trim();
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 1800);
+    if (!clean) return null;
 
+    let primary = '';
+    let senses = [];
+    let phonetic = '';
+    let definition = '';
+
+    if (window.OFFLINE_DICT && window.OFFLINE_DICT[clean]) {
+      phonetic = window.OFFLINE_DICT[clean].phonetic || '';
+      definition = window.OFFLINE_DICT[clean].definition || '';
+    }
+
+    // Gọi Google Translate Dictionary API (hỗ trợ dt=bd trả về toàn bộ các nét nghĩa)
     try {
-      const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`, {
-        signal: controller.signal
-      });
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&dt=bd&dt=rm&q=${encodeURIComponent(clean)}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2800);
+
+      const resp = await fetch(url, { signal: controller.signal });
       clearTimeout(timeoutId);
 
       if (resp.ok) {
-        const dictArray = await resp.json();
-        if (Array.isArray(dictArray) && dictArray.length > 0) {
-          const entry = dictArray[0];
-          const phonetic = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || '';
-          const meaningObj = entry.meanings && entry.meanings[0];
-          const pos = meaningObj ? meaningObj.partOfSpeech : '';
-          const defObj = meaningObj && meaningObj.definitions && meaningObj.definitions[0];
-          const def = defObj ? defObj.definition : '';
-          const ex = defObj && defObj.example ? defObj.example : '';
-
-          return {
-            phonetic,
-            partOfSpeech: pos,
-            definition: def,
-            meaning: def || 'từ vựng trong ngữ cảnh',
-            example: ex
-          };
+        const data = await resp.json();
+        if (data && data[0] && data[0][0]) {
+          primary = data[0][0][0] || '';
+        }
+        if (Array.isArray(data[1])) {
+          senses = data[1].map(item => ({
+            pos: item[0] || 'noun',
+            posVi: this.translatePos(item[0]),
+            meanings: Array.isArray(item[1]) ? item[1] : []
+          }));
         }
       }
-    } catch (e) {
-      clearTimeout(timeoutId);
+    } catch (e) {}
+
+    // Lấy thêm phát âm & định nghĩa nếu cần
+    if (!phonetic || !definition) {
+      try {
+        const dController = new AbortController();
+        const dTimeout = setTimeout(() => dController.abort(), 1200);
+        const dResp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`, { signal: dController.signal });
+        clearTimeout(dTimeout);
+        if (dResp.ok) {
+          const dictData = await dResp.json();
+          if (Array.isArray(dictData) && dictData.length > 0) {
+            const entry = dictData[0];
+            if (!phonetic) {
+              phonetic = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || '';
+            }
+            if (!definition && entry.meanings && entry.meanings[0]?.definitions[0]?.definition) {
+              definition = entry.meanings[0].definitions[0].definition;
+            }
+          }
+        }
+      } catch (de) {}
     }
 
-    return null;
+    // Tổng hợp tất cả các nghĩa thành danh sách rõ ràng
+    let combinedMeanings = [];
+    if (primary) combinedMeanings.push(primary);
+    senses.forEach(s => {
+      (s.meanings || []).forEach(m => {
+        if (!combinedMeanings.includes(m)) combinedMeanings.push(m);
+      });
+    });
+
+    const fullMeaningText = combinedMeanings.slice(0, 5).join('; ') || primary || clean;
+
+    const result = {
+      word: word,
+      primary: primary || fullMeaningText,
+      meaning: fullMeaningText,
+      senses: senses,
+      phonetic: phonetic,
+      definition: definition,
+      partOfSpeech: senses.length > 0 ? senses[0].pos : 'noun'
+    };
+
+    try {
+      localStorage.setItem('docvocab_dict_' + clean, JSON.stringify(result));
+    } catch (e) {}
+
+    return result;
   }
 
   renderLookupModalContent(data, isExisting) {
@@ -963,30 +993,53 @@ class AppRouter {
     const safeWord = this.escapeHtml(data.word);
     const safePhonetic = this.escapeHtml(data.phonetic);
     const safePos = this.escapeHtml(data.partOfSpeech);
-    const safeMeaning = this.escapeHtml(data.meaning);
+    const safePrimary = this.escapeHtml(data.primary || data.meaning);
     const safeDef = this.escapeHtml(data.definition);
+    const senses = Array.isArray(data.senses) ? data.senses : [];
 
     bodyEl.innerHTML = `
-      <div class="space-y-3">
+      <div class="space-y-3.5">
+        <!-- Header từ: Từ, Phiên âm, Loại từ -->
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="text-lg font-extrabold text-[#2E3856] dark:text-white">${safeWord}</span>
+          <span class="text-xl font-black text-[#2E3856] dark:text-white tracking-tight">${safeWord}</span>
           <span id="lookup-phonetic-badge" class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${safePhonetic}</span>
-          <span id="lookup-pos-badge" class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-medium">${safePos ? `(${safePos})` : ''}</span>
+          <span id="lookup-pos-badge" class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-bold">${safePos ? `(${this.translatePos(safePos)})` : ''}</span>
         </div>
 
-        <div class="p-3 bg-blue-50/80 dark:bg-blue-950/40 rounded-xl border border-blue-200/70 dark:border-blue-900/50">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-[#4255FF] dark:text-[#7383FF] block mb-0.5">Nghĩa từ vựng</span>
+        <!-- Khung nghĩa tiếng Việt chính và đầy đủ tất cả các nét nghĩa -->
+        <div class="p-3.5 bg-blue-50/80 dark:bg-blue-950/40 rounded-2xl border border-blue-200/70 dark:border-blue-900/50">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#4255FF] dark:text-[#7383FF]">Nghĩa tiếng Việt</span>
+            <span class="text-[10px] text-slate-400 font-medium">Toàn bộ các nét nghĩa</span>
+          </div>
+
           ${data.isLoadingMeaning ? `
-            <p id="lookup-meaning-text" class="text-xs text-[#4255FF] dark:text-[#7383FF] font-semibold flex items-center gap-1.5 py-0.5">
+            <p id="lookup-meaning-text" class="text-xs text-[#4255FF] dark:text-[#7383FF] font-semibold flex items-center gap-1.5 py-1">
               <span class="w-3.5 h-3.5 border-2 border-[#4255FF] border-t-transparent rounded-full animate-spin"></span>
-              <span>Đang tra cứu nghĩa chuẩn Oxford...</span>
+              <span>Đang tra cứu toàn bộ các nghĩa...</span>
             </p>
           ` : `
-            <p id="lookup-meaning-text" class="text-sm font-bold text-[#2E3856] dark:text-white">${safeMeaning || 'từ vựng trong ngữ cảnh'}</p>
+            <p id="lookup-meaning-text" class="text-base font-extrabold text-[#2E3856] dark:text-white leading-snug">${safePrimary}</p>
           `}
-          <p id="lookup-def-text" class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic ${safeDef ? '' : 'hidden'}">${safeDef}</p>
+
+          <!-- Danh sách toàn bộ các nghĩa theo từng loại từ -->
+          <div id="lookup-senses-container" class="mt-2.5 pt-2 border-t border-blue-200/60 dark:border-blue-900/60 space-y-2 ${senses.length > 0 ? '' : 'hidden'}">
+            ${senses.map(s => `
+              <div class="text-xs flex items-start gap-2">
+                <span class="font-bold text-[#4255FF] dark:text-[#7383FF] uppercase text-[10px] tracking-wide px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 flex-shrink-0 mt-0.5">
+                  ${this.escapeHtml(s.posVi || this.translatePos(s.pos))}
+                </span>
+                <span class="text-slate-800 dark:text-slate-100 font-semibold leading-relaxed">
+                  ${(s.meanings || []).map(m => this.escapeHtml(m)).join(' • ')}
+                </span>
+              </div>
+            `).join('')}
+          </div>
+
+          <p id="lookup-def-text" class="text-xs text-slate-500 dark:text-slate-400 mt-2 italic border-t border-blue-100 dark:border-blue-900/40 pt-1.5 ${safeDef ? '' : 'hidden'}">${safeDef}</p>
         </div>
 
+        <!-- Khung ngữ cảnh câu xuất hiện -->
         ${data.contextSentence ? `
           <div class="p-3 bg-slate-50 dark:bg-[#202540] rounded-xl border border-slate-200/70 dark:border-slate-700/60">
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1">Ngữ cảnh xuất hiện</span>
@@ -1032,13 +1085,16 @@ class AppRouter {
     });
     const nextDocId = String(maxId + 1).padStart(3, '0');
 
+    // Lấy toàn bộ các nghĩa đã được tra cứu
+    const finalMeaning = this.currentLookup.meaning || this.currentLookup.primary || 'từ vựng bài tập';
+
     const newWord = {
       id: 'w-new-' + Date.now(),
       docId: nextDocId,
       word: this.currentLookup.word,
       phonetic: this.currentLookup.phonetic || '',
-      partOfSpeech: this.currentLookup.partOfSpeech || 'từ mới',
-      meaning: this.currentLookup.meaning || 'từ vựng bài tập',
+      partOfSpeech: this.currentLookup.partOfSpeech || 'noun',
+      meaning: finalMeaning,
       notes: 'Thêm từ ngữ cảnh bài tập',
       definition: this.currentLookup.definition || '',
       example: this.currentLookup.contextSentence || this.currentLookup.example || '',
