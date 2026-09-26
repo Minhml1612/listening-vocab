@@ -286,9 +286,10 @@ class FlashcardController {
                   <div class="flex items-center justify-between text-xs text-[#4255FF] font-bold mb-1">
                     <span>📖 Ngữ cảnh Oxford</span>
                     <div class="flex items-center gap-2">
-                      <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((word.word || '').toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[10px] text-[#4255FF] font-bold hover:underline">
-                        Oxford ↗
-                      </a>
+                      <button type="button" onclick="event.stopPropagation(); window.appRouter.openOxfordModal('${word.id}')" class="text-[11px] text-[#4255FF] font-bold hover:underline inline-flex items-center gap-1 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-lg border border-blue-100 dark:border-blue-900/50">
+                        <i data-lucide="book-open" class="w-3 h-3"></i>
+                        <span>Chi tiết Oxford</span>
+                      </button>
                       <button type="button" onclick="event.stopPropagation(); window.flashcardCtrl.speakExample();" class="p-1 hover:bg-blue-100 dark:hover:bg-blue-900 rounded" title="Nghe câu">
                         <i data-lucide="volume-1" class="w-3.5 h-3.5"></i>
                       </button>

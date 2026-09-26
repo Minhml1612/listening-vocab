@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v6', // v6: Tích hợp đầy đủ link tra cứu Oxford Learner's Dictionaries
+  WORDS: 'docvocab_words_v8', // v8: Tích hợp đầy đủ từ điển Oxford trực tiếp trong web
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -28,12 +28,18 @@ const SAMPLE_WORDS = [
   {
     id: 'sample-1',
     word: 'Pour',
-    phonetic: '/pɔːr/',
-    partOfSpeech: 'v',
+    phonetic: '/pɔː(r)/',
+    partOfSpeech: 'verb',
     meaning: 'đổ thứ gì đó',
-    definition: 'cause to flow in a stream from a container',
-    example: 'He poured the coffee into the mugs.',
-    exampleVi: 'Anh ấy rót cà phê vào cốc.',
+    definition: 'to make a liquid or other substance flow from a container in a continuous stream by holding the container at an angle',
+    example: 'Could you please pour some more hot water into the teapot?',
+    exampleVi: 'Bạn có thể vui lòng rót thêm nước nóng vào ấm trà được không?',
+    oxfordExamples: [
+      { en: 'Could you please pour some more hot water into the teapot?', vi: 'Bạn có thể vui lòng rót thêm nước nóng vào ấm trà được không?' },
+      { en: 'Tears were pouring down his face as he waved goodbye.', vi: 'Nước mắt giàn giụa tuôn rơi trên má anh ấy khi vẫy tay chào tạm biệt.' }
+    ],
+    collocations: ['pour sth into/from/out of sth', 'pour somebody a drink', 'pour down with rain'],
+    dictSource: "Oxford Advanced Learner's Dictionary (OALD)",
     audioUrl: '',
     isNew: false,
     isStarred: false,
@@ -81,10 +87,12 @@ class StorageManager {
         definition: w.definition || '',
         example: w.example || `The speaker used the word "${wordText}" in the listening conversation.`,
         exampleVi: w.exampleVi || `Người nói đã dùng từ "${wordText}" trong bài nghe.`,
+        oxfordExamples: Array.isArray(w.oxfordExamples) ? w.oxfordExamples : [],
+        collocations: Array.isArray(w.collocations) ? w.collocations : [],
+        dictSource: w.dictSource || "Oxford Advanced Learner's Dictionary (OALD)",
         gapSentence: w.gapSentence || '',
         quizAnswer: w.quizAnswer || '',
         distractors: Array.isArray(w.distractors) ? w.distractors : [],
-        dictSource: w.dictSource || '',
         audioUrl: w.audioUrl || '',
         isNew: false,
         isStarred: !!w.isStarred,
@@ -108,7 +116,7 @@ class StorageManager {
           const cleanRemote = this.sanitizeList(remoteWords);
           // Cập nhật lại toàn bộ kho từ nếu máy đang bị lưu thiếu hoặc chưa có câu ví dụ Oxford
           const needsUpdate = this.words.length !== cleanRemote.length || 
-                              this.words.some(w => !w.word || !w.gapSentence);
+                              this.words.some(w => !w.word || !w.definition || !w.phonetic);
           if (needsUpdate) {
             const currentStats = {};
             this.words.forEach(w => {
@@ -143,21 +151,15 @@ class StorageManager {
 
   loadWords() {
     try {
-      // Xoá dứt điểm các bản lưu cũ docvocab_words_v1, docvocab_words_v2 bị rác 270 từ
-      try {
-        localStorage.removeItem('docvocab_words_v1');
-        localStorage.removeItem('docvocab_words_v2');
-      } catch (err) {}
-
       const defaultData = (window.DEFAULT_VOCAB_DATA && window.DEFAULT_VOCAB_DATA.length >= 100)
         ? window.DEFAULT_VOCAB_DATA 
         : SAMPLE_WORDS;
 
       const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!raw) {
-        // Migrate tiến trình (sao, độ thành thạo) từ v3/v4/v5 sang v6 nếu có
+        // Chuyển giao tiến trình từ v6/v5 sang v8
         let statsMap = {};
-        const prevRaw = localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4') || localStorage.getItem('docvocab_words_v3');
+        const prevRaw = localStorage.getItem('docvocab_words_v6') || localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4');
         if (prevRaw) {
           try {
             const prevList = JSON.parse(prevRaw);
@@ -173,11 +175,6 @@ class StorageManager {
                 }
               });
             }
-          } catch (e) {}
-          try {
-            localStorage.removeItem('docvocab_words_v3');
-            localStorage.removeItem('docvocab_words_v4');
-            localStorage.removeItem('docvocab_words_v5');
           } catch (e) {}
         }
 
@@ -201,11 +198,34 @@ class StorageManager {
       let parsed = JSON.parse(raw);
       parsed = this.sanitizeList(parsed);
 
-      // Nếu dữ liệu bị bất thường (quá ít hoặc quá nhiều > 180 từ do lỗi sync cũ)
-      if (parsed.length < 50 || parsed.length > 180) {
-        const sanitizedDefault = this.sanitizeList(defaultData);
-        this.saveWords(sanitizedDefault);
-        return sanitizedDefault;
+      // Nếu dữ liệu bị thiếu trường định nghĩa Oxford hoặc số lượng không khớp, đồng bộ với defaultData
+      const isMissingOxford = parsed.some(w => !w.definition || !w.phonetic);
+      if (isMissingOxford || parsed.length < 50 || parsed.length > 180) {
+        const statsMap = {};
+        parsed.forEach(w => {
+          if (w && w.word) {
+            statsMap[w.word.toLowerCase().trim()] = {
+              isStarred: !!w.isStarred,
+              isMastered: !!w.isMastered,
+              quizCount: w.quizCount || 0,
+              correctCount: w.correctCount || 0
+            };
+          }
+        });
+        const upgraded = defaultData.map(item => {
+          const key = (item.word || '').toLowerCase().trim();
+          const prev = statsMap[key] || {};
+          return {
+            ...item,
+            isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
+            isMastered: prev.isMastered !== undefined ? prev.isMastered : !!item.isMastered,
+            quizCount: prev.quizCount !== undefined ? prev.quizCount : (item.quizCount || 0),
+            correctCount: prev.correctCount !== undefined ? prev.correctCount : (item.correctCount || 0)
+          };
+        });
+        const clean = this.sanitizeList(upgraded);
+        this.saveWords(clean);
+        return clean;
       }
 
       return parsed;

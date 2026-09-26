@@ -257,9 +257,10 @@ class QuizController {
           ` : ''}
 
           <div class="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-700">
-            <a href="https://www.oxfordlearnersdictionaries.com/definition/english/${encodeURIComponent((w ? w.word : q.correctAnswer).toLowerCase().trim().replace(/\s+/g, '-'))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-[#4255FF] hover:underline">
-              <span>↗ Tra từ này trên Oxford Learner's Dictionaries</span>
-            </a>
+            <button type="button" onclick="window.appRouter.openOxfordModal('${w ? w.id : (q.correctAnswer || '')}')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4255FF] hover:underline">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              <span>Mở từ điển Oxford chi tiết ngay tại đây</span>
+            </button>
           </div>
         </div>
       </div>
