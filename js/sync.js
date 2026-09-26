@@ -128,6 +128,45 @@ class DocSyncEngine {
     }
   }
 
+  /**
+   * ThÃªm tá»« má»›i tá»± Ä‘á»™ng vÃ o Google Docs qua Google Apps Script Web App
+   */
+  async addWordToGoogleDocs(wordObj) {
+    if (!wordObj || !wordObj.word) return { status: 'error', message: 'Thiáº¿u tá»« vá»±ng' };
+    const settings = window.appStorage.settings;
+
+    // LÆ°u vÃ o bá»™ nhá»› local trÆ°á»›c Ä‘á»ƒ khÃ´ng bao giá» bá»‹ máº¥t
+    const localResult = window.appStorage.addOrUpdateWords([wordObj]);
+
+    // Náº¿u Ä‘Ã£ cáº¥u hÃ¬nh Google Apps Script URL thÃ¬ tá»± Ä‘á»™ng Ä‘áº©y trá»±c tiáº¿p vÃ o Google Docs
+    if (settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) {
+      try {
+        const url = new URL(settings.scriptUrl.trim());
+        url.searchParams.set('action', 'addWord');
+        url.searchParams.set('word', wordObj.word || '');
+        url.searchParams.set('pos', wordObj.partOfSpeech || '');
+        url.searchParams.set('meaning', wordObj.meaning || '');
+        url.searchParams.set('notes', wordObj.notes || wordObj.example || '');
+
+        try {
+          const resp = await fetch(url.toString(), { method: 'GET', cache: 'no-store' });
+          if (resp.ok) {
+            const data = await resp.json();
+            return { status: 'success', syncedToDoc: true, data };
+          }
+        } catch (fetchErr) {
+          // Thá»­ cháº¿ Ä‘á»™ no-cors Ä‘á»ƒ Ä‘áº£m báº£o request gá»­i Ä‘Æ°á»£c tá»›i Google Apps Script
+          await fetch(url.toString(), { method: 'GET', mode: 'no-cors' });
+          return { status: 'success', syncedToDoc: true, mode: 'no-cors' };
+        }
+      } catch (err) {
+        console.warn('Lá»—i khi gá»­i tá»« má»›i lÃªn Google Apps Script:', err);
+      }
+    }
+
+    return { status: 'saved_locally', word: wordObj };
+  }
+
   parseDocumentData(data) {
     if (Array.isArray(data.tableRows) && data.tableRows.length > 0) {
       const words = [];

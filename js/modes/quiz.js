@@ -105,8 +105,12 @@ class QuizController {
             <div class="py-1">
               <div class="p-4 bg-slate-50 dark:bg-[#252945] rounded-xl border border-slate-200/80 dark:border-slate-700/80 mb-1">
                 <p class="text-base md:text-lg font-medium text-[#2E3856] dark:text-white leading-relaxed font-sans">
-                  ${this.formatPromptWithBlank(q.prompt)}
+                  ${this.formatInteractivePrompt(q.prompt)}
                 </p>
+                <div class="text-[11px] text-[#4255FF] dark:text-[#7383FF] mt-2.5 pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center gap-1.5 font-semibold select-none">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  <span>Chạm vào bất kỳ từ nào để tra nghĩa & thêm vào từ mới</span>
+                </div>
               </div>
             </div>
           </div>
@@ -141,9 +145,27 @@ class QuizController {
     if (window.lucide) window.lucide.createIcons();
   }
 
-  formatPromptWithBlank(prompt) {
+  formatInteractivePrompt(prompt) {
     if (!prompt) return '';
-    return prompt.replace(/(\.{3,}|_{3,})/g, `<span class="inline-block text-[#4255FF] font-bold text-sm md:text-base mx-1 border-b-2 border-[#4255FF]/50 pb-0.5 tracking-widest">........</span>`);
+    const safePromptEscaped = this.escapeHtml(prompt);
+    const blankHtml = `<span class="inline-block text-[#4255FF] dark:text-[#7383FF] font-bold text-sm md:text-base mx-1 border-b-2 border-[#4255FF]/50 pb-0.5 tracking-widest select-none">........</span>`;
+
+    // Chuẩn hóa dấu ba chấm / gạch dưới thành token đặc biệt
+    let withMarker = prompt.replace(/(\.{3,}|_{3,})/g, '___BLANK_TOKEN___');
+
+    // Tách từng từ tiếng Anh thành thẻ tương tác có thể chạm để tra nghĩa
+    const processed = withMarker.replace(/\b([a-zA-Z][a-zA-Z'-]*)\b/g, (match) => {
+      if (match === '___BLANK_TOKEN___') return match;
+      const cleanWord = match.replace(/[^a-zA-Z]/g, '');
+      if (cleanWord.length < 2) return match;
+      return `<span class="clickable-word" onclick="event.stopPropagation(); window.appRouter.lookupContextWord('${cleanWord}', '${safePromptEscaped}')" title="Chạm để tra nghĩa và thêm từ">${match}</span>`;
+    });
+
+    return processed.replace('___BLANK_TOKEN___', blankHtml);
+  }
+
+  formatPromptWithBlank(prompt) {
+    return this.formatInteractivePrompt(prompt);
   }
 
   highlightWord(sentence, targetWord) {

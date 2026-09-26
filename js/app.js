@@ -62,6 +62,7 @@ class AppRouter {
       if (e.key === 'Escape') {
         this.closeOxfordModal();
         this.closeAddWordModal();
+        this.closeWordLookupModal();
       }
     });
 
@@ -70,6 +71,15 @@ class AppRouter {
       oxfordModal.addEventListener('click', (e) => {
         if (e.target === oxfordModal) {
           this.closeOxfordModal();
+        }
+      });
+    }
+
+    const lookupModal = document.getElementById('modal-word-lookup');
+    if (lookupModal) {
+      lookupModal.addEventListener('click', (e) => {
+        if (e.target === lookupModal) {
+          this.closeWordLookupModal();
         }
       });
     }
@@ -238,50 +248,56 @@ class AppRouter {
     }
 
     listContainer.innerHTML = words.map((w, idx) => `
-      <div onclick="window.appRouter.openOxfordModal('${w.id}')" class="p-4 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] shadow-sm transition-all cursor-pointer group">
-        <div class="flex items-start justify-between gap-3">
-          <div class="flex-1">
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="text-xs font-semibold text-slate-400">#${w.docId ? w.docId : (idx + 1)}</span>
-              <span class="text-base md:text-lg font-bold text-[#2E3856] dark:text-white tracking-tight group-hover:text-[#4255FF] transition-colors">${w.word}</span>
-              ${w.phonetic ? `<span class="text-xs font-mono text-[#4255FF] font-semibold">${w.phonetic}</span>` : ''}
-              ${w.isNew ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">MỚI</span>` : ''}
-              ${w.partOfSpeech ? `<span class="text-xs text-slate-400 font-medium">(${w.partOfSpeech})</span>` : ''}
+      <div onclick="window.appRouter.openOxfordModal('${w.id}')" class="p-3.5 sm:p-4 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] dark:hover:border-[#4255FF] shadow-sm hover:shadow transition-all cursor-pointer group flex flex-col justify-between">
+        <div>
+          <!-- Header hàng 1: Số thứ tự, Từ tiếng Anh, Phát âm, Loại từ & Nút tiện ích -->
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap flex-1 min-w-0">
+              <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#222646]">#${w.docId ? w.docId : String(idx + 1).padStart(3, '0')}</span>
+              <span class="text-base sm:text-lg font-extrabold text-[#2E3856] dark:text-white tracking-tight group-hover:text-[#4255FF] transition-colors truncate">${w.word}</span>
+              ${w.phonetic ? `<span class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${w.phonetic}</span>` : ''}
+              ${w.partOfSpeech ? `<span class="text-[11px] text-[#586380] dark:text-[#939BB4] font-medium">(${w.partOfSpeech})</span>` : ''}
+              ${w.isNew ? `<span class="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 uppercase tracking-wider">MỚI</span>` : ''}
             </div>
 
-            <p class="text-sm font-semibold text-[#2E3856] dark:text-[#F6F7FB] mt-1.5">${w.meaning}</p>
-            ${w.notes ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300 bg-amber-50/90 dark:bg-amber-950/40 px-2.5 py-1 rounded-lg border border-amber-200/80 dark:border-amber-900/40 inline-flex items-center gap-1.5 font-medium"><i data-lucide="info" class="w-3 h-3 flex-shrink-0"></i> <span>${this.escapeHtml(w.notes)}</span></div>` : ''}
-            ${w.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 italic">${w.definition}</p>` : ''}
-            
-            ${w.example ? `
-              <div class="mt-2.5 pt-2.5 border-t border-[#E5E8EF]/80 dark:border-[#282E4E] text-xs">
-                <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">"${w.example}"</p>
-                ${w.exampleVi ? `<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${w.exampleVi}</p>` : ''}
-                <div class="mt-2 flex items-center justify-between text-[11px] text-slate-400">
-                  <span class="flex items-center gap-1.5 font-semibold text-[#002147] dark:text-indigo-300">
-                    <span class="w-2 h-2 rounded-full bg-[#4255FF]"></span> ${w.dictSource || "Oxford Learner's Dictionary"}
-                  </span>
-                  <button type="button" onclick="event.stopPropagation(); window.appRouter.openOxfordModal('${w.id}')" class="px-2.5 py-1 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900/60 text-[#4255FF] text-xs font-bold inline-flex items-center gap-1 transition-all shadow-sm">
-                    <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-                    <span>Tra từ Oxford</span>
-                  </button>
-                </div>
-              </div>
-            ` : ''}
+            <!-- Nút tiện ích bên phải -->
+            <div class="flex items-center gap-0.5 flex-shrink-0" onclick="event.stopPropagation()">
+              <button onclick="window.appAudio.speak('${this.escapeHtml(w.word)}', { audioUrl: '${w.audioUrl || ''}' })" class="p-1.5 text-slate-400 hover:text-[#4255FF] hover:bg-slate-100 dark:hover:bg-[#252945] rounded-lg transition-colors" title="Phát âm">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+              <button onclick="window.appStorage.toggleStar('${w.id}')" class="p-1.5 ${w.isStarred ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600 hover:text-slate-400'} rounded-lg transition-colors" title="Đánh dấu sao">
+                <i data-lucide="star" class="w-4 h-4 ${w.isStarred ? 'fill-amber-500' : ''}"></i>
+              </button>
+              <button onclick="window.appRouter.showWordOptions('${w.id}')" class="p-1.5 text-slate-300 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg transition-colors" title="Tùy chọn">
+                <i data-lucide="more-vertical" class="w-4 h-4"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="flex items-center gap-1" onclick="event.stopPropagation()">
-            <button onclick="window.appAudio.speak('${this.escapeHtml(w.word)}', { audioUrl: '${w.audioUrl || ''}' })" class="p-2 text-slate-400 hover:text-[#4255FF] hover:bg-slate-50 dark:hover:bg-[#252945] rounded-xl transition-colors" title="Phát âm">
-              <i data-lucide="volume-2" class="w-4 h-4"></i>
-            </button>
-            <button onclick="window.appStorage.toggleStar('${w.id}')" class="p-2 ${w.isStarred ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600 hover:text-slate-400'} rounded-xl transition-colors" title="Đánh dấu">
-              <i data-lucide="star" class="w-4 h-4 ${w.isStarred ? 'fill-amber-500' : ''}"></i>
-            </button>
-            <button onclick="window.appRouter.showWordOptions('${w.id}')" class="p-2 text-slate-300 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl transition-colors">
-              <i data-lucide="more-vertical" class="w-4 h-4"></i>
-            </button>
-          </div>
+          <!-- Nghĩa tiếng Việt & Ghi chú -->
+          <p class="text-sm sm:text-base font-bold text-[#2E3856] dark:text-[#F6F7FB] mt-1.5">${w.meaning}</p>
+          ${w.notes ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-lg border border-amber-200/70 dark:border-amber-900/40 inline-flex items-center gap-1.5 font-medium"><i data-lucide="info" class="w-3 h-3 flex-shrink-0 text-amber-600 dark:text-amber-400"></i><span>${this.escapeHtml(w.notes)}</span></div>` : ''}
+          ${w.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic line-clamp-2 leading-relaxed">${w.definition}</p>` : ''}
         </div>
+
+        <!-- Khung ví dụ ngữ cảnh Oxford thanh lịch -->
+        ${w.example ? `
+          <div class="mt-2.5 p-2.5 sm:p-3 bg-slate-50/90 dark:bg-[#202540] rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+            <div class="flex items-center justify-between text-[11px] font-bold text-[#4255FF] dark:text-[#7383FF] mb-1">
+              <span class="inline-flex items-center gap-1">
+                <i data-lucide="book-open" class="w-3 h-3"></i>
+                <span>Ngữ cảnh Oxford</span>
+              </span>
+              <button type="button" onclick="event.stopPropagation(); window.appAudio.speak('${this.escapeHtml(w.example)}')" class="hover:text-[#3644D9] p-0.5 text-slate-400 hover:text-[#4255FF] transition-colors" title="Nghe câu ví dụ">
+                <i data-lucide="volume-1" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed">
+              "${this.highlightTargetWord(w.example, w.word)}"
+            </p>
+            ${w.exampleVi ? `<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${w.exampleVi}</p>` : ''}
+          </div>
+        ` : ''}
       </div>
     `).join('');
 
@@ -698,6 +714,230 @@ class AppRouter {
     const clean = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`\\b(${clean})\\b`, 'gi');
     return sentence.replace(regex, `<span class="text-[#4255FF] font-bold underline underline-offset-2">$1</span>`);
+  }
+
+  /**
+   * Tra cứu từ trong ngữ cảnh khi bấm vào từ bất kỳ trong câu trắc nghiệm
+   */
+  async lookupContextWord(rawWord, contextSentence) {
+    if (!rawWord) return;
+    const cleanWord = rawWord.trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, '');
+    if (cleanWord.length < 2) return;
+
+    const modal = document.getElementById('modal-word-lookup');
+    const wordTitle = document.getElementById('lookup-modal-word');
+    const bodyEl = document.getElementById('lookup-modal-body');
+    const footerEl = document.getElementById('lookup-modal-footer');
+    const speakBtn = document.getElementById('lookup-modal-speak-btn');
+
+    if (!modal || !wordTitle || !bodyEl || !footerEl) return;
+
+    wordTitle.innerText = cleanWord;
+    if (speakBtn) speakBtn.onclick = () => window.appAudio.speak(cleanWord);
+    modal.classList.remove('hidden');
+
+    // 1. Kiểm tra xem từ đã có sẵn trong kho từ vựng hiện tại chưa
+    const existing = window.appStorage.words.find(w => w && w.word && w.word.toLowerCase() === cleanWord.toLowerCase());
+
+    if (existing) {
+      this.currentLookup = { ...existing, contextSentence };
+      this.renderLookupModalContent(this.currentLookup, true);
+      return;
+    }
+
+    // 2. Nếu là từ mới, hiển thị trạng thái đang tra cứu tức thì
+    bodyEl.innerHTML = `
+      <div class="py-8 text-center">
+        <div class="w-8 h-8 border-3 border-[#4255FF] border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+        <p class="text-xs text-slate-500 font-semibold">Đang tra cứu nghĩa Oxford cho "${cleanWord}"...</p>
+      </div>
+    `;
+    footerEl.innerHTML = '';
+
+    // 3. Tra cứu từ điển trực tuyến hoặc AI enricher
+    try {
+      let enrichedData = null;
+      if (window.appEnricher && typeof window.appEnricher.fetchWordData === 'function') {
+        try {
+          enrichedData = await window.appEnricher.fetchWordData(cleanWord);
+        } catch (enrichErr) {}
+      }
+
+      if (!enrichedData) {
+        try {
+          const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(cleanWord)}`);
+          if (resp.ok) {
+            const dictArray = await resp.json();
+            if (Array.isArray(dictArray) && dictArray.length > 0) {
+              const entry = dictArray[0];
+              const phonetic = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || '';
+              const meaningObj = entry.meanings && entry.meanings[0];
+              const pos = meaningObj ? meaningObj.partOfSpeech : '';
+              const defObj = meaningObj && meaningObj.definitions && meaningObj.definitions[0];
+              const def = defObj ? defObj.definition : '';
+              const ex = defObj && defObj.example ? defObj.example : contextSentence;
+
+              enrichedData = {
+                word: cleanWord,
+                phonetic: phonetic,
+                partOfSpeech: pos,
+                definition: def,
+                meaning: def || 'từ vựng trong ngữ cảnh',
+                example: ex || contextSentence
+              };
+            }
+          }
+        } catch (fetchErr) {}
+      }
+
+      if (!enrichedData) {
+        enrichedData = {
+          word: cleanWord,
+          phonetic: '',
+          partOfSpeech: 'từ mới',
+          meaning: 'thuộc ngữ cảnh bài tập',
+          definition: '',
+          example: contextSentence
+        };
+      }
+
+      this.currentLookup = {
+        word: cleanWord,
+        phonetic: enrichedData.phonetic || '',
+        partOfSpeech: enrichedData.partOfSpeech || 'từ mới',
+        meaning: enrichedData.meaning || 'từ vựng trong ngữ cảnh',
+        definition: enrichedData.definition || '',
+        example: contextSentence || enrichedData.example || '',
+        contextSentence: contextSentence
+      };
+
+      this.renderLookupModalContent(this.currentLookup, false);
+
+    } catch (err) {
+      this.currentLookup = {
+        word: cleanWord,
+        phonetic: '',
+        partOfSpeech: 'từ mới',
+        meaning: 'từ vựng bài tập',
+        definition: '',
+        example: contextSentence
+      };
+      this.renderLookupModalContent(this.currentLookup, false);
+    }
+  }
+
+  renderLookupModalContent(data, isExisting) {
+    const bodyEl = document.getElementById('lookup-modal-body');
+    const footerEl = document.getElementById('lookup-modal-footer');
+    if (!bodyEl || !footerEl) return;
+
+    bodyEl.innerHTML = `
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-lg font-extrabold text-[#2E3856] dark:text-white">${data.word}</span>
+          ${data.phonetic ? `<span class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${data.phonetic}</span>` : ''}
+          ${data.partOfSpeech ? `<span class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-medium">(${data.partOfSpeech})</span>` : ''}
+        </div>
+
+        <div class="p-3 bg-blue-50/80 dark:bg-blue-950/40 rounded-xl border border-blue-200/70 dark:border-blue-900/50">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#4255FF] dark:text-[#7383FF] block mb-0.5">Nghĩa tiếng Việt</span>
+          <p class="text-sm font-bold text-[#2E3856] dark:text-white">${data.meaning}</p>
+          ${data.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 italic">${data.definition}</p>` : ''}
+        </div>
+
+        ${data.contextSentence ? `
+          <div class="p-3 bg-slate-50 dark:bg-[#202540] rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1">Ngữ cảnh xuất hiện</span>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed">
+              "${this.highlightTargetWord(data.contextSentence, data.word)}"
+            </p>
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    if (isExisting) {
+      footerEl.innerHTML = `
+        <div class="w-full py-2.5 px-4 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-center gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>Đã có trong danh sách từ vựng (#${data.docId || ''})</span>
+        </div>
+      `;
+    } else {
+      footerEl.innerHTML = `
+        <button id="btn-add-lookup-word" onclick="window.appRouter.addWordFromLookup()" class="w-full py-3 bg-[#4255FF] hover:bg-[#3644D9] text-white font-bold rounded-xl text-xs sm:text-sm shadow-md active:scale-98 transition-all flex items-center justify-center gap-2">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Thêm vào danh sách từ vựng & Google Docs</span>
+        </button>
+      `;
+    }
+
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  async addWordFromLookup() {
+    if (!this.currentLookup || !this.currentLookup.word) return;
+    const btn = document.getElementById('btn-add-lookup-word');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = `<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Đang lưu...</span>`;
+    }
+
+    let maxId = 0;
+    (window.appStorage.words || []).forEach(w => {
+      const num = parseInt(w.docId || (w.id ? String(w.id).replace(/\D/g, '') : '0'), 10);
+      if (!isNaN(num) && num > maxId) maxId = num;
+    });
+    const nextDocId = String(maxId + 1).padStart(3, '0');
+    const newWord = {
+      id: 'w-new-' + Date.now(),
+      docId: nextDocId,
+      word: this.currentLookup.word,
+      phonetic: this.currentLookup.phonetic || '',
+      partOfSpeech: this.currentLookup.partOfSpeech || 'từ mới',
+      meaning: this.currentLookup.meaning || 'từ vựng bài tập',
+      notes: 'Thêm từ ngữ cảnh bài tập',
+      definition: this.currentLookup.definition || '',
+      example: this.currentLookup.contextSentence || this.currentLookup.example || '',
+      exampleVi: '',
+      dictSource: "Oxford Advanced Learner's Dictionary",
+      audioUrl: '',
+      isNew: true,
+      isStarred: true,
+      isMastered: false,
+      dateAdded: Date.now(),
+      tags: ['listening', 'new-from-quiz']
+    };
+
+    // 1. Lưu ngay vào local storage
+    window.appStorage.addOrUpdateWords([newWord]);
+
+    // 2. Tự động đồng bộ lên Google Docs
+    await window.appSync.addWordToGoogleDocs(newWord);
+
+    // 3. Pháo hoa ăn mừng & Âm thanh
+    if (window.confetti) {
+      window.confetti({ particleCount: 70, spread: 60, origin: { y: 0.8 } });
+    }
+    window.appAudio.playCorrect();
+    this.showToast(`🎉 Đã thêm từ "${newWord.word}" vào danh sách học & Google Docs!`, 'success');
+
+    // 4. Cập nhật giao diện modal & danh sách
+    if (btn) {
+      btn.className = "w-full py-2.5 px-4 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-center gap-2";
+      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> <span>Đã thêm thành công!</span>`;
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    this.updateStatsBar();
+    if (this.currentRoute === 'home') {
+      this.renderWordList();
+    }
+  }
+
+  closeWordLookupModal() {
+    const modal = document.getElementById('modal-word-lookup');
+    if (modal) modal.classList.add('hidden');
   }
 
   startFlashcardWithWord(wordId) {

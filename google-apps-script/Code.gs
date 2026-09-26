@@ -1,33 +1,33 @@
 /**
- * GOOGLE APPS SCRIPT CHO WEB HỌC TỪ VỰNG QUIZLET
+ * GOOGLE APPS SCRIPT CHO WEB HỌC TỪ VỰNG DOCVOCAB (v11.0 - Tự Động Hóa 2 Chiều)
  * 
- * Hướng dẫn 3 bước đơn giản:
+ * Tính năng:
+ * 1. doGet: Trả về toàn bộ từ vựng thời gian thực HOẶC thêm từ mới qua URL query parameter (?action=addWord&word=...)
+ * 2. doPost: Thêm từ mới vào bảng Google Docs tự động với ID tăng dần (001 -> 160+)
+ * 
+ * Hướng dẫn cập nhật:
  * 1. Mở file Google Docs của bạn: https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit
- * 2. Trên thanh menu, chọn: Tiện ích mở rộng (Extensions) > Apps Script
- * 3. Xoá code cũ, dán toàn bộ nội dung file này vào > Nhấn Lưu (Ctrl + S)
- * 4. Nhấn nút "Triển khai" (Deploy) ở góc trên bên phải > Chọn "Tùy chọn triển khai mới" (New deployment)
- * 5. Chọn loại triển khai: "Ứng dụng web" (Web app)
- *    - Mô tả: Vocab Sync API
- *    - Thực thi dưới dạng: Tôi (Me - email của bạn)
- *    - Người có quyền truy cập: Bất kỳ ai (Anyone)  <-- Quan trọng để web trên điện thoại đọc được
- * 6. Nhấn "Triển khai" (Deploy), cấp quyền nếu Google hỏi, rồi sao chép URL ứng dụng web (dạng https://script.google.com/macros/s/.../exec)
- * 7. Dán URL đó vào ô Cài đặt trong Web học từ vựng là xong! Cứ cập nhật gì trong Docs là Web tự động nhận từ mới.
+ * 2. Vào Tiện ích mở rộng (Extensions) > Apps Script
+ * 3. Dán toàn bộ mã này vào > Nhấn Lưu (Ctrl+S)
+ * 4. Nhấn Triển khai (Deploy) > Quản lý triển khai (Manage deployments) > Chỉnh sửa (Edit) > Chọn Phiên bản mới (New version) > Triển khai.
  */
+
+var TARGET_DOC_ID = "1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4";
 
 function doGet(e) {
   try {
-    var doc = DocumentApp.getActiveDocument();
-    if (!doc) {
-      // Nếu chạy standalone mà không gắn với doc, thử mở theo ID
-      var docId = "1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4";
-      doc = DocumentApp.openById(docId);
+    // Nếu có action = add hoặc addWord -> thực hiện thêm từ mới trực tiếp
+    if (e && e.parameter && (e.parameter.action === 'add' || e.parameter.action === 'addWord')) {
+      return handleAddWord(e.parameter);
     }
     
+    // Mặc định: Đọc toàn bộ tài liệu và trả về JSON cho web app
+    var doc = getTargetDoc();
     var body = doc.getBody();
     var docTitle = doc.getName();
     var rawText = body.getText();
     
-    // Đọc tất cả các bảng nếu bạn lưu từ theo dạng bảng
+    // Đọc bảng từ vựng
     var tables = body.getTables();
     var tableRows = [];
     for (var t = 0; t < tables.length; t++) {
@@ -46,7 +46,7 @@ function doGet(e) {
       }
     }
     
-    // Đọc theo từng đoạn văn (paragraphs / bullet points)
+    // Đọc theo đoạn văn
     var paragraphs = body.getParagraphs();
     var lines = [];
     for (var p = 0; p < paragraphs.length; p++) {
@@ -76,4 +76,95 @@ function doGet(e) {
       timestamp: Date.now()
     })).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+function doPost(e) {
+  try {
+    var params = {};
+    if (e && e.postData && e.postData.contents) {
+      try {
+        params = JSON.parse(e.postData.contents);
+      } catch (jsonErr) {
+        params = e.parameter || {};
+      }
+    } else if (e && e.parameter) {
+      params = e.parameter;
+    }
+    
+    return handleAddWord(params);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: err.toString(),
+      timestamp: Date.now()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function getTargetDoc() {
+  var doc = DocumentApp.getActiveDocument();
+  if (!doc) {
+    doc = DocumentApp.openById(TARGET_DOC_ID);
+  }
+  return doc;
+}
+
+function handleAddWord(params) {
+  var word = (params.word || '').trim();
+  var pos = (params.pos || params.partOfSpeech || '').trim();
+  var meaning = (params.meaning || '').trim();
+  var notes = (params.notes || params.example || '').trim();
+  
+  if (!word) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: "Từ tiếng Anh (word) là bắt buộc"
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  var doc = getTargetDoc();
+  var body = doc.getBody();
+  var tables = body.getTables();
+  var nextIdFormatted = "001";
+  
+  if (tables.length > 0) {
+    var table = tables[0];
+    var rowCount = table.getNumRows();
+    
+    // Tìm ID lớn nhất hiện có
+    var maxId = 0;
+    for (var i = 0; i < rowCount; i++) {
+      var cellText = table.getRow(i).getCell(0).getText().trim();
+      var idNum = parseInt(cellText, 10);
+      if (!isNaN(idNum) && idNum > maxId) {
+        maxId = idNum;
+      }
+    }
+    
+    var nextId = maxId > 0 ? (maxId + 1) : rowCount;
+    nextIdFormatted = ("000" + nextId).slice(-3);
+    
+    // Thêm hàng mới vào bảng chuẩn hóa
+    var newRow = table.appendTableRow();
+    newRow.appendTableCell(nextIdFormatted);
+    newRow.appendTableCell(word);
+    newRow.appendTableCell(pos);
+    newRow.appendTableCell(meaning);
+    newRow.appendTableCell(notes);
+    
+  } else {
+    // Nếu chưa có bảng, tạo bảng mới hoặc ghi thêm đoạn văn
+    var p = body.appendParagraph(word + " (" + pos + "): " + meaning + (notes ? " - " + notes : ""));
+  }
+  
+  doc.saveAndClose();
+  
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "success",
+    message: "Đã tự động thêm từ mới vào Google Docs thành công!",
+    id: nextIdFormatted,
+    word: word,
+    pos: pos,
+    meaning: meaning
+  })).setMimeType(ContentService.MimeType.JSON);
 }

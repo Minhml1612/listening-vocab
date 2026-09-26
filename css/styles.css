@@ -191,3 +191,32 @@ html, body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
+
+/* Clickable word tokens in quiz and context sentences */
+.clickable-word {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 0 0.15rem;
+  transition: all 0.15s ease;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(66, 85, 255, 0.4);
+  text-underline-offset: 3px;
+  display: inline-block;
+}
+
+.clickable-word:hover {
+  background-color: rgba(66, 85, 255, 0.12);
+  color: #4255FF;
+  text-decoration-color: #4255FF;
+}
+
+.dark .clickable-word:hover {
+  background-color: rgba(66, 85, 255, 0.25);
+  color: #7383FF;
+  text-decoration-color: #7383FF;
+}
+
+.clickable-word:active {
+  transform: scale(0.96);
+}
