@@ -157,7 +157,7 @@ class ListeningController {
     if (!word) return;
 
     container.innerHTML = `
-      <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
+      <div class="max-w-2xl lg:max-w-3xl mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
         <div>
           <!-- Header & Tốc độ phát -->
           <div class="flex items-center justify-between mb-3 px-1 pb-2 border-b border-[#E5E8EF] dark:border-[#282E4E]">

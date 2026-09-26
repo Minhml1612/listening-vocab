@@ -175,7 +175,7 @@ class MatchController {
     if (!container) return;
 
     container.innerHTML = `
-      <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
+      <div class="max-w-4xl mx-auto flex flex-col min-h-[calc(100vh-140px)] justify-between pb-4">
         <!-- Top bar: Đồng hồ đếm thời gian & Số cặp -->
         <div class="flex items-center justify-between px-1 mb-3 pb-2 border-b border-[#E5E8EF] dark:border-[#282E4E]">
           <div class="flex items-center gap-2">
@@ -188,7 +188,7 @@ class MatchController {
         </div>
 
         <!-- Lưới thẻ ghép 2 cột x 6 hàng -->
-        <div class="grid grid-cols-2 gap-2 flex-1 content-start">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 flex-1 content-start">
           ${this.tiles.map(tile => `
             <button id="${tile.id}" onclick="window.matchCtrl.handleTileClick('${tile.id}')" class="p-3 md:p-3.5 rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] bg-white dark:bg-[#1A1D36] hover:border-[#4255FF] shadow-sm min-h-[72px] md:min-h-[80px] flex flex-col justify-center items-center text-center transition-all duration-200 active:scale-95">
               <span class="font-bold ${tile.type === 'word' ? 'text-base text-[#2E3856] dark:text-white' : 'text-xs md:text-sm text-[#586380] dark:text-[#939BB4]'}">
@@ -214,7 +214,7 @@ class MatchController {
     if (!container) return;
 
     container.innerHTML = `
-      <div class="max-w-md mx-auto text-center py-8 px-4">
+      <div class="max-w-4xl mx-auto text-center py-8 px-4">
         <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-[#23B26D] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center mx-auto mb-4 shadow-sm">
           <i data-lucide="zap" class="w-8 h-8"></i>
         </div>

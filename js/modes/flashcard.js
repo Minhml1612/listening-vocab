@@ -215,7 +215,7 @@ class FlashcardController {
     const progressPercent = Math.round(((this.currentIndex + 1) / this.deck.length) * 100);
 
     container.innerHTML = `
-      <div id="fc-container" class="max-w-md mx-auto flex flex-col h-[calc(100vh-140px)] md:h-[620px] justify-between pb-2">
+      <div id="fc-container" class="max-w-3xl lg:max-w-4xl mx-auto flex flex-col h-[calc(100vh-140px)] md:h-auto md:min-h-[420px] justify-between pb-2">
         <!-- Header Thanh tiến độ & Điều khiển -->
         <div class="flex items-center justify-between gap-3 mb-2 px-1">
           <div class="flex-1">

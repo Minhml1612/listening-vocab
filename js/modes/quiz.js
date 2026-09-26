@@ -73,7 +73,7 @@ class QuizController {
     const progressPercent = Math.round(((this.currentIndex) / this.questions.length) * 100);
 
     container.innerHTML = `
-      <div class="max-w-md mx-auto flex flex-col min-h-[calc(100vh-140px)] md:min-h-[580px] justify-between pb-4">
+      <div class="max-w-3xl lg:max-w-4xl mx-auto flex flex-col min-h-[calc(100vh-140px)] md:min-h-0 justify-between pb-4">
         <div>
           <!-- Header: Tiến độ & Điểm -->
           <div class="flex items-center justify-between text-xs font-semibold text-[#586380] dark:text-[#939BB4] mb-2 px-1">
@@ -112,7 +112,7 @@ class QuizController {
           </div>
 
           <!-- 4 Lựa chọn A, B, C, D -->
-          <div id="quiz-options" class="space-y-2.5">
+          <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
             ${q.options.map((opt, idx) => `
               <button onclick="window.quizCtrl.selectOption(${idx}, '${this.escapeHtml(opt)}')" class="quiz-option-btn w-full text-left p-3.5 md:p-4 rounded-xl border border-[#E5E8EF] dark:border-[#282E4E] bg-white dark:bg-[#1A1D36] hover:border-[#4255FF] transition-all font-semibold text-[#2E3856] dark:text-white text-sm md:text-base flex items-center justify-between active:scale-[0.99] shadow-sm">
                 <span>${opt}</span>
@@ -143,7 +143,7 @@ class QuizController {
 
   formatPromptWithBlank(prompt) {
     if (!prompt) return '';
-    return prompt.replace(/(\.{3,}|_{3,})/g, `<span class="inline-flex items-center px-3 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/80 text-[#4255FF] border-2 border-dashed border-[#4255FF] font-bold text-sm md:text-base mx-1.5 shadow-sm">........</span>`);
+    return prompt.replace(/(\.{3,}|_{3,})/g, `<span class="inline-block text-[#4255FF] font-bold text-sm md:text-base mx-1 border-b-2 border-[#4255FF]/50 pb-0.5 tracking-widest">........</span>`);
   }
 
   highlightWord(sentence, targetWord) {

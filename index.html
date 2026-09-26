@@ -63,7 +63,7 @@
 
   <!-- ================= TOP HEADER (QUIZLET STYLE) ================= -->
   <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#1A1D36]/95 backdrop-blur-md border-b border-[#E5E8EF] dark:border-[#282E4E] px-4 py-2.5 shadow-sm">
-    <div class="max-w-2xl mx-auto flex items-center justify-between">
+    <div class="max-w-5xl lg:max-w-6xl mx-auto flex items-center justify-between">
       
       <!-- Logo Đơn Giản & Hiện Đại Giống Quizlet -->
       <div class="flex items-center gap-2.5 cursor-pointer select-none" onclick="window.appRouter.navigate('home')">
@@ -72,6 +72,15 @@
         </div>
         <span class="font-extrabold text-base md:text-lg tracking-tight text-[#2E3856] dark:text-white">DocVocab</span>
       </div>
+
+      <!-- Desktop Navigation Tabs -->
+      <nav class="hidden md:flex items-center gap-1">
+        <button onclick="window.appRouter.navigate('home')" class="desktop-nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] hover:text-[#4255FF] transition-all" data-route="home">Từ vựng</button>
+        <button onclick="window.appRouter.navigate('flashcard')" class="desktop-nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] hover:text-[#4255FF] transition-all" data-route="flashcard">Thẻ nhớ</button>
+        <button onclick="window.appRouter.navigate('quiz')" class="desktop-nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] hover:text-[#4255FF] transition-all" data-route="quiz">Trắc nghiệm</button>
+        <button onclick="window.appRouter.navigate('listening')" class="desktop-nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] hover:text-[#4255FF] transition-all" data-route="listening">Nghe Lab</button>
+        <button onclick="window.appRouter.navigate('match')" class="desktop-nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] hover:text-[#4255FF] transition-all" data-route="match">Ghép thẻ</button>
+      </nav>
 
       <!-- Nút tiện ích bên phải -->
       <div class="flex items-center gap-1.5">
@@ -100,7 +109,7 @@
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <main class="flex-1 max-w-2xl w-full mx-auto p-4 pb-24 md:pb-12">
+  <main class="flex-1 max-w-5xl lg:max-w-6xl w-full mx-auto p-4 pb-24 md:pb-8">
     
     <!-- ====== VIEW 1: TRANG CHỦ & DANH SÁCH TỪ (HOME) ====== -->
     <div id="view-home" class="space-y-4">
@@ -137,7 +146,7 @@
       <!-- 4 Chế Độ Học Kiểu Quizlet (Gọn gàng & Hiện đại) -->
       <div>
         <h2 class="text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-2 px-1">Chế độ học</h2>
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
           
           <!-- Thẻ Flashcard -->
           <div onclick="window.appRouter.navigate('flashcard')" class="p-4 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] dark:hover:border-[#4255FF] rounded-2xl shadow-sm cursor-pointer active:scale-[0.98] transition-all group">
@@ -214,7 +223,7 @@
         </div>
 
         <!-- Danh sách từ chi tiết -->
-        <div id="word-list-items" class="space-y-2.5 mt-3">
+        <div id="word-list-items" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
           <!-- Rendered via JS -->
         </div>
       </div>
@@ -340,7 +349,7 @@
   </main>
 
   <!-- ================= BOTTOM NAVIGATION BAR CHO ĐIỆN THOẠI ================= -->
-  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#1A1D36]/95 backdrop-blur-lg border-t border-[#E5E8EF] dark:border-[#282E4E] safe-bottom">
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#1A1D36]/95 backdrop-blur-lg border-t border-[#E5E8EF] dark:border-[#282E4E] safe-bottom md:hidden">
     <div class="max-w-md mx-auto grid grid-cols-5 py-2 px-1">
       
       <button data-route="home" onclick="window.appRouter.navigate('home')" class="nav-item flex flex-col items-center justify-center py-1 text-[#586380] dark:text-[#939BB4] hover:text-[#4255FF]">
