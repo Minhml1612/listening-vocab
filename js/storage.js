@@ -116,14 +116,21 @@ class StorageManager {
         const remoteWords = await resp.json();
         if (Array.isArray(remoteWords) && remoteWords.length >= 100) {
           const cleanRemote = this.sanitizeList(remoteWords);
-          // Cập nhật lại toàn bộ kho từ nếu máy đang bị lưu thiếu hoặc chưa có câu ví dụ Oxford
+          // Cập nhật lại toàn bộ kho từ nếu có từ mới, chỉnh sửa nghĩa, ghi chú hoặc chưa có câu ví dụ Oxford
           const needsUpdate = this.words.length !== cleanRemote.length || 
-                              this.words.some(w => !w.word || !w.definition || !w.phonetic);
+                              this.words.some((w, idx) => {
+                                const r = cleanRemote[idx];
+                                return !r || !w.word || !w.definition || !w.phonetic ||
+                                       w.meaning !== r.meaning || (w.notes || '') !== (r.notes || '') ||
+                                       w.partOfSpeech !== r.partOfSpeech;
+                              });
+
           if (needsUpdate) {
             const currentStats = {};
             this.words.forEach(w => {
               if (w && w.word) {
-                currentStats[w.word.toLowerCase().trim()] = {
+                const k = w.docId ? `doc-${w.docId}` : w.word.toLowerCase().trim();
+                currentStats[k] = {
                   isStarred: !!w.isStarred,
                   isMastered: !!w.isMastered,
                   quizCount: w.quizCount || 0,
@@ -132,8 +139,8 @@ class StorageManager {
               }
             });
             const updatedList = cleanRemote.map(item => {
-              const key = (item.word || '').toLowerCase().trim();
-              const prev = currentStats[key] || {};
+              const k = item.docId ? `doc-${item.docId}` : item.word.toLowerCase().trim();
+              const prev = currentStats[k] || currentStats[item.word.toLowerCase().trim()] || {};
               return {
                 ...item,
                 isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
@@ -143,6 +150,7 @@ class StorageManager {
               };
             });
             this.saveWords(updatedList);
+            console.log(`[STORAGE] Tự động cập nhật thành công ${updatedList.length} từ mới nhất từ đám mây.`);
           }
         }
       }

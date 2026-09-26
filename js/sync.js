@@ -84,6 +84,20 @@ class DocSyncEngine {
         }
       }
 
+      // 3. Thử tải bản cập nhật mới nhất từ GitHub Cloud (data/vocab.json)
+      if (parsedWords.length === 0) {
+        try {
+          const resp = await fetch('data/vocab.json?v=' + Date.now(), { cache: 'no-store' });
+          if (resp.ok) {
+            const data = await resp.json();
+            if (Array.isArray(data) && data.length >= 100) {
+              parsedWords = data;
+              sourceUsed = 'Kho từ vựng GitHub Cloud (Tự động đồng bộ)';
+            }
+          }
+        } catch (cloudErr) {}
+      }
+
       if (parsedWords.length === 0) {
         this.isSyncing = false;
         const errMessage = 'Không thể kết nối tới Google Docs. Đã giữ nguyên danh sách chuẩn hiện tại.';

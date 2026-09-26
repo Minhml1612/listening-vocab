@@ -1,9 +1,9 @@
 name: Sync Google Doc Vocab
 
 on:
-  # schedule:
-  #   - cron: '0 */6 * * *'
-  workflow_dispatch:
+  schedule:
+    - cron: '0 */3 * * *'  # Chạy tự động mỗi 3 tiếng một lần 24/7
+  workflow_dispatch:       # Nút bấm thủ công "Run workflow" trên GitHub
 
 permissions:
   contents: write
@@ -32,5 +32,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/vocab.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync vocabulary from Google Docs [skip ci]" && git push)
+          git add data/vocab.json js/default-data.js BANG_TU_VUNG.html
+          git diff --staged --quiet || (git commit -m "chore(sync): auto-sync vocabulary from Google Docs [skip ci]" && git push)

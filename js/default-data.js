@@ -1,7 +1,7 @@
 /**
  * DEFAULT VOCABULARY DATA (159 Standardized Google Doc & Oxford Entries - v10.0)
  * Nguồn Google Docs: https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit
- * Tích hợp đầy đủ phát âm IPA chuẩn Oxford, định nghĩa Anh - Anh, các câu ví dụ ngữ cảnh, ghi chú sử dụng (Note/Usage) và cụm từ collocation
+ * Tự động đồng bộ bởi DocVocab Autonomous Sync Engine
  */
 window.DEFAULT_VOCAB_DATA = [
   {
@@ -1407,7 +1407,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "031",
     "word": "Accessory",
     "phonetic": "/əkˈsesəri/",
-    "partOfSpeech": "noun",
+    "partOfSpeech": "n",
     "meaning": "phụ kiện",
     "notes": "Plural: accessories.",
     "definition": "an extra piece of equipment or clothing that is not essential, but adds to the beauty or usefulness of something",
@@ -1545,7 +1545,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "034",
     "word": "Ambush",
     "phonetic": "/ˈæmbʊʃ/",
-    "partOfSpeech": "noun / verb",
+    "partOfSpeech": "n/v",
     "meaning": "cuộc phục kích; phục kích",
     "notes": "Sửa chính tả từ “Ampush”.",
     "definition": "the act of hiding and waiting for somebody and then making a surprise attack on them",
@@ -4040,7 +4040,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "088",
     "word": "Run into",
     "phonetic": "/rʌn ˈɪntuː/",
-    "partOfSpeech": "phrasal verb",
+    "partOfSpeech": "phrasal v",
     "meaning": "gặp tình cờ; gặp phải",
     "notes": "Ví dụ: run into a friend / run into problems.",
     "definition": "to meet someone by chance; to experience difficulties or unexpected problems",
@@ -4410,7 +4410,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "096",
     "word": "Favour",
     "phonetic": "/ˈfeɪvə(r)/",
-    "partOfSpeech": "noun",
+    "partOfSpeech": "n",
     "meaning": "sự giúp đỡ; ân huệ",
     "notes": "Ví dụ tự nhiên: ask him for a favour. US spelling: favor.",
     "definition": "an act of kindness that you do for someone; approval or support for somebody or something",
@@ -4503,7 +4503,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "098",
     "word": "Fill out",
     "phonetic": "/fɪl aʊt/",
-    "partOfSpeech": "phrasal verb",
+    "partOfSpeech": "phrasal v",
     "meaning": "điền vào; hoàn thành biểu mẫu",
     "notes": "Ví dụ: fill out a form.",
     "definition": "to complete a form or official document by writing information on it",
@@ -5841,7 +5841,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "127",
     "word": "Life expectancy",
     "phonetic": "/ˈlaɪf ɪkspektənsi/",
-    "partOfSpeech": "noun phrase",
+    "partOfSpeech": "n phrase",
     "meaning": "tuổi thọ trung bình/kỳ vọng",
     "notes": "“Expectancy” đứng riêng rộng nghĩa hơn; “life expectancy” mới là cụm chỉ tuổi thọ.",
     "definition": "the number of years that a person or animal is likely to live",
@@ -6071,7 +6071,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "132",
     "word": "Patient",
     "phonetic": "/ˈpeɪʃnt/",
-    "partOfSpeech": "noun",
+    "partOfSpeech": "n",
     "meaning": "bệnh nhân",
     "notes": "Khác với patient (adj) = kiên nhẫn.",
     "definition": "a person who is receiving medical care or treatment from a doctor, nurse, or hospital",
@@ -6952,7 +6952,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "151",
     "word": "Envy",
     "phonetic": "/ˈenvi/",
-    "partOfSpeech": "noun / verb",
+    "partOfSpeech": "n/v",
     "meaning": "sự ghen tị; ghen tị",
     "notes": "",
     "definition": "the feeling of wanting something that someone else has; to wish you had something that another person has",
@@ -7321,7 +7321,7 @@ window.DEFAULT_VOCAB_DATA = [
     "docId": "159",
     "word": "Eat",
     "phonetic": "/iːt/",
-    "partOfSpeech": "verb",
+    "partOfSpeech": "v",
     "meaning": "ăn",
     "notes": "",
     "definition": "to put food into your mouth, chew it and swallow it",
