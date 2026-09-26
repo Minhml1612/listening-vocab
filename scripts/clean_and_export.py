@@ -3,7 +3,7 @@ import re
 import json
 import time
 
-url = 'https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/export?format=txt'
+url = 'https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/export?format=txt'
 req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 with urllib.request.urlopen(req) as resp:
     raw_text = resp.read().decode('utf-8')

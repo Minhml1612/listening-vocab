@@ -1,36 +1,20 @@
 /**
- * DEFAULT VOCABULARY DATA (155 Authentic Oxford Advanced Learner's Dictionary Entries)
- * Tích hợp đầy đủ phát âm IPA chuẩn Oxford, định nghĩa Anh - Anh, các câu ví dụ ngữ cảnh và cụm từ collocation
+ * DEFAULT VOCABULARY DATA (159 Standardized Google Doc & Oxford Entries - v10.0)
+ * Nguồn Google Docs: https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit
+ * Tích hợp đầy đủ phát âm IPA chuẩn Oxford, định nghĩa Anh - Anh, các câu ví dụ ngữ cảnh, ghi chú sử dụng (Note/Usage) và cụm từ collocation
  */
 window.DEFAULT_VOCAB_DATA = [
   {
     "id": "w-1",
+    "docId": "001",
     "word": "Pour",
     "phonetic": "/pɔː(r)/",
-    "partOfSpeech": "verb",
-    "meaning": "đổ thứ gì đó",
+    "partOfSpeech": "v",
+    "meaning": "đổ; rót",
+    "notes": "Dùng với chất lỏng hoặc vật liệu rời: pour water into a glass.",
     "definition": "to make a liquid or other substance flow from a container in a continuous stream by holding the container at an angle",
     "example": "Could you please pour some more hot water into the teapot?",
     "exampleVi": "Bạn có thể vui lòng rót thêm nước nóng vào ấm trà được không?",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790256774684,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "Could you please ........ some more hot water into the teapot?",
-    "quizAnswer": "pour",
-    "distractors": [
-      "spill",
-      "leak",
-      "drip"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "Could you please pour some more hot water into the teapot?",
@@ -50,36 +34,38 @@ window.DEFAULT_VOCAB_DATA = [
       "pour somebody a drink",
       "pour down with rain",
       "pour your heart out"
-    ]
-  },
-  {
-    "id": "w-2",
-    "word": "Regret",
-    "phonetic": "/rɪˈɡret/",
-    "partOfSpeech": "verb / noun",
-    "meaning": "hối tiếc",
-    "definition": "to feel sorry about something you have done or about something that has happened; a feeling of sadness about something that cannot now be changed",
-    "example": "If you don't take this scholarship, you will deeply regret it later.",
-    "exampleVi": "Nếu bạn không nhận học bổng này, sau này bạn sẽ vô cùng hối tiếc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Could you please ........ some more hot water into the teapot?",
+    "quizAnswer": "pour",
+    "distractors": [
+      "spill",
+      "leak",
+      "drip"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256714684,
+    "dateAdded": 1790250001000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "If you don't take this scholarship, you will deeply ........ it later.",
-    "quizAnswer": "regret",
-    "distractors": [
-      "admit",
-      "deny",
-      "ignore"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-2",
+    "docId": "002",
+    "word": "Regret",
+    "phonetic": "/rɪˈɡret/",
+    "partOfSpeech": "n/v",
+    "meaning": "sự hối tiếc; hối tiếc",
+    "notes": "",
+    "definition": "to feel sorry about something you have done or about something that has happened; a feeling of sadness about something that cannot now be changed",
+    "example": "If you don't take this scholarship, you will deeply regret it later.",
+    "exampleVi": "Nếu bạn không nhận học bổng này, sau này bạn sẽ vô cùng hối tiếc.",
     "oxfordExamples": [
       {
         "en": "If you don't take this scholarship, you will deeply regret it later.",
@@ -99,36 +85,38 @@ window.DEFAULT_VOCAB_DATA = [
       "regret doing sth",
       "have no regrets",
       "express deep regret"
-    ]
-  },
-  {
-    "id": "w-3",
-    "word": "strange",
-    "phonetic": "/streɪndʒ/",
-    "partOfSpeech": "adjective",
-    "meaning": "lạ lùng",
-    "definition": "unusual or surprising, especially in a way that is difficult to understand or explain; unfamiliar",
-    "example": "I woke up in the middle of the night because of a very strange noise outside.",
-    "exampleVi": "Tôi thức giấc giữa đêm vì một tiếng động rất lạ lùng bên ngoài.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "If you don't take this scholarship, you will deeply ........ it later.",
+    "quizAnswer": "regret",
+    "distractors": [
+      "admit",
+      "deny",
+      "ignore"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256654684,
+    "dateAdded": 1790250002000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "I woke up in the middle of the night because of a very ........ noise outside.",
-    "quizAnswer": "strange",
-    "distractors": [
-      "familiar",
-      "normal",
-      "regular"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-3",
+    "docId": "003",
+    "word": "Strange",
+    "phonetic": "/streɪndʒ/",
+    "partOfSpeech": "adj",
+    "meaning": "lạ; kỳ lạ",
+    "notes": "",
+    "definition": "unusual or surprising, especially in a way that is difficult to understand or explain; unfamiliar",
+    "example": "I woke up in the middle of the night because of a very strange noise outside.",
+    "exampleVi": "Tôi thức giấc giữa đêm vì một tiếng động rất lạ lùng bên ngoài.",
     "oxfordExamples": [
       {
         "en": "I woke up in the middle of the night because of a very strange noise outside.",
@@ -147,36 +135,38 @@ window.DEFAULT_VOCAB_DATA = [
       "strange noise / feeling / coincidence",
       "strange as it may seem",
       "a complete stranger"
-    ]
-  },
-  {
-    "id": "w-4",
-    "word": "guilty",
-    "phonetic": "/ˈɡɪlti/",
-    "partOfSpeech": "adjective",
-    "meaning": "tội lỗi",
-    "definition": "feeling bad because you have done something wrong; having done something that is illegal",
-    "example": "The suspect looked extremely guilty when questioned by the police about the missing money.",
-    "exampleVi": "Nghi phạm trông vô cùng có lỗi/tội lỗi khi bị cảnh sát thẩm vấn về số tiền bị mất.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I woke up in the middle of the night because of a very ........ noise outside.",
+    "quizAnswer": "strange",
+    "distractors": [
+      "familiar",
+      "normal",
+      "regular"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256594684,
+    "dateAdded": 1790250003000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The suspect looked extremely ........ when questioned by the police about the missing money.",
-    "quizAnswer": "guilty",
-    "distractors": [
-      "innocent",
-      "curious",
-      "nervous"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-4",
+    "docId": "004",
+    "word": "Guilty",
+    "phonetic": "/ˈɡɪlti/",
+    "partOfSpeech": "adj",
+    "meaning": "cảm thấy có lỗi; có tội",
+    "notes": "",
+    "definition": "feeling bad because you have done something wrong; having done something that is illegal",
+    "example": "The suspect looked extremely guilty when questioned by the police about the missing money.",
+    "exampleVi": "Nghi phạm trông vô cùng có lỗi/tội lỗi khi bị cảnh sát thẩm vấn về số tiền bị mất.",
     "oxfordExamples": [
       {
         "en": "The suspect looked extremely guilty when questioned by the police about the missing money.",
@@ -196,36 +186,38 @@ window.DEFAULT_VOCAB_DATA = [
       "plead guilty to",
       "a guilty conscience",
       "guilty look"
-    ]
-  },
-  {
-    "id": "w-5",
-    "word": "stand in line",
-    "phonetic": "/stænd ɪn laɪn/",
-    "partOfSpeech": "idiom / phrase",
-    "meaning": "xếp hàng",
-    "definition": "to wait behind other people in an orderly queue for service, tickets, or admission",
-    "example": "All passengers had to stand in line for over an hour to check in for their flight.",
-    "exampleVi": "Tất cả hành khách đã phải xếp hàng hơn một tiếng đồng hồ để làm thủ tục cho chuyến bay.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The suspect looked extremely ........ when questioned by the police about the missing money.",
+    "quizAnswer": "guilty",
+    "distractors": [
+      "innocent",
+      "curious",
+      "nervous"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256534684,
+    "dateAdded": 1790250004000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "All passengers had to ........ for over an hour to check in for their flight.",
-    "quizAnswer": "stand in line",
-    "distractors": [
-      "take a seat",
-      "make a reservation",
-      "check in advance"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-5",
+    "docId": "005",
+    "word": "Stand in line",
+    "phonetic": "/stænd ɪn laɪn/",
+    "partOfSpeech": "v phrase",
+    "meaning": "xếp hàng",
+    "notes": "",
+    "definition": "to wait behind other people in an orderly queue for service, tickets, or admission",
+    "example": "All passengers had to stand in line for over an hour to check in for their flight.",
+    "exampleVi": "Tất cả hành khách đã phải xếp hàng hơn một tiếng đồng hồ để làm thủ tục cho chuyến bay.",
     "oxfordExamples": [
       {
         "en": "All passengers had to stand in line for over an hour to check in for their flight.",
@@ -240,36 +232,38 @@ window.DEFAULT_VOCAB_DATA = [
       "stand in line for sth",
       "wait in line",
       "jump the line / cut in line"
-    ]
-  },
-  {
-    "id": "w-6",
-    "word": "the greeting",
-    "phonetic": "/ðə ˈɡriːtɪŋ/",
-    "partOfSpeech": "noun",
-    "meaning": "lời chào",
-    "definition": "something friendly or polite that you say or do when you meet somebody or welcome a guest",
-    "example": "The hotel receptionist welcomed every guest with a warm and polite greeting at the entrance.",
-    "exampleVi": "Nhân viên lễ tân khách sạn chào đón từng vị khách bằng một lời chào ấm áp và lịch sự ở lối vào.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "All passengers had to ........ for over an hour to check in for their flight.",
+    "quizAnswer": "stand in line",
+    "distractors": [
+      "take a seat",
+      "make a reservation",
+      "check in advance"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256474684,
+    "dateAdded": 1790250005000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The hotel receptionist welcomed every guest with a warm and polite ........ at the entrance.",
-    "quizAnswer": "greeting",
-    "distractors": [
-      "complaint",
-      "farewell",
-      "announcement"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-6",
+    "docId": "006",
+    "word": "Greeting",
+    "phonetic": "/ðə ˈɡriːtɪŋ/",
+    "partOfSpeech": "n",
+    "meaning": "lời chào; sự chào hỏi",
+    "notes": "",
+    "definition": "something friendly or polite that you say or do when you meet somebody or welcome a guest",
+    "example": "The hotel receptionist welcomed every guest with a warm and polite greeting at the entrance.",
+    "exampleVi": "Nhân viên lễ tân khách sạn chào đón từng vị khách bằng một lời chào ấm áp và lịch sự ở lối vào.",
     "oxfordExamples": [
       {
         "en": "The hotel receptionist welcomed every guest with a warm and polite greeting at the entrance.",
@@ -284,36 +278,38 @@ window.DEFAULT_VOCAB_DATA = [
       "warm / polite greeting",
       "exchange greetings",
       "a greeting card"
-    ]
-  },
-  {
-    "id": "w-7",
-    "word": "requirement",
-    "phonetic": "/rɪˈkwaɪəmənt/",
-    "partOfSpeech": "noun",
-    "meaning": "yêu cầu",
-    "definition": "something that you must have or must do according to a set of rules, laws, or circumstances",
-    "example": "Fluency in spoken English is an essential requirement for this international sales position.",
-    "exampleVi": "Lưu loát tiếng Anh giao tiếp là một yêu cầu thiết yếu cho vị trí kinh doanh quốc tế này.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The hotel receptionist welcomed every guest with a warm and polite ........ at the entrance.",
+    "quizAnswer": "greeting",
+    "distractors": [
+      "complaint",
+      "farewell",
+      "announcement"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256414684,
+    "dateAdded": 1790250006000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Fluency in spoken English is an essential ........ for this international sales position.",
-    "quizAnswer": "requirement",
-    "distractors": [
-      "achievement",
-      "opportunity",
-      "circumstance"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-7",
+    "docId": "007",
+    "word": "Requirement",
+    "phonetic": "/rɪˈkwaɪəmənt/",
+    "partOfSpeech": "n",
+    "meaning": "yêu cầu; điều kiện cần",
+    "notes": "",
+    "definition": "something that you must have or must do according to a set of rules, laws, or circumstances",
+    "example": "Fluency in spoken English is an essential requirement for this international sales position.",
+    "exampleVi": "Lưu loát tiếng Anh giao tiếp là một yêu cầu thiết yếu cho vị trí kinh doanh quốc tế này.",
     "oxfordExamples": [
       {
         "en": "Fluency in spoken English is an essential requirement for this international sales position.",
@@ -328,36 +324,38 @@ window.DEFAULT_VOCAB_DATA = [
       "meet / satisfy requirements",
       "essential / minimum requirement",
       "legal requirement"
-    ]
-  },
-  {
-    "id": "w-8",
-    "word": "respond",
-    "phonetic": "/rɪˈspɒnd/",
-    "partOfSpeech": "verb",
-    "meaning": "đáp ứng",
-    "definition": "to give a spoken or written answer to somebody/something; to react to something that has been said or done",
-    "example": "The customer support department promises to respond to all inquiries within twenty-four hours.",
-    "exampleVi": "Bộ phận hỗ trợ khách hàng cam kết sẽ phản hồi mọi thắc mắc trong vòng hai mươi bốn giờ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Fluency in spoken English is an essential ........ for this international sales position.",
+    "quizAnswer": "requirement",
+    "distractors": [
+      "achievement",
+      "opportunity",
+      "circumstance"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256354684,
+    "dateAdded": 1790250007000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The customer support department promises to ........ to all inquiries within twenty-four hours.",
-    "quizAnswer": "respond",
-    "distractors": [
-      "refuse",
-      "complain",
-      "ignore"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-8",
+    "docId": "008",
+    "word": "Respond",
+    "phonetic": "/rɪˈspɒnd/",
+    "partOfSpeech": "v",
+    "meaning": "phản hồi; đáp lại",
+    "notes": "Thường dùng: respond to someone/something.",
+    "definition": "to give a spoken or written answer to somebody/something; to react to something that has been said or done",
+    "example": "The customer support department promises to respond to all inquiries within twenty-four hours.",
+    "exampleVi": "Bộ phận hỗ trợ khách hàng cam kết sẽ phản hồi mọi thắc mắc trong vòng hai mươi bốn giờ.",
     "oxfordExamples": [
       {
         "en": "The customer support department promises to respond to all inquiries within twenty-four hours.",
@@ -373,36 +371,38 @@ window.DEFAULT_VOCAB_DATA = [
       "respond promptly / quickly",
       "fail to respond",
       "respond with sth"
-    ]
-  },
-  {
-    "id": "w-9",
-    "word": "supposedly",
-    "phonetic": "/səˈpəʊzɪdli/",
-    "partOfSpeech": "adverb",
-    "meaning": "được cho là",
-    "definition": "according to what is generally thought, said, or believed, though this may not be true",
-    "example": "The new listening exam format is supposedly much easier than the previous edition.",
-    "exampleVi": "Cấu trúc đề thi nghe mới được cho là dễ hơn nhiều so với phiên bản trước đó.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The customer support department promises to ........ to all inquiries within twenty-four hours.",
+    "quizAnswer": "respond",
+    "distractors": [
+      "refuse",
+      "complain",
+      "ignore"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256294684,
+    "dateAdded": 1790250008000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The new listening exam format is ........ much easier than the previous edition.",
-    "quizAnswer": "supposedly",
-    "distractors": [
-      "actually",
-      "definitely",
-      "completely"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-9",
+    "docId": "009",
+    "word": "Supposedly",
+    "phonetic": "/səˈpəʊzɪdli/",
+    "partOfSpeech": "adv",
+    "meaning": "được cho là; theo như người ta nói",
+    "notes": "",
+    "definition": "according to what is generally thought, said, or believed, though this may not be true",
+    "example": "The new listening exam format is supposedly much easier than the previous edition.",
+    "exampleVi": "Cấu trúc đề thi nghe mới được cho là dễ hơn nhiều so với phiên bản trước đó.",
     "oxfordExamples": [
       {
         "en": "The new listening exam format is supposedly much easier than the previous edition.",
@@ -417,36 +417,38 @@ window.DEFAULT_VOCAB_DATA = [
       "supposedly superior",
       "supposedly harmless",
       "supposedly true"
-    ]
-  },
-  {
-    "id": "w-10",
-    "word": "clickbait",
-    "phonetic": "/ˈklɪkbeɪt/",
-    "partOfSpeech": "noun",
-    "meaning": "Câu view",
-    "definition": "material placed online, especially sensational headlines, designed solely to attract clicks and internet traffic",
-    "example": "Don't fall for sensational headlines on social media; most of them are pure clickbait.",
-    "exampleVi": "Đừng mắc bẫy những tiêu đề giật gân trên mạng xã hội; phần lớn chúng chỉ thuần túy là câu view.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The new listening exam format is ........ much easier than the previous edition.",
+    "quizAnswer": "supposedly",
+    "distractors": [
+      "actually",
+      "definitely",
+      "completely"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256234684,
+    "dateAdded": 1790250009000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Don't fall for sensational headlines on social media; most of them are pure ........",
-    "quizAnswer": "clickbait",
-    "distractors": [
-      "feedback",
-      "broadcast",
-      "headline"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-10",
+    "docId": "010",
+    "word": "Clickbait",
+    "phonetic": "/ˈklɪkbeɪt/",
+    "partOfSpeech": "n",
+    "meaning": "nội dung/tiêu đề câu view, câu nhấp chuột",
+    "notes": "",
+    "definition": "material placed online, especially sensational headlines, designed solely to attract clicks and internet traffic",
+    "example": "Don't fall for sensational headlines on social media; most of them are pure clickbait.",
+    "exampleVi": "Đừng mắc bẫy những tiêu đề giật gân trên mạng xã hội; phần lớn chúng chỉ thuần túy là câu view.",
     "oxfordExamples": [
       {
         "en": "Don't fall for sensational headlines on social media; most of them are pure clickbait.",
@@ -461,36 +463,38 @@ window.DEFAULT_VOCAB_DATA = [
       "pure clickbait",
       "clickbait headline / title",
       "clickbait link"
-    ]
-  },
-  {
-    "id": "w-11",
-    "word": "Wisely",
-    "phonetic": "/ˈwaɪzli/",
-    "partOfSpeech": "adverb",
-    "meaning": "một cách khôn ngoan",
-    "definition": "in a way that shows good judgment, knowledge, and experience",
-    "example": "You should manage your daily revision schedule wisely to achieve your target band score.",
-    "exampleVi": "Bạn nên quản lý lịch ôn tập hàng ngày một cách khôn ngoan để đạt điểm mục tiêu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Don't fall for sensational headlines on social media; most of them are pure ........",
+    "quizAnswer": "clickbait",
+    "distractors": [
+      "feedback",
+      "broadcast",
+      "headline"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256174684,
+    "dateAdded": 1790250010000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "You should manage your daily revision schedule ........ to achieve your target band score.",
-    "quizAnswer": "wisely",
-    "distractors": [
-      "rarely",
-      "merely",
-      "hastily"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-11",
+    "docId": "011",
+    "word": "Wisely",
+    "phonetic": "/ˈwaɪzli/",
+    "partOfSpeech": "adv",
+    "meaning": "một cách khôn ngoan",
+    "notes": "",
+    "definition": "in a way that shows good judgment, knowledge, and experience",
+    "example": "You should manage your daily revision schedule wisely to achieve your target band score.",
+    "exampleVi": "Bạn nên quản lý lịch ôn tập hàng ngày một cách khôn ngoan để đạt điểm mục tiêu.",
     "oxfordExamples": [
       {
         "en": "You should manage your daily revision schedule wisely to achieve your target band score.",
@@ -505,36 +509,38 @@ window.DEFAULT_VOCAB_DATA = [
       "choose / invest wisely",
       "act wisely",
       "spend time wisely"
-    ]
-  },
-  {
-    "id": "w-12",
-    "word": "Suddenly",
-    "phonetic": "/ˈsʌdənli/",
-    "partOfSpeech": "adverb",
-    "meaning": "một cách đường đột",
-    "definition": "quickly and unexpectedly without prior warning",
-    "example": "Suddenly, the fire alarm went off right in the middle of our recorded listening test.",
-    "exampleVi": "Đột nhiên, chuông báo cháy reo lên ngay giữa bài thi nghe được ghi âm của chúng tôi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "You should manage your daily revision schedule ........ to achieve your target band score.",
+    "quizAnswer": "wisely",
+    "distractors": [
+      "rarely",
+      "merely",
+      "hastily"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256114684,
+    "dateAdded": 1790250011000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "........, the fire alarm went off right in the middle of our recorded listening test.",
-    "quizAnswer": "Suddenly",
-    "distractors": [
-      "Gradually",
-      "Eventually",
-      "Naturally"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-12",
+    "docId": "012",
+    "word": "Suddenly",
+    "phonetic": "/ˈsʌdənli/",
+    "partOfSpeech": "adv",
+    "meaning": "đột nhiên; bất ngờ",
+    "notes": "",
+    "definition": "quickly and unexpectedly without prior warning",
+    "example": "Suddenly, the fire alarm went off right in the middle of our recorded listening test.",
+    "exampleVi": "Đột nhiên, chuông báo cháy reo lên ngay giữa bài thi nghe được ghi âm của chúng tôi.",
     "oxfordExamples": [
       {
         "en": "Suddenly, the fire alarm went off right in the middle of our recorded listening test.",
@@ -549,36 +555,38 @@ window.DEFAULT_VOCAB_DATA = [
       "suddenly realize",
       "suddenly appear",
       "suddenly stop"
-    ]
-  },
-  {
-    "id": "w-13",
-    "word": "matter",
-    "phonetic": "/ˈmætə(r)//",
-    "partOfSpeech": "verb",
-    "meaning": "quan trọng",
-    "definition": "to be important or to have a significant effect on something/somebody",
-    "example": "Your accent doesn't matter as long as your pronunciation and grammar are clear.",
-    "exampleVi": "Chất giọng của bạn không quan trọng miễn là phát âm và ngữ pháp của bạn rõ ràng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "........, the fire alarm went off right in the middle of our recorded listening test.",
+    "quizAnswer": "Suddenly",
+    "distractors": [
+      "Gradually",
+      "Eventually",
+      "Naturally"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790256054684,
+    "dateAdded": 1790250012000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Your accent doesn't ........ as long as your pronunciation and grammar are clear.",
-    "quizAnswer": "matter",
-    "distractors": [
-      "happen",
-      "appear",
-      "exist"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-13",
+    "docId": "013",
+    "word": "Matter",
+    "phonetic": "/ˈmætə(r)//",
+    "partOfSpeech": "v/n",
+    "meaning": "quan trọng; vấn đề",
+    "notes": "Ví dụ: It doesn’t matter = Không quan trọng.",
+    "definition": "to be important or to have a significant effect on something/somebody",
+    "example": "Your accent doesn't matter as long as your pronunciation and grammar are clear.",
+    "exampleVi": "Chất giọng của bạn không quan trọng miễn là phát âm và ngữ pháp của bạn rõ ràng.",
     "oxfordExamples": [
       {
         "en": "Your accent doesn't matter as long as your pronunciation and grammar are clear.",
@@ -593,36 +601,38 @@ window.DEFAULT_VOCAB_DATA = [
       "does it matter?",
       "no matter what",
       "matter to somebody"
-    ]
-  },
-  {
-    "id": "w-14",
-    "word": "fortune",
-    "phonetic": "/ˈfɔːtʃuːn/",
-    "partOfSpeech": "noun",
-    "meaning": "may mắn",
-    "definition": "good luck or chance; or a very large amount of money and valuable assets",
-    "example": "He had the good fortune to be mentored by one of the top English professors in the country.",
-    "exampleVi": "Anh ấy có may mắn lớn khi được chỉ dạy bởi một trong những giáo sư tiếng Anh hàng đầu cả nước.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Your accent doesn't ........ as long as your pronunciation and grammar are clear.",
+    "quizAnswer": "matter",
+    "distractors": [
+      "happen",
+      "appear",
+      "exist"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255994684,
+    "dateAdded": 1790250013000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "He had the good ........ to be mentored by one of the top English professors in the country.",
-    "quizAnswer": "fortune",
-    "distractors": [
-      "ambition",
-      "trouble",
-      "burden"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-14",
+    "docId": "014",
+    "word": "Fortune",
+    "phonetic": "/ˈfɔːtʃuːn/",
+    "partOfSpeech": "n",
+    "meaning": "vận may; tài sản lớn",
+    "notes": "Tùy ngữ cảnh.",
+    "definition": "good luck or chance; or a very large amount of money and valuable assets",
+    "example": "He had the good fortune to be mentored by one of the top English professors in the country.",
+    "exampleVi": "Anh ấy có may mắn lớn khi được chỉ dạy bởi một trong những giáo sư tiếng Anh hàng đầu cả nước.",
     "oxfordExamples": [
       {
         "en": "He had the good fortune to be mentored by one of the top English professors in the country.",
@@ -637,36 +647,38 @@ window.DEFAULT_VOCAB_DATA = [
       "have the good fortune to do sth",
       "cost a fortune",
       "make a fortune"
-    ]
-  },
-  {
-    "id": "w-15",
-    "word": "betray",
-    "phonetic": "/bɪˈtreɪ/",
-    "partOfSpeech": "verb",
-    "meaning": "phản bội",
-    "definition": "to be disloyal to someone who trusts you by giving away secrets or siding with an enemy",
-    "example": "A trustworthy person would never betray the confidence and secrets shared by their friends.",
-    "exampleVi": "Một người đáng tin cậy sẽ không bao giờ phản bội sự tin tưởng và bí mật mà bạn bè chia sẻ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He had the good ........ to be mentored by one of the top English professors in the country.",
+    "quizAnswer": "fortune",
+    "distractors": [
+      "ambition",
+      "trouble",
+      "burden"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255934684,
+    "dateAdded": 1790250014000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "A trustworthy person would never ........ the confidence and secrets shared by their friends.",
-    "quizAnswer": "betray",
-    "distractors": [
-      "protect",
-      "forgive",
-      "support"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-15",
+    "docId": "015",
+    "word": "Betray",
+    "phonetic": "/bɪˈtreɪ/",
+    "partOfSpeech": "v",
+    "meaning": "phản bội",
+    "notes": "",
+    "definition": "to be disloyal to someone who trusts you by giving away secrets or siding with an enemy",
+    "example": "A trustworthy person would never betray the confidence and secrets shared by their friends.",
+    "exampleVi": "Một người đáng tin cậy sẽ không bao giờ phản bội sự tin tưởng và bí mật mà bạn bè chia sẻ.",
     "oxfordExamples": [
       {
         "en": "A trustworthy person would never betray the confidence and secrets shared by their friends.",
@@ -681,36 +693,38 @@ window.DEFAULT_VOCAB_DATA = [
       "betray a secret / trust",
       "betray one's country",
       "betray one's principles"
-    ]
-  },
-  {
-    "id": "w-16",
-    "word": "attempt",
-    "phonetic": "/əˈtempt/",
-    "partOfSpeech": "noun / verb",
-    "meaning": "nỗ lực",
-    "definition": "an act of trying to do something difficult, often without success",
-    "example": "She passed her IELTS listening test on her second attempt with an impressive band score.",
-    "exampleVi": "Cô ấy đã vượt qua bài thi nghe IELTS trong nỗ lực lần thứ hai với số điểm rất ấn tượng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A trustworthy person would never ........ the confidence and secrets shared by their friends.",
+    "quizAnswer": "betray",
+    "distractors": [
+      "protect",
+      "forgive",
+      "support"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255874684,
+    "dateAdded": 1790250015000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She passed her IELTS listening test on her second ........ with an impressive band score.",
-    "quizAnswer": "attempt",
-    "distractors": [
-      "intention",
-      "purpose",
-      "struggle"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-16",
+    "docId": "016",
+    "word": "Attempt",
+    "phonetic": "/əˈtempt/",
+    "partOfSpeech": "n/v",
+    "meaning": "sự cố gắng; sự thử; cố gắng/thử làm",
+    "notes": "",
+    "definition": "an act of trying to do something difficult, often without success",
+    "example": "She passed her IELTS listening test on her second attempt with an impressive band score.",
+    "exampleVi": "Cô ấy đã vượt qua bài thi nghe IELTS trong nỗ lực lần thứ hai với số điểm rất ấn tượng.",
     "oxfordExamples": [
       {
         "en": "She passed her IELTS listening test on her second attempt with an impressive band score.",
@@ -725,36 +739,38 @@ window.DEFAULT_VOCAB_DATA = [
       "make an attempt to do sth",
       "pass on the first attempt",
       "an unsuccessful attempt"
-    ]
-  },
-  {
-    "id": "w-17",
-    "word": "bridge",
-    "phonetic": "/brɪdʒ/",
-    "partOfSpeech": "noun",
-    "meaning": "cây cầu",
-    "definition": "a structure built over a road, railway, or river for people or vehicles to cross",
-    "example": "The municipal council agreed to build a pedestrian bridge over the congested highway.",
-    "exampleVi": "Hội đồng thành phố đã đồng ý xây một cây cầu đi bộ bắc qua đường cao tốc đông đúc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She passed her IELTS listening test on her second ........ with an impressive band score.",
+    "quizAnswer": "attempt",
+    "distractors": [
+      "intention",
+      "purpose",
+      "struggle"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255814684,
+    "dateAdded": 1790250016000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The municipal council agreed to build a pedestrian ........ over the congested highway.",
-    "quizAnswer": "bridge",
-    "distractors": [
-      "highway",
-      "tunnel",
-      "corridor"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-17",
+    "docId": "017",
+    "word": "Bridge",
+    "phonetic": "/brɪdʒ/",
+    "partOfSpeech": "n",
+    "meaning": "cây cầu",
+    "notes": "",
+    "definition": "a structure built over a road, railway, or river for people or vehicles to cross",
+    "example": "The municipal council agreed to build a pedestrian bridge over the congested highway.",
+    "exampleVi": "Hội đồng thành phố đã đồng ý xây một cây cầu đi bộ bắc qua đường cao tốc đông đúc.",
     "oxfordExamples": [
       {
         "en": "The municipal council agreed to build a pedestrian bridge over the congested highway.",
@@ -769,36 +785,38 @@ window.DEFAULT_VOCAB_DATA = [
       "cross a bridge",
       "pedestrian bridge",
       "bridge the gap between"
-    ]
-  },
-  {
-    "id": "w-18",
-    "word": "starving",
-    "phonetic": "/ˈstɑːvɪŋ/",
-    "partOfSpeech": "adjective",
-    "meaning": "chết đói",
-    "definition": "very hungry (informal); or suffering or dying from lack of food",
-    "example": "We skipped breakfast and practiced listening for five hours, so now we are absolutely starving.",
-    "exampleVi": "Chúng tôi đã bỏ bữa sáng và luyện nghe suốt năm tiếng, nên bây giờ chúng tôi đói lả.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The municipal council agreed to build a pedestrian ........ over the congested highway.",
+    "quizAnswer": "bridge",
+    "distractors": [
+      "highway",
+      "tunnel",
+      "corridor"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255754684,
+    "dateAdded": 1790250017000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "We skipped breakfast and practiced listening for five hours, so now we are absolutely ........",
-    "quizAnswer": "starving",
-    "distractors": [
-      "exhausted",
-      "thirsty",
-      "crowded"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-18",
+    "docId": "018",
+    "word": "Starving",
+    "phonetic": "/ˈstɑːvɪŋ/",
+    "partOfSpeech": "adj",
+    "meaning": "đói lả; rất đói",
+    "notes": "Informal: I’m starving = Tôi đói chết đi được.",
+    "definition": "very hungry (informal); or suffering or dying from lack of food",
+    "example": "We skipped breakfast and practiced listening for five hours, so now we are absolutely starving.",
+    "exampleVi": "Chúng tôi đã bỏ bữa sáng và luyện nghe suốt năm tiếng, nên bây giờ chúng tôi đói lả.",
     "oxfordExamples": [
       {
         "en": "We skipped breakfast and practiced listening for five hours, so now we are absolutely starving.",
@@ -813,36 +831,38 @@ window.DEFAULT_VOCAB_DATA = [
       "I'm starving!",
       "starving children",
       "starving to death"
-    ]
-  },
-  {
-    "id": "w-19",
-    "word": "asshole",
-    "phonetic": "/ˈɑːshəʊl/",
-    "partOfSpeech": "noun (informal)",
-    "meaning": "lỗ đít",
-    "definition": "an offensive word for a stupid, annoying, or unpleasant person",
-    "example": "In informal street talk, vulgar people sometimes insult others by calling them an asshole.",
-    "exampleVi": "Trong giao tiếp đường phố bình dân, những kẻ thô tục đôi khi xúc phạm người khác bằng từ ngữ tục tĩu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "We skipped breakfast and practiced listening for five hours, so now we are absolutely ........",
+    "quizAnswer": "starving",
+    "distractors": [
+      "exhausted",
+      "thirsty",
+      "crowded"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255694684,
+    "dateAdded": 1790250018000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "In informal street talk, vulgar people sometimes insult others by calling them an ........",
-    "quizAnswer": "asshole",
-    "distractors": [
-      "amateur",
-      "athlete",
-      "ancestor"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-19",
+    "docId": "019",
+    "word": "Asshole",
+    "phonetic": "/ˈɑːshəʊl/",
+    "partOfSpeech": "n",
+    "meaning": "kẻ khốn; đồ tồi; nghĩa đen: hậu môn",
+    "notes": "Từ thô tục, nên tránh trong ngữ cảnh trang trọng.",
+    "definition": "an offensive word for a stupid, annoying, or unpleasant person",
+    "example": "In informal street talk, vulgar people sometimes insult others by calling them an asshole.",
+    "exampleVi": "Trong giao tiếp đường phố bình dân, những kẻ thô tục đôi khi xúc phạm người khác bằng từ ngữ tục tĩu.",
     "oxfordExamples": [
       {
         "en": "In informal street talk, vulgar people sometimes insult others by calling them an asshole.",
@@ -856,36 +876,38 @@ window.DEFAULT_VOCAB_DATA = [
     "collocations": [
       "act like an asshole",
       "rude asshole"
-    ]
-  },
-  {
-    "id": "w-20",
-    "word": "swear",
-    "phonetic": "/sweə(r)/",
-    "partOfSpeech": "verb",
-    "meaning": "thề",
-    "definition": "to make a serious promise to tell the truth; or to use rude/offensive language",
-    "example": "I swear that I told the police the complete truth about what happened last night.",
-    "exampleVi": "Tôi thề rằng tôi đã nói với cảnh sát toàn bộ sự thật về những gì xảy ra tối qua.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "In informal street talk, vulgar people sometimes insult others by calling them an ........",
+    "quizAnswer": "asshole",
+    "distractors": [
+      "amateur",
+      "athlete",
+      "ancestor"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255634684,
+    "dateAdded": 1790250019000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "I ........ that I told the police the complete truth about what happened last night.",
-    "quizAnswer": "swear",
-    "distractors": [
-      "pretend",
-      "whisper",
-      "hesitate"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-20",
+    "docId": "020",
+    "word": "Swear",
+    "phonetic": "/sweə(r)/",
+    "partOfSpeech": "v",
+    "meaning": "thề; chửi thề",
+    "notes": "Tùy ngữ cảnh.",
+    "definition": "to make a serious promise to tell the truth; or to use rude/offensive language",
+    "example": "I swear that I told the police the complete truth about what happened last night.",
+    "exampleVi": "Tôi thề rằng tôi đã nói với cảnh sát toàn bộ sự thật về những gì xảy ra tối qua.",
     "oxfordExamples": [
       {
         "en": "I swear that I told the police the complete truth about what happened last night.",
@@ -900,36 +922,38 @@ window.DEFAULT_VOCAB_DATA = [
       "swear to do sth",
       "swear on one's life",
       "swear by sth"
-    ]
-  },
-  {
-    "id": "w-21",
-    "word": "trophy",
-    "phonetic": "/ˈtrəʊfi/",
-    "partOfSpeech": "noun",
-    "meaning": "chiếc cúp",
-    "definition": "an object such as a gold cup that is given as a prize for winning a competition",
-    "example": "The champion held the glittering gold trophy high above his head as the crowd cheered.",
-    "exampleVi": "Nhà vô địch nâng cao chiếc cúp vàng lấp lánh trên đầu trong tiếng reo hò của đám đông.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I ........ that I told the police the complete truth about what happened last night.",
+    "quizAnswer": "swear",
+    "distractors": [
+      "pretend",
+      "whisper",
+      "hesitate"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255574684,
+    "dateAdded": 1790250020000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The champion held the glittering gold ........ high above his head as the crowd cheered.",
-    "quizAnswer": "trophy",
-    "distractors": [
-      "medal",
-      "souvenir",
-      "banner"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-21",
+    "docId": "021",
+    "word": "Trophy",
+    "phonetic": "/ˈtrəʊfi/",
+    "partOfSpeech": "n",
+    "meaning": "chiếc cúp; chiến lợi phẩm",
+    "notes": "",
+    "definition": "an object such as a gold cup that is given as a prize for winning a competition",
+    "example": "The champion held the glittering gold trophy high above his head as the crowd cheered.",
+    "exampleVi": "Nhà vô địch nâng cao chiếc cúp vàng lấp lánh trên đầu trong tiếng reo hò của đám đông.",
     "oxfordExamples": [
       {
         "en": "The champion held the glittering gold trophy high above his head as the crowd cheered.",
@@ -944,36 +968,38 @@ window.DEFAULT_VOCAB_DATA = [
       "win / lift a trophy",
       "championship trophy",
       "trophy cabinet"
-    ]
-  },
-  {
-    "id": "w-22",
-    "word": "blank",
-    "phonetic": "/blæŋk/",
-    "partOfSpeech": "adjective",
-    "meaning": "trống",
-    "definition": "empty, with nothing written, printed, or recorded on it; or showing no reaction or understanding",
-    "example": "When the teacher suddenly asked him for the answer, his mind went completely blank.",
-    "exampleVi": "Khi giáo viên bất ngờ hỏi câu trả lời, đầu óc anh ấy hoàn toàn trống rỗng / không nghĩ ra gì.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The champion held the glittering gold ........ high above his head as the crowd cheered.",
+    "quizAnswer": "trophy",
+    "distractors": [
+      "medal",
+      "souvenir",
+      "banner"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255514684,
+    "dateAdded": 1790250021000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "When the teacher suddenly asked him for the answer, his mind went completely ........",
-    "quizAnswer": "blank",
-    "distractors": [
-      "empty",
-      "hollow",
-      "clear"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-22",
+    "docId": "022",
+    "word": "Blank",
+    "phonetic": "/blæŋk/",
+    "partOfSpeech": "adj/n",
+    "meaning": "trống; để trống; khoảng trống",
+    "notes": "Blank thường là chỗ lẽ ra có nội dung nhưng hiện không có, ví dụ blank page/blank field.",
+    "definition": "empty, with nothing written, printed, or recorded on it; or showing no reaction or understanding",
+    "example": "When the teacher suddenly asked him for the answer, his mind went completely blank.",
+    "exampleVi": "Khi giáo viên bất ngờ hỏi câu trả lời, đầu óc anh ấy hoàn toàn trống rỗng / không nghĩ ra gì.",
     "oxfordExamples": [
       {
         "en": "When the teacher suddenly asked him for the answer, his mind went completely blank.",
@@ -988,36 +1014,38 @@ window.DEFAULT_VOCAB_DATA = [
       "mind went blank",
       "blank sheet of paper",
       "blank expression"
-    ]
-  },
-  {
-    "id": "w-23",
-    "word": "empty",
-    "phonetic": "/ˈempti/",
-    "partOfSpeech": "adjective / verb",
-    "meaning": "trống rỗng (kiểu siêu trống rỗng lâu rồi)",
-    "definition": "containing nothing; not filled or occupied by anything or anybody",
-    "example": "The hotel restaurant was completely empty because all the guests had gone on a day trip.",
-    "exampleVi": "Nhà hàng khách sạn hoàn toàn trống vắng vì tất cả khách đã đi tham quan trong ngày.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "When the teacher suddenly asked him for the answer, his mind went completely ........",
+    "quizAnswer": "blank",
+    "distractors": [
+      "empty",
+      "hollow",
+      "clear"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255454684,
+    "dateAdded": 1790250022000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The hotel restaurant was completely ........ because all the guests had gone on a day trip.",
-    "quizAnswer": "empty",
-    "distractors": [
-      "blank",
-      "shallow",
-      "silent"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-23",
+    "docId": "023",
+    "word": "Empty",
+    "phonetic": "/ˈempti/",
+    "partOfSpeech": "adj",
+    "meaning": "trống rỗng; không chứa gì",
+    "notes": "Empty nhấn mạnh không có người/vật bên trong: an empty room/bottle.",
+    "definition": "containing nothing; not filled or occupied by anything or anybody",
+    "example": "The hotel restaurant was completely empty because all the guests had gone on a day trip.",
+    "exampleVi": "Nhà hàng khách sạn hoàn toàn trống vắng vì tất cả khách đã đi tham quan trong ngày.",
     "oxfordExamples": [
       {
         "en": "The hotel restaurant was completely empty because all the guests had gone on a day trip.",
@@ -1032,36 +1060,38 @@ window.DEFAULT_VOCAB_DATA = [
       "completely / virtually empty",
       "empty bottle / room",
       "empty promises"
-    ]
-  },
-  {
-    "id": "w-24",
-    "word": "Argue",
-    "phonetic": "/ˈɑːɡjuː/",
-    "partOfSpeech": "verb",
-    "meaning": "tranh cãi",
-    "definition": "to speak angrily to somebody because you disagree with them; or to give reasons why you think something is true",
-    "example": "It is counterproductive to argue about small details when we have a major deadline tomorrow.",
-    "exampleVi": "Thật vô ích khi tranh cãi về những chi tiết vụn vặt khi ngày mai chúng ta có hạn chót quan trọng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The hotel restaurant was completely ........ because all the guests had gone on a day trip.",
+    "quizAnswer": "empty",
+    "distractors": [
+      "blank",
+      "shallow",
+      "silent"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255394684,
+    "dateAdded": 1790250023000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "It is counterproductive to ........ about small details when we have a major deadline tomorrow.",
-    "quizAnswer": "argue",
-    "distractors": [
-      "discuss",
-      "complain",
-      "explain"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-24",
+    "docId": "024",
+    "word": "Argue",
+    "phonetic": "/ˈɑːɡjuː/",
+    "partOfSpeech": "v",
+    "meaning": "tranh cãi; lập luận",
+    "notes": "",
+    "definition": "to speak angrily to somebody because you disagree with them; or to give reasons why you think something is true",
+    "example": "It is counterproductive to argue about small details when we have a major deadline tomorrow.",
+    "exampleVi": "Thật vô ích khi tranh cãi về những chi tiết vụn vặt khi ngày mai chúng ta có hạn chót quan trọng.",
     "oxfordExamples": [
       {
         "en": "It is counterproductive to argue about small details when we have a major deadline tomorrow.",
@@ -1076,36 +1106,38 @@ window.DEFAULT_VOCAB_DATA = [
       "argue with sb about/over sth",
       "argue in favor of / against",
       "strongly argue"
-    ]
-  },
-  {
-    "id": "w-25",
-    "word": "formal",
-    "phonetic": "/ˈfɔːml/",
-    "partOfSpeech": "adjective",
-    "meaning": "chính thức",
-    "definition": "suitable for serious, official, or polite occasions, following strict customs or rules",
-    "example": "You should use formal language and proper honorifics when composing an academic essay.",
-    "exampleVi": "Bạn nên sử dụng ngôn ngữ trang trọng và kính ngữ đúng mực khi viết một bài luận học thuật.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "It is counterproductive to ........ about small details when we have a major deadline tomorrow.",
+    "quizAnswer": "argue",
+    "distractors": [
+      "discuss",
+      "complain",
+      "explain"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255334684,
+    "dateAdded": 1790250024000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "You should use ........ language and proper honorifics when composing an academic essay.",
-    "quizAnswer": "formal",
-    "distractors": [
-      "casual",
-      "modern",
-      "familiar"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-25",
+    "docId": "025",
+    "word": "Formal",
+    "phonetic": "/ˈfɔːml/",
+    "partOfSpeech": "adj",
+    "meaning": "trang trọng; chính thức",
+    "notes": "",
+    "definition": "suitable for serious, official, or polite occasions, following strict customs or rules",
+    "example": "You should use formal language and proper honorifics when composing an academic essay.",
+    "exampleVi": "Bạn nên sử dụng ngôn ngữ trang trọng và kính ngữ đúng mực khi viết một bài luận học thuật.",
     "oxfordExamples": [
       {
         "en": "You should use formal language and proper honorifics when composing an academic essay.",
@@ -1120,36 +1152,38 @@ window.DEFAULT_VOCAB_DATA = [
       "formal attire / dress",
       "formal language / letter",
       "formal invitation"
-    ]
-  },
-  {
-    "id": "w-26",
-    "word": "conference",
-    "phonetic": "/ˈkɒnfərəns/",
-    "partOfSpeech": "noun",
-    "meaning": "hội nghị",
-    "definition": "a large official meeting, often lasting several days, at which people with the same interests discuss problems or ideas",
-    "example": "More than five hundred medical specialists gathered in Geneva for the annual scientific conference.",
-    "exampleVi": "Hơn năm trăm chuyên gia y tế đã tề tựu tại Geneva để tham dự hội nghị khoa học thường niên.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "You should use ........ language and proper honorifics when composing an academic essay.",
+    "quizAnswer": "formal",
+    "distractors": [
+      "casual",
+      "modern",
+      "familiar"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255274684,
+    "dateAdded": 1790250025000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "More than five hundred medical specialists gathered in Geneva for the annual scientific ........",
-    "quizAnswer": "conference",
-    "distractors": [
-      "exhibition",
-      "committee",
-      "negotiation"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-26",
+    "docId": "026",
+    "word": "Conference",
+    "phonetic": "/ˈkɒnfərəns/",
+    "partOfSpeech": "n",
+    "meaning": "hội nghị; hội thảo",
+    "notes": "",
+    "definition": "a large official meeting, often lasting several days, at which people with the same interests discuss problems or ideas",
+    "example": "More than five hundred medical specialists gathered in Geneva for the annual scientific conference.",
+    "exampleVi": "Hơn năm trăm chuyên gia y tế đã tề tựu tại Geneva để tham dự hội nghị khoa học thường niên.",
     "oxfordExamples": [
       {
         "en": "More than five hundred medical specialists gathered in Geneva for the annual scientific conference.",
@@ -1164,36 +1198,38 @@ window.DEFAULT_VOCAB_DATA = [
       "attend / hold a conference",
       "annual conference",
       "conference room / hall"
-    ]
-  },
-  {
-    "id": "w-27",
-    "word": "colleagues",
-    "phonetic": "/ˈkɒliːɡz/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "đồng nghiệp",
-    "definition": "people that you work with, especially in a professional or office environment",
-    "example": "She has earned tremendous respect from both her junior and senior colleagues in the department.",
-    "exampleVi": "Cô ấy đã nhận được sự kính trọng to lớn từ cả các đồng nghiệp cấp dưới lẫn cấp trên trong phòng ban.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "More than five hundred medical specialists gathered in Geneva for the annual scientific ........",
+    "quizAnswer": "conference",
+    "distractors": [
+      "exhibition",
+      "committee",
+      "negotiation"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255214684,
+    "dateAdded": 1790250026000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She has earned tremendous respect from both her junior and senior ........ in the department.",
-    "quizAnswer": "colleagues",
-    "distractors": [
-      "opponents",
-      "customers",
-      "strangers"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-27",
+    "docId": "027",
+    "word": "Colleague",
+    "phonetic": "/ˈkɒliːɡz/",
+    "partOfSpeech": "n",
+    "meaning": "đồng nghiệp",
+    "notes": "Plural: colleagues.",
+    "definition": "people that you work with, especially in a professional or office environment",
+    "example": "She has earned tremendous respect from both her junior and senior colleagues in the department.",
+    "exampleVi": "Cô ấy đã nhận được sự kính trọng to lớn từ cả các đồng nghiệp cấp dưới lẫn cấp trên trong phòng ban.",
     "oxfordExamples": [
       {
         "en": "She has earned tremendous respect from both her junior and senior colleagues in the department.",
@@ -1208,36 +1244,38 @@ window.DEFAULT_VOCAB_DATA = [
       "work colleagues",
       "senior / junior colleagues",
       "close colleagues"
-    ]
-  },
-  {
-    "id": "w-28",
-    "word": "pressure",
-    "phonetic": "/ˈpreʃə(r)/",
-    "partOfSpeech": "noun",
-    "meaning": "áp lực",
-    "definition": "difficulties and worries caused by the need to achieve something, or force applied to a surface",
-    "example": "Final-year university students often experience immense pressure while preparing for their thesis defense.",
-    "exampleVi": "Sinh viên năm cuối thường phải chịu áp lực to lớn khi chuẩn bị cho buổi bảo vệ khóa luận.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She has earned tremendous respect from both her junior and senior ........ in the department.",
+    "quizAnswer": "colleagues",
+    "distractors": [
+      "opponents",
+      "customers",
+      "strangers"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255154684,
+    "dateAdded": 1790250027000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Final-year university students often experience immense ........ while preparing for their thesis defense.",
-    "quizAnswer": "pressure",
-    "distractors": [
-      "comfort",
-      "pleasure",
-      "relief"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-28",
+    "docId": "028",
+    "word": "Pressure",
+    "phonetic": "/ˈpreʃə(r)/",
+    "partOfSpeech": "n",
+    "meaning": "áp lực",
+    "notes": "",
+    "definition": "difficulties and worries caused by the need to achieve something, or force applied to a surface",
+    "example": "Final-year university students often experience immense pressure while preparing for their thesis defense.",
+    "exampleVi": "Sinh viên năm cuối thường phải chịu áp lực to lớn khi chuẩn bị cho buổi bảo vệ khóa luận.",
     "oxfordExamples": [
       {
         "en": "Final-year university students often experience immense pressure while preparing for their thesis defense.",
@@ -1252,36 +1290,38 @@ window.DEFAULT_VOCAB_DATA = [
       "under immense / intense pressure",
       "put pressure on sb",
       "blood pressure"
-    ]
-  },
-  {
-    "id": "w-29",
-    "word": "release",
-    "phonetic": "/rɪˈliːs/",
-    "partOfSpeech": "verb / noun",
-    "meaning": "phát hành",
-    "definition": "to make something available to the public, such as a product, movie, or song; or to set free",
-    "example": "The technology giant will officially release its new operating system early next month.",
-    "exampleVi": "Tập đoàn công nghệ khổng lồ sẽ chính thức phát hành hệ điều hành mới vào đầu tháng tới.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Final-year university students often experience immense ........ while preparing for their thesis defense.",
+    "quizAnswer": "pressure",
+    "distractors": [
+      "comfort",
+      "pleasure",
+      "relief"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255094684,
+    "dateAdded": 1790250028000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The technology giant will officially ........ its new operating system early next month.",
-    "quizAnswer": "release",
-    "distractors": [
-      "cancel",
-      "restrict",
-      "remove"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-29",
+    "docId": "029",
+    "word": "Release",
+    "phonetic": "/rɪˈliːs/",
+    "partOfSpeech": "v/n",
+    "meaning": "phát hành; thả/giải phóng; sự phát hành",
+    "notes": "",
+    "definition": "to make something available to the public, such as a product, movie, or song; or to set free",
+    "example": "The technology giant will officially release its new operating system early next month.",
+    "exampleVi": "Tập đoàn công nghệ khổng lồ sẽ chính thức phát hành hệ điều hành mới vào đầu tháng tới.",
     "oxfordExamples": [
       {
         "en": "The technology giant will officially release its new operating system early next month.",
@@ -1296,36 +1336,38 @@ window.DEFAULT_VOCAB_DATA = [
       "officially release",
       "press release",
       "release a statement / album"
-    ]
-  },
-  {
-    "id": "w-30",
-    "word": "Fitting room",
-    "phonetic": "/ˈfɪtɪŋ ruːm/",
-    "partOfSpeech": "noun",
-    "meaning": "phòng thử đồ",
-    "definition": "a small booth or room in a clothes shop where customers can try on clothes before buying",
-    "example": "Could you please tell me where the fitting room is so I can try on these jeans?",
-    "exampleVi": "Bạn có thể vui lòng chỉ cho tôi phòng thử đồ ở đâu để tôi thử chiếc quần bò này không?",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The technology giant will officially ........ its new operating system early next month.",
+    "quizAnswer": "release",
+    "distractors": [
+      "cancel",
+      "restrict",
+      "remove"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790255034684,
+    "dateAdded": 1790250029000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Could you please tell me where the ........ is so I can try on these jeans?",
-    "quizAnswer": "fitting room",
-    "distractors": [
-      "waiting room",
-      "storage room",
-      "dining room"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-30",
+    "docId": "030",
+    "word": "Fitting room",
+    "phonetic": "/ˈfɪtɪŋ ruːm/",
+    "partOfSpeech": "n phrase",
+    "meaning": "phòng thử đồ",
+    "notes": "",
+    "definition": "a small booth or room in a clothes shop where customers can try on clothes before buying",
+    "example": "Could you please tell me where the fitting room is so I can try on these jeans?",
+    "exampleVi": "Bạn có thể vui lòng chỉ cho tôi phòng thử đồ ở đâu để tôi thử chiếc quần bò này không?",
     "oxfordExamples": [
       {
         "en": "Could you please tell me where the fitting room is so I can try on these jeans?",
@@ -1339,80 +1381,84 @@ window.DEFAULT_VOCAB_DATA = [
     "collocations": [
       "in the fitting room",
       "try on clothes in the fitting room"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Could you please tell me where the ........ is so I can try on these jeans?",
+    "quizAnswer": "fitting room",
+    "distractors": [
+      "waiting room",
+      "storage room",
+      "dining room"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250030000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-31",
-    "word": "Accessories",
-    "phonetic": "/əkˈsesəriz/",
-    "partOfSpeech": "noun (plural)",
+    "docId": "031",
+    "word": "Accessory",
+    "phonetic": "/əkˈsesəri/",
+    "partOfSpeech": "noun",
     "meaning": "phụ kiện",
-    "definition": "items of secondary importance, such as belts, bags, or scarves, worn to complement an outfit",
-    "example": "The fashion shop displays trendy accessories such as leather belts, scarves, and handbags.",
-    "exampleVi": "Cửa hàng thời trang trưng bày các phụ kiện hợp mốt như thắt lưng da, khăn quàng và túi xách.",
+    "notes": "Plural: accessories.",
+    "definition": "an extra piece of equipment or clothing that is not essential, but adds to the beauty or usefulness of something",
+    "example": "A classic leather belt is a stylish accessory that matches any formal suit.",
+    "exampleVi": "Chiếc thắt lưng da cổ điển là một phụ kiện sành điệu phù hợp với bất kỳ bộ âu phục nào.",
+    "oxfordExamples": [
+      {
+        "en": "A classic leather belt is a stylish accessory that matches any formal suit.",
+        "vi": "Chiếc thắt lưng da cổ điển là một phụ kiện sành điệu phù hợp với bất kỳ bộ âu phục nào."
+      },
+      {
+        "en": "The mobile store sells smartphones and a wide range of protective accessories.",
+        "vi": "Cửa hàng di động bán điện thoại thông minh cùng rất nhiều phụ kiện bảo vệ."
+      }
+    ],
+    "collocations": [
+      "fashion accessory",
+      "car accessory",
+      "must-have accessory"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A stylish leather belt is the perfect fashion ........ to complement this dark suit.",
+    "quizAnswer": "accessory",
+    "distractors": [
+      "ingredient",
+      "requirement",
+      "colleague"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254974684,
+    "dateAdded": 1790250031000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The fashion shop displays trendy ........ such as leather belts, scarves, and handbags.",
-    "quizAnswer": "accessories",
-    "distractors": [
-      "appliances",
-      "groceries",
-      "instruments"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "The fashion shop displays trendy accessories such as leather belts, scarves, and handbags.",
-        "vi": "Cửa hàng thời trang trưng bày các phụ kiện hợp mốt như thắt lưng da, khăn quàng cổ và túi xách."
-      },
-      {
-        "en": "She selected gold jewelry and subtle accessories for the gala dinner.",
-        "vi": "Cô chọn trang sức vàng cùng các phụ kiện tinh tế cho bữa tiệc tối trang trọng."
-      }
-    ],
-    "collocations": [
-      "fashion accessories",
-      "matching accessories",
-      "phone accessories"
     ]
   },
   {
     "id": "w-32",
+    "docId": "032",
     "word": "Jewelry",
     "phonetic": "/ˈdʒuːəlri/",
-    "partOfSpeech": "noun",
-    "meaning": "trang sức",
+    "partOfSpeech": "n",
+    "meaning": "đồ trang sức; trang sức",
+    "notes": "US spelling; UK: jewellery.",
     "definition": "objects such as rings, necklaces, or bracelets, made from precious metals or stones, worn for personal decoration",
     "example": "She inherited a valuable collection of antique diamond jewelry from her grandmother.",
     "exampleVi": "Cô ấy đã thừa kế một bộ sưu tập trang sức kim cương cổ có giá trị từ bà của mình.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790254914684,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "She inherited a valuable collection of antique diamond ........ from her grandmother.",
-    "quizAnswer": "jewelry",
-    "distractors": [
-      "luggage",
-      "stationery",
-      "furniture"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "She inherited a valuable collection of antique diamond jewelry from her grandmother.",
@@ -1427,36 +1473,38 @@ window.DEFAULT_VOCAB_DATA = [
       "wear / buy jewelry",
       "gold / silver / diamond jewelry",
       "jewelry box"
-    ]
-  },
-  {
-    "id": "w-33",
-    "word": "Forwarding",
-    "phonetic": "/ˈfɔːwədɪŋ/",
-    "partOfSpeech": "noun",
-    "meaning": "sự chuyển tiếp",
-    "definition": "the action of sending on letters, emails, or packages to a new address",
-    "example": "The post office offers a mail forwarding service when you move to a new apartment.",
-    "exampleVi": "Bưu điện cung cấp dịch vụ chuyển tiếp thư từ khi bạn chuyển đến một căn hộ mới.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She inherited a valuable collection of antique diamond ........ from her grandmother.",
+    "quizAnswer": "jewelry",
+    "distractors": [
+      "luggage",
+      "stationery",
+      "furniture"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254854684,
+    "dateAdded": 1790250032000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The post office offers a mail ........ service when you move to a new apartment.",
-    "quizAnswer": "forwarding",
-    "distractors": [
-      "purchasing",
-      "cancelling",
-      "recycling"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-33",
+    "docId": "033",
+    "word": "Forwarding",
+    "phonetic": "/ˈfɔːwədɪŋ/",
+    "partOfSpeech": "n",
+    "meaning": "sự chuyển tiếp; việc chuyển tiếp",
+    "notes": "Ví dụ: call forwarding, email forwarding.",
+    "definition": "the action of sending on letters, emails, or packages to a new address",
+    "example": "The post office offers a mail forwarding service when you move to a new apartment.",
+    "exampleVi": "Bưu điện cung cấp dịch vụ chuyển tiếp thư từ khi bạn chuyển đến một căn hộ mới.",
     "oxfordExamples": [
       {
         "en": "The post office offers a mail forwarding service when you move to a new apartment.",
@@ -1471,80 +1519,84 @@ window.DEFAULT_VOCAB_DATA = [
       "mail / call forwarding",
       "forwarding address",
       "forwarding service"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The post office offers a mail ........ service when you move to a new apartment.",
+    "quizAnswer": "forwarding",
+    "distractors": [
+      "purchasing",
+      "cancelling",
+      "recycling"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250033000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-34",
-    "word": "Ampush",
+    "docId": "034",
+    "word": "Ambush",
     "phonetic": "/ˈæmbʊʃ/",
-    "partOfSpeech": "verb / noun",
-    "meaning": "Phục kích",
-    "definition": "to attack somebody by surprise from a hidden position; a surprise attack from concealment (standard: Ambush)",
-    "example": "The special forces set up a surprise ambush to capture the fleeing enemy convoy.",
-    "exampleVi": "Lực lượng đặc nhiệm đã tổ chức một trận phục kích bất ngờ để tóm gọn đoàn xe địch đang bỏ chạy.",
+    "partOfSpeech": "noun / verb",
+    "meaning": "cuộc phục kích; phục kích",
+    "notes": "Sửa chính tả từ “Ampush”.",
+    "definition": "the act of hiding and waiting for somebody and then making a surprise attack on them",
+    "example": "Two soldiers were killed in an ambush on the mountain road.",
+    "exampleVi": "Hai người lính đã thiệt mạng trong một cuộc phục kích trên con đường núi.",
+    "oxfordExamples": [
+      {
+        "en": "Two soldiers were killed in an ambush on the mountain road.",
+        "vi": "Hai người lính đã thiệt mạng trong một cuộc phục kích trên con đường núi."
+      },
+      {
+        "en": "The convoy was ambushed as it was passing through the narrow valley.",
+        "vi": "Đoàn xe đã bị phục kích khi đang đi qua thung lũng hẹp."
+      }
+    ],
+    "collocations": [
+      "lay an ambush",
+      "fall into an ambush",
+      "spring an ambush"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Two patrol vehicles were attacked without warning in a nighttime ........ on the forest road.",
+    "quizAnswer": "ambush",
+    "distractors": [
+      "inspection",
+      "ceremony",
+      "negotiation"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254794684,
+    "dateAdded": 1790250034000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The special forces set up a surprise ........ to capture the fleeing enemy convoy.",
-    "quizAnswer": "ambush",
-    "distractors": [
-      "shelter",
-      "fortress",
-      "parade"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "The special forces set up a surprise ambush to capture the fleeing enemy convoy.",
-        "vi": "Lực lượng đặc nhiệm đã tổ chức một cuộc phục kích bất ngờ để bắt giữ đoàn xe địch đang tháo chạy."
-      },
-      {
-        "en": "They were ambushed on their way back to headquarters.",
-        "vi": "Họ đã bị phục kích trên đường trở về sở chỉ huy."
-      }
-    ],
-    "collocations": [
-      "lie in ambush",
-      "set up an ambush",
-      "ambush the enemy"
     ]
   },
   {
     "id": "w-35",
+    "docId": "035",
     "word": "Agent",
     "phonetic": "/ˈeɪdʒənt/",
-    "partOfSpeech": "noun",
-    "meaning": "đại lý",
+    "partOfSpeech": "n",
+    "meaning": "đại lý; tác nhân; đặc vụ/đại diện",
+    "notes": "Nghĩa phụ thuộc ngữ cảnh.",
     "definition": "a person who acts for or represents another, especially in business or travel; or a secret operative",
     "example": "We booked our vacation tour through a reputable travel agent in central London.",
     "exampleVi": "Chúng tôi đã đặt chuyến du lịch thông qua một đại lý du lịch uy tín ở trung tâm London.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790254734684,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "We booked our vacation tour through a reputable travel ........ in central London.",
-    "quizAnswer": "agent",
-    "distractors": [
-      "client",
-      "mechanic",
-      "suspect"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "We booked our vacation tour through a reputable travel agent in central London.",
@@ -1559,36 +1611,38 @@ window.DEFAULT_VOCAB_DATA = [
       "travel / real estate agent",
       "secret agent",
       "insurance agent"
-    ]
-  },
-  {
-    "id": "w-36",
-    "word": "Feature",
-    "phonetic": "/ˈfiːtʃə(r)/",
-    "partOfSpeech": "noun / verb",
-    "meaning": "tính năng",
-    "definition": "an important, distinctive, or noticeable part, quality, or characteristic of something",
-    "example": "One distinctive feature of this laptop is its ultra-long battery life of twenty hours.",
-    "exampleVi": "Một đặc điểm/tính năng nổi bật của chiếc máy tính xách tay này là thời lượng pin cực dài tới 20 tiếng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "We booked our vacation tour through a reputable travel ........ in central London.",
+    "quizAnswer": "agent",
+    "distractors": [
+      "client",
+      "mechanic",
+      "suspect"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254674684,
+    "dateAdded": 1790250035000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "One distinctive ........ of this laptop is its ultra-long battery life of twenty hours.",
-    "quizAnswer": "feature",
-    "distractors": [
-      "defect",
-      "symptom",
-      "obstacle"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-36",
+    "docId": "036",
+    "word": "Feature",
+    "phonetic": "/ˈfiːtʃə(r)/",
+    "partOfSpeech": "n/v",
+    "meaning": "tính năng; đặc điểm; có/giới thiệu nổi bật",
+    "notes": "",
+    "definition": "an important, distinctive, or noticeable part, quality, or characteristic of something",
+    "example": "One distinctive feature of this laptop is its ultra-long battery life of twenty hours.",
+    "exampleVi": "Một đặc điểm/tính năng nổi bật của chiếc máy tính xách tay này là thời lượng pin cực dài tới 20 tiếng.",
     "oxfordExamples": [
       {
         "en": "One distinctive feature of this laptop is its ultra-long battery life of twenty hours.",
@@ -1603,36 +1657,38 @@ window.DEFAULT_VOCAB_DATA = [
       "key / distinctive feature",
       "safety feature",
       "feature prominently"
-    ]
-  },
-  {
-    "id": "w-37",
-    "word": "Fallen",
-    "phonetic": "/ˈfɔːlən/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "Người chiến sĩ đã ngã xuống",
-    "definition": "killed in battle or war (especially as 'the fallen'); or having dropped to the ground",
-    "example": "Every November, the nation commemorates the fallen heroes who sacrificed their lives in the war.",
-    "exampleVi": "Mỗi tháng Mười Một, cả nước tưởng niệm những người chiến sĩ đã ngã xuống hy sinh vì tổ quốc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "One distinctive ........ of this laptop is its ultra-long battery life of twenty hours.",
+    "quizAnswer": "feature",
+    "distractors": [
+      "defect",
+      "symptom",
+      "obstacle"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254614684,
+    "dateAdded": 1790250036000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Every November, the nation commemorates the ........ heroes who sacrificed their lives in the war.",
-    "quizAnswer": "fallen",
-    "distractors": [
-      "wounded",
-      "retired",
-      "defeated"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-37",
+    "docId": "037",
+    "word": "The fallen",
+    "phonetic": "/ˈfɔːlən/",
+    "partOfSpeech": "n phrase",
+    "meaning": "những người đã ngã xuống/đã hy sinh",
+    "notes": "“Fallen” thường là adj; “the fallen” dùng như danh từ tập hợp.",
+    "definition": "killed in battle or war (especially as 'the fallen'); or having dropped to the ground",
+    "example": "Every November, the nation commemorates the fallen heroes who sacrificed their lives in the war.",
+    "exampleVi": "Mỗi tháng Mười Một, cả nước tưởng niệm những người chiến sĩ đã ngã xuống hy sinh vì tổ quốc.",
     "oxfordExamples": [
       {
         "en": "Every November, the nation commemorates the fallen heroes who sacrificed their lives in the war.",
@@ -1647,36 +1703,38 @@ window.DEFAULT_VOCAB_DATA = [
       "fallen soldiers / heroes",
       "the fallen",
       "fallen leaves"
-    ]
-  },
-  {
-    "id": "w-38",
-    "word": "Vintage",
-    "phonetic": "/ˈvɪntɪdʒ/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "cổ điển",
-    "definition": "classic and of high quality, recognized as the best of its kind from a past era",
-    "example": "He drives a beautifully restored vintage sports car manufactured in 1965.",
-    "exampleVi": "Anh ấy lái một chiếc xe thể thao cổ điển được phục chế tuyệt đẹp sản xuất vào năm 1965.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Every November, the nation commemorates the ........ heroes who sacrificed their lives in the war.",
+    "quizAnswer": "fallen",
+    "distractors": [
+      "wounded",
+      "retired",
+      "defeated"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254554684,
+    "dateAdded": 1790250037000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "He drives a beautifully restored ........ sports car manufactured in 1965.",
-    "quizAnswer": "vintage",
-    "distractors": [
-      "modern",
-      "obsolete",
-      "temporary"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-38",
+    "docId": "038",
+    "word": "Vintage",
+    "phonetic": "/ˈvɪntɪdʒ/",
+    "partOfSpeech": "adj/n",
+    "meaning": "cổ điển; đồ/vật thuộc thời kỳ cũ có giá trị",
+    "notes": "",
+    "definition": "classic and of high quality, recognized as the best of its kind from a past era",
+    "example": "He drives a beautifully restored vintage sports car manufactured in 1965.",
+    "exampleVi": "Anh ấy lái một chiếc xe thể thao cổ điển được phục chế tuyệt đẹp sản xuất vào năm 1965.",
     "oxfordExamples": [
       {
         "en": "He drives a beautifully restored vintage sports car manufactured in 1965.",
@@ -1691,36 +1749,38 @@ window.DEFAULT_VOCAB_DATA = [
       "vintage car / wine / clothing",
       "a vintage year",
       "vintage collection"
-    ]
-  },
-  {
-    "id": "w-39",
-    "word": "Obsolete",
-    "phonetic": "/ˈɒbsəliːt/",
-    "partOfSpeech": "adjective",
-    "meaning": "Lỗi thời",
-    "definition": "no longer used or produced; out of date because something newer and better exists",
-    "example": "With the rise of smartphones, traditional pagers and floppy disks became completely obsolete.",
-    "exampleVi": "Với sự lên ngôi của điện thoại thông minh, máy nhắn tin và đĩa mềm truyền thống đã trở nên hoàn toàn lỗi thời.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He drives a beautifully restored ........ sports car manufactured in 1965.",
+    "quizAnswer": "vintage",
+    "distractors": [
+      "modern",
+      "obsolete",
+      "temporary"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254494684,
+    "dateAdded": 1790250038000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "With the rise of smartphones, traditional pagers and floppy disks became completely ........",
-    "quizAnswer": "obsolete",
-    "distractors": [
-      "popular",
-      "durable",
-      "convenient"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-39",
+    "docId": "039",
+    "word": "Obsolete",
+    "phonetic": "/ˈɒbsəliːt/",
+    "partOfSpeech": "adj",
+    "meaning": "lỗi thời; không còn được sử dụng",
+    "notes": "",
+    "definition": "no longer used or produced; out of date because something newer and better exists",
+    "example": "With the rise of smartphones, traditional pagers and floppy disks became completely obsolete.",
+    "exampleVi": "Với sự lên ngôi của điện thoại thông minh, máy nhắn tin và đĩa mềm truyền thống đã trở nên hoàn toàn lỗi thời.",
     "oxfordExamples": [
       {
         "en": "With the rise of smartphones, traditional pagers and floppy disks became completely obsolete.",
@@ -1735,36 +1795,38 @@ window.DEFAULT_VOCAB_DATA = [
       "completely / largely obsolete",
       "render sth obsolete",
       "obsolete technology"
-    ]
-  },
-  {
-    "id": "w-40",
-    "word": "in stock",
-    "phonetic": "/ɪn stɒk/",
-    "partOfSpeech": "phrase",
-    "meaning": "trạng thái còn hàng trong kho",
-    "definition": "available for immediate sale or delivery from a shop or warehouse",
-    "example": "I'm sorry, that color is sold out today, but our warehouse will have it in stock tomorrow.",
-    "exampleVi": "Tôi rất tiếc màu đó hôm nay đã hết, nhưng kho của chúng tôi sẽ còn hàng vào ngày mai.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "With the rise of smartphones, traditional pagers and floppy disks became completely ........",
+    "quizAnswer": "obsolete",
+    "distractors": [
+      "popular",
+      "durable",
+      "convenient"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254434684,
+    "dateAdded": 1790250039000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "I'm sorry, that color is sold out today, but our warehouse will have it ........ tomorrow.",
-    "quizAnswer": "in stock",
-    "distractors": [
-      "on sale",
-      "under repair",
-      "out of bounds"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-40",
+    "docId": "040",
+    "word": "In stock",
+    "phonetic": "/ɪn stɒk/",
+    "partOfSpeech": "adj phrase",
+    "meaning": "còn hàng",
+    "notes": "Trạng thái hàng hóa có sẵn để bán.",
+    "definition": "available for immediate sale or delivery from a shop or warehouse",
+    "example": "I'm sorry, that color is sold out today, but our warehouse will have it in stock tomorrow.",
+    "exampleVi": "Tôi rất tiếc màu đó hôm nay đã hết, nhưng kho của chúng tôi sẽ còn hàng vào ngày mai.",
     "oxfordExamples": [
       {
         "en": "I'm sorry, that color is sold out today, but our warehouse will have it in stock tomorrow.",
@@ -1779,36 +1841,38 @@ window.DEFAULT_VOCAB_DATA = [
       "available in stock",
       "keep / have sth in stock",
       "out of stock"
-    ]
-  },
-  {
-    "id": "w-41",
-    "word": "absentee",
-    "phonetic": "/ˌæbsənˈtiː/",
-    "partOfSpeech": "noun",
-    "meaning": "người vắng mặt",
-    "definition": "a person who is not present at a place where they are expected to be, such as school or work",
-    "example": "Because of frequent illness, he was marked as an absentee for nearly a month.",
-    "exampleVi": "Vì thường xuyên ốm đau, anh ấy bị ghi nhận là người vắng mặt trong gần một tháng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I'm sorry, that color is sold out today, but our warehouse will have it ........ tomorrow.",
+    "quizAnswer": "in stock",
+    "distractors": [
+      "on sale",
+      "under repair",
+      "out of bounds"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254374684,
+    "dateAdded": 1790250040000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Because of frequent illness, he was marked as an ........ for nearly a month.",
-    "quizAnswer": "absentee",
-    "distractors": [
-      "candidate",
-      "immigrant",
-      "passenger"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-41",
+    "docId": "041",
+    "word": "Absentee",
+    "phonetic": "/ˌæbsənˈtiː/",
+    "partOfSpeech": "n",
+    "meaning": "người vắng mặt",
+    "notes": "",
+    "definition": "a person who is not present at a place where they are expected to be, such as school or work",
+    "example": "Because of frequent illness, he was marked as an absentee for nearly a month.",
+    "exampleVi": "Vì thường xuyên ốm đau, anh ấy bị ghi nhận là người vắng mặt trong gần một tháng.",
     "oxfordExamples": [
       {
         "en": "Because of frequent illness, he was marked as an absentee for nearly a month.",
@@ -1823,36 +1887,38 @@ window.DEFAULT_VOCAB_DATA = [
       "chronic absentee",
       "absentee ballot",
       "absentee landlord"
-    ]
-  },
-  {
-    "id": "w-42",
-    "word": "iconic",
-    "phonetic": "/aɪˈkɒnɪk/",
-    "partOfSpeech": "adjective",
-    "meaning": "mang tính biểu tượng",
-    "definition": "widely recognized, famous, and considered representative of a particular idea, style, or period",
-    "example": "The Sydney Opera House is universally recognized as an iconic landmark of Australia.",
-    "exampleVi": "Nhà hát Opera Sydney được toàn thế giới công nhận là một công trình mang tính biểu tượng của nước Úc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Because of frequent illness, he was marked as an ........ for nearly a month.",
+    "quizAnswer": "absentee",
+    "distractors": [
+      "candidate",
+      "immigrant",
+      "passenger"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254314684,
+    "dateAdded": 1790250041000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The Sydney Opera House is universally recognized as an ........ landmark of Australia.",
-    "quizAnswer": "iconic",
-    "distractors": [
-      "obscure",
-      "ordinary",
-      "forgotten"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-42",
+    "docId": "042",
+    "word": "Iconic",
+    "phonetic": "/aɪˈkɒnɪk/",
+    "partOfSpeech": "adj",
+    "meaning": "mang tính biểu tượng",
+    "notes": "",
+    "definition": "widely recognized, famous, and considered representative of a particular idea, style, or period",
+    "example": "The Sydney Opera House is universally recognized as an iconic landmark of Australia.",
+    "exampleVi": "Nhà hát Opera Sydney được toàn thế giới công nhận là một công trình mang tính biểu tượng của nước Úc.",
     "oxfordExamples": [
       {
         "en": "The Sydney Opera House is universally recognized as an iconic landmark of Australia.",
@@ -1867,36 +1933,38 @@ window.DEFAULT_VOCAB_DATA = [
       "iconic landmark / figure / building",
       "truly iconic",
       "iconic image"
-    ]
-  },
-  {
-    "id": "w-43",
-    "word": "beard",
-    "phonetic": "/bɪəd/",
-    "partOfSpeech": "noun",
-    "meaning": "râu",
-    "definition": "hair that grows on the chin and cheeks of a man's face",
-    "example": "He spent six months growing a thick, well-groomed beard for his role in the historical film.",
-    "exampleVi": "Anh ấy đã dành sáu tháng để nuôi một bộ râu rậm và gọn gàng cho vai diễn trong phim lịch sử.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The Sydney Opera House is universally recognized as an ........ landmark of Australia.",
+    "quizAnswer": "iconic",
+    "distractors": [
+      "obscure",
+      "ordinary",
+      "forgotten"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254254684,
+    "dateAdded": 1790250042000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "He spent six months growing a thick, well-groomed ........ for his role in the historical film.",
-    "quizAnswer": "beard",
-    "distractors": [
-      "eyebrow",
-      "wig",
-      "scarf"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-43",
+    "docId": "043",
+    "word": "Beard",
+    "phonetic": "/bɪəd/",
+    "partOfSpeech": "n",
+    "meaning": "râu",
+    "notes": "",
+    "definition": "hair that grows on the chin and cheeks of a man's face",
+    "example": "He spent six months growing a thick, well-groomed beard for his role in the historical film.",
+    "exampleVi": "Anh ấy đã dành sáu tháng để nuôi một bộ râu rậm và gọn gàng cho vai diễn trong phim lịch sử.",
     "oxfordExamples": [
       {
         "en": "He spent six months growing a thick, well-groomed beard for his role in the historical film.",
@@ -1911,36 +1979,38 @@ window.DEFAULT_VOCAB_DATA = [
       "grow / trim a beard",
       "thick / bushy beard",
       "shave off one's beard"
-    ]
-  },
-  {
-    "id": "w-44",
-    "word": "Honored",
-    "phonetic": "/ˈɒnəd/",
-    "partOfSpeech": "adjective",
-    "meaning": "tính trang trọng",
-    "definition": "feeling proud and fortunate; treated with immense respect and distinction",
-    "example": "The university professor felt deeply honored to be invited as the keynote speaker at the summit.",
-    "exampleVi": "Giáo sư đại học cảm thấy vô cùng vinh hạnh khi được mời làm diễn giả chính tại hội nghị thượng đỉnh.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He spent six months growing a thick, well-groomed ........ for his role in the historical film.",
+    "quizAnswer": "beard",
+    "distractors": [
+      "eyebrow",
+      "wig",
+      "scarf"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254194684,
+    "dateAdded": 1790250043000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The university professor felt deeply ........ to be invited as the keynote speaker at the summit.",
-    "quizAnswer": "honored",
-    "distractors": [
-      "embarrassed",
-      "offended",
-      "disappointed"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-44",
+    "docId": "044",
+    "word": "Honored",
+    "phonetic": "/ˈɒnəd/",
+    "partOfSpeech": "adj",
+    "meaning": "vinh dự; được tôn vinh",
+    "notes": "Ví dụ: I’m honored = Tôi rất vinh dự.",
+    "definition": "feeling proud and fortunate; treated with immense respect and distinction",
+    "example": "The university professor felt deeply honored to be invited as the keynote speaker at the summit.",
+    "exampleVi": "Giáo sư đại học cảm thấy vô cùng vinh hạnh khi được mời làm diễn giả chính tại hội nghị thượng đỉnh.",
     "oxfordExamples": [
       {
         "en": "The university professor felt deeply honored to be invited as the keynote speaker at the summit.",
@@ -1955,36 +2025,38 @@ window.DEFAULT_VOCAB_DATA = [
       "feel deeply honored",
       "honored guest",
       "honored to do sth"
-    ]
-  },
-  {
-    "id": "w-45",
-    "word": "Bare",
-    "phonetic": "/beə(r)/",
-    "partOfSpeech": "adjective",
-    "meaning": "trần trụi",
-    "definition": "not covered by clothes, leaves, or furnishings; exposed and plain",
-    "example": "During harsh winter, the tall oak trees in the park stood completely bare without leaves.",
-    "exampleVi": "Suốt mùa đông khắc nghiệt, những cây sồi cao trong công viên trơ trọi, trần trụi không một chiếc lá.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The university professor felt deeply ........ to be invited as the keynote speaker at the summit.",
+    "quizAnswer": "honored",
+    "distractors": [
+      "embarrassed",
+      "offended",
+      "disappointed"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254134684,
+    "dateAdded": 1790250044000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "During harsh winter, the tall oak trees in the park stood completely ........ without leaves.",
-    "quizAnswer": "bare",
-    "distractors": [
-      "dense",
-      "fluffy",
-      "blooming"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-45",
+    "docId": "045",
+    "word": "Bare",
+    "phonetic": "/beə(r)/",
+    "partOfSpeech": "adj",
+    "meaning": "trần; trơ; không che phủ",
+    "notes": "",
+    "definition": "not covered by clothes, leaves, or furnishings; exposed and plain",
+    "example": "During harsh winter, the tall oak trees in the park stood completely bare without leaves.",
+    "exampleVi": "Suốt mùa đông khắc nghiệt, những cây sồi cao trong công viên trơ trọi, trần trụi không một chiếc lá.",
     "oxfordExamples": [
       {
         "en": "During harsh winter, the tall oak trees in the park stood completely bare without leaves.",
@@ -2000,36 +2072,38 @@ window.DEFAULT_VOCAB_DATA = [
       "bare branches",
       "bare minimum",
       "bare walls"
-    ]
-  },
-  {
-    "id": "w-46",
-    "word": "Complexity",
-    "phonetic": "/kəmˈpleksəti/",
-    "partOfSpeech": "noun",
-    "meaning": "phức tạp",
-    "definition": "the state of having many different parts connected in complicated ways, making it difficult to understand",
-    "example": "The legal complexity of the merger agreement required advice from top corporate attorneys.",
-    "exampleVi": "Tính chất phức tạp về mặt pháp lý của thỏa thuận sáp nhập đòi hỏi sự tư vấn từ các luật sư doanh nghiệp hàng đầu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "During harsh winter, the tall oak trees in the park stood completely ........ without leaves.",
+    "quizAnswer": "bare",
+    "distractors": [
+      "dense",
+      "fluffy",
+      "blooming"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254074684,
+    "dateAdded": 1790250045000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The legal ........ of the merger agreement required advice from top corporate attorneys.",
-    "quizAnswer": "complexity",
-    "distractors": [
-      "simplicity",
-      "brevity",
-      "clarity"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-46",
+    "docId": "046",
+    "word": "Complexity",
+    "phonetic": "/kəmˈpleksəti/",
+    "partOfSpeech": "n",
+    "meaning": "sự phức tạp",
+    "notes": "",
+    "definition": "the state of having many different parts connected in complicated ways, making it difficult to understand",
+    "example": "The legal complexity of the merger agreement required advice from top corporate attorneys.",
+    "exampleVi": "Tính chất phức tạp về mặt pháp lý của thỏa thuận sáp nhập đòi hỏi sự tư vấn từ các luật sư doanh nghiệp hàng đầu.",
     "oxfordExamples": [
       {
         "en": "The legal complexity of the merger agreement required advice from top corporate attorneys.",
@@ -2044,36 +2118,38 @@ window.DEFAULT_VOCAB_DATA = [
       "sheer complexity",
       "add to the complexity",
       "complexity of the task"
-    ]
-  },
-  {
-    "id": "w-47",
-    "word": "massive",
-    "phonetic": "/ˈmæsɪv/",
-    "partOfSpeech": "adjective",
-    "meaning": "to lớn, khổng lồ (bằng big)",
-    "definition": "very large, heavy, and solid; unusually large or severe in scale or extent",
-    "example": "The construction crew used cranes to lift a massive steel beam onto the bridge structure.",
-    "exampleVi": "Đội thi công đã dùng cần cẩu để nâng một thanh dầm thép khổng lồ lên kết cấu cây cầu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The legal ........ of the merger agreement required advice from top corporate attorneys.",
+    "quizAnswer": "complexity",
+    "distractors": [
+      "simplicity",
+      "brevity",
+      "clarity"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790254014684,
+    "dateAdded": 1790250046000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The construction crew used cranes to lift a ........ steel beam onto the bridge structure.",
-    "quizAnswer": "massive",
-    "distractors": [
-      "tiny",
-      "narrow",
-      "fragile"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-47",
+    "docId": "047",
+    "word": "Massive",
+    "phonetic": "/ˈmæsɪv/",
+    "partOfSpeech": "adj",
+    "meaning": "rất lớn; khổng lồ",
+    "notes": "Mạnh hơn “big” trong nhiều ngữ cảnh.",
+    "definition": "very large, heavy, and solid; unusually large or severe in scale or extent",
+    "example": "The construction crew used cranes to lift a massive steel beam onto the bridge structure.",
+    "exampleVi": "Đội thi công đã dùng cần cẩu để nâng một thanh dầm thép khổng lồ lên kết cấu cây cầu.",
     "oxfordExamples": [
       {
         "en": "The construction crew used cranes to lift a massive steel beam onto the bridge structure.",
@@ -2088,36 +2164,38 @@ window.DEFAULT_VOCAB_DATA = [
       "massive scale / amount",
       "massive heart attack",
       "massive increase"
-    ]
-  },
-  {
-    "id": "w-48",
-    "word": "Promotion",
-    "phonetic": "/prəˈməʊʃn/",
-    "partOfSpeech": "noun",
-    "meaning": "Khuyến mãi",
-    "definition": "a move to a more important job or rank in a company; or activities done to advertise and increase sales",
-    "example": "Her dedication and outstanding leadership earned her a rapid promotion to senior director.",
-    "exampleVi": "Sự cống hiến và khả năng lãnh đạo xuất sắc đã giúp cô thăng chức nhanh chóng lên giám đốc cấp cao.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The construction crew used cranes to lift a ........ steel beam onto the bridge structure.",
+    "quizAnswer": "massive",
+    "distractors": [
+      "tiny",
+      "narrow",
+      "fragile"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253954684,
+    "dateAdded": 1790250047000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Her dedication and outstanding leadership earned her a rapid ........ to senior director.",
-    "quizAnswer": "promotion",
-    "distractors": [
-      "demotion",
-      "resignation",
-      "permission"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-48",
+    "docId": "048",
+    "word": "Promotion",
+    "phonetic": "/prəˈməʊʃn/",
+    "partOfSpeech": "n",
+    "meaning": "khuyến mãi; sự thăng chức; hoạt động quảng bá",
+    "notes": "Tùy ngữ cảnh.",
+    "definition": "a move to a more important job or rank in a company; or activities done to advertise and increase sales",
+    "example": "Her dedication and outstanding leadership earned her a rapid promotion to senior director.",
+    "exampleVi": "Sự cống hiến và khả năng lãnh đạo xuất sắc đã giúp cô thăng chức nhanh chóng lên giám đốc cấp cao.",
     "oxfordExamples": [
       {
         "en": "Her dedication and outstanding leadership earned her a rapid promotion to senior director.",
@@ -2132,36 +2210,38 @@ window.DEFAULT_VOCAB_DATA = [
       "win / get a promotion",
       "sales promotion",
       "promotion campaign"
-    ]
-  },
-  {
-    "id": "w-49",
-    "word": "Revenge",
-    "phonetic": "/rɪˈvendʒ/",
-    "partOfSpeech": "noun / verb",
-    "meaning": "sự trả thù",
-    "definition": "something that you do in order to make somebody suffer because they have made you suffer",
-    "example": "He spent years plotting revenge against the corrupt partners who had betrayed him.",
-    "exampleVi": "Anh ấy đã dành nhiều năm lên kế hoạch trả thù những đối tác tham nhũng từng phản bội anh.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Her dedication and outstanding leadership earned her a rapid ........ to senior director.",
+    "quizAnswer": "promotion",
+    "distractors": [
+      "demotion",
+      "resignation",
+      "permission"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253894684,
+    "dateAdded": 1790250048000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "He spent years plotting ........ against the corrupt partners who had betrayed him.",
-    "quizAnswer": "revenge",
-    "distractors": [
-      "sympathy",
-      "forgiveness",
-      "gratitude"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-49",
+    "docId": "049",
+    "word": "Revenge",
+    "phonetic": "/rɪˈvendʒ/",
+    "partOfSpeech": "n",
+    "meaning": "sự trả thù",
+    "notes": "",
+    "definition": "something that you do in order to make somebody suffer because they have made you suffer",
+    "example": "He spent years plotting revenge against the corrupt partners who had betrayed him.",
+    "exampleVi": "Anh ấy đã dành nhiều năm lên kế hoạch trả thù những đối tác tham nhũng từng phản bội anh.",
     "oxfordExamples": [
       {
         "en": "He spent years plotting revenge against the corrupt partners who had betrayed him.",
@@ -2176,36 +2256,38 @@ window.DEFAULT_VOCAB_DATA = [
       "seek / take revenge on sb",
       "sweet revenge",
       "in revenge for"
-    ]
-  },
-  {
-    "id": "w-50",
-    "word": "Consequence",
-    "phonetic": "/ˈkɒnsɪkwəns/",
-    "partOfSpeech": "noun",
-    "meaning": "Hậu quả",
-    "definition": "a result of something that has happened, especially an unpleasant or negative result",
-    "example": "Severe soil erosion is an inevitable consequence of extensive deforestation in the region.",
-    "exampleVi": "Xói mòn đất nghiêm trọng là một hậu quả tất yếu của nạn phá rừng quy mô lớn trong khu vực.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He spent years plotting ........ against the corrupt partners who had betrayed him.",
+    "quizAnswer": "revenge",
+    "distractors": [
+      "sympathy",
+      "forgiveness",
+      "gratitude"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253834684,
+    "dateAdded": 1790250049000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Severe soil erosion is an inevitable ........ of extensive deforestation in the region.",
-    "quizAnswer": "consequence",
-    "distractors": [
-      "origin",
-      "purpose",
-      "advantage"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-50",
+    "docId": "050",
+    "word": "Consequence",
+    "phonetic": "/ˈkɒnsɪkwəns/",
+    "partOfSpeech": "n",
+    "meaning": "hậu quả; hệ quả",
+    "notes": "",
+    "definition": "a result of something that has happened, especially an unpleasant or negative result",
+    "example": "Severe soil erosion is an inevitable consequence of extensive deforestation in the region.",
+    "exampleVi": "Xói mòn đất nghiêm trọng là một hậu quả tất yếu của nạn phá rừng quy mô lớn trong khu vực.",
     "oxfordExamples": [
       {
         "en": "Severe soil erosion is an inevitable consequence of extensive deforestation in the region.",
@@ -2220,36 +2302,38 @@ window.DEFAULT_VOCAB_DATA = [
       "inevitable consequence",
       "as a consequence of",
       "suffer the consequences"
-    ]
-  },
-  {
-    "id": "w-51",
-    "word": "redirect",
-    "phonetic": "/ˌriːdəˈrekt/",
-    "partOfSpeech": "verb",
-    "meaning": "chuyển đổi",
-    "definition": "to change the direction in which something is moving or sent, or send somebody/something to a new place",
-    "example": "Traffic police had to redirect vehicles away from the avenue due to the sudden gas leak.",
-    "exampleVi": "Cảnh sát giao thông đã phải chuyển hướng các phương tiện ra khỏi đại lộ do sự cố rò rỉ khí gas bất ngờ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Severe soil erosion is an inevitable ........ of extensive deforestation in the region.",
+    "quizAnswer": "consequence",
+    "distractors": [
+      "origin",
+      "purpose",
+      "advantage"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253774684,
+    "dateAdded": 1790250050000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Traffic police had to ........ vehicles away from the avenue due to the sudden gas leak.",
-    "quizAnswer": "redirect",
-    "distractors": [
-      "restrict",
-      "suspend",
-      "reverse"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-51",
+    "docId": "051",
+    "word": "Redirect",
+    "phonetic": "/ˌriːdəˈrekt/",
+    "partOfSpeech": "v",
+    "meaning": "chuyển hướng",
+    "notes": "",
+    "definition": "to change the direction in which something is moving or sent, or send somebody/something to a new place",
+    "example": "Traffic police had to redirect vehicles away from the avenue due to the sudden gas leak.",
+    "exampleVi": "Cảnh sát giao thông đã phải chuyển hướng các phương tiện ra khỏi đại lộ do sự cố rò rỉ khí gas bất ngờ.",
     "oxfordExamples": [
       {
         "en": "Traffic police had to redirect vehicles away from the avenue due to the sudden gas leak.",
@@ -2264,36 +2348,38 @@ window.DEFAULT_VOCAB_DATA = [
       "redirect traffic",
       "redirect calls / mail",
       "redirect resources"
-    ]
-  },
-  {
-    "id": "w-52",
-    "word": "Possession",
-    "phonetic": "/pəˈzeʃn/",
-    "partOfSpeech": "noun",
-    "meaning": "quỷ nhập",
-    "definition": "the state of having, owning, or controlling something; or things that you own",
-    "example": "The ancient handwritten manuscript has remained in the possession of the royal library for centuries.",
-    "exampleVi": "Bản thảo cổ viết tay này đã nằm trong quyền sở hữu của thư viện hoàng gia qua nhiều thế kỷ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Traffic police had to ........ vehicles away from the avenue due to the sudden gas leak.",
+    "quizAnswer": "redirect",
+    "distractors": [
+      "restrict",
+      "suspend",
+      "reverse"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253714684,
+    "dateAdded": 1790250051000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The ancient handwritten manuscript has remained in the ........ of the royal library for centuries.",
-    "quizAnswer": "possession",
-    "distractors": [
-      "absence",
-      "disposal",
-      "rejection"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-52",
+    "docId": "052",
+    "word": "Possession",
+    "phonetic": "/pəˈzeʃn/",
+    "partOfSpeech": "n",
+    "meaning": "sự sở hữu; vật sở hữu; trạng thái bị nhập",
+    "notes": "Trong ngữ cảnh siêu nhiên: demonic possession = quỷ nhập.",
+    "definition": "the state of having, owning, or controlling something; or things that you own",
+    "example": "The ancient handwritten manuscript has remained in the possession of the royal library for centuries.",
+    "exampleVi": "Bản thảo cổ viết tay này đã nằm trong quyền sở hữu của thư viện hoàng gia qua nhiều thế kỷ.",
     "oxfordExamples": [
       {
         "en": "The ancient handwritten manuscript has remained in the possession of the royal library for centuries.",
@@ -2308,36 +2394,38 @@ window.DEFAULT_VOCAB_DATA = [
       "in possession of",
       "personal possessions",
       "take possession of"
-    ]
-  },
-  {
-    "id": "w-53",
-    "word": "stuck",
-    "phonetic": "/stʌk/",
-    "partOfSpeech": "adjective",
-    "meaning": "kẹt",
-    "definition": "unable to move or to be moved from a particular position, place, or situation",
-    "example": "We were stuck inside the broken elevator for nearly forty minutes before technicians arrived.",
-    "exampleVi": "Chúng tôi đã bị kẹt bên trong thang máy bị hỏng gần bốn mươi phút trước khi kỹ thuật viên tới.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The ancient handwritten manuscript has remained in the ........ of the royal library for centuries.",
+    "quizAnswer": "possession",
+    "distractors": [
+      "absence",
+      "disposal",
+      "rejection"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253654684,
+    "dateAdded": 1790250052000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "We were ........ inside the broken elevator for nearly forty minutes before technicians arrived.",
-    "quizAnswer": "stuck",
-    "distractors": [
-      "locked",
-      "rushed",
-      "hidden"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-53",
+    "docId": "053",
+    "word": "Stuck",
+    "phonetic": "/stʌk/",
+    "partOfSpeech": "adj",
+    "meaning": "bị kẹt; mắc kẹt",
+    "notes": "Past participle của stick.",
+    "definition": "unable to move or to be moved from a particular position, place, or situation",
+    "example": "We were stuck inside the broken elevator for nearly forty minutes before technicians arrived.",
+    "exampleVi": "Chúng tôi đã bị kẹt bên trong thang máy bị hỏng gần bốn mươi phút trước khi kỹ thuật viên tới.",
     "oxfordExamples": [
       {
         "en": "We were stuck inside the broken elevator for nearly forty minutes before technicians arrived.",
@@ -2352,36 +2440,38 @@ window.DEFAULT_VOCAB_DATA = [
       "get stuck in traffic",
       "stuck in an elevator",
       "stuck on a problem"
-    ]
-  },
-  {
-    "id": "w-54",
-    "word": "Required",
-    "phonetic": "/rɪˈkwaɪəd/",
-    "partOfSpeech": "adjective",
-    "meaning": "Cần thiết",
-    "definition": "needed or demanded by a rule, law, or authority; mandatory",
-    "example": "A minimum attendance of eighty percent is strictly required to qualify for the final examination.",
-    "exampleVi": "Tỷ lệ chuyên cần tối thiểu tám mươi phần trăm là bắt buộc/cần thiết để đủ điều kiện thi cuối kỳ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "We were ........ inside the broken elevator for nearly forty minutes before technicians arrived.",
+    "quizAnswer": "stuck",
+    "distractors": [
+      "locked",
+      "rushed",
+      "hidden"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253594684,
+    "dateAdded": 1790250053000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "A minimum attendance of eighty percent is strictly ........ to qualify for the final examination.",
-    "quizAnswer": "required",
-    "distractors": [
-      "optional",
-      "forbidden",
-      "discouraged"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-54",
+    "docId": "054",
+    "word": "Required",
+    "phonetic": "/rɪˈkwaɪəd/",
+    "partOfSpeech": "adj",
+    "meaning": "bắt buộc; được yêu cầu; cần thiết",
+    "notes": "",
+    "definition": "needed or demanded by a rule, law, or authority; mandatory",
+    "example": "A minimum attendance of eighty percent is strictly required to qualify for the final examination.",
+    "exampleVi": "Tỷ lệ chuyên cần tối thiểu tám mươi phần trăm là bắt buộc/cần thiết để đủ điều kiện thi cuối kỳ.",
     "oxfordExamples": [
       {
         "en": "A minimum attendance of eighty percent is strictly required to qualify for the final examination.",
@@ -2396,36 +2486,38 @@ window.DEFAULT_VOCAB_DATA = [
       "strictly required",
       "required reading",
       "required qualifications"
-    ]
-  },
-  {
-    "id": "w-55",
-    "word": "get acquainted",
-    "phonetic": "/ɡet əˈkweɪntɪd/",
-    "partOfSpeech": "idiom / phrase",
-    "meaning": "vd: I  get acquainted with sth (tôi đang làm quen (sử dụng) cái gì đó).",
-    "definition": "to meet someone and get to know them; or to learn about and become familiar with something new",
-    "example": "Orientation week gives incoming international students plenty of time to get acquainted with the campus.",
-    "exampleVi": "Tuần lễ định hướng cho các sinh viên quốc tế mới nhiều thời gian để làm quen với khuôn viên trường.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A minimum attendance of eighty percent is strictly ........ to qualify for the final examination.",
+    "quizAnswer": "required",
+    "distractors": [
+      "optional",
+      "forbidden",
+      "discouraged"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253534684,
+    "dateAdded": 1790250054000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Orientation week gives incoming international students plenty of time to ........ with the campus.",
-    "quizAnswer": "get acquainted",
-    "distractors": [
-      "lose patience",
-      "make excuses",
-      "give up"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-55",
+    "docId": "055",
+    "word": "Get acquainted with",
+    "phonetic": "/ɡet əˈkweɪntɪd/",
+    "partOfSpeech": "v phrase",
+    "meaning": "làm quen với ai/cái gì",
+    "notes": "Ví dụ: get acquainted with the software = làm quen với phần mềm.",
+    "definition": "to meet someone and get to know them; or to learn about and become familiar with something new",
+    "example": "Orientation week gives incoming international students plenty of time to get acquainted with the campus.",
+    "exampleVi": "Tuần lễ định hướng cho các sinh viên quốc tế mới nhiều thời gian để làm quen với khuôn viên trường.",
     "oxfordExamples": [
       {
         "en": "Orientation week gives incoming international students plenty of time to get acquainted with the campus.",
@@ -2440,36 +2532,38 @@ window.DEFAULT_VOCAB_DATA = [
       "get acquainted with sb / sth",
       "become acquainted",
       "mutually acquainted"
-    ]
-  },
-  {
-    "id": "w-56",
-    "word": "Craving",
-    "phonetic": "/ˈkreɪvɪŋ/",
-    "partOfSpeech": "noun",
-    "meaning": "thèm",
-    "definition": "a strong, urgent, or irresistible desire for something, especially for food or comfort",
-    "example": "After working out vigorously at the gym, I had an irresistible craving for a fresh smoothie.",
-    "exampleVi": "Sau khi tập luyện hăng say ở phòng gym, tôi có một cảm giác thèm không cưỡng lại được một ly sinh tố tươi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Orientation week gives incoming international students plenty of time to ........ with the campus.",
+    "quizAnswer": "get acquainted",
+    "distractors": [
+      "lose patience",
+      "make excuses",
+      "give up"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253474684,
+    "dateAdded": 1790250055000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "After working out vigorously at the gym, I had an irresistible ........ for a fresh smoothie.",
-    "quizAnswer": "craving",
-    "distractors": [
-      "hatred",
-      "fear",
-      "allergy"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-56",
+    "docId": "056",
+    "word": "Craving",
+    "phonetic": "/ˈkreɪvɪŋ/",
+    "partOfSpeech": "n",
+    "meaning": "sự thèm muốn; cơn thèm",
+    "notes": "Ví dụ: a craving for chocolate.",
+    "definition": "a strong, urgent, or irresistible desire for something, especially for food or comfort",
+    "example": "After working out vigorously at the gym, I had an irresistible craving for a fresh smoothie.",
+    "exampleVi": "Sau khi tập luyện hăng say ở phòng gym, tôi có một cảm giác thèm không cưỡng lại được một ly sinh tố tươi.",
     "oxfordExamples": [
       {
         "en": "After working out vigorously at the gym, I had an irresistible craving for a fresh smoothie.",
@@ -2484,36 +2578,38 @@ window.DEFAULT_VOCAB_DATA = [
       "craving for sth",
       "satisfy a craving",
       "irresistible craving"
-    ]
-  },
-  {
-    "id": "w-57",
-    "word": "Bound",
-    "phonetic": "/baʊnd/",
-    "partOfSpeech": "adjective",
-    "meaning": "ham chơi",
-    "definition": "certain or extremely likely to happen, do, or have something; or obliged by law or duty",
-    "example": "With his remarkable dedication and strong work ethic, he is bound to achieve great success.",
-    "exampleVi": "Với sự cống hiến bền bỉ và đạo đức làm việc vững vàng, anh ấy chắc chắn sẽ đạt được thành công lớn.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "After working out vigorously at the gym, I had an irresistible ........ for a fresh smoothie.",
+    "quizAnswer": "craving",
+    "distractors": [
+      "hatred",
+      "fear",
+      "allergy"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253414685,
+    "dateAdded": 1790250056000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "With his remarkable dedication and strong work ethic, he is ........ to achieve great success.",
-    "quizAnswer": "bound",
-    "distractors": [
-      "reluctant",
-      "doubtful",
-      "unlikely"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-57",
+    "docId": "057",
+    "word": "Bound",
+    "phonetic": "/baʊnd/",
+    "partOfSpeech": "adj",
+    "meaning": "bị ràng buộc; chắc chắn sẽ; đang đi đến",
+    "notes": "Không mang nghĩa “ham chơi” khi đứng một mình. Ví dụ: homeward-bound = đang trên đường về nhà.",
+    "definition": "certain or extremely likely to happen, do, or have something; or obliged by law or duty",
+    "example": "With his remarkable dedication and strong work ethic, he is bound to achieve great success.",
+    "exampleVi": "Với sự cống hiến bền bỉ và đạo đức làm việc vững vàng, anh ấy chắc chắn sẽ đạt được thành công lớn.",
     "oxfordExamples": [
       {
         "en": "With his remarkable dedication and strong work ethic, he is bound to achieve great success.",
@@ -2529,36 +2625,38 @@ window.DEFAULT_VOCAB_DATA = [
       "duty-bound",
       "inwardly bound",
       "bound for London"
-    ]
-  },
-  {
-    "id": "w-58",
-    "word": "Poverty",
-    "phonetic": "/ˈpɒvəti/",
-    "partOfSpeech": "noun",
-    "meaning": "cực khổ",
-    "definition": "the state of being extremely poor and lacking money or the basic necessities of life",
-    "example": "The non-profit charity works tirelessly to lift rural farming communities out of chronic poverty.",
-    "exampleVi": "Tổ chức từ thiện phi lợi nhuận hoạt động không mệt mỏi để đưa các cộng đồng nông thôn thoát khỏi cảnh nghèo khó kinh niên.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "With his remarkable dedication and strong work ethic, he is ........ to achieve great success.",
+    "quizAnswer": "bound",
+    "distractors": [
+      "reluctant",
+      "doubtful",
+      "unlikely"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253354685,
+    "dateAdded": 1790250057000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The non-profit charity works tirelessly to lift rural farming communities out of chronic ........",
-    "quizAnswer": "poverty",
-    "distractors": [
-      "wealth",
-      "luxury",
-      "fortune"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-58",
+    "docId": "058",
+    "word": "Poverty",
+    "phonetic": "/ˈpɒvəti/",
+    "partOfSpeech": "n",
+    "meaning": "sự nghèo đói; cảnh nghèo khó",
+    "notes": "",
+    "definition": "the state of being extremely poor and lacking money or the basic necessities of life",
+    "example": "The non-profit charity works tirelessly to lift rural farming communities out of chronic poverty.",
+    "exampleVi": "Tổ chức từ thiện phi lợi nhuận hoạt động không mệt mỏi để đưa các cộng đồng nông thôn thoát khỏi cảnh nghèo khó kinh niên.",
     "oxfordExamples": [
       {
         "en": "The non-profit charity works tirelessly to lift rural farming communities out of chronic poverty.",
@@ -2573,36 +2671,38 @@ window.DEFAULT_VOCAB_DATA = [
       "live in extreme poverty",
       "poverty line",
       "alleviate / reduce poverty"
-    ]
-  },
-  {
-    "id": "w-59",
-    "word": "nonsense",
-    "phonetic": "/ˈnɒnsns/",
-    "partOfSpeech": "noun",
-    "meaning": "nhảm nhí",
-    "definition": "words, ideas, or statements that are silly, have no meaning, or make no sense at all",
-    "example": "Don't pay attention to superstitious rumors on the internet; they are absolute nonsense.",
-    "exampleVi": "Đừng để tâm đến những tin đồn mê tín trên mạng; chúng hoàn toàn là chuyện nhảm nhí.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The non-profit charity works tirelessly to lift rural farming communities out of chronic ........",
+    "quizAnswer": "poverty",
+    "distractors": [
+      "wealth",
+      "luxury",
+      "fortune"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253294685,
+    "dateAdded": 1790250058000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Don't pay attention to superstitious rumors on the internet; they are absolute ........",
-    "quizAnswer": "nonsense",
-    "distractors": [
-      "wisdom",
-      "reality",
-      "truth"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-59",
+    "docId": "059",
+    "word": "Nonsense",
+    "phonetic": "/ˈnɒnsns/",
+    "partOfSpeech": "n",
+    "meaning": "điều vô nghĩa; chuyện nhảm nhí",
+    "notes": "Có thể dùng như từ cảm thán: Nonsense!",
+    "definition": "words, ideas, or statements that are silly, have no meaning, or make no sense at all",
+    "example": "Don't pay attention to superstitious rumors on the internet; they are absolute nonsense.",
+    "exampleVi": "Đừng để tâm đến những tin đồn mê tín trên mạng; chúng hoàn toàn là chuyện nhảm nhí.",
     "oxfordExamples": [
       {
         "en": "Don't pay attention to superstitious rumors on the internet; they are absolute nonsense.",
@@ -2617,36 +2717,38 @@ window.DEFAULT_VOCAB_DATA = [
       "talk nonsense",
       "utter / absolute nonsense",
       "stand no nonsense"
-    ]
-  },
-  {
-    "id": "w-60",
-    "word": "recapture",
-    "phonetic": "/ˌriːˈkæptʃə(r)/",
-    "partOfSpeech": "verb",
-    "meaning": "chiếm lại sth",
-    "definition": "to take control of a place again after you have lost it; or to experience a past feeling or memory again",
-    "example": "The army mounted a powerful counter-attack to recapture the strategic hilltop stronghold.",
-    "exampleVi": "Quân đội đã mở một cuộc phản công mạnh mẽ để chiếm lại cứ điểm chiến lược trên đỉnh đồi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Don't pay attention to superstitious rumors on the internet; they are absolute ........",
+    "quizAnswer": "nonsense",
+    "distractors": [
+      "wisdom",
+      "reality",
+      "truth"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253234685,
+    "dateAdded": 1790250059000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The army mounted a powerful counter-attack to ........ the strategic hilltop stronghold.",
-    "quizAnswer": "recapture",
-    "distractors": [
-      "abandon",
-      "release",
-      "surrender"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-60",
+    "docId": "060",
+    "word": "Recapture",
+    "phonetic": "/ˌriːˈkæptʃə(r)/",
+    "partOfSpeech": "v",
+    "meaning": "chiếm lại; giành lại; bắt lại",
+    "notes": "",
+    "definition": "to take control of a place again after you have lost it; or to experience a past feeling or memory again",
+    "example": "The army mounted a powerful counter-attack to recapture the strategic hilltop stronghold.",
+    "exampleVi": "Quân đội đã mở một cuộc phản công mạnh mẽ để chiếm lại cứ điểm chiến lược trên đỉnh đồi.",
     "oxfordExamples": [
       {
         "en": "The army mounted a powerful counter-attack to recapture the strategic hilltop stronghold.",
@@ -2661,36 +2763,38 @@ window.DEFAULT_VOCAB_DATA = [
       "recapture a city / stronghold",
       "recapture the mood / past",
       "recapture the market"
-    ]
-  },
-  {
-    "id": "w-61",
-    "word": "worth",
-    "phonetic": "/wɜːθ/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "đáng giá",
-    "definition": "having a particular value, especially in money; or deserving of effort, time, or attention",
-    "example": "That ancient golden coin discovered in the ruins is estimated to be worth thousands of pounds.",
-    "exampleVi": "Đồng xu vàng cổ được phát hiện trong tàn tích được ước tính có giá trị hàng ngàn bảng Anh.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The army mounted a powerful counter-attack to ........ the strategic hilltop stronghold.",
+    "quizAnswer": "recapture",
+    "distractors": [
+      "abandon",
+      "release",
+      "surrender"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253174685,
+    "dateAdded": 1790250060000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "That ancient golden coin discovered in the ruins is estimated to be ........ thousands of pounds.",
-    "quizAnswer": "worth",
-    "distractors": [
-      "costly",
-      "heavy",
-      "priced"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-61",
+    "docId": "061",
+    "word": "Worth",
+    "phonetic": "/wɜːθ/",
+    "partOfSpeech": "adj/n",
+    "meaning": "đáng giá; giá trị",
+    "notes": "Thường dùng: be worth + noun/V-ing.",
+    "definition": "having a particular value, especially in money; or deserving of effort, time, or attention",
+    "example": "That ancient golden coin discovered in the ruins is estimated to be worth thousands of pounds.",
+    "exampleVi": "Đồng xu vàng cổ được phát hiện trong tàn tích được ước tính có giá trị hàng ngàn bảng Anh.",
     "oxfordExamples": [
       {
         "en": "That ancient golden coin discovered in the ruins is estimated to be worth thousands of pounds.",
@@ -2706,36 +2810,38 @@ window.DEFAULT_VOCAB_DATA = [
       "worth a fortune",
       "net worth",
       "worth every penny"
-    ]
-  },
-  {
-    "id": "w-62",
-    "word": "belittle",
-    "phonetic": "/bɪˈlɪtl/",
-    "partOfSpeech": "verb",
-    "meaning": "coi thường",
-    "definition": "to make somebody or something seem unimportant or of little value",
-    "example": "A good teacher encourages pupils to learn from mistakes rather than belittle their efforts.",
-    "exampleVi": "Một người thầy tốt luôn khuyến khích học sinh học từ sai lầm thay vì coi thường những nỗ lực của các em.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "That ancient golden coin discovered in the ruins is estimated to be ........ thousands of pounds.",
+    "quizAnswer": "worth",
+    "distractors": [
+      "costly",
+      "heavy",
+      "priced"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253114685,
+    "dateAdded": 1790250061000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "A good teacher encourages pupils to learn from mistakes rather than ........ their efforts.",
-    "quizAnswer": "belittle",
-    "distractors": [
-      "praise",
-      "appreciate",
-      "reward"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-62",
+    "docId": "062",
+    "word": "Belittle",
+    "phonetic": "/bɪˈlɪtl/",
+    "partOfSpeech": "v",
+    "meaning": "coi thường; hạ thấp giá trị của ai/cái gì",
+    "notes": "",
+    "definition": "to make somebody or something seem unimportant or of little value",
+    "example": "A good teacher encourages pupils to learn from mistakes rather than belittle their efforts.",
+    "exampleVi": "Một người thầy tốt luôn khuyến khích học sinh học từ sai lầm thay vì coi thường những nỗ lực của các em.",
     "oxfordExamples": [
       {
         "en": "A good teacher encourages pupils to learn from mistakes rather than belittle their efforts.",
@@ -2750,36 +2856,38 @@ window.DEFAULT_VOCAB_DATA = [
       "belittle one's achievements / efforts",
       "belittle somebody",
       "never belittle"
-    ]
-  },
-  {
-    "id": "w-63",
-    "word": "particular",
-    "phonetic": "/pəˈtɪkjələ(r)/",
-    "partOfSpeech": "adjective",
-    "meaning": "cụ thể",
-    "definition": "used to emphasize that you are referring to one specific person, thing, or occasion, not others",
-    "example": "Is there any particular topic that you would like us to review during our seminar today?",
-    "exampleVi": "Có chủ đề cụ thể nào mà bạn muốn chúng tôi cùng ôn tập trong buổi hội thảo hôm nay không?",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A good teacher encourages pupils to learn from mistakes rather than ........ their efforts.",
+    "quizAnswer": "belittle",
+    "distractors": [
+      "praise",
+      "appreciate",
+      "reward"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790253054685,
+    "dateAdded": 1790250062000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Is there any ........ topic that you would like us to review during our seminar today?",
-    "quizAnswer": "particular",
-    "distractors": [
-      "general",
-      "common",
-      "universal"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-63",
+    "docId": "063",
+    "word": "Particular",
+    "phonetic": "/pəˈtɪkjələ(r)/",
+    "partOfSpeech": "adj/n",
+    "meaning": "cụ thể; đặc biệt; chi tiết",
+    "notes": "Danh từ thường gặp ở số nhiều: particulars = chi tiết.",
+    "definition": "used to emphasize that you are referring to one specific person, thing, or occasion, not others",
+    "example": "Is there any particular topic that you would like us to review during our seminar today?",
+    "exampleVi": "Có chủ đề cụ thể nào mà bạn muốn chúng tôi cùng ôn tập trong buổi hội thảo hôm nay không?",
     "oxfordExamples": [
       {
         "en": "Is there any particular topic that you would like us to review during our seminar today?",
@@ -2795,36 +2903,38 @@ window.DEFAULT_VOCAB_DATA = [
       "particular attention",
       "particular interest",
       "no particular reason"
-    ]
-  },
-  {
-    "id": "w-64",
-    "word": "concern",
-    "phonetic": "/kənˈsɜːn/",
-    "partOfSpeech": "noun / verb",
-    "meaning": "bận tâm",
-    "definition": "a feeling of worry, especially one that is shared through society; or to affect or be important to somebody",
-    "example": "The rapid spread of plastic waste in the ocean has become a major environmental concern.",
-    "exampleVi": "Sự lan rộng nhanh chóng của rác thải nhựa ở đại dương đã trở thành một mối bận tâm môi trường lớn.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Is there any ........ topic that you would like us to review during our seminar today?",
+    "quizAnswer": "particular",
+    "distractors": [
+      "general",
+      "common",
+      "universal"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252994685,
+    "dateAdded": 1790250063000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The rapid spread of plastic waste in the ocean has become a major environmental ........",
-    "quizAnswer": "concern",
-    "distractors": [
-      "delight",
-      "comfort",
-      "privilege"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-64",
+    "docId": "064",
+    "word": "Concern",
+    "phonetic": "/kənˈsɜːn/",
+    "partOfSpeech": "n/v",
+    "meaning": "mối lo ngại; liên quan đến; làm lo lắng/bận tâm",
+    "notes": "",
+    "definition": "a feeling of worry, especially one that is shared through society; or to affect or be important to somebody",
+    "example": "The rapid spread of plastic waste in the ocean has become a major environmental concern.",
+    "exampleVi": "Sự lan rộng nhanh chóng của rác thải nhựa ở đại dương đã trở thành một mối bận tâm môi trường lớn.",
     "oxfordExamples": [
       {
         "en": "The rapid spread of plastic waste in the ocean has become a major environmental concern.",
@@ -2839,36 +2949,38 @@ window.DEFAULT_VOCAB_DATA = [
       "cause / voice concern",
       "matter of concern",
       "as far as I'm concerned"
-    ]
-  },
-  {
-    "id": "w-65",
-    "word": "purely",
-    "phonetic": "/ˈpjʊəli/",
-    "partOfSpeech": "adverb",
-    "meaning": "hoàn toàn",
-    "definition": "only and completely, with no other things or motives involved",
-    "example": "The doctor assured her that the medical test was purely a precautionary measure.",
-    "exampleVi": "Bác sĩ cam đoan với cô rằng xét nghiệm y tế đó thuần túy chỉ là một biện pháp phòng ngừa.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The rapid spread of plastic waste in the ocean has become a major environmental ........",
+    "quizAnswer": "concern",
+    "distractors": [
+      "delight",
+      "comfort",
+      "privilege"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252934685,
+    "dateAdded": 1790250064000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The doctor assured her that the medical test was ........ a precautionary measure.",
-    "quizAnswer": "purely",
-    "distractors": [
-      "rarely",
-      "poorly",
-      "partly"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-65",
+    "docId": "065",
+    "word": "Purely",
+    "phonetic": "/ˈpjʊəli/",
+    "partOfSpeech": "adv",
+    "meaning": "hoàn toàn; thuần túy",
+    "notes": "",
+    "definition": "only and completely, with no other things or motives involved",
+    "example": "The doctor assured her that the medical test was purely a precautionary measure.",
+    "exampleVi": "Bác sĩ cam đoan với cô rằng xét nghiệm y tế đó thuần túy chỉ là một biện pháp phòng ngừa.",
     "oxfordExamples": [
       {
         "en": "The doctor assured her that the medical test was purely a precautionary measure.",
@@ -2884,36 +2996,38 @@ window.DEFAULT_VOCAB_DATA = [
       "purely by chance",
       "purely academic",
       "purely theoretical"
-    ]
-  },
-  {
-    "id": "w-66",
-    "word": "Conversation",
-    "phonetic": "/ˌkɒnvəˈseɪʃn/",
-    "partOfSpeech": "noun",
-    "meaning": "cuộc trò chuyện",
-    "definition": "an informal talk involving a small group of people or only two people",
-    "example": "We sat by the quiet fireplace and enjoyed an inspiring conversation about literature.",
-    "exampleVi": "Chúng tôi ngồi bên lò sưởi yên tĩnh và tận hưởng một cuộc trò chuyện đầy cảm hứng về văn học.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The doctor assured her that the medical test was ........ a precautionary measure.",
+    "quizAnswer": "purely",
+    "distractors": [
+      "rarely",
+      "poorly",
+      "partly"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252874685,
+    "dateAdded": 1790250065000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "We sat by the quiet fireplace and enjoyed an inspiring ........ about literature.",
-    "quizAnswer": "conversation",
-    "distractors": [
-      "argument",
-      "monologue",
-      "contest"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-66",
+    "docId": "066",
+    "word": "Conversation",
+    "phonetic": "/ˌkɒnvəˈseɪʃn/",
+    "partOfSpeech": "n",
+    "meaning": "cuộc trò chuyện",
+    "notes": "",
+    "definition": "an informal talk involving a small group of people or only two people",
+    "example": "We sat by the quiet fireplace and enjoyed an inspiring conversation about literature.",
+    "exampleVi": "Chúng tôi ngồi bên lò sưởi yên tĩnh và tận hưởng một cuộc trò chuyện đầy cảm hứng về văn học.",
     "oxfordExamples": [
       {
         "en": "We sat by the quiet fireplace and enjoyed an inspiring conversation about literature.",
@@ -2928,36 +3042,38 @@ window.DEFAULT_VOCAB_DATA = [
       "have / hold a conversation",
       "strike up a conversation",
       "in conversation with"
-    ]
-  },
-  {
-    "id": "w-67",
-    "word": "Loyalty",
-    "phonetic": "/ˈlɔɪəlti/",
-    "partOfSpeech": "noun",
-    "meaning": "lòng trung thành",
-    "definition": "the quality of being faithful and steadfast in support of a friend, organization, or country",
-    "example": "Dogs are famous for their unwavering loyalty and boundless devotion toward their owners.",
-    "exampleVi": "Loài chó nổi tiếng với lòng trung thành kiên định và sự tận tụy vô bờ bến đối với chủ nhân.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "We sat by the quiet fireplace and enjoyed an inspiring ........ about literature.",
+    "quizAnswer": "conversation",
+    "distractors": [
+      "argument",
+      "monologue",
+      "contest"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252814685,
+    "dateAdded": 1790250066000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Dogs are famous for their unwavering ........ and boundless devotion toward their owners.",
-    "quizAnswer": "loyalty",
-    "distractors": [
-      "betrayal",
-      "hostility",
-      "indifference"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-67",
+    "docId": "067",
+    "word": "Loyalty",
+    "phonetic": "/ˈlɔɪəlti/",
+    "partOfSpeech": "n",
+    "meaning": "lòng trung thành",
+    "notes": "",
+    "definition": "the quality of being faithful and steadfast in support of a friend, organization, or country",
+    "example": "Dogs are famous for their unwavering loyalty and boundless devotion toward their owners.",
+    "exampleVi": "Loài chó nổi tiếng với lòng trung thành kiên định và sự tận tụy vô bờ bến đối với chủ nhân.",
     "oxfordExamples": [
       {
         "en": "Dogs are famous for their unwavering loyalty and boundless devotion toward their owners.",
@@ -2972,36 +3088,38 @@ window.DEFAULT_VOCAB_DATA = [
       "unwavering loyalty",
       "customer loyalty",
       "show / pledge loyalty"
-    ]
-  },
-  {
-    "id": "w-68",
-    "word": "Commercial",
-    "phonetic": "/kəˈmɜːʃl/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "Thuộc về thương mại",
-    "definition": "connected with the buying and selling of goods; or an advertisement on television or radio",
-    "example": "The company decided to air a catchy commercial on national television during prime time.",
-    "exampleVi": "Công ty quyết định phát sóng một đoạn quảng cáo thương mại bắt tai trên truyền hình quốc gia vào giờ vàng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Dogs are famous for their unwavering ........ and boundless devotion toward their owners.",
+    "quizAnswer": "loyalty",
+    "distractors": [
+      "betrayal",
+      "hostility",
+      "indifference"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252754685,
+    "dateAdded": 1790250067000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The company decided to air a catchy ........ on national television during prime time.",
-    "quizAnswer": "commercial",
-    "distractors": [
-      "documentary",
-      "editorial",
-      "lecture"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-68",
+    "docId": "068",
+    "word": "Commercial",
+    "phonetic": "/kəˈmɜːʃl/",
+    "partOfSpeech": "adj/n",
+    "meaning": "thuộc về thương mại; quảng cáo thương mại",
+    "notes": "",
+    "definition": "connected with the buying and selling of goods; or an advertisement on television or radio",
+    "example": "The company decided to air a catchy commercial on national television during prime time.",
+    "exampleVi": "Công ty quyết định phát sóng một đoạn quảng cáo thương mại bắt tai trên truyền hình quốc gia vào giờ vàng.",
     "oxfordExamples": [
       {
         "en": "The company decided to air a catchy commercial on national television during prime time.",
@@ -3016,36 +3134,38 @@ window.DEFAULT_VOCAB_DATA = [
       "commercial TV ad",
       "commercial viability",
       "commercial airliner"
-    ]
-  },
-  {
-    "id": "w-69",
-    "word": "Crave",
-    "phonetic": "/kreɪv/",
-    "partOfSpeech": "verb",
-    "meaning": "Khao khát",
-    "definition": "to have a very strong or urgent desire for something, especially food, affection, or rest",
-    "example": "After studying under immense stress for weeks, the students crave a few days of peaceful rest.",
-    "exampleVi": "Sau nhiều tuần học tập dưới áp lực lớn, các sinh viên khao khát có vài ngày nghỉ ngơi thanh bình.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The company decided to air a catchy ........ on national television during prime time.",
+    "quizAnswer": "commercial",
+    "distractors": [
+      "documentary",
+      "editorial",
+      "lecture"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252694685,
+    "dateAdded": 1790250068000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "After studying under immense stress for weeks, the students ........ a few days of peaceful rest.",
-    "quizAnswer": "crave",
-    "distractors": [
-      "despise",
-      "avoid",
-      "reject"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-69",
+    "docId": "069",
+    "word": "Crave",
+    "phonetic": "/kreɪv/",
+    "partOfSpeech": "v",
+    "meaning": "khao khát; thèm muốn",
+    "notes": "",
+    "definition": "to have a very strong or urgent desire for something, especially food, affection, or rest",
+    "example": "After studying under immense stress for weeks, the students crave a few days of peaceful rest.",
+    "exampleVi": "Sau nhiều tuần học tập dưới áp lực lớn, các sinh viên khao khát có vài ngày nghỉ ngơi thanh bình.",
     "oxfordExamples": [
       {
         "en": "After studying under immense stress for weeks, the students crave a few days of peaceful rest.",
@@ -3060,80 +3180,85 @@ window.DEFAULT_VOCAB_DATA = [
       "crave attention",
       "crave sweet foods",
       "crave excitement"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "After studying under immense stress for weeks, the students ........ a few days of peaceful rest.",
+    "quizAnswer": "crave",
+    "distractors": [
+      "despise",
+      "avoid",
+      "reject"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250069000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-70",
-    "word": "patient",
+    "docId": "070",
+    "word": "Patient",
     "phonetic": "/ˈpeɪʃnt/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "Kiên nhẫn",
-    "definition": "able to wait for a long time or accept difficulties without becoming angry; or a person receiving medical treatment",
-    "example": "Caring for elderly residents requires nurses who are exceptionally gentle, understanding, and patient.",
-    "exampleVi": "Chăm sóc người cao tuổi đòi hỏi các điều dưỡng viên phải đặc biệt nhẹ nhàng, thấu hiểu và kiên nhẫn.",
+    "partOfSpeech": "adj",
+    "meaning": "kiên nhẫn",
+    "notes": "",
+    "definition": "a person who is receiving medical care or treatment from a doctor, nurse, or hospital",
+    "example": "The specialist spent thirty minutes thoroughly examining each elderly patient.",
+    "exampleVi": "Bác sĩ chuyên khoa đã dành ba mươi phút để khám kỹ lưỡng cho từng bệnh nhân cao tuổi.",
+    "oxfordExamples": [
+      {
+        "en": "The specialist spent thirty minutes thoroughly examining each elderly patient.",
+        "vi": "Bác sĩ chuyên khoa đã dành ba mươi phút để khám kỹ lưỡng cho từng bệnh nhân cao tuổi."
+      },
+      {
+        "en": "Critical patients require around-the-clock monitoring in the intensive care unit.",
+        "vi": "Các bệnh nhân trong tình trạng nguy kịch cần được theo dõi 24/24 trong phòng hồi sức tích cực."
+      }
+    ],
+    "collocations": [
+      "hospital patient",
+      "treat a patient",
+      "patient care",
+      "outpatient"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The emergency room doctor carefully checked the medical history of the incoming ........ .",
+    "quizAnswer": "patient",
+    "distractors": [
+      "surgeon",
+      "pharmacist",
+      "landlord"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252634685,
+    "dateAdded": 1790250070000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Caring for elderly residents requires nurses who are exceptionally gentle, understanding, and ........",
-    "quizAnswer": "patient",
-    "distractors": [
-      "irritable",
-      "anxious",
-      "aggressive"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "Caring for elderly residents requires nurses who are exceptionally gentle, understanding, and patient.",
-        "vi": "Chăm sóc những cư dân lớn tuổi đòi hỏi các điều dưỡng viên phải đặc biệt dịu dàng, thấu hiểu và kiên nhẫn."
-      },
-      {
-        "en": "Please be patient while the software updates complete.",
-        "vi": "Xin vui lòng kiên nhẫn trong khi quá trình cập nhật phần mềm hoàn tất."
-      }
-    ],
-    "collocations": [
-      "be patient with sb",
-      "infinite patience",
-      "hospital patient"
     ]
   },
   {
     "id": "w-71",
-    "word": "garage",
+    "docId": "071",
+    "word": "Garage",
     "phonetic": "/ˈɡærɑːʒ/",
-    "partOfSpeech": "noun",
-    "meaning": "nha kho de xe hay gara",
+    "partOfSpeech": "n",
+    "meaning": "ga-ra; nhà/kho để xe",
+    "notes": "",
     "definition": "a building for keeping a car in, especially one attached to or beside a house; or a place where motor vehicles are repaired",
     "example": "He converted his detached garage into a cozy woodworking workshop for the weekends.",
     "exampleVi": "Anh ấy đã cải tạo nhà để xe riêng biệt thành một xưởng mộc ấm cúng cho những ngày cuối tuần.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790252574685,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "He converted his detached ........ into a cozy woodworking workshop for the weekends.",
-    "quizAnswer": "garage",
-    "distractors": [
-      "terrace",
-      "balcony",
-      "pantry"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "He converted his detached garage into a cozy woodworking workshop for the weekends.",
@@ -3148,36 +3273,38 @@ window.DEFAULT_VOCAB_DATA = [
       "park in the garage",
       "garage sale",
       "repair garage"
-    ]
-  },
-  {
-    "id": "w-72",
-    "word": "across",
-    "phonetic": "/əˈkrɒs/",
-    "partOfSpeech": "preposition / adverb",
-    "meaning": "đối diện",
-    "definition": "from one side to the other of something with clear limits; on the opposite side of",
-    "example": "The modern public library is located directly across from the central subway station.",
-    "exampleVi": "Thư viện công cộng hiện đại nằm ngay đối diện ga tàu điện ngầm trung tâm.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He converted his detached ........ into a cozy woodworking workshop for the weekends.",
+    "quizAnswer": "garage",
+    "distractors": [
+      "terrace",
+      "balcony",
+      "pantry"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252514685,
+    "dateAdded": 1790250071000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The modern public library is located directly ........ from the central subway station.",
-    "quizAnswer": "across",
-    "distractors": [
-      "along",
-      "through",
-      "towards"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-72",
+    "docId": "072",
+    "word": "Across",
+    "phonetic": "/əˈkrɒs/",
+    "partOfSpeech": "prep/adv",
+    "meaning": "ngang qua; ở phía bên kia",
+    "notes": "Ví dụ: across the street = bên kia đường.",
+    "definition": "from one side to the other of something with clear limits; on the opposite side of",
+    "example": "The modern public library is located directly across from the central subway station.",
+    "exampleVi": "Thư viện công cộng hiện đại nằm ngay đối diện ga tàu điện ngầm trung tâm.",
     "oxfordExamples": [
       {
         "en": "The modern public library is located directly across from the central subway station.",
@@ -3192,36 +3319,38 @@ window.DEFAULT_VOCAB_DATA = [
       "across from",
       "walk / run across",
       "across the country"
-    ]
-  },
-  {
-    "id": "w-73",
-    "word": "royal",
-    "phonetic": "/ˈrɔɪəl/",
-    "partOfSpeech": "adjective / noun",
-    "meaning": "hoàng gia",
-    "definition": "connected with or belonging to a king or queen or a member of their family",
-    "example": "Thousands of excited tourists gathered to witness the royal procession through the palace gates.",
-    "exampleVi": "Hàng ngàn du khách hào hứng đã tụ tập để chứng kiến đoàn rước hoàng gia qua cổng cung điện.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The modern public library is located directly ........ from the central subway station.",
+    "quizAnswer": "across",
+    "distractors": [
+      "along",
+      "through",
+      "towards"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252454685,
+    "dateAdded": 1790250072000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Thousands of excited tourists gathered to witness the ........ procession through the palace gates.",
-    "quizAnswer": "royal",
-    "distractors": [
-      "common",
-      "humble",
-      "local"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-73",
+    "docId": "073",
+    "word": "Royal",
+    "phonetic": "/ˈrɔɪəl/",
+    "partOfSpeech": "adj/n",
+    "meaning": "thuộc hoàng gia; thành viên hoàng gia",
+    "notes": "",
+    "definition": "connected with or belonging to a king or queen or a member of their family",
+    "example": "Thousands of excited tourists gathered to witness the royal procession through the palace gates.",
+    "exampleVi": "Hàng ngàn du khách hào hứng đã tụ tập để chứng kiến đoàn rước hoàng gia qua cổng cung điện.",
     "oxfordExamples": [
       {
         "en": "Thousands of excited tourists gathered to witness the royal procession through the palace gates.",
@@ -3237,36 +3366,38 @@ window.DEFAULT_VOCAB_DATA = [
       "royal palace",
       "royal highness",
       "royal welcome"
-    ]
-  },
-  {
-    "id": "w-74",
-    "word": "Church",
-    "phonetic": "/tʃɜːtʃ/",
-    "partOfSpeech": "noun",
-    "meaning": "nhà thờ",
-    "definition": "a building used for public Christian worship, prayer, and community services",
-    "example": "The historic cathedral church in the town square dates back to the twelfth century.",
-    "exampleVi": "Nhà thờ chính tòa lịch sử ở quảng trường thị trấn có niên đại từ thế kỷ thứ mười hai.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Thousands of excited tourists gathered to witness the ........ procession through the palace gates.",
+    "quizAnswer": "royal",
+    "distractors": [
+      "common",
+      "humble",
+      "local"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252394685,
+    "dateAdded": 1790250073000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The historic cathedral ........ in the town square dates back to the twelfth century.",
-    "quizAnswer": "church",
-    "distractors": [
-      "factory",
-      "warehouse",
-      "stadium"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-74",
+    "docId": "074",
+    "word": "Church",
+    "phonetic": "/tʃɜːtʃ/",
+    "partOfSpeech": "n",
+    "meaning": "nhà thờ",
+    "notes": "",
+    "definition": "a building used for public Christian worship, prayer, and community services",
+    "example": "The historic cathedral church in the town square dates back to the twelfth century.",
+    "exampleVi": "Nhà thờ chính tòa lịch sử ở quảng trường thị trấn có niên đại từ thế kỷ thứ mười hai.",
     "oxfordExamples": [
       {
         "en": "The historic cathedral church in the town square dates back to the twelfth century.",
@@ -3282,36 +3413,38 @@ window.DEFAULT_VOCAB_DATA = [
       "church bells",
       "parish church",
       "church service"
-    ]
-  },
-  {
-    "id": "w-75",
-    "word": "Corner",
-    "phonetic": "/ˈkɔːnə(r)/",
-    "partOfSpeech": "noun",
-    "meaning": "góc phố",
-    "definition": "a place where two streets, walls, or lines meet; a bend or intersection",
-    "example": "There is a lovely traditional bakery situated right at the corner of Baker Street.",
-    "exampleVi": "Có một tiệm bánh truyền thống đáng yêu nằm ngay tại góc phố Baker.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The historic cathedral ........ in the town square dates back to the twelfth century.",
+    "quizAnswer": "church",
+    "distractors": [
+      "factory",
+      "warehouse",
+      "stadium"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252334685,
+    "dateAdded": 1790250074000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "There is a lovely traditional bakery situated right at the ........ of Baker Street.",
-    "quizAnswer": "corner",
-    "distractors": [
-      "ceiling",
-      "center",
-      "border"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-75",
+    "docId": "075",
+    "word": "Corner",
+    "phonetic": "/ˈkɔːnə(r)/",
+    "partOfSpeech": "n",
+    "meaning": "góc; góc phố",
+    "notes": "",
+    "definition": "a place where two streets, walls, or lines meet; a bend or intersection",
+    "example": "There is a lovely traditional bakery situated right at the corner of Baker Street.",
+    "exampleVi": "Có một tiệm bánh truyền thống đáng yêu nằm ngay tại góc phố Baker.",
     "oxfordExamples": [
       {
         "en": "There is a lovely traditional bakery situated right at the corner of Baker Street.",
@@ -3327,36 +3460,38 @@ window.DEFAULT_VOCAB_DATA = [
       "around the corner",
       "street corner",
       "cut corners"
-    ]
-  },
-  {
-    "id": "w-76",
-    "word": "As a matter of fact",
-    "phonetic": "/æz ə ˈmætər əv fækt/",
-    "partOfSpeech": "idiom / phrase",
-    "meaning": "Thực ra thì",
-    "definition": "used to add more information, make what you are saying clearer, or introduce a surprising truth",
-    "example": "Many thought he was a novice, but as a matter of fact he has coded for ten years.",
-    "exampleVi": "Nhiều người nghĩ anh ấy là lính mới, nhưng thực ra thì anh ấy đã lập trình suốt mười năm qua.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "There is a lovely traditional bakery situated right at the ........ of Baker Street.",
+    "quizAnswer": "corner",
+    "distractors": [
+      "ceiling",
+      "center",
+      "border"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252274685,
+    "dateAdded": 1790250075000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Many thought he was a novice, but ........ he has coded for ten years.",
-    "quizAnswer": "as a matter of fact",
-    "distractors": [
-      "all of a sudden",
-      "by the way",
-      "on the contrary"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-76",
+    "docId": "076",
+    "word": "As a matter of fact",
+    "phonetic": "/æz ə ˈmætər əv fækt/",
+    "partOfSpeech": "phrase",
+    "meaning": "thực ra; thật ra thì",
+    "notes": "Cụm chuyển ý/nhấn mạnh, không phải cụm danh từ.",
+    "definition": "used to add more information, make what you are saying clearer, or introduce a surprising truth",
+    "example": "Many thought he was a novice, but as a matter of fact he has coded for ten years.",
+    "exampleVi": "Nhiều người nghĩ anh ấy là lính mới, nhưng thực ra thì anh ấy đã lập trình suốt mười năm qua.",
     "oxfordExamples": [
       {
         "en": "Many thought he was a novice, but as a matter of fact he has coded for ten years.",
@@ -3371,36 +3506,38 @@ window.DEFAULT_VOCAB_DATA = [
       "as a matter of fact",
       "in fact",
       "the matter of fact"
-    ]
-  },
-  {
-    "id": "w-77",
-    "word": "share out the housework",
-    "phonetic": "/ʃeər aʊt ðə ˈhaʊswɜːk/",
-    "partOfSpeech": "phrase",
-    "meaning": "chia sẻ công việc nhà",
-    "definition": "to divide household chores equally among members of a home",
-    "example": "To maintain peace and cleanliness, the college roommates agreed to share out the housework fairly.",
-    "exampleVi": "Để giữ hòa khí và sạch sẽ, các bạn cùng phòng đại học đã đồng ý chia sẻ công việc nhà công bằng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Many thought he was a novice, but ........ he has coded for ten years.",
+    "quizAnswer": "as a matter of fact",
+    "distractors": [
+      "all of a sudden",
+      "by the way",
+      "on the contrary"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252214685,
+    "dateAdded": 1790250076000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "To maintain peace and cleanliness, the college roommates agreed to ........ fairly.",
-    "quizAnswer": "share out the housework",
-    "distractors": [
-      "ignore the cleanliness",
-      "hire a decorator",
-      "leave all the chores"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-77",
+    "docId": "077",
+    "word": "Share out the housework",
+    "phonetic": "/ʃeər aʊt ðə ˈhaʊswɜːk/",
+    "partOfSpeech": "v phrase",
+    "meaning": "chia nhau công việc nhà",
+    "notes": "Tự nhiên hơn: share the housework / divide up the housework.",
+    "definition": "to divide household chores equally among members of a home",
+    "example": "To maintain peace and cleanliness, the college roommates agreed to share out the housework fairly.",
+    "exampleVi": "Để giữ hòa khí và sạch sẽ, các bạn cùng phòng đại học đã đồng ý chia sẻ công việc nhà công bằng.",
     "oxfordExamples": [
       {
         "en": "To maintain peace and cleanliness, the college roommates agreed to share out the housework fairly.",
@@ -3415,36 +3552,38 @@ window.DEFAULT_VOCAB_DATA = [
       "share out chores",
       "do the housework",
       "divide the housework"
-    ]
-  },
-  {
-    "id": "w-78",
-    "word": "carpets",
-    "phonetic": "/ˈkɑːpɪts/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "tấm thảm sàn nhà",
-    "definition": "thick woven fabrics used for covering floors or stairs to add warmth and insulation",
-    "example": "The hotel suites were refurbished with plush Persian carpets to keep the wooden floors warm.",
-    "exampleVi": "Các phòng suite khách sạn được tân trang bằng những tấm thảm Ba Tư êm ái để giữ ấm sàn gỗ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "To maintain peace and cleanliness, the college roommates agreed to ........ fairly.",
+    "quizAnswer": "share out the housework",
+    "distractors": [
+      "ignore the cleanliness",
+      "hire a decorator",
+      "leave all the chores"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252154685,
+    "dateAdded": 1790250077000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The hotel suites were refurbished with plush Persian ........ to keep the wooden floors warm.",
-    "quizAnswer": "carpets",
-    "distractors": [
-      "tiles",
-      "mirrors",
-      "cabinets"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-78",
+    "docId": "078",
+    "word": "Carpet",
+    "phonetic": "/ˈkɑːpɪts/",
+    "partOfSpeech": "n",
+    "meaning": "thảm; thảm trải sàn",
+    "notes": "Plural: carpets.",
+    "definition": "thick woven fabrics used for covering floors or stairs to add warmth and insulation",
+    "example": "The hotel suites were refurbished with plush Persian carpets to keep the wooden floors warm.",
+    "exampleVi": "Các phòng suite khách sạn được tân trang bằng những tấm thảm Ba Tư êm ái để giữ ấm sàn gỗ.",
     "oxfordExamples": [
       {
         "en": "The hotel suites were refurbished with plush Persian carpets to keep the wooden floors warm.",
@@ -3459,36 +3598,38 @@ window.DEFAULT_VOCAB_DATA = [
       "lay / vacuum a carpet",
       "fitted carpet",
       "red carpet"
-    ]
-  },
-  {
-    "id": "w-79",
-    "word": "a shared flat",
-    "phonetic": "/ə ʃeəd flæt/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "căn hộ chung",
-    "definition": "an apartment lived in by two or more people who share the rent and common areas",
-    "example": "Renting a shared flat is a practical solution for university students living on a tight budget.",
-    "exampleVi": "Thuê một căn hộ chung là giải pháp thiết thực cho sinh viên đại học có ngân sách eo hẹp.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The hotel suites were refurbished with plush Persian ........ to keep the wooden floors warm.",
+    "quizAnswer": "carpets",
+    "distractors": [
+      "tiles",
+      "mirrors",
+      "cabinets"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252094685,
+    "dateAdded": 1790250078000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Renting ........ is a practical solution for university students living on a tight budget.",
-    "quizAnswer": "a shared flat",
-    "distractors": [
-      "a luxury villa",
-      "a single tent",
-      "a private hotel"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-79",
+    "docId": "079",
+    "word": "A shared flat",
+    "phonetic": "/ə ʃeəd flæt/",
+    "partOfSpeech": "n phrase",
+    "meaning": "căn hộ ở chung; căn hộ chia sẻ",
+    "notes": "UK English; US thường dùng shared apartment.",
+    "definition": "an apartment lived in by two or more people who share the rent and common areas",
+    "example": "Renting a shared flat is a practical solution for university students living on a tight budget.",
+    "exampleVi": "Thuê một căn hộ chung là giải pháp thiết thực cho sinh viên đại học có ngân sách eo hẹp.",
     "oxfordExamples": [
       {
         "en": "Renting a shared flat is a practical solution for university students living on a tight budget.",
@@ -3503,36 +3644,38 @@ window.DEFAULT_VOCAB_DATA = [
       "live in a shared flat",
       "move into a shared flat",
       "flatmate"
-    ]
-  },
-  {
-    "id": "w-80",
-    "word": "own",
-    "phonetic": "/əʊn/",
-    "partOfSpeech": "adjective / verb",
-    "meaning": "sở hữu",
-    "definition": "belonging to or done by a particular person and no one else; or to have legal possession of",
-    "example": "After working long hours for a decade, she was thrilled to finally buy her own home.",
-    "exampleVi": "Sau một thập kỷ làm việc chăm chỉ, cô vỡ òa hạnh phúc khi cuối cùng đã mua được ngôi nhà của riêng mình.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Renting ........ is a practical solution for university students living on a tight budget.",
+    "quizAnswer": "a shared flat",
+    "distractors": [
+      "a luxury villa",
+      "a single tent",
+      "a private hotel"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790252034685,
+    "dateAdded": 1790250079000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "After working long hours for a decade, she was thrilled to finally buy her ........ home.",
-    "quizAnswer": "own",
-    "distractors": [
-      "temporary",
-      "public",
-      "shared"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-80",
+    "docId": "080",
+    "word": "Own",
+    "phonetic": "/əʊn/",
+    "partOfSpeech": "v/adj",
+    "meaning": "sở hữu; của riêng mình",
+    "notes": "Ví dụ: I own a car; my own room.",
+    "definition": "belonging to or done by a particular person and no one else; or to have legal possession of",
+    "example": "After working long hours for a decade, she was thrilled to finally buy her own home.",
+    "exampleVi": "Sau một thập kỷ làm việc chăm chỉ, cô vỡ òa hạnh phúc khi cuối cùng đã mua được ngôi nhà của riêng mình.",
     "oxfordExamples": [
       {
         "en": "After working long hours for a decade, she was thrilled to finally buy her own home.",
@@ -3548,36 +3691,38 @@ window.DEFAULT_VOCAB_DATA = [
       "one's own boss",
       "own up to sth",
       "hold one's own"
-    ]
-  },
-  {
-    "id": "w-81",
-    "word": "payphone",
-    "phonetic": "/ˈpeɪfəʊn/",
-    "partOfSpeech": "noun",
-    "meaning": "điện thoại công cộng",
-    "definition": "a public telephone that operates when coins or prepaid phone cards are inserted",
-    "example": "When my mobile battery died on the roadside, I used coins to call home from a payphone.",
-    "exampleVi": "Khi pin điện thoại di động bị hết bên đường, tôi đã dùng tiền xu gọi về nhà từ một bốt điện thoại công cộng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "After working long hours for a decade, she was thrilled to finally buy her ........ home.",
+    "quizAnswer": "own",
+    "distractors": [
+      "temporary",
+      "public",
+      "shared"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251974685,
+    "dateAdded": 1790250080000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "When my mobile battery died on the roadside, I used coins to call home from a ........",
-    "quizAnswer": "payphone",
-    "distractors": [
-      "television",
-      "calculator",
-      "typewriter"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-81",
+    "docId": "081",
+    "word": "Payphone",
+    "phonetic": "/ˈpeɪfəʊn/",
+    "partOfSpeech": "n",
+    "meaning": "điện thoại công cộng trả phí",
+    "notes": "",
+    "definition": "a public telephone that operates when coins or prepaid phone cards are inserted",
+    "example": "When my mobile battery died on the roadside, I used coins to call home from a payphone.",
+    "exampleVi": "Khi pin điện thoại di động bị hết bên đường, tôi đã dùng tiền xu gọi về nhà từ một bốt điện thoại công cộng.",
     "oxfordExamples": [
       {
         "en": "When my mobile battery died on the roadside, I used coins to call home from a payphone.",
@@ -3592,36 +3737,38 @@ window.DEFAULT_VOCAB_DATA = [
       "use a payphone",
       "public payphone",
       "payphone booth"
-    ]
-  },
-  {
-    "id": "w-82",
-    "word": "out of order",
-    "phonetic": "/aʊt əv ˈɔːdə(r)/",
-    "partOfSpeech": "phrase",
-    "meaning": "bị hỏng",
-    "definition": "not working or functioning properly because of a mechanical or electrical fault",
-    "example": "The ticket vending machine at the subway entrance was out of order, so passengers used the counter.",
-    "exampleVi": "Máy bán vé tự động ở lối vào ga tàu điện ngầm bị hỏng, vì vậy hành khách phải qua quầy vé.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "When my mobile battery died on the roadside, I used coins to call home from a ........",
+    "quizAnswer": "payphone",
+    "distractors": [
+      "television",
+      "calculator",
+      "typewriter"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251914685,
+    "dateAdded": 1790250081000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The ticket vending machine at the subway entrance was ........, so passengers used the counter.",
-    "quizAnswer": "out of order",
-    "distractors": [
-      "in good shape",
-      "on duty",
-      "at work"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-82",
+    "docId": "082",
+    "word": "Out of order",
+    "phonetic": "/aʊt əv ˈɔːdə(r)/",
+    "partOfSpeech": "adj phrase",
+    "meaning": "bị hỏng; không hoạt động",
+    "notes": "Thường dùng cho máy móc, thang máy, điện thoại công cộng.",
+    "definition": "not working or functioning properly because of a mechanical or electrical fault",
+    "example": "The ticket vending machine at the subway entrance was out of order, so passengers used the counter.",
+    "exampleVi": "Máy bán vé tự động ở lối vào ga tàu điện ngầm bị hỏng, vì vậy hành khách phải qua quầy vé.",
     "oxfordExamples": [
       {
         "en": "The ticket vending machine at the subway entrance was out of order, so passengers used the counter.",
@@ -3635,36 +3782,38 @@ window.DEFAULT_VOCAB_DATA = [
     "collocations": [
       "temporarily out of order",
       "out of order sign"
-    ]
-  },
-  {
-    "id": "w-83",
-    "word": "get in touch",
-    "phonetic": "/ɡet ɪn tʌtʃ/",
-    "partOfSpeech": "idiom / phrase",
-    "meaning": "liên hệ, liên lạc",
-    "definition": "to communicate with somebody, especially by calling, writing an email, or messaging",
-    "example": "If you require further clarification regarding the syllabus, please get in touch with your lecturer.",
-    "exampleVi": "Nếu bạn cần làm rõ thêm về đề cương môn học, xin vui lòng liên hệ với giảng viên của bạn.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The ticket vending machine at the subway entrance was ........, so passengers used the counter.",
+    "quizAnswer": "out of order",
+    "distractors": [
+      "in good shape",
+      "on duty",
+      "at work"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251854685,
+    "dateAdded": 1790250082000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "If you require further clarification regarding the syllabus, please ........ with your lecturer.",
-    "quizAnswer": "get in touch",
-    "distractors": [
-      "keep away",
-      "break down",
-      "fall behind"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-83",
+    "docId": "083",
+    "word": "Get in touch with",
+    "phonetic": "/ɡet ɪn tʌtʃ/",
+    "partOfSpeech": "v phrase",
+    "meaning": "liên hệ với",
+    "notes": "Ví dụ: get in touch with the phone company.",
+    "definition": "to communicate with somebody, especially by calling, writing an email, or messaging",
+    "example": "If you require further clarification regarding the syllabus, please get in touch with your lecturer.",
+    "exampleVi": "Nếu bạn cần làm rõ thêm về đề cương môn học, xin vui lòng liên hệ với giảng viên của bạn.",
     "oxfordExamples": [
       {
         "en": "If you require further clarification regarding the syllabus, please get in touch with your lecturer.",
@@ -3680,36 +3829,38 @@ window.DEFAULT_VOCAB_DATA = [
       "stay in touch",
       "keep in touch",
       "lose touch"
-    ]
-  },
-  {
-    "id": "w-84",
-    "word": "peculiar noise",
-    "phonetic": "/pɪˈkjuːliə(r) nɔɪz/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "tiếng ồn kỳ lạ",
-    "definition": "an odd, strange, or unusual sound that draws attention or causes suspicion",
-    "example": "The car mechanic popped the hood immediately after hearing a peculiar noise from the engine.",
-    "exampleVi": "Người thợ sửa xe đã mở nắp ca-pô ngay sau khi nghe thấy một tiếng ồn kỳ lạ phát ra từ động cơ.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "If you require further clarification regarding the syllabus, please ........ with your lecturer.",
+    "quizAnswer": "get in touch",
+    "distractors": [
+      "keep away",
+      "break down",
+      "fall behind"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251794685,
+    "dateAdded": 1790250083000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The car mechanic popped the hood immediately after hearing a ........ from the engine.",
-    "quizAnswer": "peculiar noise",
-    "distractors": [
-      "pleasant melody",
-      "gentle whisper",
-      "silent vibration"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-84",
+    "docId": "084",
+    "word": "Peculiar noise",
+    "phonetic": "/pɪˈkjuːliə(r) nɔɪz/",
+    "partOfSpeech": "n phrase",
+    "meaning": "tiếng động/âm thanh kỳ lạ",
+    "notes": "",
+    "definition": "an odd, strange, or unusual sound that draws attention or causes suspicion",
+    "example": "The car mechanic popped the hood immediately after hearing a peculiar noise from the engine.",
+    "exampleVi": "Người thợ sửa xe đã mở nắp ca-pô ngay sau khi nghe thấy một tiếng ồn kỳ lạ phát ra từ động cơ.",
     "oxfordExamples": [
       {
         "en": "The car mechanic popped the hood immediately after hearing a peculiar noise from the engine.",
@@ -3724,36 +3875,38 @@ window.DEFAULT_VOCAB_DATA = [
       "make a peculiar noise",
       "hear a peculiar noise",
       "peculiar behavior"
-    ]
-  },
-  {
-    "id": "w-85",
-    "word": "notify",
-    "phonetic": "/ˈnəʊtɪfaɪ/",
-    "partOfSpeech": "verb",
-    "meaning": "thông báo cho một nhóm đối tượng",
-    "definition": "to formally or officially tell somebody about something; inform",
-    "example": "The airline will notify all passengers via SMS if the flight departure time changes.",
-    "exampleVi": "Hãng hàng không sẽ thông báo cho tất cả hành khách qua tin nhắn nếu giờ khởi hành chuyến bay thay đổi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The car mechanic popped the hood immediately after hearing a ........ from the engine.",
+    "quizAnswer": "peculiar noise",
+    "distractors": [
+      "pleasant melody",
+      "gentle whisper",
+      "silent vibration"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251734685,
+    "dateAdded": 1790250084000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The airline will ........ all passengers via SMS if the flight departure time changes.",
-    "quizAnswer": "notify",
-    "distractors": [
-      "hide",
-      "conceal",
-      "confuse"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-85",
+    "docId": "085",
+    "word": "Notify",
+    "phonetic": "/ˈnəʊtɪfaɪ/",
+    "partOfSpeech": "v",
+    "meaning": "thông báo cho một người hoặc nhóm đối tượng cụ thể",
+    "notes": "Thường dùng: notify someone of/about something.",
+    "definition": "to formally or officially tell somebody about something; inform",
+    "example": "The airline will notify all passengers via SMS if the flight departure time changes.",
+    "exampleVi": "Hãng hàng không sẽ thông báo cho tất cả hành khách qua tin nhắn nếu giờ khởi hành chuyến bay thay đổi.",
     "oxfordExamples": [
       {
         "en": "The airline will notify all passengers via SMS if the flight departure time changes.",
@@ -3768,36 +3921,38 @@ window.DEFAULT_VOCAB_DATA = [
       "notify sb of sth",
       "formally notify",
       "promptly notify"
-    ]
-  },
-  {
-    "id": "w-86",
-    "word": "announce",
-    "phonetic": "/əˈnaʊns/",
-    "partOfSpeech": "verb",
-    "meaning": "thông báo rộng rãi cho nhiều người hoặc số lượng lớn đối tượng",
-    "definition": "to tell people something officially, publicly, or widely, especially a decision or plan",
-    "example": "The university president stepped up to the podium to announce the groundbreaking research discovery.",
-    "exampleVi": "Hiệu trưởng trường đại học bước lên bục giảng để thông báo/công bố phát hiện nghiên cứu mang tính đột phá.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The airline will ........ all passengers via SMS if the flight departure time changes.",
+    "quizAnswer": "notify",
+    "distractors": [
+      "hide",
+      "conceal",
+      "confuse"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251674685,
+    "dateAdded": 1790250085000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The university president stepped up to the podium to ........ the groundbreaking research discovery.",
-    "quizAnswer": "announce",
-    "distractors": [
-      "whisper",
-      "withhold",
-      "deny"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-86",
+    "docId": "086",
+    "word": "Announce",
+    "phonetic": "/əˈnaʊns/",
+    "partOfSpeech": "v",
+    "meaning": "công bố; thông báo công khai/rộng rãi",
+    "notes": "Khác “notify”: announce thường hướng đến công chúng hoặc nhiều người.",
+    "definition": "to tell people something officially, publicly, or widely, especially a decision or plan",
+    "example": "The university president stepped up to the podium to announce the groundbreaking research discovery.",
+    "exampleVi": "Hiệu trưởng trường đại học bước lên bục giảng để thông báo/công bố phát hiện nghiên cứu mang tính đột phá.",
     "oxfordExamples": [
       {
         "en": "The university president stepped up to the podium to announce the groundbreaking research discovery.",
@@ -3812,36 +3967,38 @@ window.DEFAULT_VOCAB_DATA = [
       "officially announce",
       "announce a decision / plan",
       "announce one's resignation"
-    ]
-  },
-  {
-    "id": "w-87",
-    "word": "period",
-    "phonetic": "/ˈpɪəriəd/",
-    "partOfSpeech": "noun",
-    "meaning": "thời gian có giới hạn (time là thời gian nói chung)",
-    "definition": "a particular length of time; or an era in history characterized by specific features",
-    "example": "The museum features an exquisite collection of pottery from the classical Hellenistic period.",
-    "exampleVi": "Bảo tàng trưng bày một bộ sưu tập gốm tinh xảo thuộc thời kỳ Hy Lạp hóa cổ điển.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The university president stepped up to the podium to ........ the groundbreaking research discovery.",
+    "quizAnswer": "announce",
+    "distractors": [
+      "whisper",
+      "withhold",
+      "deny"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251614685,
+    "dateAdded": 1790250086000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The museum features an exquisite collection of pottery from the classical Hellenistic ........",
-    "quizAnswer": "period",
-    "distractors": [
-      "climate",
-      "distance",
-      "altitude"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-87",
+    "docId": "087",
+    "word": "Period",
+    "phonetic": "/ˈpɪəriəd/",
+    "partOfSpeech": "n",
+    "meaning": "khoảng thời gian; giai đoạn",
+    "notes": "“Time” là khái niệm thời gian nói chung; “period” thường là một khoảng/giai đoạn xác định.",
+    "definition": "a particular length of time; or an era in history characterized by specific features",
+    "example": "The museum features an exquisite collection of pottery from the classical Hellenistic period.",
+    "exampleVi": "Bảo tàng trưng bày một bộ sưu tập gốm tinh xảo thuộc thời kỳ Hy Lạp hóa cổ điển.",
     "oxfordExamples": [
       {
         "en": "The museum features an exquisite collection of pottery from the classical Hellenistic period.",
@@ -3857,80 +4014,85 @@ window.DEFAULT_VOCAB_DATA = [
       "extended period",
       "trial period",
       "historic period"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The museum features an exquisite collection of pottery from the classical Hellenistic ........",
+    "quizAnswer": "period",
+    "distractors": [
+      "climate",
+      "distance",
+      "altitude"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250087000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-88",
-    "word": "Run into + sth",
-    "phonetic": "/rʌn ˈɪntə/",
+    "docId": "088",
+    "word": "Run into",
+    "phonetic": "/rʌn ˈɪntuː/",
     "partOfSpeech": "phrasal verb",
-    "meaning": "gặp vấn đề gì đó + n",
-    "definition": "to experience or meet with unexpected problems, difficulties, or obstacles",
-    "example": "Be careful when embarking on new startup ventures, as entrepreneurs often run into unexpected legal obstacles.",
-    "exampleVi": "Hãy cẩn trọng khi khởi nghiệp, bởi vì các doanh nhân thường gặp phải những trở ngại pháp lý bất ngờ.",
+    "meaning": "gặp tình cờ; gặp phải",
+    "notes": "Ví dụ: run into a friend / run into problems.",
+    "definition": "to meet someone by chance; to experience difficulties or unexpected problems",
+    "example": "I didn't expect to run into my former university professor at the airport.",
+    "exampleVi": "Tôi không ngờ lại tình cờ gặp lại giáo sư đại học cũ của mình ở sân bay.",
+    "oxfordExamples": [
+      {
+        "en": "I didn't expect to run into my former university professor at the airport.",
+        "vi": "Tôi không ngờ lại tình cờ gặp lại giáo sư đại học cũ của mình ở sân bay."
+      },
+      {
+        "en": "The startup ran into severe financial problems during its first year.",
+        "vi": "Công ty khởi nghiệp đã gặp phải những khó khăn tài chính nghiêm trọng trong năm đầu tiên."
+      }
+    ],
+    "collocations": [
+      "run into somebody",
+      "run into trouble",
+      "run into problems",
+      "run into difficulties"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I did not expect to ........ an old school friend while waiting at the departure gate.",
+    "quizAnswer": "run into",
+    "distractors": [
+      "look after",
+      "give up on",
+      "get away with"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251554685,
+    "dateAdded": 1790250088000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Be careful when embarking on new startup ventures, as entrepreneurs often ........ unexpected legal obstacles.",
-    "quizAnswer": "run into",
-    "distractors": [
-      "look after",
-      "give up",
-      "take over"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "Be careful when embarking on new startup ventures, as entrepreneurs often run into unexpected legal obstacles.",
-        "vi": "Hãy cẩn trọng khi dấn thân vào các dự án khởi nghiệp mới, bởi các nhà sáng lập thường gặp phải những trở ngại pháp lý bất ngờ."
-      },
-      {
-        "en": "The project ran into financial difficulties halfway through development.",
-        "vi": "Dự án đã gặp phải những khó khăn tài chính ngay giữa chặng đường phát triển."
-      }
-    ],
-    "collocations": [
-      "run into problems / trouble",
-      "run into debt",
-      "run into someone (tình cờ gặp)"
     ]
   },
   {
     "id": "w-89",
-    "word": "seems",
+    "docId": "089",
+    "word": "Seem",
     "phonetic": "/siːmz/",
-    "partOfSpeech": "verb",
-    "meaning": "có vẻ như (coi 1 thứ gì đó)",
+    "partOfSpeech": "v",
+    "meaning": "có vẻ; dường như",
+    "notes": "“Seems” là dạng ngôi thứ ba số ít.",
     "definition": "to give the impression of being something; to appear to be true based on available evidence",
     "example": "Judging by the positive feedback from clients, the new marketing campaign seems very successful.",
     "exampleVi": "Đánh giá từ phản hồi tích cực của khách hàng, chiến dịch tiếp thị mới có vẻ như rất thành công.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790251494685,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "Judging by the positive feedback from clients, the new marketing campaign ........ very successful.",
-    "quizAnswer": "seems",
-    "distractors": [
-      "tastes",
-      "smells",
-      "listens"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "Judging by the positive feedback from clients, the new marketing campaign seems very successful.",
@@ -3946,36 +4108,38 @@ window.DEFAULT_VOCAB_DATA = [
       "seems to be",
       "as it seems",
       "seems unlikely"
-    ]
-  },
-  {
-    "id": "w-90",
-    "word": "ambitious",
-    "phonetic": "/æmˈbɪʃəs/",
-    "partOfSpeech": "adjective",
-    "meaning": "tham vong",
-    "definition": "having a strong determination to succeed, achieve fame, wealth, or power",
-    "example": "She is an ambitious young architect aiming to design sustainable green skyscrapers worldwide.",
-    "exampleVi": "Cô ấy là một kiến trúc sư trẻ đầy tham vọng và hoài bão hướng tới việc thiết kế các tòa nhà chọc trời xanh bền vững trên thế giới.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Judging by the positive feedback from clients, the new marketing campaign ........ very successful.",
+    "quizAnswer": "seems",
+    "distractors": [
+      "tastes",
+      "smells",
+      "listens"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251434685,
+    "dateAdded": 1790250089000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She is an ........ young architect aiming to design sustainable green skyscrapers worldwide.",
-    "quizAnswer": "ambitious",
-    "distractors": [
-      "lazy",
-      "passive",
-      "hesitant"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-90",
+    "docId": "090",
+    "word": "Ambitious",
+    "phonetic": "/æmˈbɪʃəs/",
+    "partOfSpeech": "adj",
+    "meaning": "tham vọng; có nhiều hoài bão",
+    "notes": "",
+    "definition": "having a strong determination to succeed, achieve fame, wealth, or power",
+    "example": "She is an ambitious young architect aiming to design sustainable green skyscrapers worldwide.",
+    "exampleVi": "Cô ấy là một kiến trúc sư trẻ đầy tham vọng và hoài bão hướng tới việc thiết kế các tòa nhà chọc trời xanh bền vững trên thế giới.",
     "oxfordExamples": [
       {
         "en": "She is an ambitious young architect aiming to design sustainable green skyscrapers worldwide.",
@@ -3990,36 +4154,38 @@ window.DEFAULT_VOCAB_DATA = [
       "highly ambitious",
       "ambitious plan / goal",
       "ambitious young professional"
-    ]
-  },
-  {
-    "id": "w-91",
-    "word": "tough",
-    "phonetic": "/tʌf/",
-    "partOfSpeech": "adjective",
-    "meaning": "tính cách cứng nhắc",
-    "definition": "difficult to do or deal with; strong and able to deal with hardship, pain, or problems",
-    "example": "The committee had to make several tough decisions regarding budget cuts across departments.",
-    "exampleVi": "Ủy ban đã phải đưa ra một số quyết định cứng rắn/khó khăn liên quan đến việc cắt giảm ngân sách các phòng ban.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She is an ........ young architect aiming to design sustainable green skyscrapers worldwide.",
+    "quizAnswer": "ambitious",
+    "distractors": [
+      "lazy",
+      "passive",
+      "hesitant"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251374685,
+    "dateAdded": 1790250090000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The committee had to make several ........ decisions regarding budget cuts across departments.",
-    "quizAnswer": "tough",
-    "distractors": [
-      "fragile",
-      "gentle",
-      "flexible"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-91",
+    "docId": "091",
+    "word": "Tough",
+    "phonetic": "/tʌf/",
+    "partOfSpeech": "adj",
+    "meaning": "khó khăn; cứng rắn; dẻo dai",
+    "notes": "Tùy ngữ cảnh, không đồng nghĩa hoàn toàn với “cứng nhắc”.",
+    "definition": "difficult to do or deal with; strong and able to deal with hardship, pain, or problems",
+    "example": "The committee had to make several tough decisions regarding budget cuts across departments.",
+    "exampleVi": "Ủy ban đã phải đưa ra một số quyết định cứng rắn/khó khăn liên quan đến việc cắt giảm ngân sách các phòng ban.",
     "oxfordExamples": [
       {
         "en": "The committee had to make several tough decisions regarding budget cuts across departments.",
@@ -4035,36 +4201,38 @@ window.DEFAULT_VOCAB_DATA = [
       "tough times",
       "tough customer",
       "tough stance"
-    ]
-  },
-  {
-    "id": "w-92",
-    "word": "determined",
-    "phonetic": "/dɪˈtɜːmɪnd/",
-    "partOfSpeech": "adjective",
-    "meaning": "quyết tâm",
-    "definition": "having made a firm decision to do something and firmly resolved not to let anything stop you",
-    "example": "Despite facing severe physical exhaustion, the marathon runner remained determined to cross the finish line.",
-    "exampleVi": "Dù kiệt sức nghiêm trọng về thể chất, vận động viên marathon vẫn quyết tâm vượt qua vạch đích.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The committee had to make several ........ decisions regarding budget cuts across departments.",
+    "quizAnswer": "tough",
+    "distractors": [
+      "fragile",
+      "gentle",
+      "flexible"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251314685,
+    "dateAdded": 1790250091000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Despite facing severe physical exhaustion, the marathon runner remained ........ to cross the finish line.",
-    "quizAnswer": "determined",
-    "distractors": [
-      "doubtful",
-      "indifferent",
-      "reluctant"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-92",
+    "docId": "092",
+    "word": "Determined",
+    "phonetic": "/dɪˈtɜːmɪnd/",
+    "partOfSpeech": "adj",
+    "meaning": "quyết tâm; kiên định",
+    "notes": "",
+    "definition": "having made a firm decision to do something and firmly resolved not to let anything stop you",
+    "example": "Despite facing severe physical exhaustion, the marathon runner remained determined to cross the finish line.",
+    "exampleVi": "Dù kiệt sức nghiêm trọng về thể chất, vận động viên marathon vẫn quyết tâm vượt qua vạch đích.",
     "oxfordExamples": [
       {
         "en": "Despite facing severe physical exhaustion, the marathon runner remained determined to cross the finish line.",
@@ -4079,36 +4247,38 @@ window.DEFAULT_VOCAB_DATA = [
       "determined to do sth",
       "grimly / fiercely determined",
       "determined effort"
-    ]
-  },
-  {
-    "id": "w-93",
-    "word": "Listed price",
-    "phonetic": "/ˈlɪstɪd praɪs/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "giá niêm yết",
-    "definition": "the official price of an item as stated in a catalog, price list, or on a shelf tag",
-    "example": "The car salesperson offered us a five percent discount below the official listed price.",
-    "exampleVi": "Người bán ô tô đã giảm giá năm phần trăm cho chúng tôi so với giá niêm yết chính thức.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Despite facing severe physical exhaustion, the marathon runner remained ........ to cross the finish line.",
+    "quizAnswer": "determined",
+    "distractors": [
+      "doubtful",
+      "indifferent",
+      "reluctant"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251254685,
+    "dateAdded": 1790250092000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The car salesperson offered us a five percent discount below the official ........",
-    "quizAnswer": "listed price",
-    "distractors": [
-      "hidden fee",
-      "shipping cost",
-      "minimum wage"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-93",
+    "docId": "093",
+    "word": "List price",
+    "phonetic": "/ˈlɪstɪd praɪs/",
+    "partOfSpeech": "n phrase",
+    "meaning": "giá niêm yết",
+    "notes": "“Listed price” có thể gặp, nhưng “list price” là cách dùng phổ biến.",
+    "definition": "the official price of an item as stated in a catalog, price list, or on a shelf tag",
+    "example": "The car salesperson offered us a five percent discount below the official listed price.",
+    "exampleVi": "Người bán ô tô đã giảm giá năm phần trăm cho chúng tôi so với giá niêm yết chính thức.",
     "oxfordExamples": [
       {
         "en": "The car salesperson offered us a five percent discount below the official listed price.",
@@ -4123,36 +4293,38 @@ window.DEFAULT_VOCAB_DATA = [
       "below the listed price",
       "official listed price",
       "retail listed price"
-    ]
-  },
-  {
-    "id": "w-94",
-    "word": "Reference price",
-    "phonetic": "/ˈrefrəns praɪs/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "giá tham khảo",
-    "definition": "a price that buyers use as a benchmark to evaluate whether a quoted price is attractive or fair",
-    "example": "Shoppers can consult the consumer bureau's reference price to verify if market rates are fair.",
-    "exampleVi": "Người mua hàng có thể tham khảo mức giá tham khảo của cục người tiêu dùng để xác minh xem giá thị trường có hợp lý hay không.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The car salesperson offered us a five percent discount below the official ........",
+    "quizAnswer": "listed price",
+    "distractors": [
+      "hidden fee",
+      "shipping cost",
+      "minimum wage"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251194685,
+    "dateAdded": 1790250093000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Shoppers can consult the consumer bureau's ........ to verify if market rates are fair.",
-    "quizAnswer": "reference price",
-    "distractors": [
-      "retail receipt",
-      "shipping fee",
-      "tax bracket"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-94",
+    "docId": "094",
+    "word": "Reference price",
+    "phonetic": "/ˈrefrəns praɪs/",
+    "partOfSpeech": "n phrase",
+    "meaning": "giá tham khảo",
+    "notes": "",
+    "definition": "a price that buyers use as a benchmark to evaluate whether a quoted price is attractive or fair",
+    "example": "Shoppers can consult the consumer bureau's reference price to verify if market rates are fair.",
+    "exampleVi": "Người mua hàng có thể tham khảo mức giá tham khảo của cục người tiêu dùng để xác minh xem giá thị trường có hợp lý hay không.",
     "oxfordExamples": [
       {
         "en": "Shoppers can consult the consumer bureau's reference price to verify if market rates are fair.",
@@ -4166,36 +4338,38 @@ window.DEFAULT_VOCAB_DATA = [
     "collocations": [
       "internal / external reference price",
       "benchmark reference price"
-    ]
-  },
-  {
-    "id": "w-95",
-    "word": "Dial tone",
-    "phonetic": "/ˈdaɪəl təʊn/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "âm thanh quay số",
-    "definition": "the continuous humming sound that indicates a telephone line is working and ready for a number to be dialed",
-    "example": "Before you begin keying in an international number, wait until you hear a clear dial tone.",
-    "exampleVi": "Trước khi bạn bắt đầu bấm số quốc tế, hãy đợi cho đến khi nghe thấy âm thanh quay số rõ ràng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Shoppers can consult the consumer bureau's ........ to verify if market rates are fair.",
+    "quizAnswer": "reference price",
+    "distractors": [
+      "retail receipt",
+      "shipping fee",
+      "tax bracket"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251134685,
+    "dateAdded": 1790250094000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Before you begin keying in an international number, wait until you hear a clear ........",
-    "quizAnswer": "dial tone",
-    "distractors": [
-      "alarm bell",
-      "ring melody",
-      "busy signal"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-95",
+    "docId": "095",
+    "word": "Dial tone",
+    "phonetic": "/ˈdaɪəl təʊn/",
+    "partOfSpeech": "n phrase",
+    "meaning": "âm báo sẵn sàng quay số",
+    "notes": "Âm nghe thấy trước khi bấm số trên điện thoại bàn truyền thống.",
+    "definition": "the continuous humming sound that indicates a telephone line is working and ready for a number to be dialed",
+    "example": "Before you begin keying in an international number, wait until you hear a clear dial tone.",
+    "exampleVi": "Trước khi bạn bắt đầu bấm số quốc tế, hãy đợi cho đến khi nghe thấy âm thanh quay số rõ ràng.",
     "oxfordExamples": [
       {
         "en": "Before you begin keying in an international number, wait until you hear a clear dial tone.",
@@ -4210,80 +4384,85 @@ window.DEFAULT_VOCAB_DATA = [
       "hear a dial tone",
       "wait for a dial tone",
       "continuous dial tone"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Before you begin keying in an international number, wait until you hear a clear ........",
+    "quizAnswer": "dial tone",
+    "distractors": [
+      "alarm bell",
+      "ring melody",
+      "busy signal"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250095000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-96",
-    "word": "any favours of him",
-    "phonetic": "/ˈeni ˈfeɪvəz əv hɪm/",
-    "partOfSpeech": "phrase",
-    "meaning": "sự giúp đỡ",
-    "definition": "asking for acts of kindness, helpful deeds, or special consideration from somebody",
-    "example": "She was too independent to ask for any favours of him, even when facing severe hardship.",
-    "exampleVi": "Cô ấy quá tự lập nên không muốn nhờ vả bất kỳ sự giúp đỡ nào từ anh ta, ngay cả khi gặp muôn vàn khó khăn.",
+    "docId": "096",
+    "word": "Favour",
+    "phonetic": "/ˈfeɪvə(r)/",
+    "partOfSpeech": "noun",
+    "meaning": "sự giúp đỡ; ân huệ",
+    "notes": "Ví dụ tự nhiên: ask him for a favour. US spelling: favor.",
+    "definition": "an act of kindness that you do for someone; approval or support for somebody or something",
+    "example": "Could you do me a favour and help me carry these heavy boxes upstairs?",
+    "exampleVi": "Bạn có thể giúp tôi một việc và khuân giúp mấy chiếc hộp nặng này lên tầng được không?",
+    "oxfordExamples": [
+      {
+        "en": "Could you do me a favour and help me carry these heavy boxes upstairs?",
+        "vi": "Bạn có thể giúp tôi một việc và khuân giúp mấy chiếc hộp nặng này lên tầng được không?"
+      },
+      {
+        "en": "She was too proud to ask for any favours from her wealthy relatives.",
+        "vi": "Cô ấy quá tự tôn nên không muốn xin xỏ bất kỳ ân huệ nào từ những người họ hàng giàu có."
+      }
+    ],
+    "collocations": [
+      "do sb a favour",
+      "ask a favour of sb",
+      "in favour of",
+      "return the favour"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Could you please do me a quick ........ and check if the conference room is available?",
+    "quizAnswer": "favour",
+    "distractors": [
+      "damage",
+      "complaint",
+      "threat"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790251074685,
+    "dateAdded": 1790250096000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She was too independent to ask for ........, even when facing severe hardship.",
-    "quizAnswer": "any favours of him",
-    "distractors": [
-      "permission from us",
-      "advice on art",
-      "tickets to movies"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "She was too independent to ask for any favours of him, even when facing severe hardship.",
-        "vi": "Cô ấy quá độc lập để xin xỏ bất kỳ sự giúp đỡ nào từ anh ta, ngay cả khi đối mặt với gian khó trăm bề."
-      },
-      {
-        "en": "He never expected any favours from his influential relatives.",
-        "vi": "Anh ấy không bao giờ trông chờ bất kỳ ân huệ nào từ những người họ hàng có tầm ảnh hưởng."
-      }
-    ],
-    "collocations": [
-      "ask a favour of sb",
-      "do sb a favour",
-      "return the favour"
     ]
   },
   {
     "id": "w-97",
-    "word": "across the street",
+    "docId": "097",
+    "word": "Across the street",
     "phonetic": "/əˈkrɒs ðə striːt/",
-    "partOfSpeech": "prepositional phrase",
-    "meaning": "hàng xóm đối diện",
+    "partOfSpeech": "phrase",
+    "meaning": "ở/bên kia đường",
+    "notes": "Không tự động có nghĩa là “hàng xóm đối diện”.",
     "definition": "on the opposite side of the road or street",
     "example": "Our family friendly neighbors live right across the street, just a few meters away.",
     "exampleVi": "Những người hàng xóm thân thiện của gia đình chúng tôi sống ngay ở phía bên kia đường/đối diện, chỉ cách vài mét.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790251014685,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "Our family friendly neighbors live right ........, just a few meters away.",
-    "quizAnswer": "across the street",
-    "distractors": [
-      "inside the attic",
-      "behind the wall",
-      "under the deck"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "Our friendly neighbors live right across the street, just a few meters away.",
@@ -4298,80 +4477,84 @@ window.DEFAULT_VOCAB_DATA = [
       "just across the street",
       "walk across the street",
       "live across the street"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Our family friendly neighbors live right ........, just a few meters away.",
+    "quizAnswer": "across the street",
+    "distractors": [
+      "inside the attic",
+      "behind the wall",
+      "under the deck"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250097000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   },
   {
     "id": "w-98",
-    "word": "Fill + out",
+    "docId": "098",
+    "word": "Fill out",
     "phonetic": "/fɪl aʊt/",
     "partOfSpeech": "phrasal verb",
-    "meaning": "điền vào (đọc là fill lốt)",
-    "definition": "to complete a printed form or official questionnaire by writing required information in the spaces provided",
-    "example": "All international travelers are required to fill out a customs declaration upon arrival.",
-    "exampleVi": "Tất cả du khách quốc tế đều bắt buộc phải điền vào tờ khai hải quan khi đến nơi.",
+    "meaning": "điền vào; hoàn thành biểu mẫu",
+    "notes": "Ví dụ: fill out a form.",
+    "definition": "to complete a form or official document by writing information on it",
+    "example": "Please fill out this registration form before entering the examination room.",
+    "exampleVi": "Vui lòng điền vào biểu mẫu đăng ký này trước khi vào phòng thi.",
+    "oxfordExamples": [
+      {
+        "en": "Please fill out this registration form before entering the examination room.",
+        "vi": "Vui lòng điền vào biểu mẫu đăng ký này trước khi vào phòng thi."
+      },
+      {
+        "en": "Every international passenger must fill out a customs declaration upon arrival.",
+        "vi": "Mọi hành khách quốc tế đều phải điền tờ khai hải quan khi đến nơi."
+      }
+    ],
+    "collocations": [
+      "fill out a form",
+      "fill out an application",
+      "fill out a questionnaire"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "All applicants are strictly required to ........ the visa application in black ink.",
+    "quizAnswer": "fill out",
+    "distractors": [
+      "cross out",
+      "tear out",
+      "read out"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250954685,
+    "dateAdded": 1790250098000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "All international travelers are required to ........ a customs declaration upon arrival.",
-    "quizAnswer": "fill out",
-    "distractors": [
-      "cross off",
-      "tear up",
-      "throw away"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "All international travelers are required to fill out a customs declaration upon arrival.",
-        "vi": "Tất cả các du khách quốc tế đều phải điền vào tờ khai hải quan khi nhập cảnh."
-      },
-      {
-        "en": "Please fill out this registration form in capital letters.",
-        "vi": "Vui lòng điền vào mẫu đơn đăng ký này bằng chữ in hoa."
-      }
-    ],
-    "collocations": [
-      "fill out a form / application",
-      "fill out a survey",
-      "fill in / fill out"
     ]
   },
   {
     "id": "w-99",
-    "word": "certainly",
+    "docId": "099",
+    "word": "Certainly",
     "phonetic": "/ˈsɜːtnli/",
-    "partOfSpeech": "adverb",
-    "meaning": "chắc chắn",
+    "partOfSpeech": "adv",
+    "meaning": "chắc chắn; tất nhiên",
+    "notes": "",
     "definition": "without doubt; definitely; used to give a strong affirmative response",
     "example": "If you prepare your arguments thoroughly, you will certainly impress the judging panel.",
     "exampleVi": "Nếu bạn chuẩn bị kỹ lưỡng các luận điểm của mình, bạn chắc chắn sẽ gây ấn tượng với ban giám khảo.",
-    "audioUrl": "",
-    "isNew": false,
-    "isStarred": false,
-    "isMastered": false,
-    "quizCount": 0,
-    "correctCount": 0,
-    "dateAdded": 1790250894685,
-    "tags": [
-      "listening",
-      "google-doc"
-    ],
-    "gapSentence": "If you prepare your arguments thoroughly, you will ........ impress the judging panel.",
-    "quizAnswer": "certainly",
-    "distractors": [
-      "barely",
-      "rarely",
-      "hardly"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
     "oxfordExamples": [
       {
         "en": "If you prepare your arguments thoroughly, you will certainly impress the judging panel.",
@@ -4386,36 +4569,38 @@ window.DEFAULT_VOCAB_DATA = [
       "almost certainly",
       "most certainly",
       "certainly not"
-    ]
-  },
-  {
-    "id": "w-100",
-    "word": "a flexible sort of person",
-    "phonetic": "/ə ˈfleksəbl sɔːt əv ˈpɜːsn/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "một kiểu người linh hoạt",
-    "definition": "an individual who is open-minded and readily adapts to new circumstances or varied roles",
-    "example": "In our fast-paced company culture, we need a flexible sort of person who adapts effortlessly to changes.",
-    "exampleVi": "Trong văn hóa công ty phát triển nhanh của chúng tôi, chúng tôi cần một kiểu người linh hoạt thích nghi dễ dàng với các thay đổi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "If you prepare your arguments thoroughly, you will ........ impress the judging panel.",
+    "quizAnswer": "certainly",
+    "distractors": [
+      "barely",
+      "rarely",
+      "hardly"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250834685,
+    "dateAdded": 1790250099000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "In our fast-paced company culture, we need ........ who adapts effortlessly to changes.",
-    "quizAnswer": "a flexible sort of person",
-    "distractors": [
-      "a stubborn character",
-      "an aggressive rival",
-      "a timid bystander"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-100",
+    "docId": "100",
+    "word": "A flexible sort of person",
+    "phonetic": "/ə ˈfleksəbl sɔːt əv ˈpɜːsn/",
+    "partOfSpeech": "n phrase",
+    "meaning": "một kiểu người linh hoạt",
+    "notes": "Mẫu: a + adjective + sort of person.",
+    "definition": "an individual who is open-minded and readily adapts to new circumstances or varied roles",
+    "example": "In our fast-paced company culture, we need a flexible sort of person who adapts effortlessly to changes.",
+    "exampleVi": "Trong văn hóa công ty phát triển nhanh của chúng tôi, chúng tôi cần một kiểu người linh hoạt thích nghi dễ dàng với các thay đổi.",
     "oxfordExamples": [
       {
         "en": "In our fast-paced company culture, we need a flexible sort of person who adapts effortlessly to changes.",
@@ -4430,36 +4615,84 @@ window.DEFAULT_VOCAB_DATA = [
       "a flexible person",
       "flexible mindset",
       "adaptable person"
-    ]
-  },
-  {
-    "id": "w-101",
-    "word": "grin from ear to ear",
-    "phonetic": "/ɡrɪn frəm ɪə tu ɪə/",
-    "partOfSpeech": "idiom",
-    "meaning": "cười toe toét tới tận mang tai",
-    "definition": "to smile very broadly and enthusiastically because you are exceptionally happy or amused",
-    "example": "When she opened her acceptance letter from Oxford, she couldn't help but grin from ear to ear.",
-    "exampleVi": "Khi mở lá thư trúng tuyển từ Oxford, cô không kìm được nụ cười toe toét tới tận mang tai vì sung sướng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "In our fast-paced company culture, we need ........ who adapts effortlessly to changes.",
+    "quizAnswer": "a flexible sort of person",
+    "distractors": [
+      "a stubborn character",
+      "an aggressive rival",
+      "a timid bystander"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250774685,
+    "dateAdded": 1790250100000,
     "tags": [
       "listening",
       "google-doc"
+    ]
+  },
+  {
+    "id": "w-101",
+    "docId": "101",
+    "word": "A + adjective + sort of person",
+    "phonetic": "/ə ... sɔːt əv ˈpɜːsn/",
+    "partOfSpeech": "pattern",
+    "meaning": "một kiểu người có tính chất…",
+    "notes": "Ví dụ: a friendly sort of person.",
+    "definition": "a grammatical structure used in everyday spoken English to describe someone's character, personality, or temperament",
+    "example": "He has always been a calm, friendly sort of person who gets along well with everyone.",
+    "exampleVi": "Anh ấy luôn là một kiểu người điềm tĩnh, thân thiện, hòa đồng tốt với mọi người.",
+    "oxfordExamples": [
+      {
+        "en": "He has always been a calm, friendly sort of person who gets along well with everyone.",
+        "vi": "Anh ấy luôn là một kiểu người điềm tĩnh, thân thiện, hòa đồng tốt với mọi người."
+      },
+      {
+        "en": "For this sales representative position, we need a flexible sort of person.",
+        "vi": "Đối với vị trí đại diện bán hàng này, chúng tôi cần một kiểu người linh hoạt."
+      }
     ],
-    "gapSentence": "When she opened her acceptance letter from Oxford, she couldn't help but ........",
-    "quizAnswer": "grin from ear to ear",
-    "distractors": [
-      "shed bitter tears",
-      "shake with anger",
-      "look down in sorrow"
+    "collocations": [
+      "a flexible sort of person",
+      "a friendly sort of person",
+      "a quiet sort of person"
     ],
     "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Our new team leader is a patient, open-minded ........ who listens attentively to everyone.",
+    "quizAnswer": "sort of person",
+    "distractors": [
+      "piece of equipment",
+      "matter of time",
+      "stroke of luck"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250101000,
+    "tags": [
+      "listening",
+      "google-doc"
+    ]
+  },
+  {
+    "id": "w-102",
+    "docId": "102",
+    "word": "Grin from ear to ear",
+    "phonetic": "/ɡrɪn frəm ɪə tu ɪə/",
+    "partOfSpeech": "idiom",
+    "meaning": "cười toe toét; cười rất tươi",
+    "notes": "Dạng thường gặp: grinning from ear to ear.",
+    "definition": "to smile very broadly and enthusiastically because you are exceptionally happy or amused",
+    "example": "When she opened her acceptance letter from Oxford, she couldn't help but grin from ear to ear.",
+    "exampleVi": "Khi mở lá thư trúng tuyển từ Oxford, cô không kìm được nụ cười toe toét tới tận mang tai vì sung sướng.",
     "oxfordExamples": [
       {
         "en": "When she opened her acceptance letter from Oxford, she couldn't help but grin from ear to ear.",
@@ -4474,36 +4707,38 @@ window.DEFAULT_VOCAB_DATA = [
       "grin broadly",
       "smiling from ear to ear",
       "broad grin"
-    ]
-  },
-  {
-    "id": "w-102",
-    "word": "weekend",
-    "phonetic": "/ˌwiːkˈend/",
-    "partOfSpeech": "noun",
-    "meaning": "cuối tuần",
-    "definition": "Saturday and Sunday, especially as a time for leisure, relaxation, or recreation",
-    "example": "They spent a relaxing weekend hiking through the scenic countryside and taking photographs.",
-    "exampleVi": "Họ đã trải qua một kỳ nghỉ cuối tuần thư thái đi bộ đường dài ngắm cảnh đồng quê và chụp ảnh.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "When she opened her acceptance letter from Oxford, she couldn't help but ........",
+    "quizAnswer": "grin from ear to ear",
+    "distractors": [
+      "shed bitter tears",
+      "shake with anger",
+      "look down in sorrow"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250714685,
+    "dateAdded": 1790250102000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "They spent a relaxing ........ hiking through the scenic countryside and taking photographs.",
-    "quizAnswer": "weekend",
-    "distractors": [
-      "midday",
-      "morning",
-      "weekday"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-103",
+    "docId": "103",
+    "word": "Weekend",
+    "phonetic": "/ˌwiːkˈend/",
+    "partOfSpeech": "n",
+    "meaning": "cuối tuần",
+    "notes": "",
+    "definition": "Saturday and Sunday, especially as a time for leisure, relaxation, or recreation",
+    "example": "They spent a relaxing weekend hiking through the scenic countryside and taking photographs.",
+    "exampleVi": "Họ đã trải qua một kỳ nghỉ cuối tuần thư thái đi bộ đường dài ngắm cảnh đồng quê và chụp ảnh.",
     "oxfordExamples": [
       {
         "en": "They spent a relaxing weekend hiking through the scenic countryside and taking photographs.",
@@ -4519,36 +4754,38 @@ window.DEFAULT_VOCAB_DATA = [
       "spend the weekend",
       "long weekend",
       "weekend getaway"
-    ]
-  },
-  {
-    "id": "w-103",
-    "word": "Weekends",
-    "phonetic": "/ˌwiːkˈendz/",
-    "partOfSpeech": "noun (plural) / adverb",
-    "meaning": "1 tuần",
-    "definition": "Saturdays and Sundays viewed collectively as regular non-working days",
-    "example": "Most medical clinics in the suburbs are closed on weekends, except for emergency triage.",
-    "exampleVi": "Hầu hết các phòng khám y tế ở ngoại ô đều đóng cửa vào các ngày cuối tuần, ngoại trừ phòng cấp cứu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "They spent a relaxing ........ hiking through the scenic countryside and taking photographs.",
+    "quizAnswer": "weekend",
+    "distractors": [
+      "midday",
+      "morning",
+      "weekday"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250654685,
+    "dateAdded": 1790250103000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Most medical clinics in the suburbs are closed on ........, except for emergency triage.",
-    "quizAnswer": "weekends",
-    "distractors": [
-      "mornings",
-      "midnight",
-      "centuries"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-104",
+    "docId": "104",
+    "word": "Weekends",
+    "phonetic": "/ˌwiːkˈendz/",
+    "partOfSpeech": "n",
+    "meaning": "các cuối tuần; vào cuối tuần (trong một số cách dùng)",
+    "notes": "“A week” mới có nghĩa là một tuần.",
+    "definition": "Saturdays and Sundays viewed collectively as regular non-working days",
+    "example": "Most medical clinics in the suburbs are closed on weekends, except for emergency triage.",
+    "exampleVi": "Hầu hết các phòng khám y tế ở ngoại ô đều đóng cửa vào các ngày cuối tuần, ngoại trừ phòng cấp cứu.",
     "oxfordExamples": [
       {
         "en": "Most medical clinics in the suburbs are closed on weekends, except for emergency triage.",
@@ -4563,36 +4800,38 @@ window.DEFAULT_VOCAB_DATA = [
       "open on weekends",
       "working weekends",
       "on weekends"
-    ]
-  },
-  {
-    "id": "w-104",
-    "word": "Friday",
-    "phonetic": "/ˈfraɪdeɪ/",
-    "partOfSpeech": "noun",
-    "meaning": "thứ sáu",
-    "definition": "the day of the week between Thursday and Saturday, marking the end of the traditional work week",
-    "example": "Our software team deploys new software releases every Friday afternoon before closing.",
-    "exampleVi": "Đội ngũ phần mềm của chúng tôi phát hành các bản cập nhật mới vào mỗi chiều thứ Sáu trước giờ tan sở.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Most medical clinics in the suburbs are closed on ........, except for emergency triage.",
+    "quizAnswer": "weekends",
+    "distractors": [
+      "mornings",
+      "midnight",
+      "centuries"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250594685,
+    "dateAdded": 1790250104000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Our software team deploys new software releases every ........ afternoon before closing.",
-    "quizAnswer": "Friday",
-    "distractors": [
-      "yesterday",
-      "tomorrow",
-      "season"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-105",
+    "docId": "105",
+    "word": "Friday",
+    "phonetic": "/ˈfraɪdeɪ/",
+    "partOfSpeech": "n",
+    "meaning": "thứ Sáu",
+    "notes": "",
+    "definition": "the day of the week between Thursday and Saturday, marking the end of the traditional work week",
+    "example": "Our software team deploys new software releases every Friday afternoon before closing.",
+    "exampleVi": "Đội ngũ phần mềm của chúng tôi phát hành các bản cập nhật mới vào mỗi chiều thứ Sáu trước giờ tan sở.",
     "oxfordExamples": [
       {
         "en": "Our software team deploys new software releases every Friday afternoon before closing.",
@@ -4608,36 +4847,38 @@ window.DEFAULT_VOCAB_DATA = [
       "Friday night",
       "Black Friday",
       "Good Friday"
-    ]
-  },
-  {
-    "id": "w-105",
-    "word": "Saturday",
-    "phonetic": "/ˈsætədeɪ/",
-    "partOfSpeech": "noun",
-    "meaning": "thứ bảy",
-    "definition": "the day of the week between Friday and Sunday, traditionally the first day of the weekend",
-    "example": "The vibrant open-air flower market takes place in the town square every Saturday morning.",
-    "exampleVi": "Chợ hoa ngoài trời nhộn nhịp diễn ra tại quảng trường thị trấn vào mỗi sáng thứ Bảy.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Our software team deploys new software releases every ........ afternoon before closing.",
+    "quizAnswer": "Friday",
+    "distractors": [
+      "yesterday",
+      "tomorrow",
+      "season"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250534685,
+    "dateAdded": 1790250105000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The vibrant open-air flower market takes place in the town square every ........ morning.",
-    "quizAnswer": "Saturday",
-    "distractors": [
-      "decade",
-      "holiday",
-      "minute"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-106",
+    "docId": "106",
+    "word": "Saturday",
+    "phonetic": "/ˈsætədeɪ/",
+    "partOfSpeech": "n",
+    "meaning": "thứ Bảy",
+    "notes": "",
+    "definition": "the day of the week between Friday and Sunday, traditionally the first day of the weekend",
+    "example": "The vibrant open-air flower market takes place in the town square every Saturday morning.",
+    "exampleVi": "Chợ hoa ngoài trời nhộn nhịp diễn ra tại quảng trường thị trấn vào mỗi sáng thứ Bảy.",
     "oxfordExamples": [
       {
         "en": "The vibrant open-air flower market takes place in the town square every Saturday morning.",
@@ -4652,36 +4893,38 @@ window.DEFAULT_VOCAB_DATA = [
       "on Saturday",
       "Saturday morning",
       "Saturday night"
-    ]
-  },
-  {
-    "id": "w-106",
-    "word": "muscle",
-    "phonetic": "/ˈmʌsl/",
-    "partOfSpeech": "noun",
-    "meaning": "cơ bắp",
-    "definition": "a piece of body tissue that can contract and relax, producing movement in bones and joints",
-    "example": "Lifting weights and consuming sufficient protein promotes lean muscle growth and repair.",
-    "exampleVi": "Nâng tạ và nạp đủ protein giúp thúc đẩy sự phát triển và phục hồi cơ bắp nạc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The vibrant open-air flower market takes place in the town square every ........ morning.",
+    "quizAnswer": "Saturday",
+    "distractors": [
+      "decade",
+      "holiday",
+      "minute"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250474685,
+    "dateAdded": 1790250106000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Lifting weights and consuming sufficient protein promotes lean ........ growth and repair.",
-    "quizAnswer": "muscle",
-    "distractors": [
-      "bone",
-      "skin",
-      "blood"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-107",
+    "docId": "107",
+    "word": "Muscle",
+    "phonetic": "/ˈmʌsl/",
+    "partOfSpeech": "n",
+    "meaning": "cơ bắp; cơ",
+    "notes": "",
+    "definition": "a piece of body tissue that can contract and relax, producing movement in bones and joints",
+    "example": "Lifting weights and consuming sufficient protein promotes lean muscle growth and repair.",
+    "exampleVi": "Nâng tạ và nạp đủ protein giúp thúc đẩy sự phát triển và phục hồi cơ bắp nạc.",
     "oxfordExamples": [
       {
         "en": "Lifting weights and consuming sufficient protein promotes lean muscle growth and repair.",
@@ -4697,36 +4940,38 @@ window.DEFAULT_VOCAB_DATA = [
       "muscle tissue / pain",
       "flex one's muscles",
       "pull a muscle"
-    ]
-  },
-  {
-    "id": "w-107",
-    "word": "chest pain",
-    "phonetic": "/tʃest peɪn/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "đau ngực",
-    "definition": "discomfort or ache felt in any region of the chest, requiring immediate medical evaluation",
-    "example": "Anyone suffering from sudden severe chest pain should immediately contact emergency services.",
-    "exampleVi": "Bất kỳ ai bị cơn đau ngực dữ dội đột ngột nên liên hệ ngay với dịch vụ cấp cứu.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Lifting weights and consuming sufficient protein promotes lean ........ growth and repair.",
+    "quizAnswer": "muscle",
+    "distractors": [
+      "bone",
+      "skin",
+      "blood"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250414685,
+    "dateAdded": 1790250107000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Anyone suffering from sudden severe ........ should immediately contact emergency services.",
-    "quizAnswer": "chest pain",
-    "distractors": [
-      "throat itch",
-      "knee bruise",
-      "hair loss"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-108",
+    "docId": "108",
+    "word": "Chest pain",
+    "phonetic": "/tʃest peɪn/",
+    "partOfSpeech": "n phrase",
+    "meaning": "đau ngực",
+    "notes": "",
+    "definition": "discomfort or ache felt in any region of the chest, requiring immediate medical evaluation",
+    "example": "Anyone suffering from sudden severe chest pain should immediately contact emergency services.",
+    "exampleVi": "Bất kỳ ai bị cơn đau ngực dữ dội đột ngột nên liên hệ ngay với dịch vụ cấp cứu.",
     "oxfordExamples": [
       {
         "en": "Anyone suffering from sudden severe chest pain should immediately contact emergency services.",
@@ -4741,36 +4986,38 @@ window.DEFAULT_VOCAB_DATA = [
       "sharp / acute chest pain",
       "complain of chest pain",
       "relieve chest pain"
-    ]
-  },
-  {
-    "id": "w-108",
-    "word": "Properly",
-    "phonetic": "/ˈprɒpəli/",
-    "partOfSpeech": "adverb",
-    "meaning": "một cách bình thường",
-    "definition": "in a correct, accurate, suitable, or satisfactory way",
-    "example": "Make sure you assemble the safety harness properly before attempting the rock climb.",
-    "exampleVi": "Hãy đảm bảo bạn lắp ráp dây đai an toàn đúng cách/bình thường trước khi thử leo núi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Anyone suffering from sudden severe ........ should immediately contact emergency services.",
+    "quizAnswer": "chest pain",
+    "distractors": [
+      "throat itch",
+      "knee bruise",
+      "hair loss"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250354685,
+    "dateAdded": 1790250108000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Make sure you assemble the safety harness ........ before attempting the rock climb.",
-    "quizAnswer": "properly",
-    "distractors": [
-      "poorly",
-      "carelessly",
-      "clumsily"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-109",
+    "docId": "109",
+    "word": "Properly",
+    "phonetic": "/ˈprɒpəli/",
+    "partOfSpeech": "adv",
+    "meaning": "đúng cách; đàng hoàng; đúng mức",
+    "notes": "Không đơn thuần là “một cách bình thường”.",
+    "definition": "in a correct, accurate, suitable, or satisfactory way",
+    "example": "Make sure you assemble the safety harness properly before attempting the rock climb.",
+    "exampleVi": "Hãy đảm bảo bạn lắp ráp dây đai an toàn đúng cách/bình thường trước khi thử leo núi.",
     "oxfordExamples": [
       {
         "en": "Make sure you assemble the safety harness properly before attempting the rock climb.",
@@ -4785,36 +5032,38 @@ window.DEFAULT_VOCAB_DATA = [
       "function / work properly",
       "be properly trained",
       "properly speaking"
-    ]
-  },
-  {
-    "id": "w-109",
-    "word": "Regularly",
-    "phonetic": "/ˈreɡjələli/",
-    "partOfSpeech": "adverb",
-    "meaning": "một cách đều đặn",
-    "definition": "at regular intervals or with consistent frequency; repeatedly",
-    "example": "Cardiologists strongly recommend that adults exercise regularly to maintain a healthy heart.",
-    "exampleVi": "Các bác sĩ tim mạch đặc biệt khuyên người lớn nên tập thể dục đều đặn để duy trì một trái tim khỏe mạnh.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Make sure you assemble the safety harness ........ before attempting the rock climb.",
+    "quizAnswer": "properly",
+    "distractors": [
+      "poorly",
+      "carelessly",
+      "clumsily"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250294685,
+    "dateAdded": 1790250109000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Cardiologists strongly recommend that adults exercise ........ to maintain a healthy heart.",
-    "quizAnswer": "regularly",
-    "distractors": [
-      "seldom",
-      "briefly",
-      "rarely"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-110",
+    "docId": "110",
+    "word": "Regularly",
+    "phonetic": "/ˈreɡjələli/",
+    "partOfSpeech": "adv",
+    "meaning": "đều đặn; thường xuyên theo chu kỳ",
+    "notes": "",
+    "definition": "at regular intervals or with consistent frequency; repeatedly",
+    "example": "Cardiologists strongly recommend that adults exercise regularly to maintain a healthy heart.",
+    "exampleVi": "Các bác sĩ tim mạch đặc biệt khuyên người lớn nên tập thể dục đều đặn để duy trì một trái tim khỏe mạnh.",
     "oxfordExamples": [
       {
         "en": "Cardiologists strongly recommend that adults exercise regularly to maintain a healthy heart.",
@@ -4829,36 +5078,38 @@ window.DEFAULT_VOCAB_DATA = [
       "exercise regularly",
       "update regularly",
       "meet regularly"
-    ]
-  },
-  {
-    "id": "w-110",
-    "word": "ingredients",
-    "phonetic": "/ɪnˈɡriːdiənts/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "nguyên liệu",
-    "definition": "the foods, spices, or substances that are combined together to make a particular dish",
-    "example": "Fresh sweet basil and extra virgin olive oil are essential ingredients in authentic pesto sauce.",
-    "exampleVi": "Húng quế tây tươi và dầu ô liu nguyên chất là những nguyên liệu thiết yếu trong sốt pesto chuẩn vị.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Cardiologists strongly recommend that adults exercise ........ to maintain a healthy heart.",
+    "quizAnswer": "regularly",
+    "distractors": [
+      "seldom",
+      "briefly",
+      "rarely"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250234685,
+    "dateAdded": 1790250110000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Fresh sweet basil and extra virgin olive oil are essential ........ in authentic pesto sauce.",
-    "quizAnswer": "ingredients",
-    "distractors": [
-      "utensils",
-      "appliances",
-      "packages"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-111",
+    "docId": "111",
+    "word": "Ingredient",
+    "phonetic": "/ɪnˈɡriːdiənts/",
+    "partOfSpeech": "n",
+    "meaning": "nguyên liệu; thành phần",
+    "notes": "Plural: ingredients.",
+    "definition": "the foods, spices, or substances that are combined together to make a particular dish",
+    "example": "Fresh sweet basil and extra virgin olive oil are essential ingredients in authentic pesto sauce.",
+    "exampleVi": "Húng quế tây tươi và dầu ô liu nguyên chất là những nguyên liệu thiết yếu trong sốt pesto chuẩn vị.",
     "oxfordExamples": [
       {
         "en": "Fresh sweet basil and extra virgin olive oil are essential ingredients in authentic pesto sauce.",
@@ -4873,36 +5124,38 @@ window.DEFAULT_VOCAB_DATA = [
       "fresh ingredients",
       "list of ingredients",
       "key / natural ingredients"
-    ]
-  },
-  {
-    "id": "w-111",
-    "word": "Antibiotics",
-    "phonetic": "/ˌæntibaɪˈɒtɪks/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "thuốc kháng sinh",
-    "definition": "medicines that destroy bacteria or prevent them from growing, treating bacterial infections",
-    "example": "The doctor prescribed a full course of antibiotics to eliminate the acute bacterial infection.",
-    "exampleVi": "Bác sĩ đã kê một đợt thuốc kháng sinh đầy đủ để tiêu diệt ổ nhiễm trùng vi khuẩn cấp tính.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Fresh sweet basil and extra virgin olive oil are essential ........ in authentic pesto sauce.",
+    "quizAnswer": "ingredients",
+    "distractors": [
+      "utensils",
+      "appliances",
+      "packages"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250174685,
+    "dateAdded": 1790250111000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The doctor prescribed a full course of ........ to eliminate the acute bacterial infection.",
-    "quizAnswer": "antibiotics",
-    "distractors": [
-      "cosmetics",
-      "painkillers",
-      "vitamins"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-112",
+    "docId": "112",
+    "word": "Antibiotic",
+    "phonetic": "/ˌæntibaɪˈɒtɪks/",
+    "partOfSpeech": "n",
+    "meaning": "thuốc kháng sinh",
+    "notes": "Plural: antibiotics.",
+    "definition": "medicines that destroy bacteria or prevent them from growing, treating bacterial infections",
+    "example": "The doctor prescribed a full course of antibiotics to eliminate the acute bacterial infection.",
+    "exampleVi": "Bác sĩ đã kê một đợt thuốc kháng sinh đầy đủ để tiêu diệt ổ nhiễm trùng vi khuẩn cấp tính.",
     "oxfordExamples": [
       {
         "en": "The doctor prescribed a full course of antibiotics to eliminate the acute bacterial infection.",
@@ -4917,36 +5170,38 @@ window.DEFAULT_VOCAB_DATA = [
       "take / prescribe antibiotics",
       "course of antibiotics",
       "antibiotic resistance"
-    ]
-  },
-  {
-    "id": "w-112",
-    "word": "Painkiller",
-    "phonetic": "/ˈpeɪnkɪlə(r)/",
-    "partOfSpeech": "noun",
-    "meaning": "thuốc giảm đau",
-    "definition": "a drug or medication formulated specifically to reduce or eliminate physical pain",
-    "example": "She took a mild painkiller to ease the throbbing headache she developed after work.",
-    "exampleVi": "Cô ấy đã uống một viên thuốc giảm đau nhẹ để làm dịu cơn đau đầu nhói phát tác sau giờ làm.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The doctor prescribed a full course of ........ to eliminate the acute bacterial infection.",
+    "quizAnswer": "antibiotics",
+    "distractors": [
+      "cosmetics",
+      "painkillers",
+      "vitamins"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250114685,
+    "dateAdded": 1790250112000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She took a mild ........ to ease the throbbing headache she developed after work.",
-    "quizAnswer": "painkiller",
-    "distractors": [
-      "antibiotic",
-      "stimulant",
-      "poison"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-113",
+    "docId": "113",
+    "word": "Painkiller",
+    "phonetic": "/ˈpeɪnkɪlə(r)/",
+    "partOfSpeech": "n",
+    "meaning": "thuốc giảm đau",
+    "notes": "",
+    "definition": "a drug or medication formulated specifically to reduce or eliminate physical pain",
+    "example": "She took a mild painkiller to ease the throbbing headache she developed after work.",
+    "exampleVi": "Cô ấy đã uống một viên thuốc giảm đau nhẹ để làm dịu cơn đau đầu nhói phát tác sau giờ làm.",
     "oxfordExamples": [
       {
         "en": "She took a mild painkiller to ease the throbbing headache she developed after work.",
@@ -4961,36 +5216,38 @@ window.DEFAULT_VOCAB_DATA = [
       "take a painkiller",
       "prescribe painkillers",
       "strong / mild painkiller"
-    ]
-  },
-  {
-    "id": "w-113",
-    "word": "cure",
-    "phonetic": "/kjʊə(r)/",
-    "partOfSpeech": "verb / noun",
-    "meaning": "chữa khỏi hoàn toàn (treat (v): điều trị)",
-    "definition": "to make a person or an illness completely well again; a medicine or treatment that cures a disease",
-    "example": "Medical researchers around the globe are striving to find a permanent cure for common cancers.",
-    "exampleVi": "Các nhà nghiên cứu y học trên toàn cầu đang nỗ lực tìm kiếm một phương pháp chữa khỏi hoàn toàn cho các bệnh ung thư phổ biến.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She took a mild ........ to ease the throbbing headache she developed after work.",
+    "quizAnswer": "painkiller",
+    "distractors": [
+      "antibiotic",
+      "stimulant",
+      "poison"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790250054685,
+    "dateAdded": 1790250113000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Medical researchers around the globe are striving to find a permanent ........ for common cancers.",
-    "quizAnswer": "cure",
-    "distractors": [
-      "injury",
-      "illness",
-      "symptom"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-114",
+    "docId": "114",
+    "word": "Cure",
+    "phonetic": "/kjʊə(r)/",
+    "partOfSpeech": "v/n",
+    "meaning": "chữa khỏi; phương pháp chữa khỏi",
+    "notes": "Phân biệt: treat = điều trị; cure = chữa khỏi.",
+    "definition": "to make a person or an illness completely well again; a medicine or treatment that cures a disease",
+    "example": "Medical researchers around the globe are striving to find a permanent cure for common cancers.",
+    "exampleVi": "Các nhà nghiên cứu y học trên toàn cầu đang nỗ lực tìm kiếm một phương pháp chữa khỏi hoàn toàn cho các bệnh ung thư phổ biến.",
     "oxfordExamples": [
       {
         "en": "Medical researchers around the globe are striving to find a permanent cure for common cancers.",
@@ -5006,36 +5263,38 @@ window.DEFAULT_VOCAB_DATA = [
       "permanent cure",
       "find a cure for",
       "prevention is better than cure"
-    ]
-  },
-  {
-    "id": "w-114",
-    "word": "infections",
-    "phonetic": "/ɪnˈfekʃnz/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "sự nhiễm trùng",
-    "definition": "illnesses or diseases caused by bacteria, viruses, or fungi entering the body",
-    "example": "Washing hands regularly with warm soap and water helps prevent serious bacterial infections.",
-    "exampleVi": "Thường xuyên rửa tay bằng xà phòng và nước ấm giúp ngăn ngừa các bệnh nhiễm trùng vi khuẩn nghiêm trọng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Medical researchers around the globe are striving to find a permanent ........ for common cancers.",
+    "quizAnswer": "cure",
+    "distractors": [
+      "injury",
+      "illness",
+      "symptom"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249994685,
+    "dateAdded": 1790250114000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Washing hands regularly with warm soap and water helps prevent serious bacterial ........",
-    "quizAnswer": "infections",
-    "distractors": [
-      "injuries",
-      "fractures",
-      "remedies"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-115",
+    "docId": "115",
+    "word": "Infection",
+    "phonetic": "/ɪnˈfekʃnz/",
+    "partOfSpeech": "n",
+    "meaning": "sự nhiễm trùng; bệnh nhiễm trùng",
+    "notes": "Plural: infections.",
+    "definition": "illnesses or diseases caused by bacteria, viruses, or fungi entering the body",
+    "example": "Washing hands regularly with warm soap and water helps prevent serious bacterial infections.",
+    "exampleVi": "Thường xuyên rửa tay bằng xà phòng và nước ấm giúp ngăn ngừa các bệnh nhiễm trùng vi khuẩn nghiêm trọng.",
     "oxfordExamples": [
       {
         "en": "Washing hands regularly with warm soap and water helps prevent serious bacterial infections.",
@@ -5050,36 +5309,38 @@ window.DEFAULT_VOCAB_DATA = [
       "bacterial / viral infection",
       "risk of infection",
       "ward off infections"
-    ]
-  },
-  {
-    "id": "w-115",
-    "word": "food poisoning",
-    "phonetic": "/fuːd ˈpɔɪzənɪŋ/",
-    "partOfSpeech": "noun",
-    "meaning": "ngộ độc thực phẩm",
-    "definition": "an illness affecting the digestive system caused by eating food containing harmful bacteria or toxins",
-    "example": "Eating contaminated seafood caused severe stomach ache and acute food poisoning.",
-    "exampleVi": "Ăn hải sản bị ô nhiễm đã gây đau bụng dữ dội và ngộ độc thực phẩm cấp tính.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Washing hands regularly with warm soap and water helps prevent serious bacterial ........",
+    "quizAnswer": "infections",
+    "distractors": [
+      "injuries",
+      "fractures",
+      "remedies"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249934685,
+    "dateAdded": 1790250115000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Eating contaminated seafood caused severe stomach ache and acute ........",
-    "quizAnswer": "food poisoning",
-    "distractors": [
-      "heart disease",
-      "heat stroke",
-      "common cold"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-116",
+    "docId": "116",
+    "word": "Food poisoning",
+    "phonetic": "/fuːd ˈpɔɪzənɪŋ/",
+    "partOfSpeech": "n phrase",
+    "meaning": "ngộ độc thực phẩm",
+    "notes": "",
+    "definition": "an illness affecting the digestive system caused by eating food containing harmful bacteria or toxins",
+    "example": "Eating contaminated seafood caused severe stomach ache and acute food poisoning.",
+    "exampleVi": "Ăn hải sản bị ô nhiễm đã gây đau bụng dữ dội và ngộ độc thực phẩm cấp tính.",
     "oxfordExamples": [
       {
         "en": "Eating contaminated seafood caused severe stomach ache and acute food poisoning.",
@@ -5094,36 +5355,38 @@ window.DEFAULT_VOCAB_DATA = [
       "suffer from food poisoning",
       "acute food poisoning",
       "prevent food poisoning"
-    ]
-  },
-  {
-    "id": "w-116",
-    "word": "flu",
-    "phonetic": "/fluː/",
-    "partOfSpeech": "noun",
-    "meaning": "bệnh cúm",
-    "definition": "an infectious illness caused by a virus, giving symptoms like fever, aches, and chills; influenza",
-    "example": "Every autumn, elderly citizens are strongly encouraged to receive vaccination against the seasonal flu.",
-    "exampleVi": "Mỗi mùa thu, người cao tuổi được đặc biệt khuyến khích tiêm phòng vắc-xin ngừa bệnh cúm theo mùa.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Eating contaminated seafood caused severe stomach ache and acute ........",
+    "quizAnswer": "food poisoning",
+    "distractors": [
+      "heart disease",
+      "heat stroke",
+      "common cold"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249874685,
+    "dateAdded": 1790250116000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Every autumn, elderly citizens are strongly encouraged to receive vaccination against the seasonal ........",
-    "quizAnswer": "flu",
-    "distractors": [
-      "burn",
-      "sprain",
-      "fracture"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-117",
+    "docId": "117",
+    "word": "Flu",
+    "phonetic": "/fluː/",
+    "partOfSpeech": "n",
+    "meaning": "bệnh cúm",
+    "notes": "Short for influenza.",
+    "definition": "an infectious illness caused by a virus, giving symptoms like fever, aches, and chills; influenza",
+    "example": "Every autumn, elderly citizens are strongly encouraged to receive vaccination against the seasonal flu.",
+    "exampleVi": "Mỗi mùa thu, người cao tuổi được đặc biệt khuyến khích tiêm phòng vắc-xin ngừa bệnh cúm theo mùa.",
     "oxfordExamples": [
       {
         "en": "Every autumn, elderly citizens are strongly encouraged to receive vaccination against the seasonal flu.",
@@ -5138,36 +5401,38 @@ window.DEFAULT_VOCAB_DATA = [
       "catch / come down with the flu",
       "seasonal flu",
       "flu shot / vaccine"
-    ]
-  },
-  {
-    "id": "w-117",
-    "word": "diabetes",
-    "phonetic": "/ˌdaɪəˈbiːtiːz/",
-    "partOfSpeech": "noun",
-    "meaning": "bệnh tiểu đường",
-    "definition": "a medical condition in which the body cannot produce enough insulin or process blood sugar normally",
-    "example": "People diagnosed with Type 2 diabetes must monitor their daily carbohydrate intake and blood sugar.",
-    "exampleVi": "Những người được chẩn đoán mắc bệnh tiểu đường loại 2 phải theo dõi lượng carbohydrate và đường huyết hàng ngày.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Every autumn, elderly citizens are strongly encouraged to receive vaccination against the seasonal ........",
+    "quizAnswer": "flu",
+    "distractors": [
+      "burn",
+      "sprain",
+      "fracture"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249814685,
+    "dateAdded": 1790250117000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "People diagnosed with Type 2 ........ must monitor their daily carbohydrate intake and blood sugar.",
-    "quizAnswer": "diabetes",
-    "distractors": [
-      "influenza",
-      "malaria",
-      "migraine"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-118",
+    "docId": "118",
+    "word": "Diabetes",
+    "phonetic": "/ˌdaɪəˈbiːtiːz/",
+    "partOfSpeech": "n",
+    "meaning": "bệnh tiểu đường",
+    "notes": "",
+    "definition": "a medical condition in which the body cannot produce enough insulin or process blood sugar normally",
+    "example": "People diagnosed with Type 2 diabetes must monitor their daily carbohydrate intake and blood sugar.",
+    "exampleVi": "Những người được chẩn đoán mắc bệnh tiểu đường loại 2 phải theo dõi lượng carbohydrate và đường huyết hàng ngày.",
     "oxfordExamples": [
       {
         "en": "People diagnosed with Type 2 diabetes must monitor their daily carbohydrate intake and blood sugar.",
@@ -5182,36 +5447,38 @@ window.DEFAULT_VOCAB_DATA = [
       "type 1 / type 2 diabetes",
       "diagnosed with diabetes",
       "manage diabetes"
-    ]
-  },
-  {
-    "id": "w-118",
-    "word": "cancer",
-    "phonetic": "/ˈkænsə(r)/",
-    "partOfSpeech": "noun",
-    "meaning": "ung thư",
-    "definition": "a serious disease in which malignant cells divide uncontrollably and destroy surrounding tissue",
-    "example": "Early clinical detection drastically increases the survival probability for patients diagnosed with breast cancer.",
-    "exampleVi": "Phát hiện lâm sàng sớm giúp tăng mạnh xác suất sống sót cho bệnh nhân được chẩn đoán mắc bệnh ung thư vú.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "People diagnosed with Type 2 ........ must monitor their daily carbohydrate intake and blood sugar.",
+    "quizAnswer": "diabetes",
+    "distractors": [
+      "influenza",
+      "malaria",
+      "migraine"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249754685,
+    "dateAdded": 1790250118000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Early clinical detection drastically increases the survival probability for patients diagnosed with breast ........",
-    "quizAnswer": "cancer",
-    "distractors": [
-      "allergy",
-      "headache",
-      "fever"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-119",
+    "docId": "119",
+    "word": "Cancer",
+    "phonetic": "/ˈkænsə(r)/",
+    "partOfSpeech": "n",
+    "meaning": "ung thư",
+    "notes": "",
+    "definition": "a serious disease in which malignant cells divide uncontrollably and destroy surrounding tissue",
+    "example": "Early clinical detection drastically increases the survival probability for patients diagnosed with breast cancer.",
+    "exampleVi": "Phát hiện lâm sàng sớm giúp tăng mạnh xác suất sống sót cho bệnh nhân được chẩn đoán mắc bệnh ung thư vú.",
     "oxfordExamples": [
       {
         "en": "Early clinical detection drastically increases the survival probability for patients diagnosed with breast cancer.",
@@ -5226,36 +5493,38 @@ window.DEFAULT_VOCAB_DATA = [
       "lung / skin / breast cancer",
       "cancer research / treatment",
       "diagnosed with cancer"
-    ]
-  },
-  {
-    "id": "w-119",
-    "word": "tuberculosis",
-    "phonetic": "/tjuːˌbɜːkjuˈləʊsɪs/",
-    "partOfSpeech": "noun",
-    "meaning": "bệnh lao",
-    "definition": "a serious infectious disease affecting the lungs caused by Mycobacterium tuberculosis bacteria",
-    "example": "A chronic cough lasting over three weeks accompanied by night sweats may indicate active tuberculosis.",
-    "exampleVi": "Cơn ho mãn tính kéo dài hơn ba tuần kèm theo đổ mồ hôi đêm có thể là dấu hiệu của bệnh lao đang phát triển.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Early clinical detection drastically increases the survival probability for patients diagnosed with breast ........",
+    "quizAnswer": "cancer",
+    "distractors": [
+      "allergy",
+      "headache",
+      "fever"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249694685,
+    "dateAdded": 1790250119000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "A chronic cough lasting over three weeks accompanied by night sweats may indicate active ........",
-    "quizAnswer": "tuberculosis",
-    "distractors": [
-      "chickenpox",
-      "insomnia",
-      "acne"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-120",
+    "docId": "120",
+    "word": "Tuberculosis",
+    "phonetic": "/tjuːˌbɜːkjuˈləʊsɪs/",
+    "partOfSpeech": "n",
+    "meaning": "bệnh lao",
+    "notes": "Abbreviation: TB.",
+    "definition": "a serious infectious disease affecting the lungs caused by Mycobacterium tuberculosis bacteria",
+    "example": "A chronic cough lasting over three weeks accompanied by night sweats may indicate active tuberculosis.",
+    "exampleVi": "Cơn ho mãn tính kéo dài hơn ba tuần kèm theo đổ mồ hôi đêm có thể là dấu hiệu của bệnh lao đang phát triển.",
     "oxfordExamples": [
       {
         "en": "A chronic cough lasting over three weeks accompanied by night sweats may indicate active tuberculosis.",
@@ -5270,36 +5539,38 @@ window.DEFAULT_VOCAB_DATA = [
       "active / latent tuberculosis",
       "test positive for tuberculosis",
       "pulmonary tuberculosis"
-    ]
-  },
-  {
-    "id": "w-120",
-    "word": "be the key to",
-    "phonetic": "/biː ðə kiː tu/",
-    "partOfSpeech": "idiom / phrase",
-    "meaning": "là chìa khóa, yếu tố then chốt dẫn đến...",
-    "definition": "to be the most important factor, secret, or solution for achieving something successfully",
-    "example": "Patience and active listening will always be the key to building lasting personal relationships.",
-    "exampleVi": "Kiên nhẫn và lắng nghe tích cực sẽ luôn là chìa khóa then chốt để xây dựng những mối quan hệ bền vững.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A chronic cough lasting over three weeks accompanied by night sweats may indicate active ........",
+    "quizAnswer": "tuberculosis",
+    "distractors": [
+      "chickenpox",
+      "insomnia",
+      "acne"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249634685,
+    "dateAdded": 1790250120000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Patience and active listening will always ........ building lasting personal relationships.",
-    "quizAnswer": "be the key to",
-    "distractors": [
-      "be the obstacle to",
-      "put an end to",
-      "take advantage of"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-121",
+    "docId": "121",
+    "word": "Be the key to + noun/V-ing",
+    "phonetic": "/biː ðə kiː tu/",
+    "partOfSpeech": "pattern",
+    "meaning": "là chìa khóa/yếu tố then chốt để…",
+    "notes": "Sau “to” ở đây dùng noun hoặc V-ing.",
+    "definition": "to be the most important factor, secret, or solution for achieving something successfully",
+    "example": "Patience and active listening will always be the key to building lasting personal relationships.",
+    "exampleVi": "Kiên nhẫn và lắng nghe tích cực sẽ luôn là chìa khóa then chốt để xây dựng những mối quan hệ bền vững.",
     "oxfordExamples": [
       {
         "en": "Patience and active listening will always be the key to building lasting personal relationships.",
@@ -5314,36 +5585,38 @@ window.DEFAULT_VOCAB_DATA = [
       "be the key to success",
       "the key to unlocking",
       "hold the key to"
-    ]
-  },
-  {
-    "id": "w-121",
-    "word": "freshly baked bread",
-    "phonetic": "/ˈfreʃli beɪkt bred/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "bánh mỳ mới nướng",
-    "definition": "bread that has just come out of the oven, warm, with a crisp crust and soft interior",
-    "example": "As soon as we stepped into the artisan French bakery, we smelled freshly baked bread.",
-    "exampleVi": "Ngay khi bước vào tiệm bánh Pháp thủ công, chúng tôi đã ngửi thấy mùi thơm của bánh mì mới nướng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Patience and active listening will always ........ building lasting personal relationships.",
+    "quizAnswer": "be the key to",
+    "distractors": [
+      "be the obstacle to",
+      "put an end to",
+      "take advantage of"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249574685,
+    "dateAdded": 1790250121000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "As soon as we stepped into the artisan French bakery, we smelled ........",
-    "quizAnswer": "freshly baked bread",
-    "distractors": [
-      "sour spoiled milk",
-      "bitter black coffee",
-      "rotten vegetables"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-122",
+    "docId": "122",
+    "word": "Freshly baked bread",
+    "phonetic": "/ˈfreʃli beɪkt bred/",
+    "partOfSpeech": "n phrase",
+    "meaning": "bánh mì mới nướng",
+    "notes": "",
+    "definition": "bread that has just come out of the oven, warm, with a crisp crust and soft interior",
+    "example": "As soon as we stepped into the artisan French bakery, we smelled freshly baked bread.",
+    "exampleVi": "Ngay khi bước vào tiệm bánh Pháp thủ công, chúng tôi đã ngửi thấy mùi thơm của bánh mì mới nướng.",
     "oxfordExamples": [
       {
         "en": "As soon as we stepped into the artisan French bakery, we smelled freshly baked bread.",
@@ -5358,36 +5631,38 @@ window.DEFAULT_VOCAB_DATA = [
       "smell of freshly baked bread",
       "warm freshly baked bread",
       "crusty freshly baked bread"
-    ]
-  },
-  {
-    "id": "w-122",
-    "word": "rich aroma",
-    "phonetic": "/rɪtʃ əˈrəʊmə/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "mùi thơm nồng nàng",
-    "definition": "a strong, pleasant, distinctive, and deeply satisfying smell, especially of coffee, wine, or food",
-    "example": "The fresh dark-roast espresso beans filled the entire room with a wonderfully rich aroma.",
-    "exampleVi": "Những hạt cà phê espresso rang đậm tươi mới đã lan tỏa khắp căn phòng một mùi thơm nồng nàn tuyệt vời.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "As soon as we stepped into the artisan French bakery, we smelled ........",
+    "quizAnswer": "freshly baked bread",
+    "distractors": [
+      "sour spoiled milk",
+      "bitter black coffee",
+      "rotten vegetables"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249514685,
+    "dateAdded": 1790250122000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The fresh dark-roast espresso beans filled the entire room with a wonderfully ........",
-    "quizAnswer": "rich aroma",
-    "distractors": [
-      "foul odor",
-      "sharp taste",
-      "loud noise"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-123",
+    "docId": "123",
+    "word": "Rich aroma",
+    "phonetic": "/rɪtʃ əˈrəʊmə/",
+    "partOfSpeech": "n phrase",
+    "meaning": "hương thơm đậm đà/nồng nàn",
+    "notes": "",
+    "definition": "a strong, pleasant, distinctive, and deeply satisfying smell, especially of coffee, wine, or food",
+    "example": "The fresh dark-roast espresso beans filled the entire room with a wonderfully rich aroma.",
+    "exampleVi": "Những hạt cà phê espresso rang đậm tươi mới đã lan tỏa khắp căn phòng một mùi thơm nồng nàn tuyệt vời.",
     "oxfordExamples": [
       {
         "en": "The fresh dark-roast espresso beans filled the entire room with a wonderfully rich aroma.",
@@ -5402,36 +5677,38 @@ window.DEFAULT_VOCAB_DATA = [
       "rich aroma of coffee",
       "pleasant rich aroma",
       "release a rich aroma"
-    ]
-  },
-  {
-    "id": "w-123",
-    "word": "considerably",
-    "phonetic": "/kənˈsɪdərəbli/",
-    "partOfSpeech": "adverb",
-    "meaning": "khá nhiều",
-    "definition": "much; to a great, noticeable, or significant degree",
-    "example": "The new high-speed commuter train has shortened travel time between the cities considerably.",
-    "exampleVi": "Chuyến tàu cao tốc mới đã rút ngắn thời gian di chuyển giữa các thành phố một cách đáng kể / khá nhiều.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The fresh dark-roast espresso beans filled the entire room with a wonderfully ........",
+    "quizAnswer": "rich aroma",
+    "distractors": [
+      "foul odor",
+      "sharp taste",
+      "loud noise"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249454685,
+    "dateAdded": 1790250123000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The new high-speed commuter train has shortened travel time between the cities ........",
-    "quizAnswer": "considerably",
-    "distractors": [
-      "barely",
-      "slightly",
-      "rarely"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-124",
+    "docId": "124",
+    "word": "Considerably",
+    "phonetic": "/kənˈsɪdərəbli/",
+    "partOfSpeech": "adv",
+    "meaning": "đáng kể; khá nhiều",
+    "notes": "",
+    "definition": "much; to a great, noticeable, or significant degree",
+    "example": "The new high-speed commuter train has shortened travel time between the cities considerably.",
+    "exampleVi": "Chuyến tàu cao tốc mới đã rút ngắn thời gian di chuyển giữa các thành phố một cách đáng kể / khá nhiều.",
     "oxfordExamples": [
       {
         "en": "The new high-speed commuter train has shortened travel time between the cities considerably.",
@@ -5446,36 +5723,38 @@ window.DEFAULT_VOCAB_DATA = [
       "vary / increase considerably",
       "improve considerably",
       "lower considerably"
-    ]
-  },
-  {
-    "id": "w-124",
-    "word": "campaign",
-    "phonetic": "/kæmˈpeɪn/",
-    "partOfSpeech": "noun / verb",
-    "meaning": "chiến dịch",
-    "definition": "a series of planned activities that are intended to achieve a particular social, commercial, or political goal",
-    "example": "Environmental activists organized an inspiring public campaign to reduce single-use plastic cups.",
-    "exampleVi": "Các nhà hoạt động môi trường đã tổ chức một chiến dịch truyền thông cộng đồng đầy cảm hứng để giảm cốc nhựa dùng một lần.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The new high-speed commuter train has shortened travel time between the cities ........",
+    "quizAnswer": "considerably",
+    "distractors": [
+      "barely",
+      "slightly",
+      "rarely"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249394685,
+    "dateAdded": 1790250124000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Environmental activists organized an inspiring public ........ to reduce single-use plastic cups.",
-    "quizAnswer": "campaign",
-    "distractors": [
-      "conflict",
-      "tragedy",
-      "complaint"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-125",
+    "docId": "125",
+    "word": "Campaign",
+    "phonetic": "/kæmˈpeɪn/",
+    "partOfSpeech": "n",
+    "meaning": "chiến dịch",
+    "notes": "",
+    "definition": "a series of planned activities that are intended to achieve a particular social, commercial, or political goal",
+    "example": "Environmental activists organized an inspiring public campaign to reduce single-use plastic cups.",
+    "exampleVi": "Các nhà hoạt động môi trường đã tổ chức một chiến dịch truyền thông cộng đồng đầy cảm hứng để giảm cốc nhựa dùng một lần.",
     "oxfordExamples": [
       {
         "en": "Environmental activists organized an inspiring public campaign to reduce single-use plastic cups.",
@@ -5490,36 +5769,38 @@ window.DEFAULT_VOCAB_DATA = [
       "launch / run a campaign",
       "advertising / marketing campaign",
       "election campaign"
-    ]
-  },
-  {
-    "id": "w-125",
-    "word": "consult",
-    "phonetic": "/kənˈsʌlt/",
-    "partOfSpeech": "verb",
-    "meaning": "tham khảo",
-    "definition": "to ask for information, advice, or an opinion from an expert before making a decision; or to look in a book or map",
-    "example": "Before signing any binding commercial lease, it is prudent to consult an experienced property lawyer.",
-    "exampleVi": "Trước khi ký bất kỳ hợp đồng thuê mặt bằng kinh doanh nào, hãy cẩn trọng tham khảo ý kiến một luật sư giàu kinh nghiệm.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Environmental activists organized an inspiring public ........ to reduce single-use plastic cups.",
+    "quizAnswer": "campaign",
+    "distractors": [
+      "conflict",
+      "tragedy",
+      "complaint"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249334685,
+    "dateAdded": 1790250125000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Before signing any binding commercial lease, it is prudent to ........ an experienced property lawyer.",
-    "quizAnswer": "consult",
-    "distractors": [
-      "dismiss",
-      "criticize",
-      "avoid"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-126",
+    "docId": "126",
+    "word": "Consult",
+    "phonetic": "/kənˈsʌlt/",
+    "partOfSpeech": "v",
+    "meaning": "tham khảo; hỏi ý kiến",
+    "notes": "Ví dụ: consult a doctor / consult a document.",
+    "definition": "to ask for information, advice, or an opinion from an expert before making a decision; or to look in a book or map",
+    "example": "Before signing any binding commercial lease, it is prudent to consult an experienced property lawyer.",
+    "exampleVi": "Trước khi ký bất kỳ hợp đồng thuê mặt bằng kinh doanh nào, hãy cẩn trọng tham khảo ý kiến một luật sư giàu kinh nghiệm.",
     "oxfordExamples": [
       {
         "en": "Before signing any binding commercial lease, it is prudent to consult an experienced property lawyer.",
@@ -5534,80 +5815,84 @@ window.DEFAULT_VOCAB_DATA = [
       "consult a doctor / lawyer",
       "consult with colleagues",
       "consult a dictionary"
-    ]
-  },
-  {
-    "id": "w-126",
-    "word": "expectancy",
-    "phonetic": "/ɪkˈspektənsi/",
-    "partOfSpeech": "noun",
-    "meaning": "tuổi thọ",
-    "definition": "the state of thinking or hoping that something, especially something pleasant, will happen; or expected lifespan",
-    "example": "Improvements in public healthcare and clean sanitation have substantially raised human life expectancy.",
-    "exampleVi": "Những cải thiện về y tế công cộng và vệ sinh sạch sẽ đã nâng cao đáng kể tuổi thọ trung bình của con người.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Before signing any binding commercial lease, it is prudent to ........ an experienced property lawyer.",
+    "quizAnswer": "consult",
+    "distractors": [
+      "dismiss",
+      "criticize",
+      "avoid"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249274685,
+    "dateAdded": 1790250126000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Improvements in public healthcare and clean sanitation have substantially raised human life ........",
-    "quizAnswer": "expectancy",
-    "distractors": [
-      "insurance",
-      "retirement",
-      "inheritance"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
-    "oxfordExamples": [
-      {
-        "en": "Improvements in public healthcare and clean sanitation have substantially raised human life expectancy.",
-        "vi": "Những cải thiện về y tế công cộng và vệ sinh sạch sẽ đã nâng cao đáng kể tuổi thọ trung bình của con người."
-      },
-      {
-        "en": "There was an atmosphere of excited expectancy as the orchestra took the stage.",
-        "vi": "Có một bầu không khí chờ đợi đầy phấn khích khi dàn nhạc bước lên sân khấu."
-      }
-    ],
-    "collocations": [
-      "life expectancy",
-      "air / sense of expectancy",
-      "average expectancy"
     ]
   },
   {
     "id": "w-127",
-    "word": "longevity",
-    "phonetic": "/lɒnˈdʒevəti/",
-    "partOfSpeech": "noun",
-    "meaning": "sống lâu",
-    "definition": "long life or the ability to live or last for a remarkably long time",
-    "example": "Studies indicate that regular physical activity and a balanced diet contribute directly to human longevity.",
-    "exampleVi": "Các nghiên cứu chỉ ra rằng hoạt động thể chất đều đặn và chế độ ăn cân đối đóng góp trực tiếp vào sự sống lâu / trường thọ.",
+    "docId": "127",
+    "word": "Life expectancy",
+    "phonetic": "/ˈlaɪf ɪkspektənsi/",
+    "partOfSpeech": "noun phrase",
+    "meaning": "tuổi thọ trung bình/kỳ vọng",
+    "notes": "“Expectancy” đứng riêng rộng nghĩa hơn; “life expectancy” mới là cụm chỉ tuổi thọ.",
+    "definition": "the number of years that a person or animal is likely to live",
+    "example": "Advances in modern medicine have increased average life expectancy significantly.",
+    "exampleVi": "Những tiến bộ trong y học hiện đại đã làm tăng tuổi thọ trung bình một cách đáng kể.",
+    "oxfordExamples": [
+      {
+        "en": "Advances in modern medicine have increased average life expectancy significantly.",
+        "vi": "Những tiến bộ trong y học hiện đại đã làm tăng tuổi thọ trung bình một cách đáng kể."
+      },
+      {
+        "en": "Clean water supplies and sanitation have contributed to higher life expectancy worldwide.",
+        "vi": "Nguồn nước sạch và vệ sinh môi trường đã góp phần nâng cao tuổi thọ trung bình trên toàn thế giới."
+      }
+    ],
+    "collocations": [
+      "average life expectancy",
+      "increase life expectancy",
+      "high life expectancy"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Over the past century, public healthcare initiatives have steadily lengthened average ........ worldwide.",
+    "quizAnswer": "life expectancy",
+    "distractors": [
+      "living standard",
+      "population density",
+      "birth rate"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249214685,
+    "dateAdded": 1790250127000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Studies indicate that regular physical activity and a balanced diet contribute directly to human ........",
-    "quizAnswer": "longevity",
-    "distractors": [
-      "obesity",
-      "fatigue",
-      "poverty"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-128",
+    "docId": "128",
+    "word": "Longevity",
+    "phonetic": "/lɒnˈdʒevəti/",
+    "partOfSpeech": "n",
+    "meaning": "tuổi thọ; sự sống lâu",
+    "notes": "",
+    "definition": "long life or the ability to live or last for a remarkably long time",
+    "example": "Studies indicate that regular physical activity and a balanced diet contribute directly to human longevity.",
+    "exampleVi": "Các nghiên cứu chỉ ra rằng hoạt động thể chất đều đặn và chế độ ăn cân đối đóng góp trực tiếp vào sự sống lâu / trường thọ.",
     "oxfordExamples": [
       {
         "en": "Studies indicate that regular physical activity and a balanced diet contribute directly to human longevity.",
@@ -5622,36 +5907,38 @@ window.DEFAULT_VOCAB_DATA = [
       "promote longevity",
       "secret to longevity",
       "exceptional longevity"
-    ]
-  },
-  {
-    "id": "w-128",
-    "word": "ageing",
-    "phonetic": "/ˈeɪdʒɪŋ/",
-    "partOfSpeech": "noun / adjective",
-    "meaning": "lão hóa",
-    "definition": "the natural biological process of growing older; or showing the physical signs of growing old",
-    "example": "Maintaining mental curiosity and staying physically active helps slow down the natural process of ageing.",
-    "exampleVi": "Duy trì sự tò mò trí tuệ và vận động thể chất giúp làm chậm quá trình lão hóa tự nhiên.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Studies indicate that regular physical activity and a balanced diet contribute directly to human ........",
+    "quizAnswer": "longevity",
+    "distractors": [
+      "obesity",
+      "fatigue",
+      "poverty"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249154685,
+    "dateAdded": 1790250128000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Maintaining mental curiosity and staying physically active helps slow down the natural process of ........",
-    "quizAnswer": "ageing",
-    "distractors": [
-      "youth",
-      "growth",
-      "recovery"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-129",
+    "docId": "129",
+    "word": "Ageing",
+    "phonetic": "/ˈeɪdʒɪŋ/",
+    "partOfSpeech": "n/adj",
+    "meaning": "sự lão hóa; đang già đi",
+    "notes": "US spelling: aging.",
+    "definition": "the natural biological process of growing older; or showing the physical signs of growing old",
+    "example": "Maintaining mental curiosity and staying physically active helps slow down the natural process of ageing.",
+    "exampleVi": "Duy trì sự tò mò trí tuệ và vận động thể chất giúp làm chậm quá trình lão hóa tự nhiên.",
     "oxfordExamples": [
       {
         "en": "Maintaining mental curiosity and staying physically active helps slow down the natural process of ageing.",
@@ -5666,36 +5953,38 @@ window.DEFAULT_VOCAB_DATA = [
       "process of ageing",
       "ageing population",
       "anti-ageing skincare"
-    ]
-  },
-  {
-    "id": "w-129",
-    "word": "suffer from",
-    "phonetic": "/ˈsʌfə(r) frəm/",
-    "partOfSpeech": "phrasal verb",
-    "meaning": "mắc phải",
-    "definition": "to experience physical pain, illness, or mental discomfort from a condition or disease",
-    "example": "A significant percentage of desktop computer users suffer from chronic neck and shoulder stiffness.",
-    "exampleVi": "Một tỷ lệ đáng kể người dùng máy tính để bàn mắc phải tình trạng đau cứng cổ và vai mãn tính.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Maintaining mental curiosity and staying physically active helps slow down the natural process of ........",
+    "quizAnswer": "ageing",
+    "distractors": [
+      "youth",
+      "growth",
+      "recovery"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249094685,
+    "dateAdded": 1790250129000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "A significant percentage of desktop computer users ........ chronic neck and shoulder stiffness.",
-    "quizAnswer": "suffer from",
-    "distractors": [
-      "benefit from",
-      "profit from",
-      "abstain from"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-130",
+    "docId": "130",
+    "word": "Suffer from",
+    "phonetic": "/ˈsʌfə(r) frəm/",
+    "partOfSpeech": "v phrase",
+    "meaning": "mắc; chịu đựng do",
+    "notes": "Ví dụ: suffer from diabetes.",
+    "definition": "to experience physical pain, illness, or mental discomfort from a condition or disease",
+    "example": "A significant percentage of desktop computer users suffer from chronic neck and shoulder stiffness.",
+    "exampleVi": "Một tỷ lệ đáng kể người dùng máy tính để bàn mắc phải tình trạng đau cứng cổ và vai mãn tính.",
     "oxfordExamples": [
       {
         "en": "A significant percentage of desktop computer users suffer from chronic neck and shoulder stiffness.",
@@ -5710,36 +5999,38 @@ window.DEFAULT_VOCAB_DATA = [
       "suffer from an illness / depression",
       "suffer from lack of sleep",
       "suffer from chronic pain"
-    ]
-  },
-  {
-    "id": "w-130",
-    "word": "deprivation",
-    "phonetic": "/ˌdeprɪˈveɪʃn/",
-    "partOfSpeech": "noun",
-    "meaning": "sự thiếu thốn",
-    "definition": "a situation in which you lack the things necessary for a pleasant, healthy, or comfortable life",
-    "example": "Severe sleep deprivation severely impairs emotional regulation, focus, and cognitive decision-making.",
-    "exampleVi": "Sự thiếu thốn giấc ngủ trầm trọng làm suy giảm nghiêm trọng khả năng điều tiết cảm xúc, sự tập trung và tư duy.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "A significant percentage of desktop computer users ........ chronic neck and shoulder stiffness.",
+    "quizAnswer": "suffer from",
+    "distractors": [
+      "benefit from",
+      "profit from",
+      "abstain from"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790249034685,
+    "dateAdded": 1790250130000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Severe sleep ........ severely impairs emotional regulation, focus, and cognitive decision-making.",
-    "quizAnswer": "deprivation",
-    "distractors": [
-      "abundance",
-      "surplus",
-      "luxury"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-131",
+    "docId": "131",
+    "word": "Deprivation",
+    "phonetic": "/ˌdeprɪˈveɪʃn/",
+    "partOfSpeech": "n",
+    "meaning": "sự thiếu thốn; tình trạng bị tước mất",
+    "notes": "",
+    "definition": "a situation in which you lack the things necessary for a pleasant, healthy, or comfortable life",
+    "example": "Severe sleep deprivation severely impairs emotional regulation, focus, and cognitive decision-making.",
+    "exampleVi": "Sự thiếu thốn giấc ngủ trầm trọng làm suy giảm nghiêm trọng khả năng điều tiết cảm xúc, sự tập trung và tư duy.",
     "oxfordExamples": [
       {
         "en": "Severe sleep deprivation severely impairs emotional regulation, focus, and cognitive decision-making.",
@@ -5754,36 +6045,85 @@ window.DEFAULT_VOCAB_DATA = [
       "sleep deprivation",
       "sensory deprivation",
       "social deprivation"
-    ]
-  },
-  {
-    "id": "w-131",
-    "word": "promptly",
-    "phonetic": "/ˈprɒmptli/",
-    "partOfSpeech": "adverb",
-    "meaning": "ngay lập tức",
-    "definition": "without delay; immediately; exactly at the scheduled time",
-    "example": "The paramedic emergency crew arrived promptly within four minutes of the telephone call.",
-    "exampleVi": "Đội cấp cứu y tế đã có mặt ngay lập tức / nhanh chóng chỉ trong vòng bốn phút sau cuộc gọi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Severe sleep ........ severely impairs emotional regulation, focus, and cognitive decision-making.",
+    "quizAnswer": "deprivation",
+    "distractors": [
+      "abundance",
+      "surplus",
+      "luxury"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248974685,
+    "dateAdded": 1790250131000,
     "tags": [
       "listening",
       "google-doc"
+    ]
+  },
+  {
+    "id": "w-132",
+    "docId": "132",
+    "word": "Patient",
+    "phonetic": "/ˈpeɪʃnt/",
+    "partOfSpeech": "noun",
+    "meaning": "bệnh nhân",
+    "notes": "Khác với patient (adj) = kiên nhẫn.",
+    "definition": "a person who is receiving medical care or treatment from a doctor, nurse, or hospital",
+    "example": "The specialist spent thirty minutes thoroughly examining each elderly patient.",
+    "exampleVi": "Bác sĩ chuyên khoa đã dành ba mươi phút để khám kỹ lưỡng cho từng bệnh nhân cao tuổi.",
+    "oxfordExamples": [
+      {
+        "en": "The specialist spent thirty minutes thoroughly examining each elderly patient.",
+        "vi": "Bác sĩ chuyên khoa đã dành ba mươi phút để khám kỹ lưỡng cho từng bệnh nhân cao tuổi."
+      },
+      {
+        "en": "Critical patients require around-the-clock monitoring in the intensive care unit.",
+        "vi": "Các bệnh nhân trong tình trạng nguy kịch cần được theo dõi 24/24 trong phòng hồi sức tích cực."
+      }
     ],
-    "gapSentence": "The paramedic emergency crew arrived ........ within four minutes of the telephone call.",
-    "quizAnswer": "promptly",
-    "distractors": [
-      "sluggishly",
-      "late",
-      "rarely"
+    "collocations": [
+      "hospital patient",
+      "treat a patient",
+      "patient care",
+      "outpatient"
     ],
     "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The emergency room doctor carefully checked the medical history of the incoming ........ .",
+    "quizAnswer": "patient",
+    "distractors": [
+      "surgeon",
+      "pharmacist",
+      "landlord"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250132000,
+    "tags": [
+      "listening",
+      "google-doc"
+    ]
+  },
+  {
+    "id": "w-133",
+    "docId": "133",
+    "word": "Promptly",
+    "phonetic": "/ˈprɒmptli/",
+    "partOfSpeech": "adv",
+    "meaning": "ngay lập tức; nhanh chóng, đúng lúc",
+    "notes": "",
+    "definition": "without delay; immediately; exactly at the scheduled time",
+    "example": "The paramedic emergency crew arrived promptly within four minutes of the telephone call.",
+    "exampleVi": "Đội cấp cứu y tế đã có mặt ngay lập tức / nhanh chóng chỉ trong vòng bốn phút sau cuộc gọi.",
     "oxfordExamples": [
       {
         "en": "The paramedic emergency crew arrived promptly within four minutes of the telephone call.",
@@ -5798,36 +6138,38 @@ window.DEFAULT_VOCAB_DATA = [
       "arrive promptly",
       "reply promptly",
       "promptly at 9 o'clock"
-    ]
-  },
-  {
-    "id": "w-132",
-    "word": "medication",
-    "phonetic": "/ˌmedɪˈkeɪʃn/",
-    "partOfSpeech": "noun",
-    "meaning": "thuốc",
-    "definition": "a drug or other substance used in treating, curing, or relieving the symptoms of an illness",
-    "example": "Be sure to read the safety label carefully before taking any over-the-counter pain medication.",
-    "exampleVi": "Hãy nhớ đọc kỹ nhãn an toàn trước khi dùng bất kỳ loại thuốc giảm đau không kê đơn nào.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The paramedic emergency crew arrived ........ within four minutes of the telephone call.",
+    "quizAnswer": "promptly",
+    "distractors": [
+      "sluggishly",
+      "late",
+      "rarely"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248914685,
+    "dateAdded": 1790250133000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Be sure to read the safety label carefully before taking any over-the-counter pain ........",
-    "quizAnswer": "medication",
-    "distractors": [
-      "treatment",
-      "poison",
-      "diagnosis"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-134",
+    "docId": "134",
+    "word": "Medication",
+    "phonetic": "/ˌmedɪˈkeɪʃn/",
+    "partOfSpeech": "n",
+    "meaning": "thuốc; việc dùng thuốc",
+    "notes": "Thường chỉ thuốc dùng để điều trị; có thể là danh từ không đếm được.",
+    "definition": "a drug or other substance used in treating, curing, or relieving the symptoms of an illness",
+    "example": "Be sure to read the safety label carefully before taking any over-the-counter pain medication.",
+    "exampleVi": "Hãy nhớ đọc kỹ nhãn an toàn trước khi dùng bất kỳ loại thuốc giảm đau không kê đơn nào.",
     "oxfordExamples": [
       {
         "en": "Be sure to read the safety label carefully before taking any over-the-counter pain medication.",
@@ -5843,36 +6185,38 @@ window.DEFAULT_VOCAB_DATA = [
       "prescribe medication",
       "on medication",
       "over-the-counter medication"
-    ]
-  },
-  {
-    "id": "w-133",
-    "word": "incurable",
-    "phonetic": "/ɪnˈkjʊərəbl/",
-    "partOfSpeech": "adjective",
-    "meaning": "ko thể chữa",
-    "definition": "that cannot be cured or made healthy again by medicine or surgery; permanent",
-    "example": "Doctors can provide palliative relief, but sadly this terminal degenerative condition is currently incurable.",
-    "exampleVi": "Bác sĩ có thể giảm nhẹ cơn đau, nhưng đáng buồn là căn bệnh thoái hóa giai đoạn cuối này hiện không thể chữa khỏi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Be sure to read the safety label carefully before taking any over-the-counter pain ........",
+    "quizAnswer": "medication",
+    "distractors": [
+      "treatment",
+      "poison",
+      "diagnosis"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248854685,
+    "dateAdded": 1790250134000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Doctors can provide palliative relief, but sadly this terminal degenerative condition is currently ........",
-    "quizAnswer": "incurable",
-    "distractors": [
-      "treatable",
-      "harmless",
-      "temporary"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-135",
+    "docId": "135",
+    "word": "Incurable",
+    "phonetic": "/ɪnˈkjʊərəbl/",
+    "partOfSpeech": "adj",
+    "meaning": "không thể chữa khỏi",
+    "notes": "",
+    "definition": "that cannot be cured or made healthy again by medicine or surgery; permanent",
+    "example": "Doctors can provide palliative relief, but sadly this terminal degenerative condition is currently incurable.",
+    "exampleVi": "Bác sĩ có thể giảm nhẹ cơn đau, nhưng đáng buồn là căn bệnh thoái hóa giai đoạn cuối này hiện không thể chữa khỏi.",
     "oxfordExamples": [
       {
         "en": "Doctors can provide palliative relief, but sadly this terminal degenerative condition is currently incurable.",
@@ -5887,36 +6231,38 @@ window.DEFAULT_VOCAB_DATA = [
       "incurable disease / illness",
       "incurable condition",
       "incurable romantic"
-    ]
-  },
-  {
-    "id": "w-134",
-    "word": "Vital",
-    "phonetic": "/ˈvaɪtl/",
-    "partOfSpeech": "adjective",
-    "meaning": "quan trọng",
-    "definition": "necessary for the success or continued existence of something; extremely important; full of energy",
-    "example": "Clear communication between pilots and air traffic controllers plays a vital role in aviation safety.",
-    "exampleVi": "Giao tiếp rõ ràng giữa phi công và đài kiểm soát không lưu đóng vai trò sống còn / cực kỳ quan trọng trong an toàn bay.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Doctors can provide palliative relief, but sadly this terminal degenerative condition is currently ........",
+    "quizAnswer": "incurable",
+    "distractors": [
+      "treatable",
+      "harmless",
+      "temporary"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248794685,
+    "dateAdded": 1790250135000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Clear communication between pilots and air traffic controllers plays a ........ role in aviation safety.",
-    "quizAnswer": "vital",
-    "distractors": [
-      "minor",
-      "trivial",
-      "negligible"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-136",
+    "docId": "136",
+    "word": "Vital",
+    "phonetic": "/ˈvaɪtl/",
+    "partOfSpeech": "adj",
+    "meaning": "cực kỳ quan trọng; thiết yếu; liên quan đến sự sống",
+    "notes": "",
+    "definition": "necessary for the success or continued existence of something; extremely important; full of energy",
+    "example": "Clear communication between pilots and air traffic controllers plays a vital role in aviation safety.",
+    "exampleVi": "Giao tiếp rõ ràng giữa phi công và đài kiểm soát không lưu đóng vai trò sống còn / cực kỳ quan trọng trong an toàn bay.",
     "oxfordExamples": [
       {
         "en": "Clear communication between pilots and air traffic controllers plays a vital role in aviation safety.",
@@ -5932,36 +6278,38 @@ window.DEFAULT_VOCAB_DATA = [
       "vital importance",
       "vital statistics",
       "vital signs"
-    ]
-  },
-  {
-    "id": "w-135",
-    "word": "sorrow",
-    "phonetic": "/ˈsɒrəʊ/",
-    "partOfSpeech": "noun",
-    "meaning": "nỗi buồn, sự đau lòng",
-    "definition": "a feeling of great sadness, grief, or regret, especially caused by a loss or disappointment",
-    "example": "The heartfelt memorial speech expressed overwhelming sorrow for the innocent victims of the disaster.",
-    "exampleVi": "Bài phát biểu tưởng niệm chân thành đã bày tỏ nỗi buồn đau / xót xa vô hạn đối với các nạn nhân vô tội của thảm họa.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Clear communication between pilots and air traffic controllers plays a ........ role in aviation safety.",
+    "quizAnswer": "vital",
+    "distractors": [
+      "minor",
+      "trivial",
+      "negligible"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248734685,
+    "dateAdded": 1790250136000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The heartfelt memorial speech expressed overwhelming ........ for the innocent victims of the disaster.",
-    "quizAnswer": "sorrow",
-    "distractors": [
-      "joy",
-      "excitement",
-      "pride"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-137",
+    "docId": "137",
+    "word": "Sorrow",
+    "phonetic": "/ˈsɒrəʊ/",
+    "partOfSpeech": "n",
+    "meaning": "nỗi buồn; sự đau buồn",
+    "notes": "",
+    "definition": "a feeling of great sadness, grief, or regret, especially caused by a loss or disappointment",
+    "example": "The heartfelt memorial speech expressed overwhelming sorrow for the innocent victims of the disaster.",
+    "exampleVi": "Bài phát biểu tưởng niệm chân thành đã bày tỏ nỗi buồn đau / xót xa vô hạn đối với các nạn nhân vô tội của thảm họa.",
     "oxfordExamples": [
       {
         "en": "The heartfelt memorial speech expressed overwhelming sorrow for the innocent victims of the disaster.",
@@ -5977,36 +6325,38 @@ window.DEFAULT_VOCAB_DATA = [
       "express sorrow",
       "tears of sorrow",
       "share one's sorrow"
-    ]
-  },
-  {
-    "id": "w-136",
-    "word": "sports jacket",
-    "phonetic": "/ˈspɔːts dʒækɪt/",
-    "partOfSpeech": "noun",
-    "meaning": "áo khoác thể thao đa năng",
-    "definition": "a smart, casual tailored jacket for men, styled like a suit jacket but not part of a matching suit",
-    "example": "He looked sharp wearing a tailored tweed sports jacket with beige trousers to the reception.",
-    "exampleVi": "Anh ấy trông rất lịch lãm khi mặc chiếc áo khoác thể thao dạ may đo cùng quần màu be tới buổi chiêu đãi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The heartfelt memorial speech expressed overwhelming ........ for the innocent victims of the disaster.",
+    "quizAnswer": "sorrow",
+    "distractors": [
+      "joy",
+      "excitement",
+      "pride"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248674685,
+    "dateAdded": 1790250137000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "He looked sharp wearing a tailored tweed ........ with beige trousers to the reception.",
-    "quizAnswer": "sports jacket",
-    "distractors": [
-      "swim trunks",
-      "winter parka",
-      "night gown"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-138",
+    "docId": "138",
+    "word": "Sports jacket",
+    "phonetic": "/ˈspɔːts dʒækɪt/",
+    "partOfSpeech": "n phrase",
+    "meaning": "áo khoác thể thao kiểu lịch sự (sports jacket)",
+    "notes": "“Sports” là thành phần cố định của cụm từ; không phải thêm -s để nhấn mạnh dùng cho nhiều hoạt động.",
+    "definition": "a smart, casual tailored jacket for men, styled like a suit jacket but not part of a matching suit",
+    "example": "He looked sharp wearing a tailored tweed sports jacket with beige trousers to the reception.",
+    "exampleVi": "Anh ấy trông rất lịch lãm khi mặc chiếc áo khoác thể thao dạ may đo cùng quần màu be tới buổi chiêu đãi.",
     "oxfordExamples": [
       {
         "en": "He looked sharp wearing a tailored tweed sports jacket with beige trousers to the reception.",
@@ -6021,36 +6371,38 @@ window.DEFAULT_VOCAB_DATA = [
       "wear a sports jacket",
       "tweed / navy sports jacket",
       "tailored sports jacket"
-    ]
-  },
-  {
-    "id": "w-137",
-    "word": "Beat",
-    "phonetic": "/biːt/",
-    "partOfSpeech": "adjective (informal) / verb",
-    "meaning": "mệt rã rời",
-    "definition": "completely exhausted and tired out; or to defeat somebody in a game or competition",
-    "example": "After working a grueling sixteen-hour shift at the busy trauma hospital, the nurses were completely beat.",
-    "exampleVi": "Sau ca trực mười sáu tiếng vất vả tại bệnh viện cấp cứu, các y tá mệt rã rời.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "He looked sharp wearing a tailored tweed ........ with beige trousers to the reception.",
+    "quizAnswer": "sports jacket",
+    "distractors": [
+      "swim trunks",
+      "winter parka",
+      "night gown"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248614685,
+    "dateAdded": 1790250138000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "After working a grueling sixteen-hour shift at the busy trauma hospital, the nurses were completely ........",
-    "quizAnswer": "beat",
-    "distractors": [
-      "energetic",
-      "fresh",
-      "lively"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-139",
+    "docId": "139",
+    "word": "Beat",
+    "phonetic": "/biːt/",
+    "partOfSpeech": "adj",
+    "meaning": "mệt rã rời; kiệt sức",
+    "notes": "Informal: I’m beat.",
+    "definition": "completely exhausted and tired out; or to defeat somebody in a game or competition",
+    "example": "After working a grueling sixteen-hour shift at the busy trauma hospital, the nurses were completely beat.",
+    "exampleVi": "Sau ca trực mười sáu tiếng vất vả tại bệnh viện cấp cứu, các y tá mệt rã rời.",
     "oxfordExamples": [
       {
         "en": "After working a grueling sixteen-hour shift at the busy trauma hospital, the nurses were completely beat.",
@@ -6066,36 +6418,38 @@ window.DEFAULT_VOCAB_DATA = [
       "completely beat",
       "beat an opponent",
       "beat a record"
-    ]
-  },
-  {
-    "id": "w-138",
-    "word": "luggage",
-    "phonetic": "/ˈlʌɡɪdʒ/",
-    "partOfSpeech": "noun (uncountable)",
-    "meaning": "hành lý",
-    "definition": "the bags, suitcases, and trunks that contain your possessions when you are traveling",
-    "example": "Passengers must attach identification tags with their contact number to all checked luggage.",
-    "exampleVi": "Hành khách phải gắn thẻ nhận dạng ghi số liên lạc lên toàn bộ hành lý ký gửi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "After working a grueling sixteen-hour shift at the busy trauma hospital, the nurses were completely ........",
+    "quizAnswer": "beat",
+    "distractors": [
+      "energetic",
+      "fresh",
+      "lively"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248554685,
+    "dateAdded": 1790250139000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Passengers must attach identification tags with their contact number to all checked ........",
-    "quizAnswer": "luggage",
-    "distractors": [
-      "ticket",
-      "boarding pass",
-      "passport"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-140",
+    "docId": "140",
+    "word": "Luggage",
+    "phonetic": "/ˈlʌɡɪdʒ/",
+    "partOfSpeech": "n",
+    "meaning": "hành lý",
+    "notes": "Danh từ không đếm được.",
+    "definition": "the bags, suitcases, and trunks that contain your possessions when you are traveling",
+    "example": "Passengers must attach identification tags with their contact number to all checked luggage.",
+    "exampleVi": "Hành khách phải gắn thẻ nhận dạng ghi số liên lạc lên toàn bộ hành lý ký gửi.",
     "oxfordExamples": [
       {
         "en": "Passengers must attach identification tags with their contact number to all checked luggage.",
@@ -6110,36 +6464,38 @@ window.DEFAULT_VOCAB_DATA = [
       "piece of luggage",
       "checked / hand luggage",
       "luggage compartment / rack"
-    ]
-  },
-  {
-    "id": "w-139",
-    "word": "an extra charge",
-    "phonetic": "/ən ˈekstrə tʃɑːdʒ/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "phụ phí, phí bổ sung.",
-    "definition": "an additional fee, cost, or amount of money required above the standard base price",
-    "example": "Please note that ordering hotel room service after midnight incurs an extra charge of ten dollars.",
-    "exampleVi": "Xin lưu ý rằng việc gọi phục vụ phòng khách sạn sau nửa đêm sẽ phải chịu một khoản phụ phí mười đô la.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Passengers must attach identification tags with their contact number to all checked ........",
+    "quizAnswer": "luggage",
+    "distractors": [
+      "ticket",
+      "boarding pass",
+      "passport"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248494685,
+    "dateAdded": 1790250140000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Please note that ordering hotel room service after midnight incurs ........ of ten dollars.",
-    "quizAnswer": "an extra charge",
-    "distractors": [
-      "a free coupon",
-      "a big refund",
-      "a total waiver"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-141",
+    "docId": "141",
+    "word": "An extra charge",
+    "phonetic": "/ən ˈekstrə tʃɑːdʒ/",
+    "partOfSpeech": "n phrase",
+    "meaning": "phụ phí; phí bổ sung",
+    "notes": "",
+    "definition": "an additional fee, cost, or amount of money required above the standard base price",
+    "example": "Please note that ordering hotel room service after midnight incurs an extra charge of ten dollars.",
+    "exampleVi": "Xin lưu ý rằng việc gọi phục vụ phòng khách sạn sau nửa đêm sẽ phải chịu một khoản phụ phí mười đô la.",
     "oxfordExamples": [
       {
         "en": "Please note that ordering hotel room service after midnight incurs an extra charge of ten dollars.",
@@ -6154,36 +6510,38 @@ window.DEFAULT_VOCAB_DATA = [
       "incur an extra charge",
       "at no extra charge",
       "extra charge applies"
-    ]
-  },
-  {
-    "id": "w-140",
-    "word": "aisle seat",
-    "phonetic": "/ˈaɪl siːt/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "chỗ ngồi cạnh lối đi",
-    "definition": "a seat situated next to the central passage on a plane, train, or theater, allowing easy exit",
-    "example": "I prefer booking an aisle seat on long-haul flights so I can easily get up without disturbing others.",
-    "exampleVi": "Tôi thích đặt một chỗ ngồi cạnh lối đi trên các chuyến bay đường dài để có thể đứng dậy mà không làm phiền người khác.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Please note that ordering hotel room service after midnight incurs ........ of ten dollars.",
+    "quizAnswer": "an extra charge",
+    "distractors": [
+      "a free coupon",
+      "a big refund",
+      "a total waiver"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248434685,
+    "dateAdded": 1790250141000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "I prefer booking an ........ on long-haul flights so I can easily get up without disturbing others.",
-    "quizAnswer": "aisle seat",
-    "distractors": [
-      "window seat",
-      "flight deck",
-      "cargo hold"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-142",
+    "docId": "142",
+    "word": "Aisle seat",
+    "phonetic": "/ˈaɪl siːt/",
+    "partOfSpeech": "n phrase",
+    "meaning": "chỗ ngồi cạnh lối đi",
+    "notes": "",
+    "definition": "a seat situated next to the central passage on a plane, train, or theater, allowing easy exit",
+    "example": "I prefer booking an aisle seat on long-haul flights so I can easily get up without disturbing others.",
+    "exampleVi": "Tôi thích đặt một chỗ ngồi cạnh lối đi trên các chuyến bay đường dài để có thể đứng dậy mà không làm phiền người khác.",
     "oxfordExamples": [
       {
         "en": "I prefer booking an aisle seat on long-haul flights so I can easily get up without disturbing others.",
@@ -6198,36 +6556,38 @@ window.DEFAULT_VOCAB_DATA = [
       "book an aisle seat",
       "aisle seat vs window seat",
       "request an aisle seat"
-    ]
-  },
-  {
-    "id": "w-141",
-    "word": "Declare",
-    "phonetic": "/dɪˈkleə(r)/",
-    "partOfSpeech": "verb",
-    "meaning": "khai báo, tuyên bố",
-    "definition": "to state officially and publicly; or to state that you are carrying goods on which duty or tax is payable",
-    "example": "When crossing international borders, travelers must declare any dutiable alcohol or tobacco items.",
-    "exampleVi": "Khi đi qua biên giới quốc tế, du khách phải khai báo bất kỳ mặt hàng rượu hoặc thuốc lá nào phải chịu thuế.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I prefer booking an ........ on long-haul flights so I can easily get up without disturbing others.",
+    "quizAnswer": "aisle seat",
+    "distractors": [
+      "window seat",
+      "flight deck",
+      "cargo hold"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248374685,
+    "dateAdded": 1790250142000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "When crossing international borders, travelers must ........ any dutiable alcohol or tobacco items.",
-    "quizAnswer": "declare",
-    "distractors": [
-      "hide",
-      "purchase",
-      "abandon"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-143",
+    "docId": "143",
+    "word": "Declare",
+    "phonetic": "/dɪˈkleə(r)/",
+    "partOfSpeech": "v",
+    "meaning": "khai báo; tuyên bố",
+    "notes": "Ví dụ ở hải quan: declare goods.",
+    "definition": "to state officially and publicly; or to state that you are carrying goods on which duty or tax is payable",
+    "example": "When crossing international borders, travelers must declare any dutiable alcohol or tobacco items.",
+    "exampleVi": "Khi đi qua biên giới quốc tế, du khách phải khai báo bất kỳ mặt hàng rượu hoặc thuốc lá nào phải chịu thuế.",
     "oxfordExamples": [
       {
         "en": "When crossing international borders, travelers must declare any dutiable alcohol or tobacco items.",
@@ -6242,36 +6602,38 @@ window.DEFAULT_VOCAB_DATA = [
       "declare goods at customs",
       "declare war / independence",
       "declare bankruptcy"
-    ]
-  },
-  {
-    "id": "w-142",
-    "word": "cigarettes",
-    "phonetic": "/ˌsɪɡəˈrets/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "Thuốc lá",
-    "definition": "narrow cylinders of finely cut tobacco rolled in thin paper for smoking",
-    "example": "Public health warnings highlight the severe risks of lung cancer associated with smoking cigarettes.",
-    "exampleVi": "Các cảnh báo y tế công cộng nhấn mạnh nguy cơ ung thư phổi nghiêm trọng liên quan đến việc hút thuốc lá.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "When crossing international borders, travelers must ........ any dutiable alcohol or tobacco items.",
+    "quizAnswer": "declare",
+    "distractors": [
+      "hide",
+      "purchase",
+      "abandon"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248314685,
+    "dateAdded": 1790250143000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Public health warnings highlight the severe risks of lung cancer associated with smoking ........",
-    "quizAnswer": "cigarettes",
-    "distractors": [
-      "beverages",
-      "snacks",
-      "vitamins"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-144",
+    "docId": "144",
+    "word": "Cigarette",
+    "phonetic": "/ˌsɪɡəˈrets/",
+    "partOfSpeech": "n",
+    "meaning": "thuốc lá điếu",
+    "notes": "Plural: cigarettes.",
+    "definition": "narrow cylinders of finely cut tobacco rolled in thin paper for smoking",
+    "example": "Public health warnings highlight the severe risks of lung cancer associated with smoking cigarettes.",
+    "exampleVi": "Các cảnh báo y tế công cộng nhấn mạnh nguy cơ ung thư phổi nghiêm trọng liên quan đến việc hút thuốc lá.",
     "oxfordExamples": [
       {
         "en": "Public health warnings highlight the severe risks of lung cancer associated with smoking cigarettes.",
@@ -6287,36 +6649,38 @@ window.DEFAULT_VOCAB_DATA = [
       "smoke cigarettes",
       "quit cigarettes",
       "light a cigarette"
-    ]
-  },
-  {
-    "id": "w-143",
-    "word": "perfume",
-    "phonetic": "/ˈpɜːfjuːm/",
-    "partOfSpeech": "noun",
-    "meaning": "nước hoa",
-    "definition": "a pleasant-smelling liquid, typically made from essential oils and alcohol, used to impart a scent to the body",
-    "example": "She lightly dabbed a few drops of French floral perfume behind each ear before leaving.",
-    "exampleVi": "Cô ấy chấm nhẹ vài giọt nước hoa hương hoa của Pháp vào sau mỗi bên tai trước khi rời đi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Public health warnings highlight the severe risks of lung cancer associated with smoking ........",
+    "quizAnswer": "cigarettes",
+    "distractors": [
+      "beverages",
+      "snacks",
+      "vitamins"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248254685,
+    "dateAdded": 1790250144000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She lightly dabbed a few drops of French floral ........ behind each ear before leaving.",
-    "quizAnswer": "perfume",
-    "distractors": [
-      "shampoo",
-      "toothpaste",
-      "bleach"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-145",
+    "docId": "145",
+    "word": "Perfume",
+    "phonetic": "/ˈpɜːfjuːm/",
+    "partOfSpeech": "n",
+    "meaning": "nước hoa",
+    "notes": "",
+    "definition": "a pleasant-smelling liquid, typically made from essential oils and alcohol, used to impart a scent to the body",
+    "example": "She lightly dabbed a few drops of French floral perfume behind each ear before leaving.",
+    "exampleVi": "Cô ấy chấm nhẹ vài giọt nước hoa hương hoa của Pháp vào sau mỗi bên tai trước khi rời đi.",
     "oxfordExamples": [
       {
         "en": "She lightly dabbed a few drops of French floral perfume behind each ear before leaving.",
@@ -6331,36 +6695,38 @@ window.DEFAULT_VOCAB_DATA = [
       "wear / spray perfume",
       "bottle of perfume",
       "scent of perfume"
-    ]
-  },
-  {
-    "id": "w-144",
-    "word": "Pardon",
-    "phonetic": "/ˈpɑːdn/",
-    "partOfSpeech": "verb / exclamation",
-    "meaning": "cái gì cơ",
-    "definition": "used to ask somebody politely to repeat what they have just said; or to officially forgive an offence",
-    "example": "I beg your pardon, could you please repeat the last sentence of your lecture?",
-    "exampleVi": "Xin thứ lỗi / cái gì cơ, thầy có thể vui lòng nhắc lại câu cuối cùng của bài giảng được không?",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She lightly dabbed a few drops of French floral ........ behind each ear before leaving.",
+    "quizAnswer": "perfume",
+    "distractors": [
+      "shampoo",
+      "toothpaste",
+      "bleach"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248194685,
+    "dateAdded": 1790250145000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "I beg your ........, could you please repeat the last sentence of your lecture?",
-    "quizAnswer": "pardon",
-    "distractors": [
-      "permission",
-      "apologize",
-      "excuse"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-146",
+    "docId": "146",
+    "word": "Pardon?",
+    "phonetic": "/ˈpɑːdn/",
+    "partOfSpeech": "interjection",
+    "meaning": "xin lỗi?/gì cơ?",
+    "notes": "Dùng để yêu cầu người khác nhắc lại; “pardon” cũng có thể là v/n với nghĩa tha thứ/sự ân xá.",
+    "definition": "used to ask somebody politely to repeat what they have just said; or to officially forgive an offence",
+    "example": "I beg your pardon, could you please repeat the last sentence of your lecture?",
+    "exampleVi": "Xin thứ lỗi / cái gì cơ, thầy có thể vui lòng nhắc lại câu cuối cùng của bài giảng được không?",
     "oxfordExamples": [
       {
         "en": "I beg your pardon, could you please repeat the last sentence of your lecture?",
@@ -6375,36 +6741,38 @@ window.DEFAULT_VOCAB_DATA = [
       "beg your pardon",
       "pardon me",
       "presidential pardon"
-    ]
-  },
-  {
-    "id": "w-145",
-    "word": "elegant",
-    "phonetic": "/ˈelɪɡənt/",
-    "partOfSpeech": "adjective",
-    "meaning": "duyên dáng",
-    "definition": "graceful, stylish, and pleasing in appearance, manner, or design",
-    "example": "The ballroom was filled with distinguished guests dressed in elegant black-tie evening wear.",
-    "exampleVi": "Khán phòng khiêu vũ ngập tràn những vị khách quý trong trang phục dạ hội trang nhã và duyên dáng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I beg your ........, could you please repeat the last sentence of your lecture?",
+    "quizAnswer": "pardon",
+    "distractors": [
+      "permission",
+      "apologize",
+      "excuse"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248134685,
+    "dateAdded": 1790250146000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The ballroom was filled with distinguished guests dressed in ........ black-tie evening wear.",
-    "quizAnswer": "elegant",
-    "distractors": [
-      "clumsy",
-      "dowdy",
-      "awkward"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-147",
+    "docId": "147",
+    "word": "Elegant",
+    "phonetic": "/ˈelɪɡənt/",
+    "partOfSpeech": "adj",
+    "meaning": "thanh lịch; trang nhã; duyên dáng",
+    "notes": "",
+    "definition": "graceful, stylish, and pleasing in appearance, manner, or design",
+    "example": "The ballroom was filled with distinguished guests dressed in elegant black-tie evening wear.",
+    "exampleVi": "Khán phòng khiêu vũ ngập tràn những vị khách quý trong trang phục dạ hội trang nhã và duyên dáng.",
     "oxfordExamples": [
       {
         "en": "The ballroom was filled with distinguished guests dressed in elegant black-tie evening wear.",
@@ -6419,36 +6787,38 @@ window.DEFAULT_VOCAB_DATA = [
       "elegant dress / design",
       "elegant solution",
       "graceful and elegant"
-    ]
-  },
-  {
-    "id": "w-146",
-    "word": "as cute as a button",
-    "phonetic": "/æz kjuːt æz ə ˈbʌtn/",
-    "partOfSpeech": "idiom",
-    "meaning": "dễ thương hết nấc",
-    "definition": "extremely charming, endearing, and pretty, especially describing a small child or animal",
-    "example": "The tiny fluffy golden retriever puppy wagged its tail excitedly and looked as cute as a button.",
-    "exampleVi": "Chú cún tha mồi nhỏ nhắn lông xù vẫy đuôi mừng rỡ và trông dễ thương hết nấc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The ballroom was filled with distinguished guests dressed in ........ black-tie evening wear.",
+    "quizAnswer": "elegant",
+    "distractors": [
+      "clumsy",
+      "dowdy",
+      "awkward"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248074685,
+    "dateAdded": 1790250147000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The tiny fluffy golden retriever puppy wagged its tail excitedly and looked ........",
-    "quizAnswer": "as cute as a button",
-    "distractors": [
-      "as blind as a bat",
-      "as stubborn as a mule",
-      "as cold as ice"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-148",
+    "docId": "148",
+    "word": "As cute as a button",
+    "phonetic": "/æz kjuːt æz ə ˈbʌtn/",
+    "partOfSpeech": "idiom",
+    "meaning": "rất dễ thương; dễ thương hết nấc",
+    "notes": "",
+    "definition": "extremely charming, endearing, and pretty, especially describing a small child or animal",
+    "example": "The tiny fluffy golden retriever puppy wagged its tail excitedly and looked as cute as a button.",
+    "exampleVi": "Chú cún tha mồi nhỏ nhắn lông xù vẫy đuôi mừng rỡ và trông dễ thương hết nấc.",
     "oxfordExamples": [
       {
         "en": "The tiny fluffy golden retriever puppy wagged its tail excitedly and looked as cute as a button.",
@@ -6463,36 +6833,38 @@ window.DEFAULT_VOCAB_DATA = [
       "cute as a button",
       "adorable child",
       "precious puppy"
-    ]
-  },
-  {
-    "id": "w-147",
-    "word": "cigars",
-    "phonetic": "/sɪˈɡɑːz/",
-    "partOfSpeech": "noun (plural)",
-    "meaning": "xì gà",
-    "definition": "cylinders of dried and fermented tobacco leaves rolled tightly for smoking",
-    "example": "Traditional Cuban cigars are renowned internationally for their rich flavor and hand-rolled craftsmanship.",
-    "exampleVi": "Xì gà truyền thống của Cuba nổi tiếng quốc tế nhờ hương vị đậm đà và kỹ thuật cuốn tay thủ công.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The tiny fluffy golden retriever puppy wagged its tail excitedly and looked ........",
+    "quizAnswer": "as cute as a button",
+    "distractors": [
+      "as blind as a bat",
+      "as stubborn as a mule",
+      "as cold as ice"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790248014685,
+    "dateAdded": 1790250148000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "Traditional Cuban ........ are renowned internationally for their rich flavor and hand-rolled craftsmanship.",
-    "quizAnswer": "cigars",
-    "distractors": [
-      "cigarettes",
-      "matches",
-      "candles"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-149",
+    "docId": "149",
+    "word": "Cigar",
+    "phonetic": "/sɪˈɡɑːz/",
+    "partOfSpeech": "n",
+    "meaning": "xì gà",
+    "notes": "Plural: cigars.",
+    "definition": "cylinders of dried and fermented tobacco leaves rolled tightly for smoking",
+    "example": "Traditional Cuban cigars are renowned internationally for their rich flavor and hand-rolled craftsmanship.",
+    "exampleVi": "Xì gà truyền thống của Cuba nổi tiếng quốc tế nhờ hương vị đậm đà và kỹ thuật cuốn tay thủ công.",
     "oxfordExamples": [
       {
         "en": "Traditional Cuban cigars are renowned internationally for their rich flavor and hand-rolled craftsmanship.",
@@ -6508,36 +6880,38 @@ window.DEFAULT_VOCAB_DATA = [
       "box of cigars",
       "Cuban cigars",
       "cigar band"
-    ]
-  },
-  {
-    "id": "w-148",
-    "word": "Jealous",
-    "phonetic": "/ˈdʒeləs/",
-    "partOfSpeech": "adjective",
-    "meaning": "ghen tị ==  envy (v): ghen tị",
-    "definition": "feeling or showing an unhappy or angry desire to possess what someone else has; envious",
-    "example": "She felt secretly jealous when she discovered her best friend had won the prestigious scholarship.",
-    "exampleVi": "Cô ấy cảm thấy thầm ghen tị khi phát hiện người bạn thân nhất của mình đã giành được học bổng danh giá.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "Traditional Cuban ........ are renowned internationally for their rich flavor and hand-rolled craftsmanship.",
+    "quizAnswer": "cigars",
+    "distractors": [
+      "cigarettes",
+      "matches",
+      "candles"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247954685,
+    "dateAdded": 1790250149000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She felt secretly ........ when she discovered her best friend had won the prestigious scholarship.",
-    "quizAnswer": "jealous",
-    "distractors": [
-      "proud",
-      "supportive",
-      "generous"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-150",
+    "docId": "150",
+    "word": "Jealous",
+    "phonetic": "/ˈdʒeləs/",
+    "partOfSpeech": "adj",
+    "meaning": "ghen; ghen tị",
+    "notes": "“Envy” thường là n/v; jealous là adjective.",
+    "definition": "feeling or showing an unhappy or angry desire to possess what someone else has; envious",
+    "example": "She felt secretly jealous when she discovered her best friend had won the prestigious scholarship.",
+    "exampleVi": "Cô ấy cảm thấy thầm ghen tị khi phát hiện người bạn thân nhất của mình đã giành được học bổng danh giá.",
     "oxfordExamples": [
       {
         "en": "She felt secretly jealous when she discovered her best friend had won the prestigious scholarship.",
@@ -6552,36 +6926,84 @@ window.DEFAULT_VOCAB_DATA = [
       "jealous of somebody",
       "wildly / bitterly jealous",
       "green with jealousy"
-    ]
-  },
-  {
-    "id": "w-149",
-    "word": "Bet",
-    "phonetic": "/bet/",
-    "partOfSpeech": "verb / noun",
-    "meaning": "cá rằng",
-    "definition": "to risk money on the unknown result of a future event; or used to express certainty that something will happen",
-    "example": "I bet ten dollars that our university team will win the championship game tonight.",
-    "exampleVi": "Tôi cá cược mười đô la rằng đội tuyển trường đại học chúng ta sẽ thắng trận chung kết tối nay.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She felt secretly ........ when she discovered her best friend had won the prestigious scholarship.",
+    "quizAnswer": "jealous",
+    "distractors": [
+      "proud",
+      "supportive",
+      "generous"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247894685,
+    "dateAdded": 1790250150000,
     "tags": [
       "listening",
       "google-doc"
+    ]
+  },
+  {
+    "id": "w-151",
+    "docId": "151",
+    "word": "Envy",
+    "phonetic": "/ˈenvi/",
+    "partOfSpeech": "noun / verb",
+    "meaning": "sự ghen tị; ghen tị",
+    "notes": "",
+    "definition": "the feeling of wanting something that someone else has; to wish you had something that another person has",
+    "example": "His success soon became the envy of all his colleagues.",
+    "exampleVi": "Thành công của anh ấy sớm trở thành niềm ghen tị của tất cả các đồng nghiệp.",
+    "oxfordExamples": [
+      {
+        "en": "His success soon became the envy of all his colleagues.",
+        "vi": "Thành công của anh ấy sớm trở thành niềm ghen tị của tất cả các đồng nghiệp."
+      },
+      {
+        "en": "I envy her ability to speak four languages fluently.",
+        "vi": "Tôi ghen tị với khả năng nói trôi chảy bốn thứ tiếng của cô ấy."
+      }
     ],
-    "gapSentence": "I ........ ten dollars that our university team will win the championship game tonight.",
-    "quizAnswer": "bet",
-    "distractors": [
-      "lend",
-      "borrow",
-      "spend"
+    "collocations": [
+      "green with envy",
+      "the envy of sb",
+      "envy sb sth"
     ],
     "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "His tremendous success soon became the ........ of all his colleagues in the department.",
+    "quizAnswer": "envy",
+    "distractors": [
+      "pride",
+      "relief",
+      "pity"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250151000,
+    "tags": [
+      "listening",
+      "google-doc"
+    ]
+  },
+  {
+    "id": "w-152",
+    "docId": "152",
+    "word": "Bet",
+    "phonetic": "/bet/",
+    "partOfSpeech": "v/n",
+    "meaning": "cá rằng; cá cược; sự cá cược",
+    "notes": "Informal: I bet… = Tôi cá là…/chắc là…",
+    "definition": "to risk money on the unknown result of a future event; or used to express certainty that something will happen",
+    "example": "I bet ten dollars that our university team will win the championship game tonight.",
+    "exampleVi": "Tôi cá cược mười đô la rằng đội tuyển trường đại học chúng ta sẽ thắng trận chung kết tối nay.",
     "oxfordExamples": [
       {
         "en": "I bet ten dollars that our university team will win the championship game tonight.",
@@ -6597,36 +7019,38 @@ window.DEFAULT_VOCAB_DATA = [
       "I bet you...",
       "a safe bet",
       "you bet!"
-    ]
-  },
-  {
-    "id": "w-150",
-    "word": "mashed potatoes",
-    "phonetic": "/mæʃt pəˈteɪtəʊz/",
-    "partOfSpeech": "noun phrase",
-    "meaning": "khoai tây nghiền",
-    "definition": "boiled potatoes that have been crushed into a smooth, creamy dish with milk, butter, and seasonings",
-    "example": "The roast chicken was served alongside steamed green peas and a bowl of creamy mashed potatoes.",
-    "exampleVi": "Món gà quay được dọn kèm cùng đậu Hà Lan hấp và một bát khoai tây nghiền béo ngậy.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "I ........ ten dollars that our university team will win the championship game tonight.",
+    "quizAnswer": "bet",
+    "distractors": [
+      "lend",
+      "borrow",
+      "spend"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247834685,
+    "dateAdded": 1790250152000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The roast chicken was served alongside steamed green peas and a bowl of creamy ........",
-    "quizAnswer": "mashed potatoes",
-    "distractors": [
-      "raw carrots",
-      "sour lemons",
-      "spicy noodles"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-153",
+    "docId": "153",
+    "word": "Mashed potatoes",
+    "phonetic": "/mæʃt pəˈteɪtəʊz/",
+    "partOfSpeech": "n phrase",
+    "meaning": "khoai tây nghiền",
+    "notes": "Không phải động từ.",
+    "definition": "boiled potatoes that have been crushed into a smooth, creamy dish with milk, butter, and seasonings",
+    "example": "The roast chicken was served alongside steamed green peas and a bowl of creamy mashed potatoes.",
+    "exampleVi": "Món gà quay được dọn kèm cùng đậu Hà Lan hấp và một bát khoai tây nghiền béo ngậy.",
     "oxfordExamples": [
       {
         "en": "The roast chicken was served alongside steamed green peas and a bowl of creamy mashed potatoes.",
@@ -6641,36 +7065,38 @@ window.DEFAULT_VOCAB_DATA = [
       "creamy mashed potatoes",
       "mashed potatoes and gravy",
       "serving of mashed potatoes"
-    ]
-  },
-  {
-    "id": "w-151",
-    "word": "secretary",
-    "phonetic": "/ˈsekrətri/",
-    "partOfSpeech": "noun",
-    "meaning": "thư ký",
-    "definition": "a person employed in an office to assist with correspondence, keep records, and make appointments",
-    "example": "The executive secretary manages the CEO's daily schedule, travel bookings, and confidential files.",
-    "exampleVi": "Thư ký điều hành phụ trách quản lý lịch trình hàng ngày, đặt vé đi lại và hồ sơ mật của tổng giám đốc.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The roast chicken was served alongside steamed green peas and a bowl of creamy ........",
+    "quizAnswer": "mashed potatoes",
+    "distractors": [
+      "raw carrots",
+      "sour lemons",
+      "spicy noodles"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247774685,
+    "dateAdded": 1790250153000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The executive ........ manages the CEO's daily schedule, travel bookings, and confidential files.",
-    "quizAnswer": "secretary",
-    "distractors": [
-      "janitor",
-      "gardener",
-      "mechanic"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-154",
+    "docId": "154",
+    "word": "Secretary",
+    "phonetic": "/ˈsekrətri/",
+    "partOfSpeech": "n",
+    "meaning": "thư ký",
+    "notes": "",
+    "definition": "a person employed in an office to assist with correspondence, keep records, and make appointments",
+    "example": "The executive secretary manages the CEO's daily schedule, travel bookings, and confidential files.",
+    "exampleVi": "Thư ký điều hành phụ trách quản lý lịch trình hàng ngày, đặt vé đi lại và hồ sơ mật của tổng giám đốc.",
     "oxfordExamples": [
       {
         "en": "The executive secretary manages the CEO's daily schedule, travel bookings, and confidential files.",
@@ -6685,36 +7111,38 @@ window.DEFAULT_VOCAB_DATA = [
       "executive secretary",
       "private secretary",
       "secretary general"
-    ]
-  },
-  {
-    "id": "w-152",
-    "word": "waitress",
-    "phonetic": "/ˈweɪtrəs/",
-    "partOfSpeech": "noun",
-    "meaning": "bồi bàn",
-    "definition": "a woman whose job is to serve food and drinks to customers at their tables in a restaurant",
-    "example": "The polite waitress poured ice water into our glasses and took our dinner order promptly.",
-    "exampleVi": "Cô phục vụ bàn lịch sự rót nước đá vào ly của chúng tôi và ghi thực đơn bữa tối nhanh chóng.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The executive ........ manages the CEO's daily schedule, travel bookings, and confidential files.",
+    "quizAnswer": "secretary",
+    "distractors": [
+      "janitor",
+      "gardener",
+      "mechanic"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247714685,
+    "dateAdded": 1790250154000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The polite ........ poured ice water into our glasses and took our dinner order promptly.",
-    "quizAnswer": "waitress",
-    "distractors": [
-      "chef",
-      "cashier",
-      "hostess"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-155",
+    "docId": "155",
+    "word": "Waitress",
+    "phonetic": "/ˈweɪtrəs/",
+    "partOfSpeech": "n",
+    "meaning": "nữ phục vụ bàn",
+    "notes": "Hiện nay “server” thường trung tính giới hơn.",
+    "definition": "a woman whose job is to serve food and drinks to customers at their tables in a restaurant",
+    "example": "The polite waitress poured ice water into our glasses and took our dinner order promptly.",
+    "exampleVi": "Cô phục vụ bàn lịch sự rót nước đá vào ly của chúng tôi và ghi thực đơn bữa tối nhanh chóng.",
     "oxfordExamples": [
       {
         "en": "The polite waitress poured ice water into our glasses and took our dinner order promptly.",
@@ -6729,36 +7157,38 @@ window.DEFAULT_VOCAB_DATA = [
       "work as a waitress",
       "tip the waitress",
       "polite / attentive waitress"
-    ]
-  },
-  {
-    "id": "w-153",
-    "word": "trim the bushes",
-    "phonetic": "/trɪm ðə ˈbʊʃɪz/",
-    "partOfSpeech": "phrase",
-    "meaning": "tỉa bớt bụi cây",
-    "definition": "to cut away irregular or overgrown branches from garden shrubs to keep them neat and healthy",
-    "example": "The gardener brought out heavy shears every autumn to trim the bushes along the garden fence.",
-    "exampleVi": "Người làm vườn mang kéo tỉa lớn ra vào mỗi mùa thu để tỉa bớt bụi cây dọc hàng rào hoa.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The polite ........ poured ice water into our glasses and took our dinner order promptly.",
+    "quizAnswer": "waitress",
+    "distractors": [
+      "chef",
+      "cashier",
+      "hostess"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247654685,
+    "dateAdded": 1790250155000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The gardener brought out heavy shears every autumn to ........ along the garden fence.",
-    "quizAnswer": "trim the bushes",
-    "distractors": [
-      "chop down trees",
-      "plant new seeds",
-      "pave the driveway"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-156",
+    "docId": "156",
+    "word": "Trim the bushes",
+    "phonetic": "/trɪm ðə ˈbʊʃɪz/",
+    "partOfSpeech": "v phrase",
+    "meaning": "tỉa bụi cây",
+    "notes": "",
+    "definition": "to cut away irregular or overgrown branches from garden shrubs to keep them neat and healthy",
+    "example": "The gardener brought out heavy shears every autumn to trim the bushes along the garden fence.",
+    "exampleVi": "Người làm vườn mang kéo tỉa lớn ra vào mỗi mùa thu để tỉa bớt bụi cây dọc hàng rào hoa.",
     "oxfordExamples": [
       {
         "en": "The gardener brought out heavy shears every autumn to trim the bushes along the garden fence.",
@@ -6773,36 +7203,38 @@ window.DEFAULT_VOCAB_DATA = [
       "trim the hedges / bushes",
       "gardening shears",
       "neatly trimmed bushes"
-    ]
-  },
-  {
-    "id": "w-154",
-    "word": "weed the flower beds",
-    "phonetic": "/wiːd ðə ˈflaʊə bedz/",
-    "partOfSpeech": "phrase",
-    "meaning": "nhổ cỏ trong luống hoa",
-    "definition": "to remove unwanted wild plants from garden borders or soil plots where flowers are grown",
-    "example": "She spent Saturday morning kneeling on the lawn to weed the flower beds before spring planting.",
-    "exampleVi": "Cô ấy đã dành cả sáng thứ Bảy quỳ trên bãi cỏ để nhổ cỏ trong các luống hoa trước vụ trồng xuân.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The gardener brought out heavy shears every autumn to ........ along the garden fence.",
+    "quizAnswer": "trim the bushes",
+    "distractors": [
+      "chop down trees",
+      "plant new seeds",
+      "pave the driveway"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247594685,
+    "dateAdded": 1790250156000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "She spent Saturday morning kneeling on the lawn to ........ before spring planting.",
-    "quizAnswer": "weed the flower beds",
-    "distractors": [
-      "paint the fence",
-      "wash the car",
-      "fix the roof"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-157",
+    "docId": "157",
+    "word": "Weed the flower beds",
+    "phonetic": "/wiːd ðə ˈflaʊə bedz/",
+    "partOfSpeech": "v phrase",
+    "meaning": "nhổ cỏ trong các luống hoa",
+    "notes": "",
+    "definition": "to remove unwanted wild plants from garden borders or soil plots where flowers are grown",
+    "example": "She spent Saturday morning kneeling on the lawn to weed the flower beds before spring planting.",
+    "exampleVi": "Cô ấy đã dành cả sáng thứ Bảy quỳ trên bãi cỏ để nhổ cỏ trong các luống hoa trước vụ trồng xuân.",
     "oxfordExamples": [
       {
         "en": "She spent Saturday morning kneeling on the lawn to weed the flower beds before spring planting.",
@@ -6817,36 +7249,38 @@ window.DEFAULT_VOCAB_DATA = [
       "weed the garden",
       "flower beds",
       "pull out weeds"
-    ]
-  },
-  {
-    "id": "w-155",
-    "word": "satisfactory",
-    "phonetic": "/ˌsætɪsˈfæktəri/",
-    "partOfSpeech": "adjective",
-    "meaning": "sư mong đợi",
-    "definition": "good enough for a particular purpose or situation, meeting required standards or expectations",
-    "example": "The building inspector concluded that the emergency fire exits were in a completely satisfactory condition.",
-    "exampleVi": "Thanh tra xây dựng kết luận rằng các cửa thoát hiểm khẩn cấp ở trong tình trạng hoàn toàn thỏa đáng / đạt yêu cầu mong đợi.",
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "She spent Saturday morning kneeling on the lawn to ........ before spring planting.",
+    "quizAnswer": "weed the flower beds",
+    "distractors": [
+      "paint the fence",
+      "wash the car",
+      "fix the roof"
+    ],
     "audioUrl": "",
     "isNew": false,
     "isStarred": false,
     "isMastered": false,
     "quizCount": 0,
     "correctCount": 0,
-    "dateAdded": 1790247534685,
+    "dateAdded": 1790250157000,
     "tags": [
       "listening",
       "google-doc"
-    ],
-    "gapSentence": "The building inspector concluded that the emergency fire exits were in a completely ........ condition.",
-    "quizAnswer": "satisfactory",
-    "distractors": [
-      "disastrous",
-      "unacceptable",
-      "inadequate"
-    ],
-    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    ]
+  },
+  {
+    "id": "w-158",
+    "docId": "158",
+    "word": "Satisfactory",
+    "phonetic": "/ˌsætɪsˈfæktəri/",
+    "partOfSpeech": "adj",
+    "meaning": "thỏa đáng; đạt yêu cầu",
+    "notes": "Không có nghĩa là “sự mong đợi”.",
+    "definition": "good enough for a particular purpose or situation, meeting required standards or expectations",
+    "example": "The building inspector concluded that the emergency fire exits were in a completely satisfactory condition.",
+    "exampleVi": "Thanh tra xây dựng kết luận rằng các cửa thoát hiểm khẩn cấp ở trong tình trạng hoàn toàn thỏa đáng / đạt yêu cầu mong đợi.",
     "oxfordExamples": [
       {
         "en": "The building inspector concluded that the emergency fire exits were in a completely satisfactory condition.",
@@ -6861,6 +7295,72 @@ window.DEFAULT_VOCAB_DATA = [
       "satisfactory result / solution",
       "mutually satisfactory",
       "satisfactory progress"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "The building inspector concluded that the emergency fire exits were in a completely ........ condition.",
+    "quizAnswer": "satisfactory",
+    "distractors": [
+      "disastrous",
+      "unacceptable",
+      "inadequate"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250158000,
+    "tags": [
+      "listening",
+      "google-doc"
+    ]
+  },
+  {
+    "id": "w-159",
+    "docId": "159",
+    "word": "Eat",
+    "phonetic": "/iːt/",
+    "partOfSpeech": "verb",
+    "meaning": "ăn",
+    "notes": "",
+    "definition": "to put food into your mouth, chew it and swallow it",
+    "example": "We decided to eat dinner at an authentic Italian restaurant downtown.",
+    "exampleVi": "Chúng tôi quyết định ăn tối tại một nhà hàng Ý đích thực ở trung tâm thành phố.",
+    "oxfordExamples": [
+      {
+        "en": "We decided to eat dinner at an authentic Italian restaurant downtown.",
+        "vi": "Chúng tôi quyết định ăn tối tại một nhà hàng Ý đích thực ở trung tâm thành phố."
+      },
+      {
+        "en": "You shouldn't speak with your mouth full while eating.",
+        "vi": "Bạn không nên vừa nói vừa ngậm đầy đồ ăn trong miệng."
+      }
+    ],
+    "collocations": [
+      "eat out",
+      "eat healthy",
+      "eat well",
+      "eat up"
+    ],
+    "dictSource": "Oxford Advanced Learner's Dictionary (OALD)",
+    "gapSentence": "We decided to ........ dinner at an authentic Italian restaurant downtown.",
+    "quizAnswer": "eat",
+    "distractors": [
+      "pour",
+      "drink",
+      "bake"
+    ],
+    "audioUrl": "",
+    "isNew": false,
+    "isStarred": false,
+    "isMastered": false,
+    "quizCount": 0,
+    "correctCount": 0,
+    "dateAdded": 1790250159000,
+    "tags": [
+      "listening",
+      "google-doc"
     ]
   }
 ];

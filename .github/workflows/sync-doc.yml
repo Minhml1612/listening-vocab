@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Sync Script
         env:
-          GOOGLE_DOC_ID: ${{ secrets.GOOGLE_DOC_ID || '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY' }}
+          GOOGLE_DOC_ID: ${{ secrets.GOOGLE_DOC_ID || '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4' }}
           GOOGLE_APPS_SCRIPT_URL: ${{ secrets.GOOGLE_APPS_SCRIPT_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |

@@ -2,7 +2,7 @@
  * GOOGLE APPS SCRIPT CHO WEB HỌC TỪ VỰNG QUIZLET
  * 
  * Hướng dẫn 3 bước đơn giản:
- * 1. Mở file Google Docs của bạn: https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/edit
+ * 1. Mở file Google Docs của bạn: https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit
  * 2. Trên thanh menu, chọn: Tiện ích mở rộng (Extensions) > Apps Script
  * 3. Xoá code cũ, dán toàn bộ nội dung file này vào > Nhấn Lưu (Ctrl + S)
  * 4. Nhấn nút "Triển khai" (Deploy) ở góc trên bên phải > Chọn "Tùy chọn triển khai mới" (New deployment)
@@ -19,7 +19,7 @@ function doGet(e) {
     var doc = DocumentApp.getActiveDocument();
     if (!doc) {
       // Nếu chạy standalone mà không gắn với doc, thử mở theo ID
-      var docId = "1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY";
+      var docId = "1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4";
       doc = DocumentApp.openById(docId);
     }
     

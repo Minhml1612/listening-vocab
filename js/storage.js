@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEYS = {
-  WORDS: 'docvocab_words_v8', // v8: Tích hợp đầy đủ từ điển Oxford trực tiếp trong web
+  WORDS: 'docvocab_words_v10', // v10: 159 mục từ chuẩn hóa Google Docs & từ điển Oxford trực tiếp
   SETTINGS: 'docvocab_settings_v1',
   STATS: 'docvocab_stats_v1',
   HISTORY: 'docvocab_sync_history_v1'
@@ -12,7 +12,7 @@ const STORAGE_KEYS = {
 
 const DEFAULT_SETTINGS = {
   scriptUrl: '',
-  docId: '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY',
+  docId: '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4',
   autoSync: true,
   autoSyncInterval: 10,
   geminiApiKey: '',
@@ -80,10 +80,12 @@ class StorageManager {
 
       clean.push({
         id: w.id || ('w-' + (clean.length + 1)),
+        docId: w.docId || '',
         word: wordText,
         phonetic: w.phonetic || '',
         partOfSpeech: w.partOfSpeech || '',
         meaning: meaningText,
+        notes: w.notes || w.usageNote || '',
         definition: w.definition || '',
         example: w.example || `The speaker used the word "${wordText}" in the listening conversation.`,
         exampleVi: w.exampleVi || `Người nói đã dùng từ "${wordText}" trong bài nghe.`,
@@ -157,9 +159,9 @@ class StorageManager {
 
       const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
       if (!raw) {
-        // Chuyển giao tiến trình từ v6/v5 sang v8
+        // Chuyển giao tiến trình từ v8/v7/v6/v5 sang v10
         let statsMap = {};
-        const prevRaw = localStorage.getItem('docvocab_words_v6') || localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4');
+        const prevRaw = localStorage.getItem('docvocab_words_v8') || localStorage.getItem('docvocab_words_v7') || localStorage.getItem('docvocab_words_v6') || localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4');
         if (prevRaw) {
           try {
             const prevList = JSON.parse(prevRaw);
@@ -258,7 +260,15 @@ class StorageManager {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.SETTINGS);
       if (!data) return { ...DEFAULT_SETTINGS };
-      return { ...DEFAULT_SETTINGS, ...JSON.parse(data) };
+      const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(data) };
+      // Tự động nâng cấp Doc ID sang tài liệu chuẩn hóa mới nếu còn lưu ID cũ
+      if (parsed.docId === '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY') {
+        parsed.docId = DEFAULT_SETTINGS.docId;
+        try {
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(parsed));
+        } catch (e) {}
+      }
+      return parsed;
     } catch (e) {
       return { ...DEFAULT_SETTINGS };
     }

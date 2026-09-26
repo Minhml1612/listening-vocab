@@ -120,24 +120,39 @@ class DocSyncEngine {
       data.tableRows.forEach(row => {
         if (!row || row.length === 0) return;
         const first = (row[0] || '').trim();
-        if (['word', 'từ', 'từ vựng', 'stt'].includes(first.toLowerCase())) return;
+        if (['word', 'từ', 'từ vựng', 'stt', 'id'].includes(first.toLowerCase())) return;
 
-        let word = first;
+        let word = '';
         let pos = '';
         let meaning = '';
+        let notes = '';
+        let docId = '';
 
-        if (row.length >= 3) {
-          pos = (row[1] || '').trim();
-          meaning = (row[2] || '').trim();
+        if (/^\d{1,4}$/.test(first)) {
+          // Bảng chuẩn hóa mới: ID (0) | English (1) | POS (2) | Vietnamese meaning (3) | Note / Usage (4)
+          docId = first;
+          word = (row[1] || '').trim();
+          pos = (row[2] || '').trim();
+          meaning = (row[3] || '').trim();
+          notes = (row[4] || '').trim();
         } else {
-          meaning = (row[1] || '').trim();
+          word = first;
+          if (row.length >= 3) {
+            pos = (row[1] || '').trim();
+            meaning = (row[2] || '').trim();
+          } else {
+            meaning = (row[1] || '').trim();
+          }
         }
 
         if (word && word.length >= 2) {
           words.push({
+            id: docId ? ('w-' + parseInt(docId, 10)) : ('w-' + (words.length + 1)),
+            docId: docId,
             word: word,
             partOfSpeech: pos,
             meaning: meaning || 'thuộc bài listening',
+            notes: notes,
             isNew: false
           });
         }
@@ -151,6 +166,85 @@ class DocSyncEngine {
 
   parseRawText(text) {
     if (!text) return [];
+
+    // 1. Kiểm tra cấu trúc bảng chuẩn hóa mới với ID (001 - 159)
+    if (/(?:^|\r?\n)\t?\d{3}\r?\n/m.test(text)) {
+      const lines = text.split(/\r?\n/);
+      const entries = [];
+      let currentId = null;
+      let currentCells = [];
+
+      for (let l of lines) {
+        const m = l.trim().match(/^(\d{3})$/);
+        if (m) {
+          if (currentId) {
+            entries.push({ id: currentId, cells: currentCells });
+          }
+          currentId = m[1];
+          currentCells = [];
+        } else if (currentId !== null) {
+          currentCells.push(l);
+        }
+      }
+      if (currentId) {
+        entries.push({ id: currentId, cells: currentCells });
+      }
+
+      const words = [];
+      for (const entry of entries) {
+        const tabCells = [];
+        for (const c of entry.cells) {
+          if (c.startsWith('\t')) {
+            tabCells.push(c.slice(1).trim());
+          } else if (c.trim()) {
+            if (tabCells.length > 0) {
+              tabCells[tabCells.length - 1] += ' ' + c.trim();
+            } else {
+              tabCells.push(c.trim());
+            }
+          }
+        }
+        while (tabCells.length > 0 && !tabCells[tabCells.length - 1]) {
+          tabCells.pop();
+        }
+
+        if (tabCells.length >= 3) {
+          const word = tabCells[0].trim();
+          const pos = (tabCells[1] || '').trim();
+          const meaning = (tabCells[2] || '').trim();
+          const notes = (tabCells[3] || '').trim();
+
+          if (word && word.length >= 2) {
+            words.push({
+              id: 'w-' + parseInt(entry.id, 10),
+              docId: entry.id,
+              word: word,
+              partOfSpeech: pos,
+              meaning: meaning,
+              notes: notes,
+              phonetic: '',
+              definition: '',
+              example: `The speaker used the word "${word}" in the listening conversation.`,
+              exampleVi: `Người nói đã dùng từ "${word}" trong bài nghe.`,
+              oxfordExamples: [],
+              collocations: [],
+              dictSource: "Oxford Advanced Learner's Dictionary (OALD)",
+              audioUrl: '',
+              isNew: false,
+              isStarred: false,
+              isMastered: false,
+              quizCount: 0,
+              correctCount: 0,
+              dateAdded: Date.now(),
+              tags: ['listening', 'google-doc']
+            });
+          }
+        }
+      }
+
+      if (words.length > 0) return words;
+    }
+
     const lines = text.split(/\r?\n/);
     const words = [];
     const seen = new Set();

@@ -242,7 +242,7 @@ class AppRouter {
         <div class="flex items-start justify-between gap-3">
           <div class="flex-1">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="text-xs font-semibold text-slate-400">#${idx + 1}</span>
+              <span class="text-xs font-semibold text-slate-400">#${w.docId ? w.docId : (idx + 1)}</span>
               <span class="text-base md:text-lg font-bold text-[#2E3856] dark:text-white tracking-tight group-hover:text-[#4255FF] transition-colors">${w.word}</span>
               ${w.phonetic ? `<span class="text-xs font-mono text-[#4255FF] font-semibold">${w.phonetic}</span>` : ''}
               ${w.isNew ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">MỚI</span>` : ''}
@@ -250,6 +250,7 @@ class AppRouter {
             </div>
 
             <p class="text-sm font-semibold text-[#2E3856] dark:text-[#F6F7FB] mt-1.5">${w.meaning}</p>
+            ${w.notes ? `<div class="mt-1 text-xs text-amber-700 dark:text-amber-300 bg-amber-50/90 dark:bg-amber-950/40 px-2.5 py-1 rounded-lg border border-amber-200/80 dark:border-amber-900/40 inline-flex items-center gap-1.5 font-medium"><i data-lucide="info" class="w-3 h-3 flex-shrink-0"></i> <span>${this.escapeHtml(w.notes)}</span></div>` : ''}
             ${w.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 italic">${w.definition}</p>` : ''}
             
             ${w.example ? `
@@ -616,6 +617,17 @@ class AppRouter {
         <div class="text-[11px] font-bold uppercase tracking-wider text-[#4255FF] mb-1">Nghĩa tiếng Việt</div>
         <p class="text-base font-bold text-[#2E3856] dark:text-white">${w.meaning}</p>
       </div>
+
+      <!-- Ghi chú sử dụng (Note / Usage từ Google Docs) -->
+      ${w.notes ? `
+        <div class="p-3.5 bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 rounded-2xl">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1 flex items-center gap-1.5">
+            <i data-lucide="info" class="w-3.5 h-3.5"></i>
+            <span>Ghi chú sử dụng (Note / Usage)</span>
+          </div>
+          <p class="text-xs md:text-sm font-semibold text-amber-900 dark:text-amber-100">${this.escapeHtml(w.notes)}</p>
+        </div>
+      ` : ''}
 
       <!-- Định nghĩa Anh - Anh chuẩn Oxford -->
       ${w.definition ? `

@@ -7,10 +7,10 @@ echo.
 
 cd /d "C:\Users\daole\Documents\Website"
 
-echo [*] Đang kiểm tra thư mục hiện tại: %cd%
-echo [*] Đang đẩy toàn bộ 155 từ vựng Oxford và bộ Quiz lên GitHub...
+echo [*] Đang đẩy toàn bộ 159 từ vựng chuẩn hóa Google Docs & Oxford lên GitHub...
 echo.
-
+git add -A
+git commit -m "feat(source): switch data source to standardized Google Doc (v10.0)"
 git push -f origin main
 
 if %ERRORLEVEL% EQU 0 (

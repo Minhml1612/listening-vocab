@@ -20,7 +20,7 @@ if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
 if sys.stderr and hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
-DOC_ID = os.environ.get("GOOGLE_DOC_ID", "1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY")
+DOC_ID = os.environ.get("GOOGLE_DOC_ID", "1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4")
 SCRIPT_URL = os.environ.get("GOOGLE_APPS_SCRIPT_URL", "")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "vocab.json")
@@ -57,7 +57,59 @@ def parse_text_to_words(text):
         return []
 
     lines = text.splitlines()
-    extracted = []
+
+    # 1. Kiểm tra cấu trúc bảng chuẩn hóa mới với ID 3 chữ số (001 - 159)
+    if re.search(r'(?:^|\r?\n)\t?\d{3}\r?\n', text):
+        entries = []
+        current_id = None
+        current_cells = []
+
+        for l in lines:
+            m = re.match(r'^\t?(\d{3})$', l.strip())
+            if m:
+                if current_id:
+                    entries.append((current_id, current_cells))
+                current_id = m.group(1)
+                current_cells = []
+            elif current_id is not None:
+                current_cells.append(l)
+
+        if current_id:
+            entries.append((current_id, current_cells))
+
+        extracted = []
+        for eid, cells in entries:
+            tab_cells = []
+            for c in cells:
+                if c.startswith('\t'):
+                    tab_cells.append(c[1:].strip())
+                elif c.strip():
+                    if tab_cells:
+                        tab_cells[-1] += ' ' + c.strip()
+                    else:
+                        tab_cells.append(c.strip())
+            while tab_cells and not tab_cells[-1]:
+                tab_cells.pop()
+
+            if len(tab_cells) >= 3:
+                w = tab_cells[0].strip()
+                pos = tab_cells[1].strip() if len(tab_cells) > 1 else ''
+                meaning = tab_cells[2].strip() if len(tab_cells) > 2 else ''
+                notes = tab_cells[3].strip() if len(tab_cells) > 3 else ''
+
+                if w and len(w) >= 2:
+                    extracted.append({
+                        "id": f"w-{int(eid)}",
+                        "docId": eid,
+                        "word": w,
+                        "partOfSpeech": pos,
+                        "meaning": meaning,
+                        "notes": notes,
+                        "example": ""
+                    })
+
+        if extracted:
+            return extracted
     
     for line in lines:
         line = line.strip()
@@ -183,11 +235,18 @@ def main():
         except Exception:
             existing = []
 
-    existing_map = {item['word'].lower().strip(): item for item in existing}
+    def get_item_key(it):
+        if it.get('docId'):
+            return f"doc-{it['docId']}"
+        w = it.get('word', '').lower().strip()
+        pos = it.get('partOfSpeech', '').lower().strip()
+        return f"{w}_{pos}" if pos else w
+
+    existing_map = {get_item_key(item): item for item in existing}
     new_words_count = 0
 
     for item in extracted_words:
-        key = item['word'].lower().strip()
+        key = get_item_key(item)
         if not key:
             continue
 
@@ -196,6 +255,10 @@ def main():
             curr = existing_map[key]
             if item.get('meaning') and item['meaning'] != 'Đang cập nhật...':
                 curr['meaning'] = item['meaning']
+            if item.get('notes'):
+                curr['notes'] = item['notes']
+            if item.get('partOfSpeech'):
+                curr['partOfSpeech'] = item['partOfSpeech']
             if item.get('example') and not curr.get('example'):
                 curr['example'] = item['example']
         else:

@@ -278,7 +278,13 @@ class FlashcardController {
                 </div>
                 
                 <h3 class="text-2xl font-bold text-[#2E3856] dark:text-white mb-2">${word.meaning}</h3>
-                ${word.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 italic mb-3">${word.definition}</p>` : ''}
+                ${word.definition ? `<p class="text-xs text-slate-500 dark:text-slate-400 italic mb-2">${word.definition}</p>` : ''}
+                ${word.notes ? `
+                  <div class="mb-3 p-2.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 rounded-xl text-left">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 block mb-0.5">💡 Ghi chú sử dụng:</span>
+                    <p class="text-xs text-amber-900 dark:text-amber-100 font-medium">${word.notes}</p>
+                  </div>
+                ` : ''}
               </div>
 
               ${word.example ? `

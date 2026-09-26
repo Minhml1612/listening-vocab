@@ -1,6 +1,6 @@
 # 🚀 DocVocab Quizlet - Ứng Dụng Học Từ Vựng Listening Tự Động Từ Google Docs
 
-> Ứng dụng web học từ vựng tiếng Anh phong cách Quizlet, tự động đồng bộ thời gian thực từ tài liệu Google Docs: **[Tài liệu từ vựng tiếng anh tổng hợp trong các bài listening tự học](https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/edit)**.
+> Ứng dụng web học từ vựng tiếng Anh phong cách Quizlet, tự động đồng bộ thời gian thực từ tài liệu Google Docs: **[Tài liệu từ vựng tiếng Anh tổng hợp - Flashcard chuẩn hóa](https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit)**.
 
 Chạy 100% miễn phí trên **GitHub Pages**, tối ưu hoàn hảo cho điện thoại (iOS / Android) để học mọi lúc mọi nơi trong thời gian rảnh rỗi!
 
@@ -38,7 +38,7 @@ Chạy 100% miễn phí trên **GitHub Pages**, tối ưu hoàn hảo cho điệ
 
 Để ứng dụng đọc được tài liệu Google Docs của bạn theo thời gian thực mà không bao giờ bị lỗi bản quyền hay phân quyền truy cập:
 
-1. Mở file Google Docs của bạn: [Tài liệu từ vựng Listening](https://docs.google.com/document/d/1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY/edit)
+1. Mở file Google Docs của bạn: [Tài liệu từ vựng Listening chuẩn hóa](https://docs.google.com/document/d/1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4/edit)
 2. Trên thanh menu trên cùng, chọn: **Tiện ích mở rộng (Extensions)** > **Apps Script**.
 3. Xóa hết code cũ trong ô soạn thảo, mở file [`google-apps-script/Code.gs`](google-apps-script/Code.gs) trong thư mục này ra và dán toàn bộ vào.
 4. Nhấn nút **Lưu (Ctrl + S)**.
