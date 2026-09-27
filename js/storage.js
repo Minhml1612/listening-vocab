@@ -12,8 +12,8 @@ const STORAGE_KEYS = {
 
 const DEFAULT_SETTINGS = {
   scriptUrl: '',
-  docId: '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4',
-  autoSync: true,
+  docId: '',
+  autoSync: false,
   autoSyncInterval: 10,
   geminiApiKey: '',
   speechAccent: 'en-US',
@@ -62,7 +62,14 @@ class StorageManager {
   loadCurrentUser() {
     try {
       const raw = localStorage.getItem('docvocab_current_user');
-      return raw ? JSON.parse(raw) : null;
+      const user = raw ? JSON.parse(raw) : null;
+      if (user && user.email && user.email.toLowerCase() === 'daolenhatminh65@gmail.com' && !user.docId) {
+        user.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+        try {
+          localStorage.setItem('docvocab_current_user', JSON.stringify(user));
+        } catch (e) {}
+      }
+      return user;
     } catch (e) {
       return null;
     }
@@ -78,9 +85,12 @@ class StorageManager {
 
   switchUser(userObj) {
     this.currentUser = userObj;
+    if (this.currentUser && this.currentUser.email && this.currentUser.email.toLowerCase() === 'daolenhatminh65@gmail.com' && !this.currentUser.docId) {
+      this.currentUser.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+    }
     try {
-      if (userObj) {
-        localStorage.setItem('docvocab_current_user', JSON.stringify(userObj));
+      if (this.currentUser) {
+        localStorage.setItem('docvocab_current_user', JSON.stringify(this.currentUser));
       } else {
         localStorage.removeItem('docvocab_current_user');
       }
@@ -272,22 +282,39 @@ class StorageManager {
   loadSettings() {
     try {
       const storageKey = this.getUserStorageKey(STORAGE_KEYS.SETTINGS);
+      const isOwner = this.currentUser && this.currentUser.email && this.currentUser.email.toLowerCase() === 'daolenhatminh65@gmail.com';
       const data = localStorage.getItem(storageKey);
       if (!data) {
         const base = { ...DEFAULT_SETTINGS };
         if (this.currentUser) {
           if (this.currentUser.docId) base.docId = this.currentUser.docId;
           if (this.currentUser.scriptUrl) base.scriptUrl = this.currentUser.scriptUrl;
+          if (isOwner && !base.docId) {
+            base.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+            this.currentUser.docId = base.docId;
+            try {
+              localStorage.setItem('docvocab_current_user', JSON.stringify(this.currentUser));
+            } catch (e) {}
+          }
         }
         return base;
       }
       const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(data) };
-      // Tự động nâng cấp Doc ID sang tài liệu chuẩn hóa mới nếu còn lưu ID cũ
-      if (parsed.docId === '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY') {
-        parsed.docId = DEFAULT_SETTINGS.docId;
-        try {
-          localStorage.setItem(storageKey, JSON.stringify(parsed));
-        } catch (e) {}
+      
+      // Đảm bảo tính riêng tư tuyệt đối:
+      if (isOwner) {
+        if (!parsed.docId) {
+          parsed.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+        }
+      } else {
+        // Nếu là khách (chưa đăng nhập) hoặc tài khoản người dùng khác:
+        // Tuyệt đối không để dính Doc ID của chủ sở hữu do bộ nhớ đệm cũ!
+        if (parsed.docId === '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4' || parsed.docId === '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY') {
+          parsed.docId = '';
+          try {
+            localStorage.setItem(storageKey, JSON.stringify(parsed));
+          } catch (e) {}
+        }
       }
       return parsed;
     } catch (e) {

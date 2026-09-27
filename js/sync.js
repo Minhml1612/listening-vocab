@@ -48,10 +48,36 @@ class DocSyncEngine {
 
   async sync(options = {}) {
     if (this.isSyncing) return { status: 'already_syncing' };
+
+    const settings = window.appStorage.settings;
+    const hasConnection = !!((settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) ||
+                             (settings.docId && settings.docId.trim().length >= 20));
+
+    if (!hasConnection) {
+      const isGuest = !window.appStorage.currentUser;
+      if (!options.silent) {
+        if (isGuest) {
+          if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+            window.appRouter.showToast('Bạn đang ở chế độ Khách. Vui lòng đăng nhập Gmail để kết nối Google Docs cá nhân!', 'info');
+          }
+          if (window.appAuth && typeof window.appAuth.openLoginModal === 'function') {
+            window.appAuth.openLoginModal();
+          }
+        } else {
+          if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+            window.appRouter.showToast('Bạn chưa kết nối Google Docs. Hãy tạo tài liệu cá nhân để bắt đầu đồng bộ!', 'info');
+          }
+          if (window.appAuth && typeof window.appAuth.openDocsGuideModal === 'function') {
+            window.appAuth.openDocsGuideModal(1);
+          }
+        }
+      }
+      return { status: 'no_connection', message: 'Chưa kết nối Google Docs' };
+    }
+
     this.isSyncing = true;
     window.dispatchEvent(new CustomEvent('sync:started'));
 
-    const settings = window.appStorage.settings;
     let parsedWords = [];
     let sourceUsed = '';
     let pushedCount = 0;
@@ -106,8 +132,9 @@ class DocSyncEngine {
         }
       }
 
-      // 3. Thử tải bản cập nhật mới nhất từ GitHub Cloud (data/vocab.json)
-      if (parsedWords.length === 0) {
+      // 3. Thử tải bản cập nhật mới nhất từ GitHub Cloud (chỉ áp dụng cho chế độ Khách hoặc chủ sở hữu)
+      const isOwnerOrGuest = !window.appStorage.currentUser || (window.appStorage.currentUser.email && window.appStorage.currentUser.email.toLowerCase() === 'daolenhatminh65@gmail.com');
+      if (parsedWords.length === 0 && isOwnerOrGuest) {
         try {
           const resp = await fetch('data/vocab.json?v=' + Date.now(), { cache: 'no-store' });
           if (resp.ok) {

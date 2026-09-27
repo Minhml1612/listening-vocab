@@ -207,11 +207,27 @@ function handleAddWord(params) {
     meaning: meaning
   })).setMimeType(ContentService.MimeType.JSON);
 }`;
-
 class AuthManager {
   constructor() {
     this.currentUser = window.appStorage ? window.appStorage.currentUser : null;
     this.accounts = this.loadAccounts();
+    // Đảm bảo tính bảo mật và đúng tài khoản chủ sở hữu
+    let accountsUpdated = false;
+    this.accounts.forEach(acc => {
+      if (acc.email && acc.email.toLowerCase() === 'daolenhatminh65@gmail.com') {
+        if (!acc.docId) {
+          acc.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+          accountsUpdated = true;
+        }
+      } else {
+        // Tài khoản người dùng khác nếu trước đây bị dính nhầm docId của chủ sở hữu: xóa sạch
+        if (acc.docId === '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4') {
+          acc.docId = '';
+          accountsUpdated = true;
+        }
+      }
+    });
+    if (accountsUpdated) this.saveAccounts();
     this.init();
   }
 
@@ -364,6 +380,11 @@ class AuthManager {
       const email = this.currentUser.email;
       const displayName = this.currentUser.name || email.split('@')[0];
       const wordCount = window.appStorage ? window.appStorage.words.length : 0;
+      const settings = window.appStorage ? window.appStorage.settings : {};
+      const currentDocId = (this.currentUser && this.currentUser.docId) || (settings && settings.docId) || '';
+      const currentScriptUrl = (this.currentUser && this.currentUser.scriptUrl) || (settings && settings.scriptUrl) || '';
+      const hasValidDocId = !!(currentDocId && currentDocId.trim().length >= 20);
+      const isConnected = hasValidDocId || !!(currentScriptUrl && currentScriptUrl.trim().startsWith('http'));
 
       cardEl.innerHTML = `
         <div class="p-4 bg-emerald-500/10 border border-emerald-300 dark:border-emerald-800/80 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -387,9 +408,23 @@ class AuthManager {
             <button onclick="window.appAuth.openProfileModal()" class="px-3 py-1.5 bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-[#F6F7FB] rounded-xl text-xs font-semibold active:scale-95 transition-all">
               Quản lý kho
             </button>
-            <button onclick="window.appAuth.openDocsGuideModal(1)" class="px-3 py-1.5 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-xs font-bold active:scale-95 transition-all">
-              Hướng dẫn Google Docs
-            </button>
+            ${isConnected ? (
+              hasValidDocId ? `
+                <a href="https://docs.google.com/document/d/${encodeURIComponent(currentDocId)}/edit" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 rounded-xl text-xs font-bold active:scale-95 transition-all inline-flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>Mở Docs</span>
+                </a>
+              ` : `
+                <button onclick="window.appAuth.openDocsGuideModal(3)" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 rounded-xl text-xs font-bold active:scale-95 transition-all inline-flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>Đã kết nối</span>
+                </button>
+              `
+            ) : `
+              <button onclick="window.appAuth.openDocsGuideModal(1)" class="px-3 py-1.5 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-xs font-bold active:scale-95 transition-all">
+                Tạo Google Docs
+              </button>
+            `}
           </div>
         </div>
       `;
@@ -517,6 +552,7 @@ class AuthManager {
   loginWithEmail(email, name = '') {
     const cleanEmail = email.trim().toLowerCase();
     const isNew = !this.accounts.some(a => a.email.toLowerCase() === cleanEmail);
+    const isOwner = cleanEmail === 'daolenhatminh65@gmail.com';
 
     let existingAccount = this.accounts.find(a => a.email.toLowerCase() === cleanEmail);
     if (!existingAccount) {
@@ -524,7 +560,7 @@ class AuthManager {
         email: cleanEmail,
         name: name || cleanEmail.split('@')[0],
         avatar: '',
-        docId: '',
+        docId: isOwner ? '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4' : '',
         scriptUrl: '',
         joinedAt: Date.now(),
         lastLogin: Date.now()
@@ -533,6 +569,9 @@ class AuthManager {
     } else {
       existingAccount.lastLogin = Date.now();
       if (name) existingAccount.name = name;
+      if (isOwner && !existingAccount.docId) {
+        existingAccount.docId = '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4';
+      }
     }
     this.saveAccounts();
 
@@ -546,12 +585,18 @@ class AuthManager {
 
     // Thông báo cho người dùng
     if (isNew) {
-      if (window.appRouter && typeof window.appRouter.showToast === 'function') {
-        window.appRouter.showToast(`Chào mừng bạn mới ${existingAccount.name}! Đang mở hướng dẫn tạo Google Docs...`, 'success');
+      if (isOwner) {
+        if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+          window.appRouter.showToast(`Chào mừng chủ sở hữu! Kho Google Docs của bạn đã được kết nối sẵn.`, 'success');
+        }
+      } else {
+        if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+          window.appRouter.showToast(`Chào mừng bạn mới ${existingAccount.name}! Đang mở hướng dẫn tạo Google Docs...`, 'success');
+        }
+        setTimeout(() => {
+          this.openDocsGuideModal(1);
+        }, 400);
       }
-      setTimeout(() => {
-        this.openDocsGuideModal(1);
-      }, 400);
     } else {
       if (window.appRouter && typeof window.appRouter.showToast === 'function') {
         window.appRouter.showToast(`Đã chuyển sang kho từ vựng của ${existingAccount.email}`, 'success');
@@ -589,8 +634,11 @@ class AuthManager {
     const displayName = this.currentUser.name || email.split('@')[0];
     const settings = window.appStorage ? window.appStorage.settings : {};
     const wordCount = window.appStorage ? window.appStorage.words.length : 0;
-    const currentDocId = settings.docId || this.currentUser.docId || '';
-    const hasValidDocId = currentDocId && currentDocId.length >= 20;
+    const currentDocId = (this.currentUser && this.currentUser.docId) || (settings && settings.docId) || '';
+    const currentScriptUrl = (this.currentUser && this.currentUser.scriptUrl) || (settings && settings.scriptUrl) || '';
+    const hasValidDocId = !!(currentDocId && currentDocId.trim().length >= 20);
+    const hasValidScriptUrl = !!(currentScriptUrl && currentScriptUrl.trim().startsWith('http'));
+    const isConnected = hasValidDocId || hasValidScriptUrl;
 
     modal.innerHTML = `
       <div class="w-full max-w-lg bg-white dark:bg-[#1A1D36] rounded-3xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-2xl p-5 sm:p-6 relative animate-in fade-in zoom-in-95 duration-200">
@@ -625,43 +673,69 @@ class AuthManager {
           </div>
         </div>
 
-        <!-- Khối Thông Tin Kho Google Docs -->
+        <!-- Khối Thông Tin Kho Google Docs (Tùy biến theo trạng thái đã kết nối hay chưa) -->
         <div class="space-y-3 mb-5">
-          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E]">
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-bold uppercase text-[#586380] dark:text-[#939BB4] flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-[#4255FF]" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                <span>Google Docs Kết Nối:</span>
+          ${isConnected ? `
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E]">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-bold uppercase text-[#586380] dark:text-[#939BB4] flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-[#4255FF]" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                  <span>Google Docs Kết Nối:</span>
+                </span>
+                <button onclick="window.appSync.sync(); window.appAuth.closeProfileModal();" class="text-xs font-bold text-[#4255FF] hover:underline flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                  <span>Đồng bộ ngay</span>
+                </button>
+              </div>
+              <p class="text-xs font-mono text-[#2E3856] dark:text-slate-200 truncate bg-white dark:bg-[#1A1D36] p-2 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                ${currentDocId || (currentScriptUrl ? 'Kết nối qua Apps Script Web App' : 'Chưa thiết lập')}
+              </p>
+
+              ${hasValidDocId ? `
+                <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                  <a href="https://docs.google.com/document/d/${encodeURIComponent(currentDocId)}/edit" target="_blank" rel="noopener noreferrer" 
+                    class="text-xs font-bold text-[#4255FF] dark:text-[#7383FF] hover:underline inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <span>Mở chỉnh sửa trực tiếp trên Google Docs</span>
+                  </a>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Đã kết nối: Hiện trạng thái thành công + nút Đổi liên kết (KHÔNG hiện nút hướng dẫn tạo) -->
+            <div class="p-2.5 px-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between text-xs">
+              <span class="text-emerald-700 dark:text-emerald-300 font-semibold flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Đã kết nối kho Google Docs thành công</span>
               </span>
-              <button onclick="window.appSync.sync(); window.appAuth.closeProfileModal();" class="text-xs font-bold text-[#4255FF] hover:underline flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                <span>Đồng bộ ngay</span>
+              <button onclick="window.appAuth.openDocsGuideModal(3); window.appAuth.closeProfileModal();" class="text-xs font-bold text-[#4255FF] dark:text-[#7383FF] hover:underline">
+                Đổi liên kết
               </button>
             </div>
-            <p class="text-xs font-mono text-[#2E3856] dark:text-slate-200 truncate bg-white dark:bg-[#1A1D36] p-2 rounded-xl border border-slate-200/60 dark:border-slate-800">
-              ${currentDocId || 'Chưa thiết lập'}
-            </p>
-
-            ${hasValidDocId ? `
-              <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
-                <a href="https://docs.google.com/document/d/${encodeURIComponent(currentDocId)}/edit" target="_blank" rel="noopener noreferrer" 
-                  class="text-xs font-bold text-[#4255FF] dark:text-[#7383FF] hover:underline inline-flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                  <span>Mở chỉnh sửa trực tiếp trên Google Docs</span>
-                </a>
+          ` : `
+            <!-- Chưa kết nối: Hiện thông báo nhắc nhở + nút Hướng dẫn tạo Docs cá nhân -->
+            <div class="p-3.5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-bold uppercase text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                  <span>Google Docs: Chưa kết nối</span>
+                </span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300">Chưa liên kết</span>
               </div>
-            ` : ''}
-          </div>
+              <p class="text-xs text-[#586380] dark:text-[#939BB4] leading-relaxed">
+                Tài khoản của bạn chưa kết nối Google Docs. Hãy tạo 1 bản sao tài liệu cá nhân để lưu từ vựng và tự động đồng bộ 2 chiều!
+              </p>
+            </div>
 
-          <!-- Nút xem hướng dẫn tạo Google Docs -->
-          <button onclick="window.appAuth.openDocsGuideModal(1); window.appAuth.closeProfileModal();" 
-            class="w-full p-3 rounded-2xl bg-gradient-to-r from-blue-500/10 to-indigo-500/10 hover:from-blue-500/20 hover:to-indigo-500/20 border border-blue-200 dark:border-blue-800/80 text-[#4255FF] dark:text-[#7383FF] text-xs font-bold flex items-center justify-between transition-all">
-            <span class="flex items-center gap-2">
-              <span class="text-base">📋</span>
-              <span>Hướng dẫn tạo Google Docs cá nhân (1-Click Copy)</span>
-            </span>
-            <span>&rarr;</span>
-          </button>
+            <button onclick="window.appAuth.openDocsGuideModal(1); window.appAuth.closeProfileModal();" 
+              class="w-full p-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold flex items-center justify-between shadow-md active:scale-98 transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-base">📋</span>
+                <span>Tạo Google Docs cá nhân (1-Click Copy)</span>
+              </span>
+              <span>&rarr;</span>
+            </button>
+          `}
         </div>
 
         <!-- Các Nút Hành Động -->
@@ -1117,7 +1191,7 @@ class AuthManager {
                   <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1">
                     Google Doc ID (Dự phòng)
                   </label>
-                  <input id="guide-input-doc-id" type="text" placeholder="1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4" 
+                  <input id="guide-input-doc-id" type="text" placeholder="Dán Google Doc ID của bạn..." 
                     value="${settings.docId || ''}"
                     class="w-full px-3.5 py-2.5 bg-white dark:bg-[#0A092D] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-xs font-mono focus:outline-none focus:border-[#4255FF] text-[#2E3856] dark:text-white" />
                 </div>
@@ -1220,6 +1294,8 @@ class AuthManager {
     }
 
     this.closeDocsGuideModal();
+    this.renderHeaderAuth();
+    this.renderSettingsAccountCard();
 
     if (window.appRouter && typeof window.appRouter.showToast === 'function') {
       window.appRouter.showToast('Đã lưu cấu hình Google Docs cho tài khoản của bạn! Đang đồng bộ...', 'success');

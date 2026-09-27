@@ -40,8 +40,8 @@ print(f"[TEST 3 PASSED] BANG_TU_VUNG.html: Valid HTML table ({html_text.count('<
 with open('index.html', 'r', encoding='utf-8') as f:
     idx_text = f.read()
 
-assert '1fEDLcsNSUEAyS_lczHTDs5mT9Z24_6nMrHeu3ypPgZ4' in idx_text
+assert 'setting-doc-id' in idx_text
 assert '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY' not in idx_text
-print("[TEST 4 PASSED] index.html: Google Doc ID is 100% updated and old ID is eliminated.")
+print("[TEST 4 PASSED] index.html: Settings input ready and legacy doc ID eliminated.")
 
 print("\nALL VERIFICATIONS PASSED SUCCESSFULLY!")
