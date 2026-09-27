@@ -138,7 +138,7 @@ class QuizController {
 
   renderQuestionStepper() {
     return `
-      <div class="flex items-center gap-1.5 overflow-x-auto py-1.5 mb-3 no-scrollbar select-none">
+      <div class="flex items-center gap-2 overflow-x-auto px-2 py-2 mb-2.5 no-scrollbar select-none">
         ${this.questions.map((q, idx) => {
           const isCurrent = idx === this.currentIndex;
           const isAnswered = !!q.userAnswer;
@@ -148,7 +148,7 @@ class QuizController {
 
           let pillClass = "w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold transition-all relative flex-shrink-0 ";
           if (isCurrent) {
-            pillClass += " ring-2 ring-[#4255FF] dark:ring-[#7383FF] ring-offset-2 dark:ring-offset-[#1A1D36] font-extrabold ";
+            pillClass += " ring-2 ring-[#4255FF] dark:ring-[#7383FF] ring-offset-2 ring-offset-white dark:ring-offset-[#0A092D] font-extrabold ";
           }
 
           if (isCorrect) {

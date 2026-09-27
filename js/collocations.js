@@ -127,7 +127,13 @@ class CollocationEngine {
       'sensational headlines': { meaning: 'tiêu đề giật gân, câu khách', type: 'Adj + Noun' },
       'target band score': { meaning: 'điểm số mục tiêu hướng đến', type: 'Noun + Phrase' },
       'daily revision schedule': { meaning: 'thời gian biểu ôn tập mỗi ngày', type: 'Noun + Phrase' },
-      'international sales position': { meaning: 'vị trí kinh doanh quốc tế', type: 'Noun + Phrase' }
+      'international sales position': { meaning: 'vị trí kinh doanh quốc tế', type: 'Noun + Phrase' },
+      'long-haul flights': { meaning: 'các chuyến bay đường dài', type: 'Adj + Noun' },
+      'long-haul flight': { meaning: 'chuyến bay chặng dài', type: 'Adj + Noun' },
+      'aisle seat': { meaning: 'chỗ ngồi gần lối đi trên máy bay', type: 'Noun + Noun' },
+      'window seat': { meaning: 'chỗ ngồi cạnh cửa sổ máy bay', type: 'Noun + Noun' },
+      'flight deck': { meaning: 'buồng lái phi hành đoàn', type: 'Noun + Noun' },
+      'cargo hold': { meaning: 'khoang chở hàng hóa của máy bay', type: 'Noun + Noun' }
     };
 
     // Chuẩn hóa toàn bộ key sang chữ thường
