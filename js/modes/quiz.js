@@ -461,8 +461,8 @@ class QuizController {
           processedHtml += wrapWords(beforeText);
         }
 
-        // Bọc Collocation trong nền màu tím đặc trưng theo yêu cầu
-        processedHtml += `<span class="clickable-collocation inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-lg bg-purple-100 hover:bg-purple-200 dark:bg-purple-950/80 dark:hover:bg-purple-900 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-700/80 font-bold transition-all cursor-pointer shadow-sm active:scale-95" data-collocation="${this.escapeHtml(col.phrase)}" title="Collocation (Longman): ${this.escapeHtml(col.phrase)} • Chạm để tra nghĩa & lưu"><span>${this.escapeHtml(col.matchedText)}</span><span class="text-[9px] font-extrabold uppercase px-1 py-0.2 rounded bg-purple-200 dark:bg-purple-900 text-purple-700 dark:text-purple-300">colloc</span></span>`;
+        // Bọc Collocation trong nền màu tím đặc trưng theo yêu cầu (loại bỏ nhãn chữ colloc để câu đọc tự nhiên, gọn gàng)
+        processedHtml += `<span class="clickable-collocation inline-block px-2 py-0.5 mx-0.5 rounded-lg bg-purple-100 hover:bg-purple-200 dark:bg-purple-950/80 dark:hover:bg-purple-900 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-700/80 font-bold transition-all cursor-pointer shadow-sm active:scale-95" data-collocation="${this.escapeHtml(col.phrase)}" title="Collocation (Longman): ${this.escapeHtml(col.phrase)} • Chạm để tra nghĩa & lưu">${this.escapeHtml(col.matchedText)}</span>`;
 
         lastIndex = col.end;
       }
