@@ -220,6 +220,56 @@ class AuthManager {
     }
   }
 
+  escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  escapeJsString(str) {
+    if (!str) return '';
+    return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"');
+  }
+
+  sanitizeAvatarUrl(url) {
+    if (!url || typeof url !== 'string') return '';
+    const clean = url.trim();
+    // Chấp nhận HTTP/HTTPS an toàn, lọc ký tự phá vỡ HTML attribute
+    if (/^https?:\/\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]+$/i.test(clean)) {
+      return clean.replace(/["'<>]/g, '');
+    }
+    // Chấp nhận base64 image an toàn từ canvas hoặc upload
+    if (/^data:image\/(jpeg|png|webp|gif);base64,[a-zA-Z0-9+/=]+$/i.test(clean)) {
+      return clean;
+    }
+    return '';
+  }
+
+  renderAvatarElement(user, sizeClass = 'w-10 h-10', textClass = 'text-base') {
+    if (!user) {
+      return `<div class="${sizeClass} rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold ${textClass} text-slate-500 flex-shrink-0">?</div>`;
+    }
+    const email = user.email || '';
+    const initial = ((user.name || email).charAt(0) || 'U').toUpperCase();
+    const avatar = (user.avatar || '').trim();
+    const safeName = this.escapeHtml(user.name || 'Avatar');
+    const safeInitial = this.escapeHtml(initial);
+    const sanitizedUrl = this.sanitizeAvatarUrl(avatar);
+
+    if (sanitizedUrl) {
+      return `<img src="${sanitizedUrl}" alt="${safeName}" class="${sizeClass} rounded-2xl object-cover border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0\\'>${safeInitial}</div>';" />`;
+    } else if (avatar && avatar.length > 0 && !avatar.startsWith('{')) {
+      const safeEmoji = this.escapeHtml(avatar.slice(0, 10));
+      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-blue-50 to-indigo-100 dark:from-[#252945] dark:to-[#1A1D36] border border-blue-200 dark:border-blue-900/60 flex items-center justify-center ${textClass} shadow-sm select-none flex-shrink-0">${safeEmoji}</div>`;
+    } else {
+      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0">${safeInitial}</div>`;
+    }
+  }
+
   renderHeaderAuth() {
     const container = document.getElementById('header-auth-container');
     if (!container) return;
@@ -243,16 +293,13 @@ class AuthManager {
     } else {
       // Đã đăng nhập: Nút Avatar Pill kho cá nhân
       const email = this.currentUser.email;
-      const initial = ((this.currentUser.name || email).charAt(0) || 'U').toUpperCase();
       const displayName = this.currentUser.name || email.split('@')[0];
 
       container.innerHTML = `
         <button id="btn-profile-header" onclick="window.appAuth.openProfileModal()" 
           class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] border border-slate-200/80 dark:border-slate-700/80 text-[#2E3856] dark:text-[#F6F7FB] text-xs font-semibold active:scale-95 transition-all group" 
-          title="Kho cá nhân: ${email} (Nhấp để quản lý)">
-          <div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs flex-shrink-0 group-hover:ring-2 group-hover:ring-[#4255FF]/40">
-            ${initial}
-          </div>
+          title="Kho cá nhân: ${email} (Nhấp để quản lý hoặc đổi ảnh đại diện)">
+          ${this.renderAvatarElement(this.currentUser, 'w-6 h-6', 'text-[11px]')}
           <span class="hidden sm:inline max-w-[85px] md:max-w-[110px] truncate text-xs font-bold">${displayName}</span>
           <span class="w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#252945]" title="Kho lưu trữ riêng đang hoạt động"></span>
         </button>
@@ -289,15 +336,15 @@ class AuthManager {
       `;
     } else {
       const email = this.currentUser.email;
-      const initial = ((this.currentUser.name || email).charAt(0) || 'U').toUpperCase();
       const displayName = this.currentUser.name || email.split('@')[0];
       const wordCount = window.appStorage ? window.appStorage.words.length : 0;
 
       cardEl.innerHTML = `
         <div class="p-4 bg-emerald-500/10 border border-emerald-300 dark:border-emerald-800/80 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black text-sm uppercase shadow-sm flex-shrink-0">
-              ${initial}
+            <div onclick="window.appAuth.openAvatarPicker()" class="cursor-pointer group relative" title="Nhấp để đổi avatar">
+              ${this.renderAvatarElement(this.currentUser, 'w-10 h-10', 'text-base')}
+              <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-white dark:bg-[#1A1D36] border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center text-[9px] shadow-xs text-[#4255FF]">✏️</span>
             </div>
             <div>
               <div class="flex items-center gap-2">
@@ -308,6 +355,9 @@ class AuthManager {
             </div>
           </div>
           <div class="flex items-center gap-2">
+            <button onclick="window.appAuth.openAvatarPicker()" class="px-3 py-1.5 bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-[#F6F7FB] rounded-xl text-xs font-semibold active:scale-95 transition-all">
+              Đổi avatar
+            </button>
             <button onclick="window.appAuth.openProfileModal()" class="px-3 py-1.5 bg-slate-100 dark:bg-[#252945] hover:bg-slate-200 dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-[#F6F7FB] rounded-xl text-xs font-semibold active:scale-95 transition-all">
               Quản lý kho
             </button>
@@ -336,14 +386,11 @@ class AuthManager {
         </label>
         <div class="space-y-1.5 max-h-36 overflow-y-auto no-scrollbar">
           ${this.accounts.map(acc => {
-            const initial = ((acc.name || acc.email).charAt(0) || 'U').toUpperCase();
             return `
-              <div onclick="window.appAuth.loginWithEmail('${acc.email}', '${acc.name || ''}')" 
+              <div onclick="window.appAuth.loginWithEmail('${this.escapeJsString(acc.email)}', '${this.escapeJsString(acc.name || '')}')" 
                 class="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-[#0A092D] hover:bg-blue-50 dark:hover:bg-[#252945] border border-[#E5E8EF] dark:border-[#282E4E] hover:border-[#4255FF] cursor-pointer transition-all">
                 <div class="flex items-center gap-2.5 min-w-0">
-                  <div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center text-[10px] font-bold uppercase flex-shrink-0">
-                    ${initial}
-                  </div>
+                  ${this.renderAvatarElement(acc, 'w-7 h-7', 'text-[11px]')}
                   <div class="min-w-0">
                     <p class="text-xs font-bold text-[#2E3856] dark:text-white truncate">${acc.email}</p>
                   </div>
@@ -513,32 +560,42 @@ class AuthManager {
     }
 
     const email = this.currentUser.email;
-    const initial = ((this.currentUser.name || email).charAt(0) || 'U').toUpperCase();
     const displayName = this.currentUser.name || email.split('@')[0];
     const settings = window.appStorage ? window.appStorage.settings : {};
     const wordCount = window.appStorage ? window.appStorage.words.length : 0;
-    const currentDocId = settings.docId || this.currentUser.docId || 'Chưa thiết lập';
-    const currentScriptUrl = settings.scriptUrl || this.currentUser.scriptUrl || '';
+    const currentDocId = settings.docId || this.currentUser.docId || '';
+    const hasValidDocId = currentDocId && currentDocId.length >= 20;
 
     modal.innerHTML = `
-      <div class="w-full max-w-lg bg-white dark:bg-[#1A1D36] rounded-3xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
-        <!-- Nút đóng -->
-        <button onclick="window.appAuth.closeProfileModal()" class="absolute top-5 right-5 p-2 rounded-xl text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] transition-colors" title="Đóng">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      <div class="w-full max-w-lg bg-white dark:bg-[#1A1D36] rounded-3xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-2xl p-5 sm:p-6 relative animate-in fade-in zoom-in-95 duration-200">
+        <!-- Nút đóng đặt tách biệt rõ ràng, không bao giờ che lấp nhãn ĐANG DÙNG trên mobile -->
+        <button onclick="window.appAuth.closeProfileModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] dark:hover:bg-[#2e3458] text-[#586380] dark:text-[#939BB4] flex items-center justify-center transition-colors shadow-sm" title="Đóng">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
 
-        <!-- Header Profile -->
-        <div class="flex items-center gap-3.5 mb-5 pb-4 border-b border-[#E5E8EF] dark:border-[#282E4E]">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black text-xl uppercase shadow-md flex-shrink-0">
-            ${initial}
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-2">
-              <h3 class="text-base font-black text-[#2E3856] dark:text-white truncate">${displayName}</h3>
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-extrabold uppercase">Đang dùng</span>
+        <!-- Header Profile: Có padding-right 48px (pr-12) bảo đảm không bị đè bởi nút đóng trên mọi dòng điện thoại -->
+        <div class="flex items-center gap-3.5 mb-5 pb-4 border-b border-[#E5E8EF] dark:border-[#282E4E] pr-12">
+          <!-- Avatar: Bấm vào để đổi avatar -->
+          <div onclick="window.appAuth.openAvatarPicker()" class="relative group cursor-pointer flex-shrink-0" title="Nhấp để đổi ảnh đại diện">
+            ${this.renderAvatarElement(this.currentUser, 'w-14 h-14', 'text-2xl')}
+            <div class="absolute inset-0 rounded-2xl bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             </div>
-            <p class="text-xs text-[#586380] dark:text-[#939BB4] truncate font-medium">${email}</p>
-            <p class="text-[11px] text-[#4255FF] font-semibold mt-0.5">${wordCount} từ vựng trong kho cá nhân</p>
+            <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-white dark:bg-[#1A1D36] border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center text-[10px] shadow-sm text-[#4255FF]">✏️</span>
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="text-base font-black text-[#2E3856] dark:text-white truncate max-w-[130px] sm:max-w-none">${displayName}</h3>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-extrabold uppercase whitespace-nowrap">Đang dùng</span>
+            </div>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4] truncate font-medium mt-0.5">${email}</p>
+            <div class="flex items-center gap-2.5 mt-1">
+              <span class="text-[11px] text-[#4255FF] font-semibold">${wordCount} từ vựng</span>
+              <button onclick="window.appAuth.openAvatarPicker()" class="text-[11px] font-bold text-[#4255FF] dark:text-[#7383FF] hover:underline flex items-center gap-1">
+                <span>📷 Đổi avatar</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -556,8 +613,18 @@ class AuthManager {
               </button>
             </div>
             <p class="text-xs font-mono text-[#2E3856] dark:text-slate-200 truncate bg-white dark:bg-[#1A1D36] p-2 rounded-xl border border-slate-200/60 dark:border-slate-800">
-              ${currentDocId}
+              ${currentDocId || 'Chưa thiết lập'}
             </p>
+
+            ${hasValidDocId ? `
+              <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                <a href="https://docs.google.com/document/d/${encodeURIComponent(currentDocId)}/edit" target="_blank" rel="noopener noreferrer" 
+                  class="text-xs font-bold text-[#4255FF] dark:text-[#7383FF] hover:underline inline-flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  <span>Mở chỉnh sửa trực tiếp trên Google Docs</span>
+                </a>
+              </div>
+            ` : ''}
           </div>
 
           <!-- Nút xem hướng dẫn tạo Google Docs -->
@@ -591,6 +658,187 @@ class AuthManager {
   closeProfileModal() {
     const modal = document.getElementById('modal-auth-profile');
     if (modal) modal.classList.add('hidden');
+  }
+
+  openAvatarPicker() {
+    if (!this.currentUser) {
+      this.openLoginModal();
+      return;
+    }
+
+    let modal = document.getElementById('modal-avatar-picker');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'modal-avatar-picker';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity duration-200';
+      document.body.appendChild(modal);
+    }
+
+    const emojis = ['🎓', '🚀', '🦊', '🦉', '🐱', '🎧', '⚡', '💎', '🦁', '🌸', '☕', '🌟', '🏆', '🎯', '📚', '🍀'];
+    const currentAvatar = this.currentUser.avatar || '';
+
+    modal.innerHTML = `
+      <div class="w-full max-w-md bg-white dark:bg-[#1A1D36] rounded-3xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto no-scrollbar">
+        <!-- Nút đóng -->
+        <button onclick="window.appAuth.closeAvatarPicker()" class="absolute top-5 right-5 p-2 rounded-xl text-[#586380] dark:text-[#939BB4] hover:bg-slate-100 dark:hover:bg-[#252945] transition-colors" title="Đóng">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+
+        <!-- Tiêu đề -->
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-2xl bg-blue-50 dark:bg-[#252945] border border-blue-200 dark:border-blue-900/60 flex items-center justify-center text-xl shadow-xs">
+            🎨
+          </div>
+          <div>
+            <h3 class="text-base font-black text-[#2E3856] dark:text-white">Đổi Ảnh Đại Diện (Avatar)</h3>
+            <p class="text-xs text-[#586380] dark:text-[#939BB4]">Tải ảnh từ điện thoại, chọn icon hoặc dán link</p>
+          </div>
+        </div>
+
+        <!-- 1. Tải ảnh từ thiết bị / camera điện thoại -->
+        <div class="p-4 bg-slate-50 dark:bg-[#0A092D] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] mb-4">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-2">
+            1. Tải ảnh từ điện thoại / máy tính
+          </label>
+          <input type="file" id="input-avatar-file" accept="image/*" class="hidden" onchange="window.appAuth.handleAvatarFileUpload(event)">
+          <button type="button" onclick="document.getElementById('input-avatar-file').click()" 
+            class="w-full py-3 px-4 bg-white dark:bg-[#1A1D36] hover:bg-blue-50/50 dark:hover:bg-[#252945] text-[#4255FF] dark:text-[#7383FF] border-2 border-dashed border-blue-300 dark:border-blue-800 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 active:scale-98">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <span>Chọn ảnh từ Thư viện ảnh / Chụp ảnh</span>
+          </button>
+          <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-1.5 text-center">
+            * Ảnh tự động cắt vuông 1:1 siêu nhẹ (~5KB)
+          </p>
+        </div>
+
+        <!-- 2. Bộ sưu tập biểu tượng cá tính -->
+        <div class="mb-4">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-2">
+            2. Hoặc chọn biểu tượng Avatar nhanh
+          </label>
+          <div class="grid grid-cols-4 sm:grid-cols-8 gap-2">
+            ${emojis.map(e => `
+              <button type="button" onclick="window.appAuth.setCustomAvatar('${e}')" 
+                class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-[#0A092D] hover:bg-blue-100 dark:hover:bg-[#252945] border ${currentAvatar === e ? 'border-[#4255FF] ring-2 ring-[#4255FF]/30' : 'border-[#E5E8EF] dark:border-[#282E4E]'} flex items-center justify-center text-xl transition-all active:scale-90"
+                title="Chọn ${e}">
+                ${e}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 3. Dán link ảnh trực tuyến -->
+        <div class="p-3 bg-slate-50 dark:bg-[#0A092D] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] mb-4">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
+            3. Hoặc dán đường dẫn ảnh (URL)
+          </label>
+          <div class="flex items-center gap-2">
+            <input type="url" id="input-avatar-url" placeholder="https://example.com/avatar.jpg" 
+              class="flex-1 px-3 py-2 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-xs font-medium text-[#2E3856] dark:text-white focus:outline-none focus:border-[#4255FF]">
+            <button type="button" onclick="const u = document.getElementById('input-avatar-url').value.trim(); if(u) window.appAuth.setCustomAvatar(u);" 
+              class="px-3.5 py-2 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-xs font-bold active:scale-95 transition-all">
+              Dùng link
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Nút khôi phục mặc định -->
+        <div class="pt-2 border-t border-[#E5E8EF] dark:border-[#282E4E] flex items-center justify-between">
+          <button type="button" onclick="window.appAuth.setCustomAvatar('')" 
+            class="text-xs font-semibold text-rose-500 hover:underline">
+            ↺ Đặt lại chữ cái ban đầu
+          </button>
+          <button type="button" onclick="window.appAuth.closeAvatarPicker()" 
+            class="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] text-[#2E3856] dark:text-white rounded-xl text-xs font-bold active:scale-95 transition-all">
+            Đóng
+          </button>
+        </div>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  closeAvatarPicker() {
+    const modal = document.getElementById('modal-avatar-picker');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  setCustomAvatar(avatarValue) {
+    if (!this.currentUser) return;
+    let cleanVal = (avatarValue || '').trim();
+
+    if (cleanVal.startsWith('http://') || cleanVal.startsWith('https://') || cleanVal.startsWith('data:image')) {
+      cleanVal = this.sanitizeAvatarUrl(cleanVal);
+      if (!cleanVal) {
+        if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+          window.appRouter.showToast('Đường dẫn ảnh không an toàn hoặc không hợp lệ!', 'error');
+        }
+        return;
+      }
+    } else {
+      // Emoji hoặc text: Lọc sạch thẻ HTML và giới hạn độ dài
+      cleanVal = cleanVal.replace(/<[^>]*>/g, '').trim().slice(0, 10);
+    }
+
+    this.currentUser.avatar = cleanVal;
+
+    // Cập nhật trong danh sách accounts
+    const idx = this.accounts.findIndex(a => a.email.toLowerCase() === this.currentUser.email.toLowerCase());
+    if (idx !== -1) {
+      this.accounts[idx].avatar = cleanVal;
+    }
+    this.saveAccounts();
+
+    // Cập nhật trong appStorage currentUser
+    if (window.appStorage) {
+      window.appStorage.currentUser = this.currentUser;
+      try {
+        localStorage.setItem('docvocab_current_user', JSON.stringify(this.currentUser));
+      } catch (e) {}
+    }
+
+    this.closeAvatarPicker();
+    this.renderHeaderAuth();
+    this.renderSettingsAccountCard();
+    this.openProfileModal();
+
+    if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+      window.appRouter.showToast('✨ Đã cập nhật ảnh đại diện thành công!', 'success');
+    }
+  }
+
+  handleAvatarFileUpload(event) {
+    const file = event.target && event.target.files ? event.target.files[0] : null;
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Vui lòng chọn một tệp hình ảnh hợp lệ!');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        // Tự động square crop & resize xuống 128x128 để siêu nhẹ (~5-8KB)
+        const canvas = document.createElement('canvas');
+        canvas.width = 128;
+        canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+
+        const minDim = Math.min(img.width, img.height);
+        const sx = (img.width - minDim) / 2;
+        const sy = (img.height - minDim) / 2;
+
+        ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, 128, 128);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+
+        this.setCustomAvatar(dataUrl);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   openDocsGuideModal(activeStep = 1) {

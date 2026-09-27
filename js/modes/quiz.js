@@ -74,6 +74,57 @@ class QuizController {
     return allQuestions;
   }
 
+  addWordToQuiz(wordItem) {
+    if (!wordItem || !wordItem.word) return;
+
+    // 1. Thêm từ vào danh sách từ hoạt động
+    const exists = this.activeWordsPool.some(w => w.word.toLowerCase() === wordItem.word.toLowerCase());
+    if (!exists) {
+      this.activeWordsPool.unshift(wordItem);
+    }
+
+    // 2. Tạo câu hỏi trắc nghiệm ngữ cảnh Oxford/Longman ngay cho từ này
+    const newQuestions = window.appEnricher.createQuizQuestions(wordItem, this.activeWordsPool);
+    if (newQuestions && newQuestions.length > 0) {
+      const q = newQuestions[0];
+      q.isNewlyAdded = true;
+
+      // Chèn ngay sau câu hiện tại để người dùng được làm ngay tiếp theo!
+      const insertIndex = Math.min(this.currentIndex + 1, this.questions.length);
+      this.questions.splice(insertIndex, 0, q);
+
+      // Cập nhật Stepper ngay lập tức
+      const stepperEl = document.getElementById('quiz-stepper-container');
+      if (stepperEl) {
+        stepperEl.innerHTML = this.renderQuestionStepper();
+      }
+
+      // Cập nhật số câu trên thanh tiến độ
+      const progressTextEl = document.getElementById('quiz-progress-text');
+      if (progressTextEl) {
+        progressTextEl.innerText = `Câu ${this.currentIndex + 1} / ${this.questions.length}`;
+      }
+
+      // Cập nhật thanh tiến trình %
+      const progressBar = document.getElementById('quiz-progress-bar');
+      if (progressBar) {
+        const answeredCount = this.questions.filter(item => !!item.userAnswer).length;
+        const progressPercent = Math.round((answeredCount / this.questions.length) * 100);
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      // Cập nhật action bar nếu cần
+      const currentQ = this.getCurrentQuestion();
+      const isAnswered = currentQ && !!currentQ.userAnswer;
+      const actionBarEl = document.getElementById('quiz-action-bar');
+      if (actionBarEl) {
+        actionBarEl.outerHTML = this.renderActionBarHtml(isAnswered);
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+  }
+
   getCurrentQuestion() {
     return this.questions[this.currentIndex] || null;
   }
@@ -145,6 +196,7 @@ class QuizController {
           const isCorrect = isAnswered && q.userAnswer.isCorrect;
           const isWrong = isAnswered && !q.userAnswer.isCorrect;
           const isAccessible = idx <= this.furthestIndex || isAnswered;
+          const isNew = !!q.isNewlyAdded;
 
           let pillClass = "w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold transition-all relative flex-shrink-0 ";
           if (isCurrent) {
@@ -166,11 +218,12 @@ class QuizController {
           return `
             <button type="button" 
                     ${isAccessible ? `onclick="window.quizCtrl.goToQuestion(${idx})"` : 'disabled'}
-                    title="Câu ${idx + 1}${isAnswered ? (isCorrect ? ' (Đúng)' : ' (Sai)') : ''}"
+                    title="Câu ${idx + 1}${isNew ? ' (Từ mới thêm vào)' : ''}${isAnswered ? (isCorrect ? ' (Đúng)' : ' (Sai)') : ''}"
                     class="${pillClass}">
               <span>${idx + 1}</span>
               ${isCorrect ? `<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full border border-white dark:border-[#1A1D36]"></span>` : ''}
               ${isWrong ? `<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-rose-300 rounded-full border border-white dark:border-[#1A1D36]"></span>` : ''}
+              ${isNew && !isAnswered ? `<span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#4255FF] dark:bg-[#7383FF] rounded-full border border-white dark:border-[#1A1D36] animate-ping"></span><span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#4255FF] dark:bg-[#7383FF] rounded-full border border-white dark:border-[#1A1D36]"></span>` : ''}
             </button>
           `;
         }).join('')}
@@ -325,7 +378,7 @@ class QuizController {
                   <span>Câu trước</span>
                 </button>
               ` : ''}
-              <span class="font-bold text-[#2E3856] dark:text-white text-xs sm:text-sm">Câu ${this.currentIndex + 1} / ${this.questions.length}</span>
+              <span id="quiz-progress-text" class="font-bold text-[#2E3856] dark:text-white text-xs sm:text-sm">Câu ${this.currentIndex + 1} / ${this.questions.length}</span>
             </div>
             <div class="flex items-center gap-2.5 sm:gap-3">
               <div id="quiz-streak-container">

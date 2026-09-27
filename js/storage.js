@@ -151,48 +151,19 @@ class StorageManager {
   }
 
   async fetchRemoteData() {
+    // Nếu người dùng đang đăng nhập kho cá nhân riêng, tuyệt đối không tự ý ghi đè
+    if (this.currentUser && this.currentUser.email) return;
+
     try {
       const resp = await fetch('data/vocab.json?v=' + Date.now(), { cache: 'no-cache' });
       if (resp.ok) {
         const remoteWords = await resp.json();
         if (Array.isArray(remoteWords) && remoteWords.length >= 100) {
           const cleanRemote = this.sanitizeList(remoteWords);
-          // Cập nhật lại toàn bộ kho từ nếu có từ mới, chỉnh sửa nghĩa, ghi chú hoặc chưa có câu ví dụ Oxford
-          const needsUpdate = this.words.length !== cleanRemote.length || 
-                              this.words.some((w, idx) => {
-                                const r = cleanRemote[idx];
-                                return !r || !w.word || !w.definition || !w.phonetic ||
-                                       w.meaning !== r.meaning || (w.notes || '') !== (r.notes || '') ||
-                                       w.partOfSpeech !== r.partOfSpeech;
-                              });
-
-          if (needsUpdate) {
-            const currentStats = {};
-            this.words.forEach(w => {
-              if (w && w.word) {
-                const k = w.docId ? `doc-${w.docId}` : w.word.toLowerCase().trim();
-                currentStats[k] = {
-                  isStarred: !!w.isStarred,
-                  isMastered: !!w.isMastered,
-                  quizCount: w.quizCount || 0,
-                  correctCount: w.correctCount || 0
-                };
-              }
-            });
-            const updatedList = cleanRemote.map(item => {
-              const k = item.docId ? `doc-${item.docId}` : item.word.toLowerCase().trim();
-              const prev = currentStats[k] || currentStats[item.word.toLowerCase().trim()] || {};
-              return {
-                ...item,
-                isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
-                isMastered: prev.isMastered !== undefined ? prev.isMastered : !!item.isMastered,
-                quizCount: prev.quizCount !== undefined ? prev.quizCount : (item.quizCount || 0),
-                correctCount: prev.correctCount !== undefined ? prev.correctCount : (item.correctCount || 0)
-              };
-            });
-            this.saveWords(updatedList);
-            console.log(`[STORAGE] Tự động cập nhật thành công ${updatedList.length} từ mới nhất từ đám mây.`);
-          }
+          
+          // An toàn tuyệt đối: Dùng addOrUpdateWords để cập nhật thông tin chuẩn từ đám mây, 
+          // nhưng TUYỆT ĐỐI KHÔNG BAO GIỜ xóa các từ mới mà người dùng đã thêm vào!
+          this.addOrUpdateWords(cleanRemote);
         }
       }
     } catch (e) {
@@ -257,34 +228,16 @@ class StorageManager {
       let parsed = JSON.parse(raw);
       parsed = this.sanitizeList(parsed);
 
-      // Nếu dữ liệu bị thiếu trường định nghĩa Oxford hoặc số lượng không khớp, đồng bộ với defaultData
-      const isMissingOxford = parsed.some(w => !w.definition || !w.phonetic);
-      if (isMissingOxford || parsed.length < 50 || parsed.length > 180) {
-        const statsMap = {};
-        parsed.forEach(w => {
-          if (w && w.word) {
-            statsMap[w.word.toLowerCase().trim()] = {
-              isStarred: !!w.isStarred,
-              isMastered: !!w.isMastered,
-              quizCount: w.quizCount || 0,
-              correctCount: w.correctCount || 0
-            };
-          }
-        });
-        const upgraded = defaultData.map(item => {
-          const key = (item.word || '').toLowerCase().trim();
-          const prev = statsMap[key] || {};
-          return {
-            ...item,
-            isStarred: prev.isStarred !== undefined ? prev.isStarred : !!item.isStarred,
-            isMastered: prev.isMastered !== undefined ? prev.isMastered : !!item.isMastered,
-            quizCount: prev.quizCount !== undefined ? prev.quizCount : (item.quizCount || 0),
-            correctCount: prev.correctCount !== undefined ? prev.correctCount : (item.correctCount || 0)
-          };
-        });
-        const clean = this.sanitizeList(upgraded);
-        this.saveWords(clean);
-        return clean;
+      // Nếu là tài khoản cá nhân đã đăng nhập, luôn trả về nguyên vẹn kho của user, không cắt giảm hay ép theo defaultData
+      if (this.currentUser && this.currentUser.email) {
+        return parsed;
+      }
+
+      // Với kho khách mặc định: Chỉ khôi phục nếu danh sách quá ít (< 10 từ)
+      if (parsed.length < 10) {
+        const upgraded = this.sanitizeList(defaultData);
+        this.saveWords(upgraded);
+        return upgraded;
       }
 
       return parsed;

@@ -1123,6 +1123,16 @@ class AppRouter {
     if (window.lucide) window.lucide.createIcons();
   }
 
+  sanitizeForDocsTable(str) {
+    if (!str) return '';
+    let clean = String(str).trim().replace(/[\r\n\t]+/g, ' ');
+    // Chống Formula Injection: nếu ký tự đầu là =, +, -, @ thì thêm dấu '
+    if (/^[=+\-@]/.test(clean)) {
+      clean = "'" + clean;
+    }
+    return clean;
+  }
+
   async addWordFromLookup() {
     if (!this.currentLookup || !this.currentLookup.word) return;
     const btn = document.getElementById('btn-add-lookup-word');
@@ -1162,25 +1172,79 @@ class AppRouter {
       tags: isColloc ? ['listening', 'collocation', 'longman'] : ['listening', 'new-from-quiz']
     };
 
-    // 1. Lưu ngay vào local storage
+    // 1. Lưu ngay vào local storage (vĩnh viễn không bao giờ mất)
     window.appStorage.addOrUpdateWords([newWord]);
 
-    // 2. Tự động đồng bộ lên Google Docs
+    // 2. Nếu đang làm Trắc nghiệm: Đưa ngay vào bộ câu hỏi hiện tại để làm liền câu kế tiếp!
+    if (this.currentRoute === 'quiz' && window.quizCtrl && typeof window.quizCtrl.addWordToQuiz === 'function') {
+      window.quizCtrl.addWordToQuiz(newWord);
+    }
+
+    // 3. Tự động đồng bộ lên Google Docs nếu có Apps Script
     window.appSync.addWordToGoogleDocs(newWord);
 
-    // 3. Pháo hoa ăn mừng & Âm thanh
+    // 4. Pháo hoa ăn mừng & Âm thanh
     if (window.confetti) {
       window.confetti({ particleCount: 70, spread: 60, origin: { y: 0.8 } });
     }
     window.appAudio.playCorrect();
-    this.showToast(isColloc ? `🎉 Đã thêm Collocation "${newWord.word}" vào danh sách học & Google Docs!` : `🎉 Đã thêm từ "${newWord.word}" vào danh sách học & Google Docs!`, 'success');
 
-    // 4. Cập nhật giao diện modal & danh sách
-    if (btn) {
-      btn.className = "w-full py-2.5 px-4 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-center gap-2";
-      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> <span>Đã thêm thành công!</span>`;
+    const settings = window.appStorage.settings || {};
+    const docId = settings.docId || (window.appAuth && window.appAuth.currentUser ? window.appAuth.currentUser.docId : '');
+    const hasScriptUrl = !!(settings.scriptUrl && settings.scriptUrl.startsWith('http'));
+
+    // 5. Cập nhật giao diện footer của modal tra cứu với các tiện ích Google Docs trực quan
+    const footerEl = document.getElementById('lookup-modal-footer');
+    if (footerEl) {
+      const sDocId = this.sanitizeForDocsTable(nextDocId);
+      const sWord = this.sanitizeForDocsTable(newWord.word);
+      const sPos = this.sanitizeForDocsTable(newWord.partOfSpeech);
+      const sMeaning = this.sanitizeForDocsTable(newWord.meaning);
+      const sNotes = this.sanitizeForDocsTable(newWord.notes);
+      const rowToCopy = `${sDocId}\t${sWord}\t${sPos}\t${sMeaning}\t${sNotes}`;
+      footerEl.innerHTML = `
+        <div class="space-y-2 w-full">
+          <div class="w-full py-2 px-3 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-between">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Đã lưu vào kho #${nextDocId} & bài tập!</span>
+            </span>
+            ${hasScriptUrl ? `
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-extrabold uppercase">Đã đồng bộ Drive</span>
+            ` : `
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-bold">Lưu an toàn</span>
+            `}
+          </div>
+
+          <div class="flex items-center gap-2">
+            ${docId ? `
+              <a href="https://docs.google.com/document/d/${encodeURIComponent(docId)}/edit" target="_blank" rel="noopener noreferrer" 
+                class="flex-1 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                <svg class="w-3.5 h-3.5 text-[#4285F4]" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                <span>Mở Google Docs sửa</span>
+              </a>
+            ` : `
+              <button onclick="window.appAuth.openDocsGuideModal(1); window.appRouter.closeWordLookupModal();" 
+                class="flex-1 py-2 px-3 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 text-[#4255FF] dark:text-[#7383FF] text-xs font-bold transition-all text-center flex items-center justify-center gap-1 border border-blue-200 dark:border-blue-900">
+                <span>📖 Tạo Google Docs đồng bộ</span>
+              </button>
+            `}
+            <button onclick="navigator.clipboard.writeText('${rowToCopy.replace(/'/g, "\\'")}'); window.appRouter.showToast('Đã sao chép dòng bảng Google Docs!', 'success');" 
+              class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] dark:hover:bg-[#2e3458] text-[#586380] dark:text-[#939BB4] text-xs font-semibold transition-all" title="Sao chép dạng bảng để dán vào Docs nếu muốn">
+              📋 Copy dòng
+            </button>
+          </div>
+        </div>
+      `;
       if (window.lucide) window.lucide.createIcons();
     }
+
+    this.showToast(
+      this.currentRoute === 'quiz'
+        ? `🎉 Đã thêm "${newWord.word}" vào bài tập trắc nghiệm tiếp theo & kho cá nhân!`
+        : `🎉 Đã thêm từ "${newWord.word}" vào danh sách học!`,
+      'success'
+    );
 
     this.updateStatsBar();
     if (this.currentRoute === 'home') {
