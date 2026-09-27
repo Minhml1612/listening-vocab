@@ -762,6 +762,7 @@ class AppRouter {
   translatePos(pos) {
     if (!pos) return 'Từ vựng';
     const p = String(pos).toLowerCase();
+    if (p.includes('colloc')) return 'Collocation (Longman)';
     if (p.includes('noun')) return 'Danh từ';
     if (p.includes('verb')) return 'Động từ';
     if (p.includes('adjective') || p === 'adj') return 'Tính từ';
@@ -774,11 +775,12 @@ class AppRouter {
   }
 
   /**
-   * Tra cứu từ trong ngữ cảnh SIÊU TỐC (<10ms) & Hiển thị ĐẦY ĐỦ TẤT CẢ CÁC NGHĨA
+   * Tra cứu từ & Collocation Longman trong ngữ cảnh SIÊU TỐC (<10ms) & Hiển thị ĐẦY ĐỦ TẤT CẢ CÁC NGHĨA
    */
-  async lookupContextWord(rawWord, contextSentence) {
+  async lookupContextWord(rawWord, contextSentence, options = {}) {
     if (!rawWord) return;
-    const cleanWord = String(rawWord).trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, '');
+    const isColloc = !!(options && options.isCollocation);
+    const cleanWord = String(rawWord).trim().replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '').replace(/\s+/g, ' ');
     if (cleanWord.length < 2) return;
 
     const modal = document.getElementById('modal-word-lookup');
@@ -813,6 +815,32 @@ class AppRouter {
       };
       this.renderLookupModalContent(this.currentLookup, true);
       return;
+    }
+
+    // 1.5. Kiểm tra từ điển Collocation Longman nếu là cụm từ (0ms)
+    if (isColloc || cleanWord.includes(' ')) {
+      const collocMeaning = (window.appCollocations && typeof window.appCollocations.getCollocationMeaning === 'function')
+        ? window.appCollocations.getCollocationMeaning(cleanWord)
+        : null;
+
+      if (collocMeaning) {
+        this.currentLookup = {
+          word: cleanWord,
+          phonetic: '',
+          partOfSpeech: 'collocation',
+          primary: collocMeaning,
+          meaning: collocMeaning,
+          senses: [{ pos: 'collocation', posVi: 'Cụm từ (Collocation)', meanings: [collocMeaning] }],
+          definition: 'A natural combination of words in English (Longman Collocations Dictionary)',
+          example: contextSentence,
+          contextSentence: contextSentence,
+          isExisting: false,
+          isCollocation: true,
+          dictSource: 'Longman Collocations Dictionary'
+        };
+        this.renderLookupModalContent(this.currentLookup, false);
+        return;
+      }
     }
 
     // 2. Kiểm tra từ điển ngoại tuyến tích hợp sẵn (0ms siêu tốc, đầy đủ tất cả nghĩa)
@@ -864,7 +892,7 @@ class AppRouter {
     this.currentLookup = {
       word: cleanWord,
       phonetic: '',
-      partOfSpeech: 'từ vựng',
+      partOfSpeech: isColloc ? 'collocation' : 'từ vựng',
       primary: '',
       meaning: '',
       senses: [],
@@ -872,6 +900,8 @@ class AppRouter {
       example: contextSentence,
       contextSentence: contextSentence,
       isExisting: false,
+      isCollocation: isColloc,
+      dictSource: isColloc ? 'Longman Collocations Dictionary' : (options.dictSource || "Oxford Learner's Dictionary"),
       isLoadingMeaning: true
     };
     this.renderLookupModalContent(this.currentLookup, false);
@@ -882,10 +912,14 @@ class AppRouter {
 
       if (this.currentLookup && this.currentLookup.word.toLowerCase() === cleanLower) {
         this.currentLookup.phonetic = enriched.phonetic || this.currentLookup.phonetic;
-        this.currentLookup.partOfSpeech = enriched.partOfSpeech || this.currentLookup.partOfSpeech;
+        if (!this.currentLookup.isCollocation) {
+          this.currentLookup.partOfSpeech = enriched.partOfSpeech || this.currentLookup.partOfSpeech;
+        }
         this.currentLookup.primary = enriched.primary || this.currentLookup.primary;
         this.currentLookup.meaning = enriched.meaning || this.currentLookup.meaning;
-        this.currentLookup.senses = enriched.senses || [];
+        if (!this.currentLookup.senses || this.currentLookup.senses.length === 0) {
+          this.currentLookup.senses = enriched.senses || [];
+        }
         this.currentLookup.definition = enriched.definition || this.currentLookup.definition;
         this.currentLookup.isLoadingMeaning = false;
 
@@ -1002,8 +1036,15 @@ class AppRouter {
         <!-- Header từ: Từ, Phiên âm, Loại từ -->
         <div class="flex items-center gap-2 flex-wrap">
           <span class="text-xl font-black text-[#2E3856] dark:text-white tracking-tight">${safeWord}</span>
-          <span id="lookup-phonetic-badge" class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${safePhonetic}</span>
-          <span id="lookup-pos-badge" class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-bold">${safePos ? `(${this.translatePos(safePos)})` : ''}</span>
+          ${data.isCollocation ? `
+            <span class="text-xs px-2.5 py-0.5 bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 rounded-md font-bold border border-purple-300/80 dark:border-purple-800 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+              <span>Collocation (Longman)</span>
+            </span>
+          ` : `
+            <span id="lookup-phonetic-badge" class="text-xs font-mono text-[#4255FF] dark:text-[#7383FF] font-semibold">${safePhonetic}</span>
+            <span id="lookup-pos-badge" class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-[#252945] text-[#586380] dark:text-[#939BB4] rounded-md font-bold">${safePos ? `(${this.translatePos(safePos)})` : ''}</span>
+          `}
         </div>
 
         <!-- Khung nghĩa tiếng Việt chính và đầy đủ tất cả các nét nghĩa -->
@@ -1088,24 +1129,25 @@ class AppRouter {
     // Lấy toàn bộ các nghĩa đã được tra cứu
     const finalMeaning = this.currentLookup.meaning || this.currentLookup.primary || 'từ vựng bài tập';
 
+    const isColloc = !!this.currentLookup.isCollocation || this.currentLookup.partOfSpeech === 'collocation';
     const newWord = {
       id: 'w-new-' + Date.now(),
       docId: nextDocId,
       word: this.currentLookup.word,
       phonetic: this.currentLookup.phonetic || '',
-      partOfSpeech: this.currentLookup.partOfSpeech || 'noun',
+      partOfSpeech: isColloc ? 'collocation' : (this.currentLookup.partOfSpeech || 'noun'),
       meaning: finalMeaning,
-      notes: 'Thêm từ ngữ cảnh bài tập',
+      notes: isColloc ? 'Collocation (Longman) từ bài tập ngữ cảnh' : 'Thêm từ ngữ cảnh bài tập',
       definition: this.currentLookup.definition || '',
       example: this.currentLookup.contextSentence || this.currentLookup.example || '',
       exampleVi: '',
-      dictSource: "Oxford Advanced Learner's Dictionary",
+      dictSource: isColloc ? "Longman Collocations Dictionary" : (this.currentLookup.dictSource || "Oxford Advanced Learner's Dictionary"),
       audioUrl: '',
       isNew: true,
       isStarred: true,
       isMastered: false,
       dateAdded: Date.now(),
-      tags: ['listening', 'new-from-quiz']
+      tags: isColloc ? ['listening', 'collocation', 'longman'] : ['listening', 'new-from-quiz']
     };
 
     // 1. Lưu ngay vào local storage
@@ -1119,7 +1161,7 @@ class AppRouter {
       window.confetti({ particleCount: 70, spread: 60, origin: { y: 0.8 } });
     }
     window.appAudio.playCorrect();
-    this.showToast(`🎉 Đã thêm từ "${newWord.word}" vào danh sách học & Google Docs!`, 'success');
+    this.showToast(isColloc ? `🎉 Đã thêm Collocation "${newWord.word}" vào danh sách học & Google Docs!` : `🎉 Đã thêm từ "${newWord.word}" vào danh sách học & Google Docs!`, 'success');
 
     // 4. Cập nhật giao diện modal & danh sách
     if (btn) {

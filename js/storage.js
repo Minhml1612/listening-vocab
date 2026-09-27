@@ -420,6 +420,7 @@ class StorageManager {
           example: item.example || old.example,
           exampleVi: item.exampleVi || old.exampleVi,
           phonetic: item.phonetic || old.phonetic,
+          dictSource: item.dictSource || old.dictSource || "Oxford Advanced Learner's Dictionary (OALD)",
           partOfSpeech: item.partOfSpeech || old.partOfSpeech
         });
         updatedCount++;
@@ -435,6 +436,7 @@ class StorageManager {
           definition: item.definition || '',
           example: item.example || `The speaker used the word "${cleanWord}" in the listening conversation.`,
           exampleVi: item.exampleVi || `Người nói đã dùng từ "${cleanWord}" trong bài nghe.`,
+          dictSource: item.dictSource || (item.partOfSpeech === 'collocation' ? "Longman Collocations Dictionary" : "Oxford Advanced Learner's Dictionary (OALD)"),
           audioUrl: item.audioUrl || '',
           isNew: item.isNew !== undefined ? !!item.isNew : true,
           isStarred: item.isStarred !== undefined ? !!item.isStarred : true,
