@@ -52,10 +52,51 @@ const SAMPLE_WORDS = [
 
 class StorageManager {
   constructor() {
+    this.currentUser = this.loadCurrentUser();
     this.words = this.loadWords();
     this.settings = this.loadSettings();
     this.stats = this.loadStats();
     this.fetchRemoteData();
+  }
+
+  loadCurrentUser() {
+    try {
+      const raw = localStorage.getItem('docvocab_current_user');
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getUserStorageKey(baseKey) {
+    if (!this.currentUser || !this.currentUser.email) {
+      return baseKey; // Dùng kho mặc định / Guest
+    }
+    const safeEmail = this.currentUser.email.toLowerCase().trim().replace(/[^a-z0-9]/g, '_');
+    return `${baseKey}_user_${safeEmail}`;
+  }
+
+  switchUser(userObj) {
+    this.currentUser = userObj;
+    try {
+      if (userObj) {
+        localStorage.setItem('docvocab_current_user', JSON.stringify(userObj));
+      } else {
+        localStorage.removeItem('docvocab_current_user');
+      }
+    } catch (e) {}
+
+    this.words = this.loadWords();
+    this.settings = this.loadSettings();
+    this.stats = this.loadStats();
+
+    window.dispatchEvent(new CustomEvent('vocab:updated', { detail: this.words }));
+    window.dispatchEvent(new CustomEvent('settings:updated', { detail: this.settings }));
+    window.dispatchEvent(new CustomEvent('auth:changed', { detail: this.currentUser }));
+
+    if (window.appCollocations && typeof window.appCollocations.harvestFromAppStorage === 'function') {
+      window.appCollocations.harvestFromAppStorage();
+    }
   }
 
   sanitizeList(list) {
@@ -165,9 +206,17 @@ class StorageManager {
         ? window.DEFAULT_VOCAB_DATA 
         : SAMPLE_WORDS;
 
-      const raw = localStorage.getItem(STORAGE_KEYS.WORDS);
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.WORDS);
+      const raw = localStorage.getItem(storageKey);
       if (!raw) {
-        // Chuyển giao tiến trình từ v8/v7/v6/v5 sang v10
+        // Nếu là kho cá nhân của tài khoản riêng: Khởi tạo với 158 từ chuẩn ban đầu
+        if (this.currentUser && this.currentUser.email) {
+          const userInitial = this.sanitizeList(defaultData);
+          this.saveWords(userInitial);
+          return userInitial;
+        }
+
+        // Chuyển giao tiến trình từ v8/v7/v6/v5 sang v10 cho kho mặc định
         let statsMap = {};
         const prevRaw = localStorage.getItem('docvocab_words_v8') || localStorage.getItem('docvocab_words_v7') || localStorage.getItem('docvocab_words_v6') || localStorage.getItem('docvocab_words_v5') || localStorage.getItem('docvocab_words_v4');
         if (prevRaw) {
@@ -248,7 +297,8 @@ class StorageManager {
   saveWords(words) {
     this.words = this.sanitizeList(words);
     try {
-      localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(this.words));
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.WORDS);
+      localStorage.setItem(storageKey, JSON.stringify(this.words));
       window.dispatchEvent(new CustomEvent('vocab:updated', { detail: this.words }));
     } catch (e) {
       console.error('Lỗi khi lưu từ vựng:', e);
@@ -266,14 +316,22 @@ class StorageManager {
 
   loadSettings() {
     try {
-      const data = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-      if (!data) return { ...DEFAULT_SETTINGS };
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.SETTINGS);
+      const data = localStorage.getItem(storageKey);
+      if (!data) {
+        const base = { ...DEFAULT_SETTINGS };
+        if (this.currentUser) {
+          if (this.currentUser.docId) base.docId = this.currentUser.docId;
+          if (this.currentUser.scriptUrl) base.scriptUrl = this.currentUser.scriptUrl;
+        }
+        return base;
+      }
       const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(data) };
       // Tự động nâng cấp Doc ID sang tài liệu chuẩn hóa mới nếu còn lưu ID cũ
       if (parsed.docId === '1n9VKp_QEw3ZdIyQCdkU75co8GhAZm1GY') {
         parsed.docId = DEFAULT_SETTINGS.docId;
         try {
-          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(parsed));
+          localStorage.setItem(storageKey, JSON.stringify(parsed));
         } catch (e) {}
       }
       return parsed;
@@ -285,7 +343,26 @@ class StorageManager {
   saveSettings(settings) {
     this.settings = { ...this.settings, ...settings };
     try {
-      localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(this.settings));
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.SETTINGS);
+      localStorage.setItem(storageKey, JSON.stringify(this.settings));
+
+      if (this.currentUser) {
+        let userChanged = false;
+        if (settings.docId !== undefined && this.currentUser.docId !== settings.docId) {
+          this.currentUser.docId = settings.docId;
+          userChanged = true;
+        }
+        if (settings.scriptUrl !== undefined && this.currentUser.scriptUrl !== settings.scriptUrl) {
+          this.currentUser.scriptUrl = settings.scriptUrl;
+          userChanged = true;
+        }
+        if (userChanged) {
+          try {
+            localStorage.setItem('docvocab_current_user', JSON.stringify(this.currentUser));
+          } catch (e) {}
+        }
+      }
+
       window.dispatchEvent(new CustomEvent('settings:updated', { detail: this.settings }));
     } catch (e) {
       console.error('Lỗi lưu cài đặt:', e);
@@ -294,7 +371,8 @@ class StorageManager {
 
   loadStats() {
     try {
-      const data = localStorage.getItem(STORAGE_KEYS.STATS);
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.STATS);
+      const data = localStorage.getItem(storageKey);
       if (!data) {
         return {
           totalReviews: 0,
@@ -312,7 +390,8 @@ class StorageManager {
   saveStats(stats) {
     this.stats = stats;
     try {
-      localStorage.setItem(STORAGE_KEYS.STATS, JSON.stringify(stats));
+      const storageKey = this.getUserStorageKey(STORAGE_KEYS.STATS);
+      localStorage.setItem(storageKey, JSON.stringify(stats));
     } catch (e) {
       console.error('Lỗi lưu thống kê:', e);
     }

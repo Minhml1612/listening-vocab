@@ -101,6 +101,14 @@ class AppRouter {
       this.updateStatsBar();
     });
 
+    window.addEventListener('auth:changed', () => {
+      this.updateStatsBar();
+      if (this.currentRoute === 'home') {
+        this.renderWordList();
+      }
+      this.renderSettings();
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.closeOxfordModal();
@@ -391,6 +399,10 @@ class AppRouter {
     if (inputApiKey) inputApiKey.value = s.geminiApiKey || '';
     if (selectAccent) selectAccent.value = s.speechAccent || 'en-US';
     if (selectTheme) selectTheme.value = s.theme || 'light';
+
+    if (window.appAuth && typeof window.appAuth.renderSettingsAccountCard === 'function') {
+      window.appAuth.renderSettingsAccountCard();
+    }
   }
 
   saveSettingsFromForm() {

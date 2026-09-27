@@ -89,6 +89,9 @@
           <i id="theme-toggle-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
+        <!-- Nút Đăng nhập Gmail / Kho cá nhân -->
+        <div id="header-auth-container" class="flex-shrink-0"></div>
+
         <!-- Nút Đồng bộ Google Docs -->
         <button id="btn-header-sync" onclick="window.appSync.sync()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#252945] hover:bg-[#4255FF]/10 hover:text-[#4255FF] text-[#2E3856] dark:text-[#F6F7FB] text-xs font-semibold active:scale-95 transition-all" title="Đồng bộ ngay từ Google Docs">
           <i id="sync-icon" data-lucide="refresh-cw" class="w-3.5 h-3.5 text-[#4255FF]"></i>
@@ -257,6 +260,9 @@
         <h2 class="text-base font-bold text-[#2E3856] dark:text-white">Cài đặt kết nối</h2>
         <div class="w-16"></div>
       </div>
+
+      <!-- Thẻ Tài khoản & Kho Lưu Trữ Cá Nhân -->
+      <div id="settings-account-card"></div>
 
       <!-- Hướng dẫn 3 bước kết nối Google Docs -->
       <div class="p-5 bg-white dark:bg-[#1A1D36] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] shadow-sm">
@@ -503,17 +509,18 @@
   <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-full max-w-sm px-4 pointer-events-none"></div>
 
   <!-- Scripts -->
-  <script src="js/default-data.js?v=14"></script>
-  <script src="js/storage.js?v=14"></script>
-  <script src="js/speech.js?v=14"></script>
-  <script src="js/ai-enrich.js?v=14"></script>
-  <script src="js/collocations.js?v=14"></script>
-  <script src="js/sync.js?v=14"></script>
-  <script src="js/modes/flashcard.js?v=14"></script>
-  <script src="js/modes/quiz.js?v=14"></script>
-  <script src="js/modes/match.js?v=14"></script>
-  <script src="js/modes/listening.js?v=14"></script>
-  <script src="js/app.js?v=14"></script>
+  <script src="js/default-data.js?v=15"></script>
+  <script src="js/storage.js?v=15"></script>
+  <script src="js/speech.js?v=15"></script>
+  <script src="js/ai-enrich.js?v=15"></script>
+  <script src="js/collocations.js?v=15"></script>
+  <script src="js/sync.js?v=15"></script>
+  <script src="js/auth.js?v=15"></script>
+  <script src="js/modes/flashcard.js?v=15"></script>
+  <script src="js/modes/quiz.js?v=15"></script>
+  <script src="js/modes/match.js?v=15"></script>
+  <script src="js/modes/listening.js?v=15"></script>
+  <script src="js/app.js?v=15"></script>
 
   <!-- PWA Service Worker Registration -->
   <script>
