@@ -147,6 +147,32 @@ function handleAddWord(params) {
     var table = tables[0];
     var rowCount = table.getNumRows();
     
+    // Kiểm tra xem từ này đã có trong bảng chưa (chống trùng lặp dòng)
+    var wordLower = word.toLowerCase();
+    for (var i = 0; i < rowCount; i++) {
+      var row = table.getRow(i);
+      var numCells = row.getNumCells();
+      if (numCells >= 2) {
+        var existingWord = row.getCell(1).getText().trim().toLowerCase();
+        if (existingWord === wordLower) {
+          if (meaning && numCells >= 4 && !row.getCell(3).getText().trim()) {
+            row.getCell(3).setText(meaning);
+          }
+          if (notes && numCells >= 5 && !row.getCell(4).getText().trim()) {
+            row.getCell(4).setText(notes);
+          }
+          doc.saveAndClose();
+          return ContentService.createTextOutput(JSON.stringify({
+            status: "success",
+            message: "Từ đã tồn tại trong Google Docs (đã kiểm tra và cập nhật)",
+            id: row.getCell(0).getText().trim(),
+            word: word,
+            isExisting: true
+          })).setMimeType(ContentService.MimeType.JSON);
+        }
+      }
+    }
+
     var maxId = 0;
     for (var i = 0; i < rowCount; i++) {
       var cellText = table.getRow(i).getCell(0).getText().trim();
@@ -251,7 +277,7 @@ class AuthManager {
 
   renderAvatarElement(user, sizeClass = 'w-10 h-10', textClass = 'text-base') {
     if (!user) {
-      return `<div class="${sizeClass} rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold ${textClass} text-slate-500 flex-shrink-0">?</div>`;
+      return `<div class="${sizeClass} rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold ${textClass} text-slate-500 flex-shrink-0 aspect-square">?</div>`;
     }
     const email = user.email || '';
     const initial = ((user.name || email).charAt(0) || 'U').toUpperCase();
@@ -261,12 +287,12 @@ class AuthManager {
     const sanitizedUrl = this.sanitizeAvatarUrl(avatar);
 
     if (sanitizedUrl) {
-      return `<img src="${sanitizedUrl}" alt="${safeName}" class="${sizeClass} rounded-2xl object-cover border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0\\'>${safeInitial}</div>';" />`;
+      return `<img src="${sanitizedUrl}" alt="${safeName}" referrerpolicy="no-referrer" loading="lazy" class="${sizeClass} rounded-2xl object-cover border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0 aspect-square" onerror="this.onerror=null;this.outerHTML='<div class=\\'${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0 aspect-square\\'>${safeInitial}</div>';" />`;
     } else if (avatar && avatar.length > 0 && !avatar.startsWith('{')) {
       const safeEmoji = this.escapeHtml(avatar.slice(0, 10));
-      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-blue-50 to-indigo-100 dark:from-[#252945] dark:to-[#1A1D36] border border-blue-200 dark:border-blue-900/60 flex items-center justify-center ${textClass} shadow-sm select-none flex-shrink-0">${safeEmoji}</div>`;
+      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-blue-50 to-indigo-100 dark:from-[#252945] dark:to-[#1A1D36] border border-blue-200 dark:border-blue-900/60 flex items-center justify-center ${textClass} shadow-sm select-none flex-shrink-0 aspect-square">${safeEmoji}</div>`;
     } else {
-      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0">${safeInitial}</div>`;
+      return `<div class="${sizeClass} rounded-2xl bg-gradient-to-tr from-[#4255FF] to-[#7383FF] text-white flex items-center justify-center font-black ${textClass} uppercase shadow-md flex-shrink-0 aspect-square">${safeInitial}</div>`;
     }
   }
 
@@ -727,18 +753,22 @@ class AuthManager {
           </div>
         </div>
 
-        <!-- 3. Dán link ảnh trực tuyến -->
-        <div class="p-3 bg-slate-50 dark:bg-[#0A092D] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] mb-4">
-          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5">
-            3. Hoặc dán đường dẫn ảnh (URL)
+        <!-- 3. Dán link ảnh trực tuyến (Tự động co vuông 1:1 siêu nét) -->
+        <div class="p-3.5 bg-slate-50 dark:bg-[#0A092D] rounded-2xl border border-[#E5E8EF] dark:border-[#282E4E] mb-4">
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#586380] dark:text-[#939BB4] mb-1.5 flex items-center justify-between">
+            <span>3. Hoặc dán link ảnh bất kỳ trên mạng</span>
+            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold lowercase">tự động co vuông 1:1</span>
           </label>
           <div class="flex items-center gap-2">
-            <input type="url" id="input-avatar-url" placeholder="https://example.com/avatar.jpg" 
+            <input type="url" id="input-avatar-url" onkeydown="if(event.key==='Enter') window.appAuth.handleAvatarUrlSubmit()" placeholder="https://example.com/avatar.jpg" 
               class="flex-1 px-3 py-2 bg-white dark:bg-[#1A1D36] border border-[#E5E8EF] dark:border-[#282E4E] rounded-xl text-xs font-medium text-[#2E3856] dark:text-white focus:outline-none focus:border-[#4255FF]">
-            <button type="button" onclick="const u = document.getElementById('input-avatar-url').value.trim(); if(u) window.appAuth.setCustomAvatar(u);" 
-              class="px-3.5 py-2 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-xs font-bold active:scale-95 transition-all">
-              Dùng link
+            <button id="btn-submit-avatar-url" type="button" onclick="window.appAuth.handleAvatarUrlSubmit()" 
+              class="px-3.5 py-2 bg-[#4255FF] hover:bg-[#3644D9] text-white rounded-xl text-xs font-bold active:scale-95 transition-all flex items-center gap-1.5 flex-shrink-0 shadow-sm">
+              <span>Co & Dùng</span>
             </button>
+          </div>
+          <div id="avatar-url-status" class="text-[11px] text-slate-400 dark:text-slate-500 mt-1.5">
+            * Hệ thống tự động co nhỏ ảnh về chuẩn vuông 1:1 siêu nét (~5KB) và lưu vĩnh viễn
           </div>
         </div>
 
@@ -762,6 +792,110 @@ class AuthManager {
   closeAvatarPicker() {
     const modal = document.getElementById('modal-avatar-picker');
     if (modal) modal.classList.add('hidden');
+  }
+
+  /**
+   * Tự động cắt vuông 1:1 và nén ảnh xuống 128x128 siêu nét (~5-8KB)
+   */
+  cropAndCompressImage(src, isDataUrl = false) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      if (!isDataUrl) {
+        img.crossOrigin = 'anonymous';
+      }
+      img.onload = () => {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = 128;
+          canvas.height = 128;
+          const ctx = canvas.getContext('2d');
+
+          // Cắt vuông từ tâm ảnh (Center square crop)
+          const minDim = Math.min(img.width, img.height);
+          const sx = (img.width - minDim) / 2;
+          const sy = (img.height - minDim) / 2;
+
+          ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, 128, 128);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.88);
+          resolve(dataUrl);
+        } catch (err) {
+          reject(err);
+        }
+      };
+      img.onerror = () => reject(new Error('Không thể tải hình ảnh'));
+      img.src = src;
+    });
+  }
+
+  /**
+   * Xử lý khi người dùng dán link ảnh từ mạng: Tự động co nhỏ và lưu bền vững
+   */
+  async handleAvatarUrlSubmit() {
+    const input = document.getElementById('input-avatar-url');
+    const btn = document.getElementById('btn-submit-avatar-url');
+    const statusEl = document.getElementById('avatar-url-status');
+    const rawUrl = input ? input.value.trim() : '';
+
+    if (!rawUrl) {
+      if (statusEl) {
+        statusEl.innerHTML = '<span class="text-rose-500 font-semibold">⚠️ Vui lòng dán đường dẫn ảnh!</span>';
+      }
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<div class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Đang co ảnh...</span>';
+    }
+    if (statusEl) {
+      statusEl.innerHTML = '<span class="text-[#4255FF] dark:text-[#7383FF] font-semibold flex items-center gap-1.5"><span class="w-3 h-3 border-2 border-[#4255FF] border-t-transparent rounded-full animate-spin"></span><span>Đang tải và tự động co nhỏ ảnh về chuẩn vuông 1:1...</span></span>';
+    }
+
+    let processedDataUrl = null;
+
+    // 1. Thử tải trực tiếp với CORS anonymous để co ảnh vào canvas
+    try {
+      processedDataUrl = await this.cropAndCompressImage(rawUrl, false);
+    } catch (directErr) {
+      // 2. Nếu server chặn CORS trực tiếp, thử qua proxy để tải ảnh và co ảnh vào canvas
+      const proxies = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(rawUrl)}`,
+        `https://corsproxy.io/?url=${encodeURIComponent(rawUrl)}`
+      ];
+
+      for (const proxy of proxies) {
+        try {
+          processedDataUrl = await this.cropAndCompressImage(proxy, false);
+          if (processedDataUrl) break;
+        } catch (pErr) {}
+      }
+    }
+
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Co & Dùng</span>';
+    }
+
+    if (processedDataUrl) {
+      // Đã co ảnh thành công thành base64 JPEG 128x128 siêu nhẹ (~5KB)
+      this.setCustomAvatar(processedDataUrl);
+      if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+        window.appRouter.showToast('✨ Đã tự động co ảnh về chuẩn vuông 1:1 siêu nét!', 'success');
+      }
+    } else {
+      // Nếu các proxy đều không thể vẽ lên canvas, kiểm tra xem link có mở được không
+      const sanitized = this.sanitizeAvatarUrl(rawUrl);
+      if (sanitized) {
+        this.setCustomAvatar(sanitized);
+        if (window.appRouter && typeof window.appRouter.showToast === 'function') {
+          window.appRouter.showToast('Đã lưu đường dẫn ảnh trực tuyến!', 'info');
+        }
+      } else {
+        if (statusEl) {
+          statusEl.innerHTML = '<span class="text-rose-500 font-semibold">❌ Không thể tải ảnh này từ mạng. Vui lòng kiểm tra lại link hoặc tải ảnh về máy rồi chọn tải lên!</span>';
+        }
+      }
+    }
   }
 
   setCustomAvatar(avatarValue) {
@@ -818,25 +952,16 @@ class AuthManager {
     }
 
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        // Tự động square crop & resize xuống 128x128 để siêu nhẹ (~5-8KB)
-        const canvas = document.createElement('canvas');
-        canvas.width = 128;
-        canvas.height = 128;
-        const ctx = canvas.getContext('2d');
-
-        const minDim = Math.min(img.width, img.height);
-        const sx = (img.width - minDim) / 2;
-        const sy = (img.height - minDim) / 2;
-
-        ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, 128, 128);
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-
+    reader.onload = async (e) => {
+      try {
+        const dataUrl = await this.cropAndCompressImage(e.target.result, true);
         this.setCustomAvatar(dataUrl);
-      };
-      img.src = e.target.result;
+      } catch (err) {
+        alert('Không thể xử lý tệp ảnh này. Vui lòng chọn ảnh khác!');
+      }
+    };
+    reader.onerror = () => {
+      alert('Lỗi đọc tệp ảnh từ thiết bị!');
     };
     reader.readAsDataURL(file);
   }

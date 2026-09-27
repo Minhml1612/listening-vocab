@@ -143,7 +143,9 @@ class StorageManager {
         quizCount: w.quizCount || 0,
         correctCount: w.correctCount || 0,
         dateAdded: w.dateAdded || Date.now(),
-        tags: w.tags || ['listening']
+        tags: w.tags || ['listening'],
+        syncedToGoogleDocs: w.syncedToGoogleDocs !== undefined ? !!w.syncedToGoogleDocs : false,
+        pendingDocSync: w.pendingDocSync !== undefined ? !!w.pendingDocSync : false
       });
     }
 
@@ -443,17 +445,20 @@ class StorageManager {
 
       if (existingMap.has(key)) {
         const old = existingMap.get(key);
+        const isGenericExample = !item.example || item.example.includes('used the word') || item.example.includes('listening conversation');
         existingMap.set(key, {
           ...old,
           docId: item.docId || old.docId || '',
           meaning: (item.meaning && !item.meaning.includes('cập nhật')) ? item.meaning : old.meaning,
           notes: item.notes || old.notes || '',
           definition: item.definition || old.definition,
-          example: item.example || old.example,
-          exampleVi: item.exampleVi || old.exampleVi,
+          example: (!isGenericExample && item.example) ? item.example : (old.example || item.example),
+          exampleVi: (!isGenericExample && item.exampleVi) ? item.exampleVi : (old.exampleVi || item.exampleVi),
           phonetic: item.phonetic || old.phonetic,
           dictSource: item.dictSource || old.dictSource || "Oxford Advanced Learner's Dictionary (OALD)",
-          partOfSpeech: item.partOfSpeech || old.partOfSpeech
+          partOfSpeech: item.partOfSpeech || old.partOfSpeech,
+          syncedToGoogleDocs: item.syncedToGoogleDocs !== undefined ? item.syncedToGoogleDocs : (old.syncedToGoogleDocs || false),
+          pendingDocSync: item.pendingDocSync !== undefined ? item.pendingDocSync : (old.pendingDocSync || false)
         });
         updatedCount++;
       } else {
@@ -476,7 +481,9 @@ class StorageManager {
           quizCount: 0,
           correctCount: 0,
           dateAdded: item.dateAdded || Date.now(),
-          tags: item.tags || ['listening']
+          tags: item.tags || ['listening'],
+          syncedToGoogleDocs: item.syncedToGoogleDocs !== undefined ? !!item.syncedToGoogleDocs : false,
+          pendingDocSync: item.pendingDocSync !== undefined ? !!item.pendingDocSync : (!item.syncedToGoogleDocs)
         };
         existingMap.set(key, newWord);
         addedCount++;

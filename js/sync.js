@@ -20,6 +20,18 @@ class DocSyncEngine {
       }
     });
 
+    // Tự động đẩy hàng đợi từ mới lên Google Docs ngay khi có mạng Internet trở lại
+    window.addEventListener('online', () => {
+      const settings = window.appStorage.settings;
+      if (settings.scriptUrl) {
+        this.pushPendingWordsToGoogleDocs().then(count => {
+          if (count > 0 && window.appRouter && typeof window.appRouter.showToast === 'function') {
+            window.appRouter.showToast(`⚡ Đã tự động đẩy ${count} từ chờ đồng bộ lên Google Docs!`, 'success');
+          }
+        });
+      }
+    });
+
     this.startPeriodicSync();
   }
 
@@ -42,9 +54,19 @@ class DocSyncEngine {
     const settings = window.appStorage.settings;
     let parsedWords = [];
     let sourceUsed = '';
+    let pushedCount = 0;
 
     try {
-      // 1. Thử qua Google Apps Script Web App
+      // 0. BƯỚC 1 CỦA ĐỒNG BỘ 2 CHIỀU: Đẩy tất cả từ mới đã thêm trên web mà chưa có trên Google Docs
+      if (settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) {
+        try {
+          pushedCount = await this.pushPendingWordsToGoogleDocs();
+        } catch (pushErr) {
+          console.warn('Lỗi khi đẩy từ lên Google Docs:', pushErr);
+        }
+      }
+
+      // 1. Thử qua Google Apps Script Web App (Thời gian thực)
       if (settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) {
         try {
           const resp = await fetch(settings.scriptUrl.trim(), { cache: 'no-store' });
@@ -100,13 +122,41 @@ class DocSyncEngine {
 
       if (parsedWords.length === 0) {
         this.isSyncing = false;
-        const errMessage = 'Không thể kết nối tới Google Docs. Đã giữ nguyên danh sách chuẩn hiện tại.';
+        const errMessage = 'Không thể kết nối tới Google Docs. Đã giữ nguyên danh sách hiện tại mà không làm mất từ mới nào.';
         window.dispatchEvent(new CustomEvent('sync:error', { detail: { message: errMessage, silent: !!options.silent } }));
         return { status: 'error', message: errMessage };
       }
 
-      // Lưu các từ vào storage (sanitizer sẽ tự lọc sạch)
+      // Đánh dấu các từ lấy từ Google Docs là đã đồng bộ lên Drive
+      parsedWords.forEach(pw => {
+        pw.syncedToGoogleDocs = true;
+        pw.pendingDocSync = false;
+      });
+
+      // Lưu & hòa nhập các từ vào storage (sanitizer và addOrUpdateWords sẽ bảo vệ nguyên vẹn các từ do người dùng thêm)
       const result = window.appStorage.addOrUpdateWords(parsedWords);
+
+      // BƯỚC 2 CỦA ĐỒNG BỘ 2 CHIỀU:
+      // Kiểm tra xem có từ nào trên web chưa có trên Google Docs không, nếu có thì tự động đẩy lên ngay lập tức!
+      if (settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) {
+        const remoteWordSet = new Set(parsedWords.map(w => (w.word || '').toLowerCase().trim()));
+        const missingOnDocs = (window.appStorage.words || []).filter(w => {
+          if (!w || !w.word) return false;
+          const key = w.word.toLowerCase().trim();
+          return !remoteWordSet.has(key) && (!w.syncedToGoogleDocs || w.pendingDocSync);
+        });
+
+        if (missingOnDocs.length > 0) {
+          for (const wordToPush of missingOnDocs) {
+            try {
+              const pushRes = await this.addWordToGoogleDocs(wordToPush);
+              if (pushRes && (pushRes.syncedToDoc || pushRes.status === 'success')) {
+                pushedCount++;
+              }
+            } catch (err) {}
+          }
+        }
+      }
 
       this.isSyncing = false;
       const syncResult = {
@@ -114,6 +164,7 @@ class DocSyncEngine {
         source: sourceUsed,
         addedCount: result.addedCount,
         updatedCount: result.updatedCount,
+        pushedCount: pushedCount,
         total: result.total,
         silent: !!options.silent
       };
@@ -129,16 +180,42 @@ class DocSyncEngine {
   }
 
   /**
-   * ThÃªm tá»« má»›i tá»± Ä‘á»™ng vÃ o Google Docs qua Google Apps Script Web App
+   * Tự động đẩy tất cả từ vựng còn đang chờ đồng bộ (pending) lên Google Docs
+   */
+  async pushPendingWordsToGoogleDocs() {
+    const settings = window.appStorage.settings;
+    if (!settings.scriptUrl || !settings.scriptUrl.trim().startsWith('http')) return 0;
+
+    const words = window.appStorage.words || [];
+    const pendingWords = words.filter(w => w && w.word && (w.pendingDocSync === true || (w.isNew && !w.syncedToGoogleDocs)));
+    if (pendingWords.length === 0) return 0;
+
+    let successCount = 0;
+    for (const w of pendingWords) {
+      try {
+        const res = await this.addWordToGoogleDocs(w);
+        if (res && (res.syncedToDoc || res.status === 'success')) {
+          successCount++;
+        }
+      } catch (err) {
+        console.warn('Lỗi khi đẩy từ chờ đồng bộ:', w.word, err);
+      }
+    }
+    return successCount;
+  }
+
+  /**
+   * Thêm từ mới hoặc collocation tự động 100% vào Google Docs qua Google Apps Script Web App
    */
   async addWordToGoogleDocs(wordObj) {
-    if (!wordObj || !wordObj.word) return { status: 'error', message: 'Thiáº¿u tá»« vá»±ng' };
+    if (!wordObj || !wordObj.word) return { status: 'error', message: 'Thiếu từ vựng' };
     const settings = window.appStorage.settings;
 
-    // LÆ°u vÃ o bá»™ nhá»› local trÆ°á»›c Ä‘á»ƒ khÃ´ng bao giá» bá»‹ máº¥t
-    const localResult = window.appStorage.addOrUpdateWords([wordObj]);
+    // 1. Luôn bảo lưu trong bộ nhớ local trước để không bao giờ bị mất
+    wordObj.pendingDocSync = true;
+    window.appStorage.addOrUpdateWords([wordObj]);
 
-    // Náº¿u Ä‘Ã£ cáº¥u hÃ¬nh Google Apps Script URL thÃ¬ tá»± Ä‘á»™ng Ä‘áº©y trá»±c tiáº¿p vÃ o Google Docs
+    // 2. Nếu đã có Google Apps Script Web App: Tự động ghi trực tiếp vào Google Docs ở chế độ chạy ngầm
     if (settings.scriptUrl && settings.scriptUrl.trim().startsWith('http')) {
       try {
         const url = new URL(settings.scriptUrl.trim());
@@ -148,23 +225,42 @@ class DocSyncEngine {
         url.searchParams.set('meaning', wordObj.meaning || '');
         url.searchParams.set('notes', wordObj.notes || wordObj.example || '');
 
+        let isSuccess = false;
+        let respData = null;
+
         try {
           const resp = await fetch(url.toString(), { method: 'GET', cache: 'no-store' });
           if (resp.ok) {
-            const data = await resp.json();
-            return { status: 'success', syncedToDoc: true, data };
+            respData = await resp.json();
+            isSuccess = true;
           }
         } catch (fetchErr) {
-          // Thá»­ cháº¿ Ä‘á»™ no-cors Ä‘á»ƒ Ä‘áº£m báº£o request gá»­i Ä‘Æ°á»£c tá»›i Google Apps Script
+          // Fallback no-cors để đảm bảo request gửi được tới Google Apps Script ngay cả khi CORS bị chặn
           await fetch(url.toString(), { method: 'GET', mode: 'no-cors' });
-          return { status: 'success', syncedToDoc: true, mode: 'no-cors' };
+          isSuccess = true;
+        }
+
+        if (isSuccess) {
+          // Cập nhật trạng thái đã đồng bộ lên Google Docs cho từ này
+          wordObj.syncedToGoogleDocs = true;
+          wordObj.pendingDocSync = false;
+
+          const updatedWords = (window.appStorage.words || []).map(w => {
+            if (w.word.toLowerCase().trim() === wordObj.word.toLowerCase().trim()) {
+              return { ...w, syncedToGoogleDocs: true, pendingDocSync: false };
+            }
+            return w;
+          });
+          window.appStorage.saveWords(updatedWords);
+
+          return { status: 'success', syncedToDoc: true, data: respData };
         }
       } catch (err) {
-        console.warn('Lá»—i khi gá»­i tá»« má»›i lÃªn Google Apps Script:', err);
+        console.warn('Lỗi khi gửi từ mới lên Google Apps Script:', err);
       }
     }
 
-    return { status: 'saved_locally', word: wordObj };
+    return { status: 'saved_locally', pendingDocSync: true, word: wordObj };
   }
 
   parseDocumentData(data) {

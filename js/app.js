@@ -77,10 +77,14 @@ class AppRouter {
     window.addEventListener('sync:success', (e) => {
       this.updateSyncBadge(false);
       const detail = e.detail;
-      if (detail.addedCount > 0) {
+      if (detail.pushedCount > 0 && detail.addedCount > 0) {
+        this.showToast(`🎉 Đã đồng bộ 2 chiều: Tự động ghi ${detail.pushedCount} từ lên Google Docs và tải về ${detail.addedCount} từ!`, 'success');
+      } else if (detail.pushedCount > 0) {
+        this.showToast(`🎉 Đã tự động ghi ${detail.pushedCount} từ mới lên Google Docs!`, 'success');
+      } else if (detail.addedCount > 0) {
         this.showToast(`🎉 Đã cập nhật ${detail.addedCount} từ mới từ Google Docs!`, 'success');
       } else if (!detail.silent) {
-        this.showToast(`✅ Đã đồng bộ tài liệu (${detail.total} từ)`, 'info');
+        this.showToast(`✅ Đã đồng bộ 2 chiều hoàn tất (${detail.total} từ)`, 'info');
       }
       if (this.currentRoute === 'home') {
         this.renderWordList();
@@ -535,10 +539,16 @@ class AppRouter {
 
     // Làm giàu tự động qua AI / từ điển
     const enriched = await window.appEnricher.enrich({ word, meaning, example }, window.appStorage.settings.geminiApiKey);
-    const updated = window.appStorage.words.map(w => w.word.toLowerCase() === word.toLowerCase() ? { ...w, ...enriched } : w);
+    const updated = window.appStorage.words.map(w => w.word.toLowerCase() === word.toLowerCase() ? { ...w, ...enriched, pendingDocSync: true } : w);
     window.appStorage.saveWords(updated);
 
-    this.showToast(`✨ Đã thêm thành công từ "${word}"!`, 'success');
+    // Tự động đẩy lên Google Docs chạy ngầm
+    const wordToPush = updated.find(w => w.word.toLowerCase() === word.toLowerCase());
+    if (wordToPush) {
+      window.appSync.addWordToGoogleDocs(wordToPush);
+    }
+
+    this.showToast(`✨ Đã thêm thành công từ "${word}" & tự động đồng bộ!`, 'success');
 
     if (wordInput) wordInput.value = '';
     if (meaningInput) meaningInput.value = '';
@@ -1190,53 +1200,58 @@ class AppRouter {
     window.appAudio.playCorrect();
 
     const settings = window.appStorage.settings || {};
-    const docId = settings.docId || (window.appAuth && window.appAuth.currentUser ? window.appAuth.currentUser.docId : '');
     const hasScriptUrl = !!(settings.scriptUrl && settings.scriptUrl.startsWith('http'));
 
-    // 5. Cập nhật giao diện footer của modal tra cứu với các tiện ích Google Docs trực quan
+    // 5. Cập nhật giao diện footer của modal: 100% tự động hóa, người dùng không cần làm gì thủ công
     const footerEl = document.getElementById('lookup-modal-footer');
     if (footerEl) {
-      const sDocId = this.sanitizeForDocsTable(nextDocId);
-      const sWord = this.sanitizeForDocsTable(newWord.word);
-      const sPos = this.sanitizeForDocsTable(newWord.partOfSpeech);
-      const sMeaning = this.sanitizeForDocsTable(newWord.meaning);
-      const sNotes = this.sanitizeForDocsTable(newWord.notes);
-      const rowToCopy = `${sDocId}\t${sWord}\t${sPos}\t${sMeaning}\t${sNotes}`;
       footerEl.innerHTML = `
         <div class="space-y-2 w-full">
-          <div class="w-full py-2 px-3 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-between">
-            <span class="flex items-center gap-1.5">
+          <div class="w-full py-2.5 px-3.5 bg-emerald-50 dark:bg-emerald-950/60 text-[#23B26D] font-bold rounded-2xl text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 flex items-center justify-between shadow-xs">
+            <span class="flex items-center gap-2">
               <i data-lucide="check-circle" class="w-4 h-4"></i>
-              <span>Đã lưu vào kho #${nextDocId} & bài tập!</span>
+              <span>Đã lưu vào kho #${nextDocId} & bài tập trắc nghiệm!</span>
             </span>
-            ${hasScriptUrl ? `
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-extrabold uppercase">Đã đồng bộ Drive</span>
-            ` : `
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-bold">Lưu an toàn</span>
-            `}
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-extrabold uppercase">Tự động 2 chiều</span>
           </div>
 
-          <div class="flex items-center gap-2">
-            ${docId ? `
-              <a href="https://docs.google.com/document/d/${encodeURIComponent(docId)}/edit" target="_blank" rel="noopener noreferrer" 
-                class="flex-1 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] dark:hover:bg-[#2e3458] text-[#2E3856] dark:text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 border border-slate-200 dark:border-slate-700">
-                <svg class="w-3.5 h-3.5 text-[#4285F4]" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                <span>Mở Google Docs sửa</span>
-              </a>
+          <div id="lookup-auto-sync-status" class="p-2.5 rounded-xl bg-slate-100 dark:bg-[#202540] border border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+            ${hasScriptUrl ? `
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-medium">
+                <span class="w-3.5 h-3.5 border-2 border-[#4255FF] border-t-transparent rounded-full animate-spin flex-shrink-0"></span>
+                <span>Đang tự động ghi vào Google Docs ngầm...</span>
+              </div>
             ` : `
-              <button onclick="window.appAuth.openDocsGuideModal(1); window.appRouter.closeWordLookupModal();" 
-                class="flex-1 py-2 px-3 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 text-[#4255FF] dark:text-[#7383FF] text-xs font-bold transition-all text-center flex items-center justify-center gap-1 border border-blue-200 dark:border-blue-900">
-                <span>📖 Tạo Google Docs đồng bộ</span>
-              </button>
+              <div class="flex items-center justify-between w-full gap-2">
+                <span class="text-[11px] text-[#586380] dark:text-[#939BB4] font-medium">
+                  💾 Lưu an toàn. Kết nối Web App để tự động đẩy lên Docs:
+                </span>
+                <button onclick="window.appAuth.openDocsGuideModal(3); window.appRouter.closeWordLookupModal();" 
+                  class="px-2.5 py-1 rounded-lg bg-[#4255FF] hover:bg-[#3644D9] text-white text-[11px] font-bold transition-all flex-shrink-0 active:scale-95">
+                  🔗 Kết nối
+                </button>
+              </div>
             `}
-            <button onclick="navigator.clipboard.writeText('${rowToCopy.replace(/'/g, "\\'")}'); window.appRouter.showToast('Đã sao chép dòng bảng Google Docs!', 'success');" 
-              class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#252945] dark:hover:bg-[#2e3458] text-[#586380] dark:text-[#939BB4] text-xs font-semibold transition-all" title="Sao chép dạng bảng để dán vào Docs nếu muốn">
-              📋 Copy dòng
-            </button>
           </div>
         </div>
       `;
       if (window.lucide) window.lucide.createIcons();
+
+      // Cập nhật trạng thái sau khi request ngầm tới Google Apps Script hoàn tất
+      if (hasScriptUrl) {
+        window.appSync.addWordToGoogleDocs(newWord).then(res => {
+          const statusContainer = document.getElementById('lookup-auto-sync-status');
+          if (statusContainer) {
+            statusContainer.innerHTML = `
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold w-full">
+                <i data-lucide="check" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="text-xs">Đã tự động ghi vào Google Docs (#${nextDocId}). Hoàn tất 100%!</span>
+              </div>
+            `;
+            if (window.lucide) window.lucide.createIcons();
+          }
+        }).catch(() => {});
+      }
     }
 
     this.showToast(

@@ -148,6 +148,32 @@ function handleAddWord(params) {
     var table = tables[0];
     var rowCount = table.getNumRows();
     
+    // Kiểm tra xem từ này đã có trong bảng chưa (chống trùng lặp dòng)
+    var wordLower = word.toLowerCase();
+    for (var i = 0; i < rowCount; i++) {
+      var row = table.getRow(i);
+      var numCells = row.getNumCells();
+      if (numCells >= 2) {
+        var existingWord = row.getCell(1).getText().trim().toLowerCase();
+        if (existingWord === wordLower) {
+          if (meaning && numCells >= 4 && !row.getCell(3).getText().trim()) {
+            row.getCell(3).setText(meaning);
+          }
+          if (notes && numCells >= 5 && !row.getCell(4).getText().trim()) {
+            row.getCell(4).setText(notes);
+          }
+          doc.saveAndClose();
+          return ContentService.createTextOutput(JSON.stringify({
+            status: "success",
+            message: "Từ đã tồn tại trong Google Docs (đã kiểm tra và cập nhật)",
+            id: row.getCell(0).getText().trim(),
+            word: word,
+            isExisting: true
+          })).setMimeType(ContentService.MimeType.JSON);
+        }
+      }
+    }
+    
     // Tìm ID số lớn nhất hiện tại
     var maxId = 0;
     for (var i = 0; i < rowCount; i++) {
